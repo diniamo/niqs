@@ -1,9 +1,6 @@
 { osConfig, pkgs, lib', config, ...}:
 let
   cfg = osConfig.modules.style;
-
-  # boolToNum = builtins.trace lib' lib'.boolToNum;
-  boolToNum = lib'.boolToNum;
 in {
   xdg.systemDirs.data = let
     schema = pkgs.gsettings-desktop-schemas;
@@ -18,7 +15,7 @@ in {
 
     sessionVariables = {
       GTK_THEME = "${cfg.gtk.theme.name}";
-      GTK_USE_PORTAL = "${toString (boolToNum cfg.gtk.usePortal)}";
+      GTK_USE_PORTAL = "${toString (lib'.boolToNum cfg.gtk.usePortal)}";
     };
   };
 

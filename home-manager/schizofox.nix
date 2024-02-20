@@ -1,4 +1,10 @@
-{ inputs, ... }: {
+{ inputs, osConfig, ... }:
+let
+  cfg = osConfig.modules.style;
+
+  colors = cfg.colorScheme.colors;
+  fontName = cfg.font.name;
+in {
   imports = [ inputs.schizofox.homeManagerModule ];
 
   programs.schizofox = {
@@ -6,6 +12,12 @@
 
     theme = {
       # Todo: firefox theme
+      colors = {
+        background-darker = colors.base01;
+        background = colors.base00;
+        foreground = colors.base05;
+      };
+      font = fontName;
     };
 
     search = {
@@ -18,10 +30,6 @@
 	  URLTemplate = "https://startpage.com/do/search?query={searchTerms}";
 	}
       ];
-    };
-
-    misc = {
-      startPageURL = "https://startpage.com";
     };
 
     extensions = {
@@ -39,6 +47,7 @@
         "Font Fingerprint Defender".install_url = "https://addons.mozilla.org/firefox/downloads/font-fingerprint-defender/latest.xpi";
         "Dictionary Anywhere".install_url = "https://addons.mozilla.org/firefox/downloads/dictionary-anyvhere/latest.xpi";
         "Hide YouTube Fullscreen Controls".install_url = "https://addons.mozilla.org/firefox/downloads/hide-youtube-controls/latest.xpi";
+        "Return YouTune Dislike".install_url = "https://addons.mozilla.org/firefox/downloads/return-youtube-dislikes/latest.xpi";
       };
     };
   };
