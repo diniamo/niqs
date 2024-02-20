@@ -3,13 +3,15 @@ let
   cfg = osConfig.modules.style;
 
   colors = cfg.colorScheme.colors;
-  fontSize = cfg.font.size;
 in {
   programs.foot = {
     enable = true;
+    package = pkgs.foot;
     settings = {
-      # font = "JetBrainsMono Nerd Font Mono:size=${toString fontSize}";
-      # pad = "10x7 center";
+      main = {
+        font = "JetBrainsMono Nerd Font Mono:size=11";
+        pad = "10x0 center";
+      };
       colors = {
         foreground = "${colors.base05}"; # Text
         background = "${colors.base00}"; # Base
