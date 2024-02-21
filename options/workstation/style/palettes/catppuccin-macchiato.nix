@@ -1,6 +1,6 @@
 {
-  slug = "catppuccin-mocha";
-  name = "Catppuccin Mocha";
+  slug = "catppuccin-macchiato";
+  name = "Catppuccin Macchiato";
   variant = "dark";
   palette = {
     base00 = "#24273a"; # Base

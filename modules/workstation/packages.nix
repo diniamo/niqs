@@ -36,5 +36,6 @@
     wl-clipboard
     jerry
     vesktop
+    pulsemixer
   ];
 }

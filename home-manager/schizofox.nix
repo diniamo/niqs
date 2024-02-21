@@ -7,11 +7,21 @@ let
 in {
   imports = [ inputs.schizofox.homeManagerModule ];
 
+  # home.packages = with osConfig.nur.repos.rycee.firefox-addons; [
+  #   bitwarden
+  #   ublock-origin
+  #   mal-sync
+  #   sponsorblock
+  #   translate-web-pages
+  #   i-dont-care-about-cookies
+  #   vimium
+  #   return-youtube-dislikes
+  # ];
+
   programs.schizofox = {
     enable = true;
 
     theme = {
-      # Todo: firefox theme
       colors = {
         background-darker = colors.base01;
         background = colors.base00;
@@ -34,20 +44,21 @@ in {
 
     extensions = {
       darkreader.enable = true;
+      simplefox.enable = false;
       extraExtensions = {
-        "Bitwarden".install_url = "https://addons.mozilla.org/firefox/downloads/bitwarden-password-manager/latest.xpi";
+        "webextension@bitwarden.com".install_url = "https://addons.mozilla.org/firefox/downloads/bitwarden-password-manager/latest.xpi";
         # "Auto Tab Discard".install_url = "https://addons.mozilla.org/firefox/downloads/auto-tab-discard/latest.xpi";
-        "uBlock Origin".install_url = "https://addons.mozilla.org/firefox/downloads/ublock-origin/latest.xpi";
-        "MAL-Sync".install_url = "https://addons.mozilla.org/firefox/downloads/mal-sync/latest.xpi";
-        "SponsorBlock".install_url = "https://addons.mozilla.org/firefox/downloads/sponsorblock/latest.xpi";
-        "Translate this page".install_url = "https://addons.mozilla.org/firefox/downloads/traduzir-paginas-web/latest.xpi";
+        "webextension@ublockorigin.com".install_url = "https://addons.mozilla.org/firefox/downloads/ublock-origin/latest.xpi";
+        "webextension@malsync.moe".install_url = "https://addons.mozilla.org/firefox/downloads/mal-sync/latest.xpi";
+        "webextension@sponsor.ajay.app".install_url = "https://addons.mozilla.org/firefox/downloads/sponsorblock/latest.xpi";
+        "webextension@TWP".install_url = "https://addons.mozilla.org/firefox/downloads/traduzir-paginas-web/latest.xpi";
         # "FastForward".install_url = "https://addons.mozilla.org/firefox/downloads/fastforwardteam/latest.xpi";
-        "I still don't care about cookies".install_url = "https://addons.mozilla.org/firefox/downloads/i-dont-care-about-cookies/latest.xpi";
-        "Vimium".install_url = "https://addons.mozilla.org/firefox/downloads/vimium-ff/latest.xpi";
-        "Font Fingerprint Defender".install_url = "https://addons.mozilla.org/firefox/downloads/font-fingerprint-defender/latest.xpi";
-        "Dictionary Anywhere".install_url = "https://addons.mozilla.org/firefox/downloads/dictionary-anyvhere/latest.xpi";
-        "Hide YouTube Fullscreen Controls".install_url = "https://addons.mozilla.org/firefox/downloads/hide-youtube-controls/latest.xpi";
-        "Return YouTune Dislike".install_url = "https://addons.mozilla.org/firefox/downloads/return-youtube-dislikes/latest.xpi";
+        "webextension@i-still-dont-care-about-cookies".install_url = "https://addons.mozilla.org/firefox/downloads/istilldontcareaboutcookies/latest.xpi";
+        "webextension@vimium.github.io".install_url = "https://addons.mozilla.org/firefox/downloads/vimium-ff/latest.xpi";
+        "webextension@font-fingerprint-defender".install_url = "https://addons.mozilla.org/firefox/downloads/font-fingerprint-defender/latest.xpi";
+        "webextension@dictionary-anywhere".install_url = "https://addons.mozilla.org/firefox/downloads/dictionary-anyvhere/latest.xpi";
+        "webextension@hide-youtube-controls".install_url = "https://addons.mozilla.org/firefox/downloads/hide-youtube-controls/latest.xpi";
+        "webextension@returnyoutubedislike.com".install_url = "https://addons.mozilla.org/firefox/downloads/return-youtube-dislikes/latest.xpi";
       };
     };
   };

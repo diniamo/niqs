@@ -11,6 +11,8 @@ in {
     ./mpv.nix
     ./schizofox.nix
     ./git.nix
+    ./ncspot.nix
+    ./bash.nix
   ];
 
   home = {
