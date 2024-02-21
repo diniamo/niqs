@@ -1,4 +1,4 @@
-{ config, ... }: let
+{ config, pkgs, ... }: let
   browser = ["Schizofox.desktop"];
   documentViewer = ["org.pwmt.zathura.desktop.desktop"];
   # Todo: add filemanager to mimetypes
@@ -54,10 +54,15 @@ in {
       };
     };
 
+    mime.enable = true;
     mimeApps = {
       enable = true;
       associations.added = associations;
       defaultApplications = associations;
     };
   };
+
+  home.packages = with pkgs; [
+    xdg-utils
+  ];
 }
