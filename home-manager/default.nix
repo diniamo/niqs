@@ -7,12 +7,14 @@ in {
     ./hyprland
     ./style
 
+    ./xdg.nix
     ./foot.nix
     ./mpv.nix
     ./schizofox.nix
     ./git.nix
     ./ncspot.nix
     ./bash.nix
+    ./imv.nix
   ];
 
   home = {
