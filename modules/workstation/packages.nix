@@ -37,5 +37,6 @@
     jerry
     vesktop
     pulsemixer
+    playerctl
   ];
 }
