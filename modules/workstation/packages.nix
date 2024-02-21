@@ -29,6 +29,7 @@
     noto-fonts-emoji
     noto-fonts-cjk
     noto-fonts-extra
+    inter
     (nerdfonts.override { fonts = ["JetBrainsMono"]; })
   ];
 

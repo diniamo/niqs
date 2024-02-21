@@ -10,7 +10,7 @@ in {
 
   home.packages = with pkgs; [
     libsForQt5.qt5ct
-    breeze-icons
+    cfg.qt.theme.package
   ];
 
   home.sessionVariables = {
@@ -24,7 +24,8 @@ in {
 
   qt = {
     enable = true;
-    platformTheme = mkIf cfg.qt.forceGtk "gtk"; # just an override for QT_QPA_PLATFORMTHEME, takes “gtk”, “gnome”, “qtct” or “kde”
+    # “gtk”, “gtk3”, “gnome”, “lxqt”, “qtct”, “kde”
+    platformTheme = mkIf cfg.qt.forceGtk "gtk";
     style = mkIf (!cfg.qt.forceGtk) {
       name = cfg.qt.theme.name;
       package = cfg.qt.theme.package;

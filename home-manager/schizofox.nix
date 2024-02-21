@@ -1,4 +1,4 @@
-{ inputs, osConfig, ... }:
+{ inputs, osConfig, lib, ... }:
 let
   cfg = osConfig.modules.style;
 
@@ -6,17 +6,6 @@ let
   fontName = cfg.font.name;
 in {
   imports = [ inputs.schizofox.homeManagerModule ];
-
-  # home.packages = with osConfig.nur.repos.rycee.firefox-addons; [
-  #   bitwarden
-  #   ublock-origin
-  #   mal-sync
-  #   sponsorblock
-  #   translate-web-pages
-  #   i-dont-care-about-cookies
-  #   vimium
-  #   return-youtube-dislikes
-  # ];
 
   programs.schizofox = {
     enable = true;
@@ -42,24 +31,44 @@ in {
       ];
     };
 
+    security = {
+      sanitizeOnShutdown = false;
+      sandbox = true;
+      noSessionRestore = false;
+      userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0";
+    };
+  
+    misc = {
+      drmFix = true;
+      disableWebgl = false;
+    };
+
+    settings = {
+      "browser.ctrlTab.sortByRecentlyUsed" = true;
+      "media.ffmpeg.vaapi.enabled" = true;
+      "gfx.webrender.all" = true;
+      # This makes websites prefer a dark theme
+      "layout.css.prefers-color-scheme.content-override" = 0;
+    };
+
     extensions = {
       darkreader.enable = true;
       simplefox.enable = false;
-      extraExtensions = {
-        "webextension@bitwarden.com".install_url = "https://addons.mozilla.org/firefox/downloads/bitwarden-password-manager/latest.xpi";
-        # "Auto Tab Discard".install_url = "https://addons.mozilla.org/firefox/downloads/auto-tab-discard/latest.xpi";
-        "webextension@ublockorigin.com".install_url = "https://addons.mozilla.org/firefox/downloads/ublock-origin/latest.xpi";
-        "webextension@malsync.moe".install_url = "https://addons.mozilla.org/firefox/downloads/mal-sync/latest.xpi";
-        "webextension@sponsor.ajay.app".install_url = "https://addons.mozilla.org/firefox/downloads/sponsorblock/latest.xpi";
-        "webextension@TWP".install_url = "https://addons.mozilla.org/firefox/downloads/traduzir-paginas-web/latest.xpi";
-        # "FastForward".install_url = "https://addons.mozilla.org/firefox/downloads/fastforwardteam/latest.xpi";
-        "webextension@i-still-dont-care-about-cookies".install_url = "https://addons.mozilla.org/firefox/downloads/istilldontcareaboutcookies/latest.xpi";
-        "webextension@vimium.github.io".install_url = "https://addons.mozilla.org/firefox/downloads/vimium-ff/latest.xpi";
-        "webextension@font-fingerprint-defender".install_url = "https://addons.mozilla.org/firefox/downloads/font-fingerprint-defender/latest.xpi";
-        "webextension@dictionary-anywhere".install_url = "https://addons.mozilla.org/firefox/downloads/dictionary-anyvhere/latest.xpi";
-        "webextension@hide-youtube-controls".install_url = "https://addons.mozilla.org/firefox/downloads/hide-youtube-controls/latest.xpi";
-        "webextension@returnyoutubedislike.com".install_url = "https://addons.mozilla.org/firefox/downloads/return-youtube-dislikes/latest.xpi";
-      };
+      extraExtensions = let
+          mkUrl = name: "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
+	in {
+          "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}".install_url = mkUrl "auto-tab-discard";
+          "sponsorBlocker@ajay.app".install_url = mkUrl "sponsorblock";
+          "{446900e4-71c2-419f-a6a7-df9c091e268b}".install_url = mkUrl "bitwarden-password-manager";
+          "{c84d89d9-a826-4015-957b-affebd9eb603}".install_url = mkUrl "mal-sync";
+          "{036a55b4-5e72-4d05-a06c-cba2dfcc134a}".install_url = mkUrl "traduzir-paginas-web";
+          "idcac-pub@guus.ninja".install_url = mkUrl "istilldontcareaboutcookies";
+          "{d7742d87-e61d-4b78-b8a1-b469842139fa}".install_url = mkUrl "vimium-ff";
+          "{96ef5869-e3ba-4d21-b86e-21b163096400}".install_url = mkUrl "font-fingerprint-defender";
+          "{e90f5de4-8510-4515-9f67-3b6654e1e8c2}".install_url = mkUrl "dictionary-anywhere";
+          "@hideyoutubecontrolls".install_url = mkUrl "hide-youtube-controls";
+          "{762f9885-5a13-4abd-9c77-433dcd38b8fd}".install_url = mkUrl "return-youtube-dislikes";
+	};
     };
   };
 }

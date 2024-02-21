@@ -2,6 +2,6 @@
   imports = [
     ./gtk.nix
     ./qt.nix
-    ./global.nix
+    ./cursor.nix
   ];
 }

@@ -47,7 +47,7 @@ in {
       name = mkOption {
         type = types.str;
 	description = "The name of the font";
-	default = "Noto Sans";
+	default = "Inter";
       };
       size = mkOption {
         type = types.int;

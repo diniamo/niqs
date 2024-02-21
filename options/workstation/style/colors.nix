@@ -42,6 +42,8 @@ in {
 	default = getPaletteFromSlug cfg.colorScheme.slug;
 	description = "The attribute set of the colors of the color scheme.";
       };
+      # This is currently unused, even though it could be in multiple places
+      # since I don't plan on using light theme
       variant = mkOption {
         type = enum ["dark" "light"];
 	default =
