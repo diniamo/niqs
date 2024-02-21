@@ -26,7 +26,9 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-color-emoji
+    noto-fonts-emoji
+    noto-fonts-cjk
+    noto-fonts-extra
     (nerdfonts.override { fonts = ["JetBrainsMono"]; })
   ];
 
