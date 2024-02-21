@@ -15,6 +15,7 @@ in {
     ./ncspot.nix
     ./bash.nix
     ./imv.nix
+    ./nixvim.nix
   ];
 
   home = {

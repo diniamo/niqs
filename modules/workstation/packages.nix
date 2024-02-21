@@ -34,12 +34,13 @@
   ];
 
   environment.systemPackages = with pkgs; with packages; [
-    neovim
     htop
     wl-clipboard
-    jerry
     vesktop
     pulsemixer
     playerctl
+    obsidian
+
+    jerry
   ];
 }
