@@ -8,7 +8,7 @@ in {
     theme = {
       name = mkOption {
         type = types.str;
-	default = "Catppuccin-Macchiato-Standard-Blue-dark";
+	default = "Catppuccin-Macchiato-Standard-Blue-Dark";
 	description = "The name of the GTK theme";
       };
       package = mkOption {

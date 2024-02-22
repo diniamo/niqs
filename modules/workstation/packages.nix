@@ -10,7 +10,6 @@ in {
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    # For flameshot, might use it in the future
     config.common = {
       default = "gtk";
       "org.freedesktop.impl.portal.Screencast" = "hyprland";
@@ -28,13 +27,17 @@ in {
   };
 
   fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-emoji
-    noto-fonts-cjk
-    noto-fonts-extra
     inter
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    noto-fonts-extra
     (nerdfonts.override { fonts = ["JetBrainsMono"]; })
   ];
+  
+  # For electron apps, the second line is only needed for nvidia (and it doesn't work lol)
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  nixpkgs.config.chromium.commandLineArgs = "--disable-gpu --disable-gpu-sandbox";
 
   # This is needed for Obsidian until they update to a newer electron version
   # https://github.com/NixOS/nixpkgs/issues/273611
