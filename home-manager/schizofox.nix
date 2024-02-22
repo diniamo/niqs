@@ -57,6 +57,8 @@ in {
       extraExtensions = let
           mkUrl = name: "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
 	in {
+          # Todo: tab groups, switch to vimium-c
+
           "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}".install_url = mkUrl "auto-tab-discard";
           "sponsorBlocker@ajay.app".install_url = mkUrl "sponsorblock";
           "{446900e4-71c2-419f-a6a7-df9c091e268b}".install_url = mkUrl "bitwarden-password-manager";
