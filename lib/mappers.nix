@@ -1,5 +1,5 @@
 let
-  inputsToPackages = inputs: system: builtins.mapAttrs (name: value: value.packages.${system} or null) inputs;
+  inputsToPackage = inputs: system: builtins.mapAttrs (name: value: value.packages.${system}.${name} or null) inputs;
 in {
-  inherit inputsToPackages;
+  inherit inputsToPackage;
 }

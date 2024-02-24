@@ -7,6 +7,7 @@ in {
     ./hyprland
     ./style
     ./lazyvim
+    ./anyrun
 
     ./xdg.nix
     ./foot.nix

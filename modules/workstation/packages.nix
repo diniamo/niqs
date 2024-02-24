@@ -43,7 +43,7 @@ in {
   # https://github.com/NixOS/nixpkgs/issues/273611
   nixpkgs.config.permittedInsecurePackages = throwIf (versionOlder "1.5.3" pkgs.obsidian.version) "Obsidian has been updated, check if it still requires electron 25 and if not, remove this line, then rebuild" ["electron-25.9.0"];
 
-  environment.systemPackages = with pkgs; with packages; [
+  environment.systemPackages = with pkgs; [
     htop
     wl-clipboard
     vesktop
@@ -51,7 +51,8 @@ in {
     playerctl
     obsidian
     neovide
+    spotify
 
-    jerry.jerry
+    packages.jerry
   ];
 }
