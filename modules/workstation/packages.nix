@@ -67,7 +67,6 @@ in {
 
     packages.jerry
 
-    htop
     wl-clipboard
     pulsemixer
     playerctl

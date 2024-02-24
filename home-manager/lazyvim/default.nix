@@ -1,7 +1,15 @@
 { pkgs, config, ... }: {
   home.packages = with pkgs; [
     neovim
-    gnumake # this is needed for Luasnip's jsregexp to compile
+
+    # For luasnip/jsregexp
+    gnumake
+
+    # Packages needed for mason
+    unzip
+    nodePackages.npm
+    nodejs-slim
+    shellcheck
   ];
 
   home.file."${config.xdg.configHome}/nvim" = {
