@@ -6,6 +6,7 @@ in {
   imports = [
     ./hyprland
     ./style
+    ./lazyvim
 
     ./xdg.nix
     ./foot.nix
@@ -15,7 +16,7 @@ in {
     ./ncspot.nix
     ./bash.nix
     ./imv.nix
-    ./nixvim.nix
+    # ./nixvim.nix
   ];
 
   home = {

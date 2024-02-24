@@ -50,6 +50,7 @@ in {
     pulsemixer
     playerctl
     obsidian
+    neovide
 
     jerry
   ];
