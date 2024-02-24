@@ -1,9 +1,18 @@
-{ pkgs, packages, inputs, lib, config, ... }: 
-let
+{
+  pkgs,
+  packages,
+  inputs,
+  lib,
+  config,
+  ...
+}: let
   inherit (lib) throwIf versionOlder mkIf;
 
   nvidia = config.modules.values.nvidia;
-  flags = if nvidia then [ "--disable-gpu" ] else [];
+  flags =
+    if nvidia
+    then ["--disable-gpu"]
+    else [];
   wrapped = inputs.wrapper-manager.lib.build {
     inherit pkgs;
     modules = [
@@ -29,14 +38,14 @@ in {
   programs.hyprland.enable = true;
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
     config.common = {
       default = "gtk";
       "org.freedesktop.impl.portal.Screencast" = "hyprland";
       "org.freedesktop.impl.portal.Screenshot" = "hyprland";
     };
   };
-  
+
   services.pipewire = {
     enable = true;
     wireplumber.enable = true;
@@ -52,9 +61,9 @@ in {
     noto-fonts-cjk
     noto-fonts-emoji
     noto-fonts-extra
-    (nerdfonts.override { fonts = ["JetBrainsMono"]; })
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
-  
+
   # For electron apps
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

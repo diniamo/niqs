@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
 
   environment.variables = {
@@ -31,7 +35,7 @@
       powerManagement.enable = true;
     };
   };
-  
+
   # boot.kernelParams = ["nvidia_drm.modeset=1"];
   # boot.extraModprobeConfig = "options nvidia-drm modeset=1";
 

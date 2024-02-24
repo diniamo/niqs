@@ -1,5 +1,8 @@
-{ lib, osConfig, ...}:
-let
+{
+  lib,
+  osConfig,
+  ...
+}: let
   inherit (lib) mkDefault;
   inherit (osConfig.modules) values;
 in {

@@ -1,4 +1,8 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [
     neovim
 
@@ -10,6 +14,7 @@
     nodePackages.npm
     nodejs-slim
     shellcheck
+    cargo
   ];
 
   home.file."${config.xdg.configHome}/nvim" = {

@@ -1,5 +1,10 @@
-{ inputs, pkgs, config, system, ... }: 
-let
+{
+  inputs,
+  pkgs,
+  config,
+  system,
+  ...
+}: let
   inherit (inputs) hyprland;
 in {
   imports = [

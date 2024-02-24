@@ -1,5 +1,8 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   inherit (lib) mkEnableOption;
 
   cfg = config.modules.boot;
@@ -8,4 +11,3 @@ in {
     windows_entry = mkEnableOption "Whether to add a Windows entry or not";
   };
 }
-

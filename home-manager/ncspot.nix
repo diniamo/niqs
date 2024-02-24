@@ -1,4 +1,4 @@
-{ osConfig, ... }: {
+{osConfig, ...}: {
   programs.ncspot = {
     enable = true;
     settings = {
@@ -11,23 +11,23 @@
 
       keybindings = {
         Left = "seek -5s";
-	Up = "seek +30s";
-	Right = "seek +5s";
-	Down = "seek -30s";
-	R = "seek -24h";
+        Up = "seek +30s";
+        Right = "seek +5s";
+        Down = "seek -30s";
+        R = "seek -24h";
 
-	gg = "move up 500";
-	G = "move down 500";
+        gg = "move up 500";
+        G = "move down 500";
 
-	m = "voldown 100";
-	M = "volup 100";
+        m = "voldown 100";
+        M = "volup 100";
 
-	Space = "playpause";
-	"í" = "previous";
-	y = "next";
+        Space = "playpause";
+        "í" = "previous";
+        y = "next";
 
-	"+" = "volup 5";
-	"-" = "voldown 5";
+        "+" = "volup 5";
+        "-" = "voldown 5";
       };
 
       theme = {

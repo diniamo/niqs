@@ -1,12 +1,15 @@
 # configuration.nix(5)
 # https://search.nixos.org/options
 # NixOS manual (`nixos-help`)
-
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (config.modules) values;
 in {
-  imports = [ ./hardware.nix ];
+  imports = [./hardware.nix];
   networking.hostName = "${values.mainUser}";
 
   modules.boot.windows_entry = true;
@@ -19,4 +22,3 @@ in {
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }
-

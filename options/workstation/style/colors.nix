@@ -1,5 +1,8 @@
-{ lib, config, ... }: 
-let
+{
+  lib,
+  config,
+  ...
+}: let
   inherit (lib) mkOption nameToSlug;
   inherit (lib.types) str enum mkOptionType attrsOf coercedTo;
   inherit (lib.strings) isString hasPrefix removePrefix;
@@ -32,25 +35,25 @@ in {
         type = str;
         default = nameToSlug "${toString cfg.colorScheme.name}"; # toString to avoid type errors if null, returns ""
         description = ''
-          The slugified version of the colorscheme's name.
+                 The slugified version of the colorscheme's name.
 
-	  Only change this if it's different from the inferred value.
+          Only change this if it's different from the inferred value.
         '';
       };
       colors = mkOption {
-       	type = colorType;
-	default = getPaletteFromSlug cfg.colorScheme.slug;
-	description = "The attribute set of the colors of the color scheme.";
+        type = colorType;
+        default = getPaletteFromSlug cfg.colorScheme.slug;
+        description = "The attribute set of the colors of the color scheme.";
       };
       # This is currently unused, even though it could be in multiple places
       # since I don't plan on using light theme
       variant = mkOption {
         type = enum ["dark" "light"];
-	default =
-	  if removePrefix "#" cfg.colorScheme.colors.base00 < "5"
-	  then "dark"
-	  else "light";
-	description = "Possible values: dark, light";
+        default =
+          if removePrefix "#" cfg.colorScheme.colors.base00 < "5"
+          then "dark"
+          else "light";
+        description = "Possible values: dark, light";
       };
     };
   };

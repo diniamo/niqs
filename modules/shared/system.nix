@@ -1,7 +1,11 @@
-{ config, inputs, ... }: {
+{
+  config,
+  inputs,
+  ...
+}: {
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
     };
 
@@ -27,8 +31,7 @@
   };
 
   users.users.${config.modules.values.mainUser} = {
-   isNormalUser = true;
-   extraGroups = [ "wheel" ];
+    isNormalUser = true;
+    extraGroups = ["wheel"];
   };
 }
-

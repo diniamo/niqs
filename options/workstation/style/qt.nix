@@ -1,5 +1,9 @@
-{ lib, pkgs, config, ... }:
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}: let
   inherit (lib) mkOption types mkEnableOption;
 
   cfg = config.modules.style;
@@ -16,17 +20,17 @@ in {
     theme = {
       name = mkOption {
         type = types.str;
-	default = "Catppuccin-Macchiato-Dark";
-	description = "The name of the QT theme";
+        default = "Catppuccin-Macchiato-Dark";
+        description = "The name of the QT theme";
       };
       package = mkOption {
         type = types.package;
-	description = "The package for the QT theme";
-	default = pkgs.catppuccin-kde.override {
+        description = "The package for the QT theme";
+        default = pkgs.catppuccin-kde.override {
           flavour = ["macchiato"];
-	  accents = ["blue"];
-	  winDecStyles = ["modern"];
-	};
+          accents = ["blue"];
+          winDecStyles = ["modern"];
+        };
       };
     };
   };

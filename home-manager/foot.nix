@@ -1,5 +1,10 @@
-{ inputs, system, pkgs, osConfig, ... }: 
-let
+{
+  inputs,
+  system,
+  pkgs,
+  osConfig,
+  ...
+}: let
   cfg = osConfig.modules.style;
 
   colors = cfg.colorScheme.colors;
@@ -15,7 +20,7 @@ in {
       colors = {
         foreground = "${colors.base05}"; # Text
         background = "${colors.base00}"; # Base
-      
+
         regular0 = "${colors.base03}"; # Surface 1
         regular1 = "${colors.base08}"; # red
         regular2 = "${colors.base0B}"; # green

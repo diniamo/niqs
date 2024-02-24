@@ -1,9 +1,13 @@
-{ inputs, system, osConfig, ... }:
-let
+{
+  inputs,
+  system,
+  osConfig,
+  ...
+}: let
   anyrun = inputs.anyrun;
   packages = anyrun.packages.${system};
 in {
-  imports = [ anyrun.homeManagerModules.default ];
+  imports = [anyrun.homeManagerModules.default];
 
   programs.anyrun = {
     enable = true;
@@ -33,7 +37,6 @@ in {
         dictionary
         translate
       ];
-
     };
     extraConfigFiles = {
       "applications.ron".text = ''
@@ -76,7 +79,7 @@ in {
       "websearch.ron".text = ''
         Config(
           prefix: "?",
-          engines: [Custom(name: "Startpage", url: "startpage.com/do/search?query={}")] 
+          engines: [Custom(name: "Startpage", url: "startpage.com/do/search?query={}")]
         )
       '';
     };

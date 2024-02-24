@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   browser = ["Schizofox.desktop"];
   documentViewer = ["org.pwmt.zathura.desktop.desktop"];
   # Todo: add filemanager to mimetypes

@@ -1,5 +1,10 @@
-{ osConfig, pkgs, lib', config, ...}:
-let
+{
+  osConfig,
+  pkgs,
+  lib',
+  config,
+  ...
+}: let
   cfg = osConfig.modules.style;
 in {
   xdg.systemDirs.data = let
