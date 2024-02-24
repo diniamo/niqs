@@ -52,6 +52,6 @@ in {
     obsidian
     neovide
 
-    jerry
+    jerry.jerry
   ];
 }
