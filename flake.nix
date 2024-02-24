@@ -10,11 +10,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # nixpkgs is only used for tests, so we don't need to follow it here
+    wrapper-manager.url = "github:viperML/wrapper-manager";
+
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     schizofox = {
       url = "github:schizofox/schizofox";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +35,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }:
+  outputs = inputs@{ ... }:
   let
     lib = import ./lib { inherit inputs; };
   in {

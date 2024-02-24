@@ -1,14 +1,26 @@
 { pkgs, packages, inputs, lib, config, ... }: 
 let
-  inherit (lib) throwIf versionOlder;
+  inherit (lib) throwIf versionOlder mkIf;
 
-  electronFlags = pkg: if config.modules.values.nvidia then
-    pkg.overrideAttrs (old: {
-      postInstall = (old.postInstall or "") + ''
-        sed -Ei "s/(Exec=\w+)/\0 --disable-gpu/" "$out/share/applications/${pkg.pname}.desktop"
-      '';
-    })
-  else pkg;
+  nvidia = config.modules.values.nvidia;
+  flags = if nvidia then [ "--disable-gpu" ] else [];
+  wrapped = inputs.wrapper-manager.lib.build {
+    inherit pkgs;
+    modules = [
+      {
+        wrappers = {
+          vesktop = {
+            basePackage = pkgs.vesktop;
+            inherit flags;
+          };
+          obsidian = {
+            basePackage = pkgs.obsidian;
+            inherit flags;
+          };
+        };
+      }
+    ];
+  };
 in {
   imports = [
     inputs.hyprland.nixosModules.default
@@ -51,15 +63,16 @@ in {
   nixpkgs.config.permittedInsecurePackages = throwIf (versionOlder "1.5.3" pkgs.obsidian.version) "Obsidian has been updated, check if it still requires electron 25 and if not, remove this line, then rebuild" ["electron-25.9.0"];
 
   environment.systemPackages = with pkgs; [
-    htop
-    wl-clipboard
-    (electronFlags vesktop)
-    pulsemixer
-    playerctl
-    (electronFlags obsidian)
-    neovide
-    spotify
+    wrapped
 
     packages.jerry
+
+    htop
+    wl-clipboard
+    pulsemixer
+    playerctl
+    neovide
+    spotify
+    btop
   ];
 }
