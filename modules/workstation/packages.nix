@@ -1,6 +1,14 @@
-{ pkgs, packages, inputs, lib, ... }: 
+{ pkgs, packages, inputs, lib, config, ... }: 
 let
   inherit (lib) throwIf versionOlder;
+
+  electronFlags = pkg: if config.modules.values.nvidia then
+    pkg.overrideAttrs (old: {
+      postInstall = (old.postInstall or "") + ''
+        sed -Ei "s/(Exec=\w+)/\0 --disable-gpu/" "$out/share/applications/${pkg.pname}.desktop"
+      '';
+    })
+  else pkg;
 in {
   imports = [
     inputs.hyprland.nixosModules.default
@@ -35,9 +43,8 @@ in {
     (nerdfonts.override { fonts = ["JetBrainsMono"]; })
   ];
   
-  # For electron apps, the second line is only needed for nvidia (and it doesn't work lol)
+  # For electron apps
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  nixpkgs.config.chromium.commandLineArgs = "--disable-gpu --disable-gpu-sandbox";
 
   # This is needed for Obsidian until they update to a newer electron version
   # https://github.com/NixOS/nixpkgs/issues/273611
@@ -46,10 +53,10 @@ in {
   environment.systemPackages = with pkgs; [
     htop
     wl-clipboard
-    vesktop
+    (electronFlags vesktop)
     pulsemixer
     playerctl
-    obsidian
+    (electronFlags obsidian)
     neovide
     spotify
 

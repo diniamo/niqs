@@ -35,4 +35,6 @@
 
   # This is required for Wayland too
   services.xserver.videoDrivers = ["nvidia"];
+
+  modules.values.nvidia = true;
 }
