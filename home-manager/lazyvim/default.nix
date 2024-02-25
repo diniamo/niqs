@@ -4,8 +4,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-    neovim
-
     # For luasnip/jsregexp
     gnumake
 
@@ -18,6 +16,11 @@
     nodePackages.bash-language-server
     shellcheck
   ];
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  }
 
   home.file."${config.xdg.configHome}/nvim" = {
     source = ./nvim;
