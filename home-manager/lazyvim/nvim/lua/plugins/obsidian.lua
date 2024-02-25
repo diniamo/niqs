@@ -16,9 +16,6 @@ return {
         },
         disable_frontmatter = true,
       },
-      init = function()
-        vim.opt.linebreak = true
-      end,
     },
   },
 }

@@ -61,8 +61,7 @@ in {
       extraExtensions = let
         mkUrl = name: "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
       in {
-        # Todo: tab groups, switch to vimium-c
-
+        # "simple-tab-groups@drive4ik".install_url = mkUrl "simple-tab-groups";
         "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}".install_url = mkUrl "auto-tab-discard";
         "sponsorBlocker@ajay.app".install_url = mkUrl "sponsorblock";
         "{446900e4-71c2-419f-a6a7-df9c091e268b}".install_url = mkUrl "bitwarden-password-manager";
@@ -74,7 +73,7 @@ in {
         "{e90f5de4-8510-4515-9f67-3b6654e1e8c2}".install_url = mkUrl "dictionary-anywhere";
         "@hideyoutubecontrolls".install_url = mkUrl "hide-youtube-controls";
         "{762f9885-5a13-4abd-9c77-433dcd38b8fd}".install_url = mkUrl "return-youtube-dislikes";
-        "addons@wakatime.com".install_url = mkUrl "wakatimes";
+        # "addons@wakatime.com".install_url = mkUrl "wakatimes";
       };
     };
   };
