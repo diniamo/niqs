@@ -80,7 +80,6 @@ in {
       playerctl
       neovide
       spotify
-      btop
       trash-cli # TODO: rmtrash in shell configuration
     ];
     flakepkgs = with packages; [

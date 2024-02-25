@@ -11,6 +11,7 @@ in {
     ./style
     ./lazyvim
     ./anyrun
+    ./btop
 
     ./xdg.nix
     ./foot.nix

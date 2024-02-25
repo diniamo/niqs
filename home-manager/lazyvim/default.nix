@@ -10,17 +10,18 @@
     # LSPs and formatters
     lua-language-server
     nil
+    nodePackages.bash-language-server
+    shellcheck
+
     alejandra
     stylua
     shfmt
-    nodePackages.bash-language-server
-    shellcheck
   ];
 
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-  }
+  };
 
   home.file."${config.xdg.configHome}/nvim" = {
     source = ./nvim;
