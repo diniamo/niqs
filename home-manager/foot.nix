@@ -5,7 +5,7 @@
 }: let
   cfg = osConfig.modules.style;
 
-  colors = cfg.colorScheme.colors;
+  inherit (cfg.colorScheme) colors;
 in {
   programs.foot = {
     enable = true;

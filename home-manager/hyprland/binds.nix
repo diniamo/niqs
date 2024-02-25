@@ -8,7 +8,7 @@
 
   secondary = "ALT";
 
-  terminal = values.terminal;
+  inherit (values) terminal;
 in {
   wayland.windowManager.hyprland.settings = {
     bind = [

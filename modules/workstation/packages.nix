@@ -8,7 +8,7 @@
 }: let
   inherit (lib) throwIf versionOlder;
 
-  nvidia = config.modules.values.nvidia;
+  inherit (config.modules.values) nvidia;
   flags =
     if nvidia
     then ["--disable-gpu"]

@@ -5,7 +5,7 @@
 }: let
   cfg = osConfig.modules.style;
 
-  colors = cfg.colorScheme.colors;
+  inherit (cfg.colorScheme) colors;
   fontName = cfg.font.name;
 in {
   imports = [inputs.schizofox.homeManagerModule];

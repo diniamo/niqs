@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: let
-  anyrun = inputs.anyrun;
+  inherit (inputs) anyrun;
   packages = anyrun.packages.${system};
 in {
   imports = [anyrun.homeManagerModules.default];

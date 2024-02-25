@@ -27,16 +27,13 @@ in {
   gtk = {
     enable = true;
     theme = {
-      name = cfg.gtk.theme.name;
-      package = cfg.gtk.theme.package;
+      inherit (cfg.gtk.theme) name package;
     };
     iconTheme = {
-      name = cfg.iconTheme.name;
-      package = cfg.iconTheme.package;
+      inherit (cfg.iconTheme) name package;
     };
     font = {
-      name = cfg.font.name;
-      size = cfg.font.size;
+      inherit (cfg.font) name size;
     };
 
     gtk2 = {
