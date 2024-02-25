@@ -4,5 +4,7 @@
     man-pages
     man-pages-posix
     ripgrep
+    fd
+    tldr
   ];
 }

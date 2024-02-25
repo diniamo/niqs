@@ -4,8 +4,10 @@
       "XDG_SESSION_TYPE, wayland"
       "XDG_CURRENT_DESKTOP, Hyprland"
       "XDG_SESSION_DESKTOP, Hyprland"
+
       "GDK_BACKEND, wayland"
       "SDL_VIDEODRIVER, wayland"
+      "QT_QPA_PLATFORM, wayland;xcb"
     ];
     input = {
       kb_layout = "hu";

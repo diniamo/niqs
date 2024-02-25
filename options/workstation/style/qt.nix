@@ -9,8 +9,6 @@
   cfg = config.modules.style;
 in {
   options.modules.style.qt = {
-    forceGtk = mkEnableOption "Force the use of the QT style override with GTK";
-
     kdeglobals.source = mkOption {
       type = types.path;
       description = "The source file for kdeglobals";

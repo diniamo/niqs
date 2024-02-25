@@ -25,6 +25,10 @@
       url = "github:justchokingaround/jerry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lobster = {
+      url = "github:justchokingaround/lobster";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # nixvim = {
     #   url = "github:nix-community/nixvim";
     #   inputs.nixpkgs.follows = "nixpkgs";

@@ -13,14 +13,12 @@ in {
   };
 
   home.packages = with pkgs; [
-    libsForQt5.qt5ct
     cfg.qt.theme.package
   ];
 
   home.sessionVariables = {
     # The scaling to use everywhere - 1 means no scaling
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_QPA_PLATFORM = "wayland;xcb";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     DISABLE_QT5_COMPAT = "0";
     CALIBRE_USE_DARK_PALETTE = "1";
@@ -29,10 +27,10 @@ in {
   qt = {
     enable = true;
     # “gtk”, “gtk3”, “gnome”, “lxqt”, “qtct”, “kde”
-    platformTheme = mkIf cfg.qt.forceGtk "gtk";
-    style = mkIf (!cfg.qt.forceGtk) {
-      name = cfg.qt.theme.name;
-      package = cfg.qt.theme.package;
-    };
+    platformTheme = "gtk";
+    # style = {
+    #   name = cfg.qt.theme.name;
+    #   package = cfg.qt.theme.package;
+    # };
   };
 }

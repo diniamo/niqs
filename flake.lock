@@ -137,6 +137,24 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_3"
+      },
+      "locked": {
+        "lastModified": 1701680307,
+        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": [
@@ -339,6 +357,27 @@
         "type": "github"
       }
     },
+    "lobster": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1708833977,
+        "narHash": "sha256-HhdOCgWUFvByCyxPuQkUCcMuhkJl9W6rPlZ/B37cwps=",
+        "owner": "justchokingaround",
+        "repo": "lobster",
+        "rev": "4c20b19704d79fcb472f1041fbd6988ab8e677c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "justchokingaround",
+        "repo": "lobster",
+        "type": "github"
+      }
+    },
     "nixpak": {
       "inputs": {
         "flake-parts": [
@@ -436,6 +475,7 @@
         "hyprland": "hyprland",
         "hyprwm-contrib": "hyprwm-contrib",
         "jerry": "jerry",
+        "lobster": "lobster",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
         "schizofox": "schizofox",
@@ -522,6 +562,21 @@
       }
     },
     "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_3": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
