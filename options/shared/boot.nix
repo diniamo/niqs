@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: let
+{lib, ...}: let
   inherit (lib) mkEnableOption;
 in {
   options.modules.boot = {

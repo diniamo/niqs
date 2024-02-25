@@ -4,7 +4,6 @@
   osConfig,
   ...
 }: let
-
   cfg = osConfig.modules.style;
 in {
   xdg.configFile = {

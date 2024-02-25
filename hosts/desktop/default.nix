@@ -1,10 +1,7 @@
 # configuration.nix(5)
 # https://search.nixos.org/options
 # NixOS manual (`nixos-help`)
-{
-  config,
-  ...
-}: let
+{config, ...}: let
   inherit (config.modules) values;
 in {
   imports = [./hardware.nix];

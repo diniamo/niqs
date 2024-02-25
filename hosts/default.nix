@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: let
+{lib, ...}: let
   inherit (lib) mkNixosSystem;
 
   modulePath = ../modules;
