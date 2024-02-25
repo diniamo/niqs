@@ -31,7 +31,7 @@
     ${getExe pkgs.statix} fix
     ${getExe pkgs.alejandra} -q .
 
-    sudo ${getExe pkgs.nixos-rebuild} switch --flake "$flake"
+    ${getExe pkgs.nixos-rebuild} --use-remote-sudo switch --flake "$flake"
   '';
 in {
   environment.systemPackages = [
