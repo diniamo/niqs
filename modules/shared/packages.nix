@@ -6,5 +6,6 @@
     ripgrep
     fd
     tldr
+    duf
   ];
 }

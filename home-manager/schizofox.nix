@@ -74,6 +74,7 @@ in {
         "{e90f5de4-8510-4515-9f67-3b6654e1e8c2}".install_url = mkUrl "dictionary-anywhere";
         "@hideyoutubecontrolls".install_url = mkUrl "hide-youtube-controls";
         "{762f9885-5a13-4abd-9c77-433dcd38b8fd}".install_url = mkUrl "return-youtube-dislikes";
+        "addons@wakatime.com".install_url = mkUrl "wakatimes";
       };
     };
   };
