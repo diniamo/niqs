@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (lib) mkOption types mkEnableOption;
+  inherit (lib) mkOption types;
 
   cfg = config.modules.style;
 in {

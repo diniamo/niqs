@@ -1,7 +1,6 @@
 {
   inputs,
   osConfig,
-  lib,
   ...
 }: let
   cfg = osConfig.modules.style;

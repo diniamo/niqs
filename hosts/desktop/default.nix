@@ -3,8 +3,6 @@
 # NixOS manual (`nixos-help`)
 {
   config,
-  lib,
-  pkgs,
   ...
 }: let
   inherit (config.modules) values;

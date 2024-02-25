@@ -4,7 +4,6 @@
   osConfig,
   ...
 }: let
-  inherit (lib) mkIf;
 
   cfg = osConfig.modules.style;
 in {

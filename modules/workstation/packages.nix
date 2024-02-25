@@ -6,7 +6,7 @@
   config,
   ...
 }: let
-  inherit (lib) throwIf versionOlder mkIf;
+  inherit (lib) throwIf versionOlder;
 
   nvidia = config.modules.values.nvidia;
   flags =

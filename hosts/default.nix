@@ -1,9 +1,8 @@
 {
-  inputs,
   lib,
   ...
 }: let
-  inherit (lib) mkNixosSystem concatLists;
+  inherit (lib) mkNixosSystem;
 
   modulePath = ../modules;
   extrasPath = modulePath + /extras;
