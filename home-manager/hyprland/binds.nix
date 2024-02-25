@@ -28,7 +28,10 @@ in {
       ", XF86HomePage, exec, firefox"
       # TODO: calculator and msuic scratchpad
 
-      # TODO: screenshots
+      ", Print, exec, grimblast --notify copy output"
+      "${ctrl}, Print, exec, grimblast --notify --freeze copy area"
+      "${shift}, Print, exec, grimblast --notify --freeze save area - | imv -"
+      "${alt}, Print, exec, grimblast --notify copy active"
 
       # TODO: hyprpicker
 
