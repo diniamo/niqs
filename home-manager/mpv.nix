@@ -31,7 +31,7 @@
       "-" = "add volume -5";
       WHEEL_UP = "add volume 2";
       WHEEL_DOWN = "add volume -2";
-      # Todo: the rest of the uosc overrides
+      # TODO: the rest of the uosc overrides
     };
   };
 }

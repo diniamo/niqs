@@ -5,7 +5,7 @@
 }: let
   browser = ["Schizofox.desktop"];
   documentViewer = ["org.pwmt.zathura.desktop.desktop"];
-  # Todo: add filemanager to mimetypes
+  # TODO: add filemanager to mimetypes
 
   associations = {
     "text/html" = browser;

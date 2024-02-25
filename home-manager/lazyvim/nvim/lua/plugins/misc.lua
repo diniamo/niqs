@@ -55,5 +55,17 @@ return {
   {
     "wakatime/vim-wakatime",
     lazy = false
+  },
+  {
+    "dawsers/edit-code-block.nvim",
+    main = "ecb",
+    opts = {
+      wincmd = "split"
+    },
+    cmd = { "EditCodeBlock", "EditCodeBlockOrg", "EditCodeBlockSelection" },
+    keys = {
+      { "<leader>ce", "<Cmd>EditCodeBlock<CR>",          desc = "Edit code block" },
+      { "<leader>ce", "<Cmd>EditCodeBlockSelection<CR>", mode = "v",              desc = "Edit selection as code block" }
+    }
   }
 }

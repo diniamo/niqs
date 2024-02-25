@@ -20,17 +20,17 @@ in {
       "${mod}${secondary}, q, exec, kill -9 $(hyprctl -j activewindow | jq -r '.pid')"
 
       "${mod}, Space, exec, anyrun"
-      # Todo: cliphist, powermenu
+      # TODO: cliphist, powermenu
 
-      # Todo: scratchpads
+      # TODO: scratchpads
 
       ", XF86Explorer, exec, sleep 1 && hyprctl dispatch dpms off"
       ", XF86HomePage, exec, firefox"
-      # Todo: calculator and msuic scratchpad
+      # TODO: calculator and msuic scratchpad
 
-      # Todo: screenshots
+      # TODO: screenshots
 
-      # Todo: hyprpicker
+      # TODO: hyprpicker
 
       "${mod}, iacute, exec, playerctl previous"
       "${mod}, y, exec, playerctl next"
@@ -44,7 +44,7 @@ in {
 
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-      # Todo: open video, image, link
+      # TODO: open video, image, link
 
       "${mod}, h, movefocus, l"
       "${mod}, j, movefocus, d"
@@ -94,7 +94,7 @@ in {
       "${mod}${shift}${secondary}, 0, movetoworkspace, 0"
 
       "${mod}, t, togglefloating"
-      # Todo: pin script
+      # TODO: pin script
       ", F11, fullscreen, 0"
       "${mod}, f, fullscreen, 1"
 

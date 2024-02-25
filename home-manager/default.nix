@@ -21,6 +21,7 @@ in {
     ./bash.nix
     ./imv.nix
     # ./nixvim.nix
+    ./yazi.nix
   ];
 
   home = {

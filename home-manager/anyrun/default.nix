@@ -9,6 +9,9 @@
 in {
   imports = [anyrun.homeManagerModules.default];
 
+  # For scripts
+  home.packages = [packages.stdin];
+
   programs.anyrun = {
     enable = true;
 
