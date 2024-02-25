@@ -1,5 +1,10 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   inherit (pkgs) writeShellScriptBin;
+  inherit (lib) getExe;
 
   rebuild = writeShellScriptBin "rebuild" ''
     set -e
@@ -20,13 +25,13 @@
     flake_root="$(cut -d"#" -f1 <<< "$flake")"
     cd "$flake_root"
 
-    ${pkgs.git}/bin/git add .
+    ${getExe pkgs.git} add .
 
-    ${pkgs.deadnix}/bin/deadnix -eq ./**/*.nix
-    ${pkgs.statix}/bin/statix fix
-    ${pkgs.alejandra}/bin/alejandra -q .
+    ${getExe pkgs.deadnix} -eq ./**/*.nix
+    ${getExe pkgs.statix} fix
+    ${getExe pkgs.alejandra} -q .
 
-    sudo ${pkgs.nixos-rebuild}/bin/nixos-rebuild switch --flake "$flake"
+    sudo ${getExe pkgs.nixos-rebuild} switch --flake "$flake"
   '';
 in {
   environment.systemPackages = [
