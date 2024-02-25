@@ -4,14 +4,14 @@
   ...
 }: let
   inherit (lib) nixosSystem;
-  inherit (import ./mappers.nix) inputsToPackage;
+  inherit (import ./mappers.nix) inputsToPackages;
 
   mkNixosSystem = args @ {
     system,
     modules,
     ...
   }: let
-    packages = inputsToPackage inputs system;
+    packages = inputsToPackages inputs system;
   in
     nixosSystem {
       inherit system modules;
