@@ -19,12 +19,12 @@ opt.spelllang = "en,hu"
 
 -- These are overridden normally
 api.nvim_create_autocmd({ "FileType" }, {
-    callback = function()
-        opt.formatoptions:remove({ "c", "o" })
-    end,
+  callback = function()
+    opt.formatoptions:remove({ "c", "o" })
+  end,
 })
 
 if vim.g.neovide then
-    opt.guifont = "JetBrainsMono Nerd Font Mono:h11"
-    g.neovide_remember_window_size = false
+  opt.guifont = "JetBrainsMono Nerd Font Mono:h11"
+  g.neovide_remember_window_size = false
 end

@@ -3,7 +3,6 @@
     htop
     man-pages
     man-pages-posix
-    alejandra
     ripgrep
   ];
 }

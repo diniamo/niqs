@@ -9,12 +9,14 @@
     # For luasnip/jsregexp
     gnumake
 
-    # Packages needed for mason
-    unzip
-    nodePackages.npm
-    nodejs-slim
+    # LSPs and formatters
+    lua-language-server
+    nil
+    alejandra
+    stylua
+    shfmt
+    nodePackages.bash-language-server
     shellcheck
-    cargo
   ];
 
   home.file."${config.xdg.configHome}/nvim" = {

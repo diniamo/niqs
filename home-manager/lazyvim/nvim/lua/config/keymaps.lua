@@ -19,34 +19,34 @@ map("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>")
 map("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>")
 
 map("n", "<leader>;", function()
-    local cursor = vim.api.nvim_win_get_cursor(0)
-    vim.cmd(":normal A;")
-    vim.api.nvim_win_set_cursor(0, cursor)
+  local cursor = vim.api.nvim_win_get_cursor(0)
+  vim.cmd(":normal A;")
+  vim.api.nvim_win_set_cursor(0, cursor)
 end, { desc = "Appends a ; to the current line" })
 
 map("n", "i", function()
-    if #vim.fn.getline(".") == 0 then
-        return "\"_cc"
-    else
-        return "i"
-    end
+  if #vim.fn.getline(".") == 0 then
+    return '"_cc'
+  else
+    return "i"
+  end
 end, { expr = true, desc = "Properly indent when entering insert mode" })
 
 -- Terminals
 local terminals = {}
 local function toggle_terminal(name, term)
-    local terminal = terminals[name]
-    if not terminal then
-        terminal = require("toggleterm.terminal").Terminal:new(term)
-        terminals[name] = terminal
-    end
+  local terminal = terminals[name]
+  if not terminal then
+    terminal = require("toggleterm.terminal").Terminal:new(term)
+    terminals[name] = terminal
+  end
 
-    terminal:toggle()
+  terminal:toggle()
 end
 
 map("n", "<leader>gg", function()
-    toggle_terminal("lazygit_root", { cmd = "lazygit", dir = Util.root(), hidden = true })
+  toggle_terminal("lazygit_root", { cmd = "lazygit", dir = Util.root(), hidden = true })
 end, { desc = "Lazygit (root dir)" })
 map("n", "<leader>gG", function()
-    toggle_terminal("lazygit_cwd", { cmd = "lazygit", hidden = true })
+  toggle_terminal("lazygit_cwd", { cmd = "lazygit", hidden = true })
 end, { desc = "Lazygit (cwd)" })
