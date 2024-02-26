@@ -25,7 +25,8 @@
     flake_root="$(cut -d"#" -f1 <<< "$flake")"
     cd "$flake_root"
 
-    ${getExe pkgs.git} add .
+    # Adds every every untracked file to the index
+    ${getExe pkgs.git} add -AN
 
     ${getExe pkgs.deadnix} -eq ./**/*.nix
     ${getExe pkgs.statix} fix
