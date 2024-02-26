@@ -12,7 +12,7 @@
   shift = "SHIFT";
   secondary = "ALT";
 
-  inherit (import ./scripts.nix) pin;
+  inherit (import ./scripts.nix {inherit pkgs;}) pin;
 
   inherit (osConfig.modules.values) terminal;
 in {
@@ -103,7 +103,7 @@ in {
       "${mod}${shift}${secondary}, 0, movetoworkspace, 0"
 
       "${mod}, t, togglefloating"
-      # "${mod}, s, exec, ${pin}"
+      "${mod}, s, exec, ${pin}"
       ", F11, fullscreen, 0"
       "${mod}, f, fullscreen, 1"
 
