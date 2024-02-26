@@ -7,5 +7,6 @@
     fd
     tldr
     duf
+    jq
   ];
 }

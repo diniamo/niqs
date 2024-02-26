@@ -2,6 +2,7 @@
   inputs,
   system,
   lib,
+  packages,
   ...
 }: {
   imports = [inputs.home-manager.nixosModules.home-manager];
@@ -12,7 +13,7 @@
     useUserPackages = true;
     backupFileExtension = "old";
     extraSpecialArgs = {
-      inherit inputs system;
+      inherit inputs system packages;
       lib' = lib;
     };
     users = {

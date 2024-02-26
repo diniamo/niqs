@@ -1,14 +1,20 @@
-{osConfig, ...}: let
-  inherit (osConfig.modules) values;
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit (lib) getExe;
 
   mod = "SUPER";
   ctrl = "CONTROL";
   alt = "ALT";
   shift = "SHIFT";
-
   secondary = "ALT";
 
-  inherit (values) terminal;
+  inherit (import ./scripts.nix) pin;
+
+  inherit (osConfig.modules.values) terminal;
 in {
   wayland.windowManager.hyprland.settings = {
     bind = [
@@ -97,11 +103,11 @@ in {
       "${mod}${shift}${secondary}, 0, movetoworkspace, 0"
 
       "${mod}, t, togglefloating"
-      # TODO: pin script
+      # "${mod}, s, exec, ${pin}"
       ", F11, fullscreen, 0"
       "${mod}, f, fullscreen, 1"
 
-      "${mod}${secondary}, x, exec, zenity --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=windows.conf"
+      "${mod}${secondary}, x, exec, ${getExe pkgs.gnome.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=windows.conf"
     ];
     binde = [
       "${mod}${ctrl}, h, resizeactive, -50 0"

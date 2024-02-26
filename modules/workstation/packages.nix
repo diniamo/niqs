@@ -85,7 +85,6 @@ in {
     flakepkgs = with packages; [
       jerry.jerry
       lobster.lobster
-      hyprwm-contrib.grimblast
     ];
   in
     nixpkgs ++ flakepkgs;

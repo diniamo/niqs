@@ -1,6 +1,7 @@
 {
   inputs,
   system,
+  packages,
   ...
 }: let
   inherit (inputs) hyprland;
@@ -10,6 +11,8 @@ in {
     ./config.nix
     ./binds.nix
   ];
+
+  home.packages = [packages.hyprwm-contrib.grimblast];
 
   wayland.windowManager.hyprland = {
     enable = true;
