@@ -10,6 +10,7 @@ in {
     hyprland.homeManagerModules.default
     ./config.nix
     ./binds.nix
+    ./exec.nix
   ];
 
   home.packages = [packages.hyprwm-contrib.grimblast];
