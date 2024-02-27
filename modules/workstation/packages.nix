@@ -8,6 +8,8 @@
 }: let
   inherit (lib) throwIf versionOlder;
 
+  inherit (config.modules.general) xdgDesktopPortal;
+
   inherit (config.modules.values) nvidia;
   flags =
     if nvidia
@@ -38,12 +40,8 @@ in {
   programs.hyprland.enable = true;
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-    config.common = {
-      default = "gtk";
-      "org.freedesktop.impl.portal.Screencast" = "hyprland";
-      "org.freedesktop.impl.portal.Screenshot" = "hyprland";
-    };
+    extraPortals = [pkgs."xdg-desktop-portal-${xdgDesktopPortal}"];
+    config.common.default = ["hyprland" "${xdgDesktopPortal}"];
   };
 
   services.pipewire = {

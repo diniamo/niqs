@@ -1,5 +1,7 @@
 {
   imports = [
     ./style
+
+    ./general.nix
   ];
 }

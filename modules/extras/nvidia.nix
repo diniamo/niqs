@@ -10,16 +10,8 @@
     __GL_GSYNC_ALLOWED = "1";
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   vulkan-loader
-  #   vulkan-validation-layers
-  #   vulkan-tools
-  # ];
-
   hardware = {
     opengl = {
-      # extraPackages = with pkgs; [ nvidia-vaapi-driver ];
-
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
@@ -32,8 +24,7 @@
     };
   };
 
-  # boot.kernelParams = ["nvidia_drm.modeset=1"];
-  # boot.extraModprobeConfig = "options nvidia-drm modeset=1";
+  boot.kernelParams = ["nvidia.NVreg_EnableS0ixPowerManagement=1"];
 
   # This is required for Wayland too
   services.xserver.videoDrivers = ["nvidia"];

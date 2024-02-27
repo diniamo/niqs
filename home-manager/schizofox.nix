@@ -47,11 +47,13 @@ in {
     };
 
     settings = {
-      "browser.ctrlTab.sortByRecentlyUsed" = true;
       "media.ffmpeg.vaapi.enabled" = true;
       "gfx.webrender.all" = true;
-      # This makes websites prefer a dark theme
+
+      "browser.ctrlTab.sortByRecentlyUsed" = true;
+      # This makes websites prefer a dark theme (in theory)
       "layout.css.prefers-color-scheme.content-override" = 0;
+      "widget.use-xdg-desktop-portal.file-picker" = 1;
     };
 
     extensions = {
@@ -73,6 +75,9 @@ in {
         "@hideyoutubecontrolls".install_url = mkUrl "hide-youtube-controls";
         "{762f9885-5a13-4abd-9c77-433dcd38b8fd}".install_url = mkUrl "return-youtube-dislikes";
         # "addons@wakatime.com".install_url = mkUrl "wakatimes";
+
+# Disable temporary containers
+"{c607c8df-14a7-4f28-894f-29e8722976af}".install_url = "";
       };
     };
   };
