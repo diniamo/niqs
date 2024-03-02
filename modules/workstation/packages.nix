@@ -1,6 +1,6 @@
 {
   pkgs,
-  packages,
+  flakePkgs,
   inputs,
   lib,
   config,
@@ -79,11 +79,12 @@ in {
       neovide
       spotify
       trash-cli # TODO: rmtrash in shell configuration
+      power-profiles-daemon
     ];
-    flakepkgs = with packages; [
+    flakePackages = with flakePkgs; [
       jerry.jerry
       lobster.lobster
     ];
   in
-    nixpkgs ++ flakepkgs;
+    nixpkgs ++ flakePackages;
 }

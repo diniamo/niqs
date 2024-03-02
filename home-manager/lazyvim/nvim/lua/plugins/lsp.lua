@@ -5,6 +5,7 @@ return {
       servers = {
         nil_ls = {},
         bashls = {},
+        rust_analyzer = {}
       }
     }
   }

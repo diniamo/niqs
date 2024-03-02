@@ -2,7 +2,7 @@
   inputs,
   system,
   lib,
-  packages,
+  flakePkgs,
   ...
 }: {
   imports = [inputs.home-manager.nixosModules.home-manager];
@@ -13,7 +13,7 @@
     useUserPackages = true;
     backupFileExtension = "old";
     extraSpecialArgs = {
-      inherit inputs system packages;
+      inherit inputs system flakePkgs;
       lib' = lib;
     };
     users = {

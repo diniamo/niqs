@@ -8,5 +8,6 @@
     ./boot.nix
     ./packages.nix
     ./scripts.nix
+    ./cachix.nix
   ];
 }

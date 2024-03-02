@@ -10,13 +10,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixpkgs is only used for tests, so we don't need to follow it here
+    # nixpkgs is only used for tests, so no don't need to follow it here
     wrapper-manager.url = "github:viperML/wrapper-manager";
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # These are downloaded from caches, so overriding nixpkgs would break them
+    hyprland.url = "github:hyprwm/Hyprland";
+    anyrun.url = "github:Kirottu/anyrun";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+
     schizofox = {
       url = "github:schizofox/schizofox";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,10 +34,6 @@
     #   url = "github:nix-community/nixvim";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprwm-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";

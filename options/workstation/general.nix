@@ -1,5 +1,5 @@
 {lib, ...}: let
-  inherit (lib) mkOption types;
+  inherit (lib) mkOption types mkEnableOption;
 in {
   options.modules.general = {
     xdgDesktopPortal = mkOption {
@@ -7,5 +7,7 @@ in {
       description = "The default xdg desktop portal to use";
       default = "gtk";
     };
+
+    gaming.enable = mkEnableOption "Enable gaming related stuff";
   };
 }

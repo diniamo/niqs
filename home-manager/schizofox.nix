@@ -77,7 +77,7 @@ in {
         # "addons@wakatime.com".install_url = mkUrl "wakatimes";
 
         # Disable temporary containers
-        "{c607c8df-14a7-4f28-894f-29e8722976af}".install_url = "";
+        # "{c607c8df-14a7-4f28-894f-29e8722976af}".install_url = "";
       };
     };
   };

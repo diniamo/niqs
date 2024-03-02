@@ -1,11 +1,11 @@
 {
   inputs,
-  system,
   osConfig,
+  flakePkgs,
   ...
 }: let
   inherit (inputs) anyrun;
-  packages = anyrun.packages.${system};
+  packages = flakePkgs.anyrun;
 in {
   imports = [anyrun.homeManagerModules.default];
 

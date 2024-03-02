@@ -7,7 +7,10 @@ in {
   imports = [./hardware.nix];
   networking.hostName = "${values.mainUser}";
 
-  modules.boot.windows_entry = true;
+  modules = {
+    boot.windows_entry = true;
+    general.gaming.enable = true;
+  };
 
   home-manager.users.${values.mainUser} = {
     wayland.windowManager.hyprland.settings = {
