@@ -2,6 +2,7 @@
   inputs,
   system,
   flakePkgs,
+  pkgs,
   ...
 }: let
   inherit (inputs) hyprland;
@@ -14,7 +15,10 @@ in {
     ./exec.nix
   ];
 
-  home.packages = [flakePkgs.hyprwm-contrib.grimblast];
+  home.packages = [
+    flakePkgs.hyprwm-contrib.grimblast
+    pkgs.hyprpicker
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;

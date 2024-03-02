@@ -12,10 +12,10 @@ in {
     ./lazyvim
     ./anyrun
     ./btop
+    ./mpv
 
     ./xdg.nix
     ./foot.nix
-    ./mpv.nix
     ./schizofox.nix
     ./git.nix
     ./ncspot.nix

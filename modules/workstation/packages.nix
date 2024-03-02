@@ -80,6 +80,7 @@ in {
       spotify
       trash-cli # TODO: rmtrash in shell configuration
       power-profiles-daemon
+      ungoogled-chromium # For Twitch
     ];
     flakePackages = with flakePkgs; [
       jerry.jerry

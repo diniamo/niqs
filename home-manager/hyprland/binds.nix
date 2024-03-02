@@ -21,6 +21,7 @@ in {
       "${mod}, Return, exec, ${terminal}"
       "${mod}${secondary}, Return, exec, ${terminal} -- yazi"
       "${mod}, n, exec, neovide"
+      "${mod}${secondary}, n, exec, neovide ~/.nixos"
       "${mod}, w, exec, firefox"
       "${mod}, q, killactive"
       "${mod}${secondary}, q, exec, kill -9 $(hyprctl -j activewindow | jq -r '.pid')"

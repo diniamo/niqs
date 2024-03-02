@@ -1,7 +1,6 @@
 {
   nix.settings = {
-    builders-use-substitutes = true;
-
+    # builders-use-substitutes = true;
     substituters = [
       "https://hyprland.cachix.org"
       "https://anyrun.cachix.org"
