@@ -6,6 +6,7 @@
   browser = ["Schizofox.desktop"];
   documentViewer = ["org.pwmt.zathura.desktop.desktop"];
   # TODO: add filemanager to mimetypes
+  editor = ["neovide.desktop"];
 
   associations = {
     "text/html" = browser;
@@ -24,6 +25,7 @@
     "audio/*" = ["mpv.desktop"];
     "video/*" = ["mpv.dekstop"];
     "image/*" = ["imv.desktop"];
+    "text/*" = editor;
     "application/json" = browser;
     "application/pdf" = documentViewer;
     "x-scheme-handler/spotify" = ["spotify.desktop"];

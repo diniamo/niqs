@@ -36,8 +36,6 @@
   '';
 in {
   environment.systemPackages = [
-    pkgs.coreutils-full
-
     rebuild
   ];
 }

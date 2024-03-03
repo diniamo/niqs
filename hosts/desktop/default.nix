@@ -1,8 +1,4 @@
-{
-  config,
-  # customPkgs,
-  ...
-}: let
+{config, ...}: let
   inherit (config.modules) values;
 in {
   imports = [./hardware.nix];
@@ -10,7 +6,16 @@ in {
 
   modules = {
     boot.windows_entry = true;
-    general.gaming.enable = true;
+    general = {
+      gaming.enable = true;
+      qbittorrent.convertSavePaths = {
+        enable = true;
+        btBackupPath = "/torrent/BT_backup";
+        windowsMatchPath = "E:[/\\\\\\\\]complete";
+        windowsPath = "E:/complete";
+        unixPath = "/torrent/complete";
+      };
+    };
   };
 
   home-manager.users.${values.mainUser} = {
@@ -37,9 +42,6 @@ in {
       exec-once = ["vesktop"];
     };
   };
-
-  # HACK: this is only for testing
-  # environment.systemPackages = [customPkgs.bencode-pretty];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
