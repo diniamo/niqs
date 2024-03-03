@@ -5,7 +5,7 @@
 }: let
   browser = ["Schizofox.desktop"];
   documentViewer = ["org.pwmt.zathura.desktop.desktop"];
-  # TODO: add filemanager to mimetypes
+  fileManager = ["thunar.desktop"];
   editor = ["neovide.desktop"];
 
   associations = {
@@ -21,6 +21,8 @@
     "application/xhtml+xml" = browser;
     "application/x-extension-xhtml" = browser;
     "application/x-extension-xht" = browser;
+
+    "inode/directory" = fileManager;
 
     "audio/*" = ["mpv.desktop"];
     "video/*" = ["mpv.dekstop"];
