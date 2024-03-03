@@ -11,6 +11,7 @@ in {
       qbittorrent.convertSavePaths = {
         enable = true;
         btBackupPath = "/torrent/BT_backup";
+        # 8\ -(nix escaping)> 4\ -(systemd shell escaping)> 2\ (escape in sed) 
         windowsMatchPath = "E:[/\\\\\\\\]complete";
         windowsPath = "E:/complete";
         unixPath = "/torrent/complete";
