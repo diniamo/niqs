@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs.yazi = {
     enable = true;
     settings = {
@@ -66,7 +66,7 @@
           on = [
             "e"
           ];
-          exec = "shell trash-restore --block --confirm";
+          exec = "shell ${pkgs.trash-cli}/bin/trash-restore --block --confirm";
           desc = "Restore files from the trash";
         }
         {

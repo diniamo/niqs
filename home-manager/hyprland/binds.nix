@@ -12,7 +12,9 @@
   shift = "SHIFT";
   secondary = "ALT";
 
-  inherit (import ./scripts.nix {inherit pkgs;}) pin;
+  playerctl = "${getExe pkgs.playerctl}";
+
+  inherit (import ./scripts.nix {inherit pkgs getExe;}) pin;
 
   inherit (osConfig.modules.values) terminal;
 in {
@@ -24,7 +26,7 @@ in {
       "${mod}${secondary}, n, exec, cd ~/.nixos && neovide"
       "${mod}, w, exec, firefox"
       "${mod}, q, killactive"
-      "${mod}${secondary}, q, exec, kill -9 $(hyprctl -j activewindow | jq -r '.pid')"
+      "${mod}${secondary}, q, exec, kill -9 $(hyprctl -j activewindow | ${getExe pkgs.jq} -r '.pid')"
 
       "${mod}, Space, exec, anyrun"
       # TODO: cliphist, powermenu
@@ -42,15 +44,15 @@ in {
 
       # TODO: hyprpicker
 
-      "${mod}, iacute, exec, playerctl previous"
-      "${mod}, y, exec, playerctl next"
-      "${mod}, p, exec, playerctl play-pause"
-      "${mod}, r, exec, playerctl position 0"
+      "${mod}, iacute, exec, ${playerctl} previous"
+      "${mod}, y, exec, ${playerctl} next"
+      "${mod}, p, exec, ${playerctl} play-pause"
+      "${mod}, r, exec, ${playerctl} position 0"
 
-      ", XF86AudioPrev, exec, playerctl previous"
-      ", XF86AudioNext, exec, playerctl next"
-      ", XF86AudioStop, exec, playerctl stop"
-      ", XF86AudioPlay, exec, playerctl play-pause"
+      ", XF86AudioPrev, exec, ${playerctl} previous"
+      ", XF86AudioNext, exec, ${playerctl} next"
+      ", XF86AudioStop, exec, ${playerctl} stop"
+      ", XF86AudioPlay, exec, ${playerctl} play-pause"
 
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 

@@ -11,7 +11,7 @@ map("i", "<C-Del>", "<C-o>de")
 
 map("n", "<CR>", "o<ESC>")
 map("n", "<S-CR>", "O<ESC>")
-map("n", "<C-A>", "ggVG")
+-- map("n", "<C-A>", "ggVG")
 
 unmap("n", "<S-h>")
 unmap("n", "<S-l>")

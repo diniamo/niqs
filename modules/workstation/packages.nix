@@ -52,6 +52,7 @@ in {
     alsa.support32Bit = true;
     jack.enable = true;
   };
+  services.power-profiles-daemon.enable = true;
 
   fonts.packages = with pkgs; [
     inter
@@ -75,12 +76,12 @@ in {
 
       wl-clipboard
       pulsemixer
-      playerctl
       neovide
       spotify
       trash-cli # TODO: rmtrash in shell configuration
-      power-profiles-daemon
       ungoogled-chromium # For Twitch
+      xfce.thunar
+      yt-dlp
     ];
     flakePackages = with flakePkgs; [
       jerry.jerry

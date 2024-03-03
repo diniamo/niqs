@@ -7,6 +7,7 @@
     ./config.nix
     ./binds.nix
     ./profiles.nix
+    ./uosc.nix
   ];
 
   programs.mpv = {
@@ -14,7 +15,6 @@
 
     scripts = with pkgs.mpvScripts; [
       # Missing: UndoRedo, skip-intro, clipshot, autosubsync
-      uosc
       reload
       thumbfast
       mpris
@@ -22,12 +22,7 @@
       seekTo
       sponsorblock-minimal
     ];
-    scriptOpts = {
-      uosc = {
-        timeline_size_min = 0;
-        use_trash = true;
-      };
-    };
+    # scriptOpts = {};
   };
 
   home.file."${config.xdg.configHome}/mpv/shaders".source = ./shaders;

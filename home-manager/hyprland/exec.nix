@@ -1,7 +1,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      "firefox"
+      "[workspace 1] firefox"
     ];
   };
 }

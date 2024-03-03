@@ -6,19 +6,19 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib) mkIf getExe;
   inherit (pkgs) writeShellScript;
 
   inherit (inputs) nix-gaming;
   inherit (nix-gaming) nixosModules;
 
   startScript = writeShellScript "gamemode-start" ''
-    powerprofilesctl set performance
-    notify-send -a "Gamemode" "Optimizations activated"
+    ${pkgs.power-profiles-daemon}/bin/powerprofilesctl set performance
+    ${getExe pkgs.libnotify} -a "Gamemode" "Optimizations activated"
   '';
   endScript = writeShellScript "gamemode-end" ''
-    powerprofilesctl set balanced
-    notify-send -a "Gamemode" "Optimizations deactivated"
+    ${pkgs.power-profiles-daemon}/bin/powerprofilesctl set balanced
+    ${getExe pkgs.libnotify} -a "Gamemode" "Optimizations deactivated"
   '';
 in {
   imports = [
