@@ -1,7 +1,8 @@
-# configuration.nix(5)
-# https://search.nixos.org/options
-# NixOS manual (`nixos-help`)
-{config, ...}: let
+{
+  config,
+  customPkgs,
+  ...
+}: let
   inherit (config.modules) values;
 in {
   imports = [./hardware.nix];
@@ -21,6 +22,9 @@ in {
       exec-once = ["vesktop"];
     };
   };
+
+  # HACK: this is only for testing
+  environment.systemPackages = [customPkgs.bencode-pretty];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";

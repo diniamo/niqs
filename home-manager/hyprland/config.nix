@@ -42,7 +42,7 @@
       force_default_wallpaper = 0;
       disable_hyprland_logo = true;
       disable_splash_rendering = true;
-      disable_autoreload = false;
+      disable_autoreload = true;
 
       mouse_move_enables_dpms = false;
       key_press_enables_dpms = true;

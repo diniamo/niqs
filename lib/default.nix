@@ -2,6 +2,7 @@
   inherit (inputs.nixpkgs) lib;
   inherit (lib) recursiveUpdate foldl;
 
+  # TODO: Attempt to pass this module instead of lib
   builders = import ./builders.nix {inherit inputs lib;};
   mappers = import ./mappers.nix;
   helpers = import ./helpers.nix {inherit lib;};
