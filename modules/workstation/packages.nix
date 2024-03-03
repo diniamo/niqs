@@ -10,9 +10,9 @@
 
   inherit (config.modules.general) xdgDesktopPortal;
 
-  inherit (config.modules.values) nvidia;
+  inherit (config.modules) values;
   flags =
-    if nvidia
+    if values.nvidia
     then ["--disable-gpu"]
     else [];
   wrapped = inputs.wrapper-manager.lib.build {
@@ -83,9 +83,11 @@ in {
       xfce.thunar
       yt-dlp
     ];
+
+    mpv = config.home-manager.users.${values.mainUser}.programs.mpv.package;
     flakePackages = with flakePkgs; [
-      jerry.jerry
-      lobster.lobster
+      (jerry.jerry.override {inherit mpv;})
+      (lobster.lobster.override {inherit mpv;})
     ];
   in
     nixpkgs ++ flakePackages;
