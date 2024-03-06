@@ -23,6 +23,8 @@ in {
     ./imv.nix
     # ./nixvim.nix
     ./yazi.nix
+    ./zsh.nix
+    ./starship.nix
   ];
 
   home = {

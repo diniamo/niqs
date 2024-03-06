@@ -1,7 +1,7 @@
 {
   inputs,
   system,
-  lib,
+  lib',
   flakePkgs,
   ...
 }: {
@@ -13,8 +13,7 @@
     useUserPackages = true;
     backupFileExtension = "old";
     extraSpecialArgs = {
-      inherit inputs system flakePkgs;
-      lib' = lib;
+      inherit inputs system flakePkgs lib';
     };
     users = {
       diniamo = ../../home-manager;

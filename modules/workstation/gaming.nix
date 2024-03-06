@@ -31,6 +31,7 @@ in {
 
     services.pipewire.lowLatency.enable = true;
     security.rtkit.enable = true;
+    hardware.xpadneo.enable = true;
 
     programs.steam = {
       enable = true;

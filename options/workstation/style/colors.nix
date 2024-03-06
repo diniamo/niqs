@@ -1,11 +1,13 @@
 {
   lib,
+  lib',
   config,
   ...
 }: let
-  inherit (lib) mkOption nameToSlug;
+  inherit (lib) mkOption;
   inherit (lib.types) str enum mkOptionType attrsOf coercedTo;
   inherit (lib.strings) isString hasPrefix removePrefix;
+  inherit (lib') nameToSlug;
 
   getPaletteFromSlug = slug:
     if builtins.pathExists ./palettes/${slug}.nix

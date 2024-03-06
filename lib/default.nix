@@ -5,8 +5,9 @@
   # TODO: Attempt to pass this module instead of lib
   builders = import ./builders.nix {inherit inputs lib;};
   mappers = import ./mappers.nix;
-  helpers = import ./helpers.nix {inherit lib;};
+  helpers = import ./helpers.nix {inherit inputs lib;};
 
   importedLibs = [builders mappers helpers];
 in
-  lib.extend (_: _: foldl recursiveUpdate {} importedLibs)
+  # lib.extend (_: _: foldl recursiveUpdate {} importedLibs)
+  foldl recursiveUpdate {} importedLibs

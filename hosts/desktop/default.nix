@@ -2,7 +2,6 @@
   inherit (config.modules) values;
 in {
   imports = [./hardware.nix];
-  networking.hostName = "${values.mainUser}";
 
   modules = {
     boot.windows_entry = true;
@@ -11,7 +10,7 @@ in {
       qbittorrent.convertSavePaths = {
         enable = true;
         btBackupPath = "/torrent/BT_backup";
-        # 8\ -(nix escaping)> 4\ -(systemd shell escaping)> 2\ (escape in sed) 
+        # 8\ -(nix escaping)> 4\ -(systemd shell escaping)> 2\ (escape in sed)
         windowsMatchPath = "E:[/\\\\\\\\]complete";
         windowsPath = "E:/complete";
         unixPath = "/torrent/complete";
@@ -43,6 +42,9 @@ in {
       exec-once = ["vesktop"];
     };
   };
+
+  networking.hostName = "${values.mainUser}";
+  boot.tmp.useTmpfs = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";

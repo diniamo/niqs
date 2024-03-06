@@ -1,25 +1,34 @@
 {
   pkgs,
   config,
+  lib',
   ...
-}: {
-  home.packages = with pkgs; [
+}: let
+  packages = with pkgs; [
     # For luasnip/jsregexp
     gnumake
 
-    # LSPs and formatters
+    # LSPs
     lua-language-server
     nil
     nodePackages.bash-language-server
     shellcheck
 
+    # Formatters
     alejandra
     stylua
     shfmt
   ];
-
+in {
+  home.packages = packages;
   programs.neovim = {
     enable = true;
+    # package = lib'.wrapPackages {
+    #   neovim = {
+    #     basePackage = pkgs.neovim;
+    #     pathAdd = packages;
+    #   };
+    # };
     defaultEditor = true;
   };
 
