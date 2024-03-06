@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{pkgs, ...}: let
   scripts = with pkgs.mpvScripts; [
     # Missing: UndoRedo, skip-intro, clipshot, autosubsync
     uosc
@@ -31,6 +27,4 @@ in {
       uosc = import ./uosc.nix;
     };
   };
-
-  home.file."${config.xdg.configHome}/mpv/shaders".source = ./shaders;
 }

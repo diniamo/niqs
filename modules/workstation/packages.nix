@@ -3,7 +3,6 @@
   flakePkgs,
   inputs,
   lib,
-  lib',
   config,
   ...
 }: let
@@ -13,21 +12,6 @@
   inherit (config.modules) values;
 
   hmPrograms = config.home-manager.users.${values.mainUser}.programs;
-
-  flags =
-    if values.nvidia
-    then ["--disable-gpu"]
-    else [];
-  wrapped = lib'.wrapPackages pkgs {
-    vesktop = {
-      basePackage = pkgs.vesktop;
-      inherit flags;
-    };
-    obsidian = {
-      basePackage = pkgs.obsidian;
-      inherit flags;
-    };
-  };
 in {
   imports = [
     inputs.hyprland.nixosModules.default
@@ -74,8 +58,6 @@ in {
 
   environment.systemPackages = let
     nixpkgs = with pkgs; [
-      wrapped
-
       wl-clipboard
       pulsemixer
       neovide
@@ -85,6 +67,7 @@ in {
       chatterino2
       xfce.thunar
       yt-dlp
+      fzf
     ];
 
     mpv = hmPrograms.mpv.package;

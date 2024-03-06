@@ -7,15 +7,15 @@
   # packagePaths = [
   #   ./derivations/bencode-pretty.nix
   # ];
-  packagePaths = [
-    ./derivations/bencode-pretty.nix
-  ];
   # Calls said paths
-  called = map (path: pkgs.callPackage path {}) packagePaths;
-in
+  # called = map (path: pkgs.callPackage path {}) packagePaths;
   # Maps the called packages to a set where the key is the name of the package, and the value is the package itself
-  builtins.listToAttrs (map (c: {
-      name = c.pname;
-      value = c;
-    })
-    called)
+  # mapped = builtins.listToAttrs (map (c: {
+  #     name = c.pname;
+  #     value = c;
+  #   })
+  #   called);
+  mkPackage = path: pkgs.callPackage path {};
+in {
+  bencode-pretty = mkPackage ./derivations/bencode-pretty.nix;
+}

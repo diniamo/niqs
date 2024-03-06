@@ -5,7 +5,7 @@
   # TODO: Attempt to pass this module instead of lib
   builders = import ./builders.nix {inherit inputs lib;};
   mappers = import ./mappers.nix;
-  helpers = import ./helpers.nix {inherit inputs lib;};
+  helpers = import ./helpers.nix {inherit lib;};
 
   importedLibs = [builders mappers helpers];
 in

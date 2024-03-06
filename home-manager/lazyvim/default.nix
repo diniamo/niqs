@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  lib',
   ...
 }: let
   packages = with pkgs; [
@@ -23,12 +22,6 @@ in {
   home.packages = packages;
   programs.neovim = {
     enable = true;
-    # package = lib'.wrapPackages {
-    #   neovim = {
-    #     basePackage = pkgs.neovim;
-    #     pathAdd = packages;
-    #   };
-    # };
     defaultEditor = true;
   };
 

@@ -14,5 +14,6 @@ in {
     };
   };
 
+  # Specifying a path pointing directly to the nix store doesn't work for some reason
   home.file."${path}".source = ./themes/${theme}.theme;
 }
