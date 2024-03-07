@@ -7,12 +7,14 @@
   inherit (osConfig.modules) values;
 in {
   imports = [
+    ./wrappers
+
     ./hyprland
     ./style
-    ./lazyvim
     ./anyrun
     ./btop
     ./mpv
+    ./lazyvim
 
     ./xdg.nix
     ./foot.nix

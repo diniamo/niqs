@@ -9,5 +9,6 @@
     ./packages.nix
     ./scripts.nix
     ./cachix.nix
+    ./environment.nix
   ];
 }
