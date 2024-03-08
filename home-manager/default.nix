@@ -7,8 +7,6 @@
   inherit (osConfig.modules) values;
 in {
   imports = [
-    ./wrappers
-
     ./hyprland
     ./style
     ./anyrun

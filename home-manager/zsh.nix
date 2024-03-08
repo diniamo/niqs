@@ -43,6 +43,11 @@
         src = zsh-autopair;
         file = "share/zsh/zsh-autopair/autopair.zsh";
       }
+      {
+        name = "zsh-fzf-history-search";
+        src = zsh-fzf-history-search;
+        file = "share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh";
+      }
     ];
   };
 }

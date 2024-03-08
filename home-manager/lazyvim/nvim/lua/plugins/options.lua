@@ -65,9 +65,15 @@ return {
       local utils = require("utils")
 
       utils.insertMultipleAtPosition(opts.config.center, 5, {
+        action = "Neotree",
+        desc = " File tree",
+        icon = " ",
+        key = "e",
+        key_format = "  %s",
+      }, {
         action = utils.inputZoxide,
         desc = " Zoxide Jump",
-        icon = " ",
+        icon = "󰿚 ",
         key = "z",
         key_format = "  %s",
       }, {
@@ -95,7 +101,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {},
-      auto_install = true
-    }
-  }
+      auto_install = true,
+    },
+  },
 }

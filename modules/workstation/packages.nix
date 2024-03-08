@@ -12,6 +12,28 @@
   inherit (config.modules) values;
 
   hmPrograms = config.home-manager.users.${values.mainUser}.programs;
+
+  flags =
+    if values.nvidia
+    then ["--disable-gpu"]
+    else [];
+  wrapped = inputs.wrapper-manager.lib.build {
+    inherit pkgs;
+    modules = [
+      {
+        wrappers = {
+          vesktop = {
+            basePackage = pkgs.vesktop;
+            inherit flags;
+          };
+          obsidian = {
+            basePackage = pkgs.obsidian;
+            inherit flags;
+          };
+        };
+      }
+    ];
+  };
 in {
   imports = [
     inputs.hyprland.nixosModules.default
@@ -58,6 +80,8 @@ in {
 
   environment.systemPackages = let
     nixpkgs = with pkgs; [
+      wrapped
+
       wl-clipboard
       pulsemixer
       neovide

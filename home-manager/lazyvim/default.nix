@@ -1,7 +1,11 @@
-{config, ...}: {
+{
+  config,
+  wrappedPkgs,
+  ...
+}: {
   programs.neovim = {
     enable = true;
-    package = config.wrappedPkgs.neovim;
+    package = wrappedPkgs.neovim;
     defaultEditor = true;
   };
 

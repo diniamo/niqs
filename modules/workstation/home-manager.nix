@@ -3,6 +3,7 @@
   system,
   lib',
   flakePkgs,
+  wrappedPkgs,
   ...
 }: {
   imports = [inputs.home-manager.nixosModules.home-manager];
@@ -13,7 +14,7 @@
     useUserPackages = true;
     backupFileExtension = "old";
     extraSpecialArgs = {
-      inherit inputs system flakePkgs lib';
+      inherit inputs system flakePkgs wrappedPkgs lib';
     };
     users = {
       diniamo = ../../home-manager;
