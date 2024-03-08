@@ -26,14 +26,15 @@
   '';
 
   rebuild = writeShellScriptBin "rebuild" ''
-    flake="$(${getSystemFlake} $@)"
-    nixos-rebuild --use-remote-sudo switch --flake "$flake"
+    flake="$(${getSystemFlake} $1)"
+    shift
+    nixos-rebuild --use-remote-sudo switch --flake "$flake" $@
   '';
 
-  rebuildFull = writeShellScriptBin "rebuild-full" ''
+  rebuildFull = writeShellScriptBin "rebuildfull" ''
     set -e
 
-    flake="$(${getSystemFlake} $@)"
+    flake="$(${getSystemFlake} $1)"
     flake_root="$(cut -d"#" -f1 <<< "$flake")"
     cd "$flake_root"
 
@@ -44,7 +45,8 @@
     ${getExe pkgs.statix} fix
     ${getExe pkgs.alejandra} -q .
 
-    nixos-rebuild --use-remote-sudo switch --flake "$flake"
+    shift
+    nixos-rebuild --use-remote-sudo switch --flake "$flake" $@
   '';
 in {
   environment.systemPackages = [
