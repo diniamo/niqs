@@ -3,25 +3,37 @@
   lib,
   ...
 }: let
-  inherit (pkgs) writeShellScriptBin;
+  inherit (pkgs) writeShellScript writeShellScriptBin;
   inherit (lib) getExe;
 
-  rebuild = writeShellScriptBin "rebuild" ''
-    set -e
+  getSystemFlake = writeShellScript "get-flake-path" ''
+    stored_flake_path="''${XDG_STATE_HOME:-$HOME/.local/state}/rebuild_flake"
 
-    flake_path="''${XDG_STATE_HOME:-$HOME/.local/state}/rebuild_flake"
     if [ -z "$1" ]; then
-      if [ -f "$flake_path" ]; then
-        flake="$(cat "$flake_path")"
+      if [ -f "$stored_flake_path" ]; then
+        flake="$(cat "$stored_flake_path")"
       else
-        printf "No flake path supplied, and non stored"
-        exit 1
+        printf "Flake path: " 1>&2
+        read -r flake
+        printf "%s" "$flake" > "$stored_flake_path"
       fi
     else
       flake="$1"
-      printf "%s" "$flake" > "$flake_path"
+      printf "%s" "$flake" > "$stored_flake_path"
     fi
 
+    printf "%s" "$flake"
+  '';
+
+  rebuild = writeShellScriptBin "rebuild" ''
+    flake="$(${getSystemFlake} $@)"
+    nixos-rebuild --use-remote-sudo switch --flake "$flake"
+  '';
+
+  rebuildFull = writeShellScriptBin "rebuild-full" ''
+    set -e
+
+    flake="$(${getSystemFlake} $@)"
     flake_root="$(cut -d"#" -f1 <<< "$flake")"
     cd "$flake_root"
 
@@ -32,10 +44,11 @@
     ${getExe pkgs.statix} fix
     ${getExe pkgs.alejandra} -q .
 
-    ${getExe pkgs.nixos-rebuild} --use-remote-sudo switch --flake "$flake"
+    nixos-rebuild --use-remote-sudo switch --flake "$flake"
   '';
 in {
   environment.systemPackages = [
     rebuild
+    rebuildFull
   ];
 }
