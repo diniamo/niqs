@@ -37,9 +37,9 @@ in {
         "10, monitor:DP-2,default:true"
       ];
       windowrule = [
-        "workspace 10,vesktop"
+        "workspace 10, webcord"
       ];
-      exec-once = ["vesktop"];
+      exec-once = ["webcord"];
     };
   };
 

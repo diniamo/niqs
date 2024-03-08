@@ -26,31 +26,30 @@
   '';
 
   rebuild = writeShellScriptBin "rebuild" ''
-    flake="$(${getSystemFlake} $1)"
-    shift
-    nixos-rebuild --use-remote-sudo switch --flake "$flake" $@
-  '';
-
-  rebuildFull = writeShellScriptBin "rebuildfull" ''
     set -e
 
-    flake="$(${getSystemFlake} $1)"
-    flake_root="$(cut -d"#" -f1 <<< "$flake")"
-    cd "$flake_root"
+    if [ "$1" = "full" ]; then
+      flake="$(${getSystemFlake} "$2")"
+      flake_root="$(cut -d"#" -f1 <<< "$flake")"
+      cd "$flake_root"
 
-    # Adds every every untracked file to the index
-    ${getExe pkgs.git} add -AN
+      # Adds every every untracked file to the index
+      ${getExe pkgs.git} add -AN
 
-    ${getExe pkgs.deadnix} -eq ./**/*.nix
-    ${getExe pkgs.statix} fix
-    ${getExe pkgs.alejandra} -q .
+      ${getExe pkgs.deadnix} -eq ./**/*.nix
+      ${getExe pkgs.statix} fix
+      ${getExe pkgs.alejandra} -q .
 
-    shift
-    nixos-rebuild --use-remote-sudo switch --flake "$flake" $@
+      shift
+    else
+      flake="$(${getSystemFlake} "$1")"
+    fi
+
+    [ -n "$1" ] && shift
+    nixos-rebuild --use-remote-sudo switch --flake "$flake" "$@"
   '';
 in {
   environment.systemPackages = [
     rebuild
-    rebuildFull
   ];
 }

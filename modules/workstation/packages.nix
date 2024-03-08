@@ -22,8 +22,8 @@
     modules = [
       {
         wrappers = {
-          vesktop = {
-            basePackage = pkgs.vesktop;
+          discord = {
+            basePackage = pkgs.webcord;
             inherit flags;
           };
           obsidian = {
