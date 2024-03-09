@@ -12,9 +12,26 @@ in {
     package = pkgs.foot;
     settings = {
       main = {
+        term = "xterm-256color";
+
+        selection-target = "clipboard";
+
         font = "JetBrainsMono Nerd Font Mono:size=11";
         pad = "10x0 center";
       };
+      scrollback = {
+        lines = 10000;
+      };
+      tweak = {
+        font-monospace-warn = "no";
+      };
+      cursor = {
+        style = "beam";
+      };
+      mouse = {
+        hide-when-typing = "yes";
+      };
+
       colors = {
         foreground = "${colors.base05}"; # Text
         background = "${colors.base00}"; # Base

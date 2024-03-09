@@ -24,7 +24,6 @@
 
     printf "%s" "$flake"
   '';
-
   rebuild = writeShellScriptBin "rebuild" ''
     set -e
 

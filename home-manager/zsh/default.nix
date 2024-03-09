@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   programs.zsh = {
@@ -22,7 +23,29 @@
       ignoreSpace = true;
     };
 
+    initExtraFirst = ''
+      # This is needed because otherwise, keybinds (from other plugins too) are overwritten, and it's hard to get around that
+      ZVM_INIT_MODE=sourcing
+    '';
+
+    initExtra = ''
+      ${import ./opts.nix {inherit lib;}}
+
+      source ${./hooks.zsh}
+      source ${./funcs.zsh}
+    '';
+
+    shellAliases = {
+      # Needed for aliases
+      sudo = "sudo ";
+    };
+
     plugins = with pkgs; [
+      {
+        name = "zsh-vi-mode";
+        src = zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
       {
         name = "zsh-nix-shell";
         src = zsh-nix-shell;

@@ -13,6 +13,7 @@ in {
     ./btop
     ./mpv
     ./lazyvim
+    ./zsh
 
     ./xdg.nix
     ./foot.nix
@@ -23,7 +24,6 @@ in {
     ./imv.nix
     # ./nixvim.nix
     ./yazi.nix
-    ./zsh.nix
     ./starship.nix
   ];
 
