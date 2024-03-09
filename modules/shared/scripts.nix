@@ -27,8 +27,23 @@
   rebuild = writeShellScriptBin "rebuild" ''
     set -e
 
-    if [ "$1" = "full" ]; then
-      flake="$(${getSystemFlake} "$2")"
+    declare -a extra_args
+    for arg in "$@"; do
+      case "$arg" in
+        full)
+          full=true
+          ;;
+        -*)
+          extra_args+=("$arg")
+          ;;
+        *)
+          flake="$(${getSystemFlake} "$arg")"
+          ;;
+      esac
+    done
+    [[ -z "$flake" ]] && flake="$(${getSystemFlake})"
+
+    if ''${full:-false}; then
       flake_root="$(cut -d"#" -f1 <<< "$flake")"
       cd "$flake_root"
 
@@ -38,14 +53,9 @@
       ${getExe pkgs.deadnix} -eq ./**/*.nix
       ${getExe pkgs.statix} fix
       ${getExe pkgs.alejandra} -q .
-
-      shift
-    else
-      flake="$(${getSystemFlake} "$1")"
     fi
 
-    [ -n "$1" ] && shift
-    nixos-rebuild --use-remote-sudo switch --flake "$flake" "$@"
+    nixos-rebuild --use-remote-sudo switch --flake "$flake" "''${extra_args[@]}"
   '';
 in {
   environment.systemPackages = [
