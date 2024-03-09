@@ -14,6 +14,7 @@ in {
     ./mpv
     ./lazyvim
     ./zsh
+    ./zathura
 
     ./xdg.nix
     ./foot.nix
@@ -25,6 +26,7 @@ in {
     # ./nixvim.nix
     ./yazi.nix
     ./starship.nix
+    ./zoxide.nix
   ];
 
   home = {

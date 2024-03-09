@@ -23,7 +23,7 @@ in {
     initExtraFirst = ''
       [[ "$(tty)" == "/dev/tty" ]] && exec Hyprland
 
-      ZSH_AUTOSUGGEST_STRATEGY=(history completion) 
+      ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
       # This is needed because otherwise, keybinds (from other plugins too) are overwritten, and it's hard to get around that
       ZVM_INIT_MODE="sourcing"
@@ -68,6 +68,7 @@ in {
       ip6 = "${getExe dig} @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short -6";
       mp = "mkdir -p";
       page = "$PAGER";
+      open = "xdg-open";
 
       # eza
       ls = "${getExe eza} --git --icons --color=auto --group-directories-first";

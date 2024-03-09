@@ -93,6 +93,7 @@ in {
       yt-dlp
       fzf
       xdragon
+      libreoffice
     ];
 
     mpv = hmPrograms.mpv.package;
