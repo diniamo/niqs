@@ -25,7 +25,6 @@
       # gamut-mapping-mode = "clip";
       # hdr-compute-peak = false;
 
-      # TODO: shaders
       glsl-shader = [
         "${./shaders/FSRCNNX_x2_8-0-4-1_LineArt.glsl}"
         "${./shaders/SSimDownscaler.glsl}"

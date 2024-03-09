@@ -3,16 +3,12 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  inherit (lib) getExe getExe';
+in {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
-
-    # Use fzf-tab instead
-    enableCompletion = false;
-    enableAutosuggestions = true;
-    # Use fast-syntax-highlighting instead
-    syntaxHighlighting.enable = false;
 
     history = {
       share = true;
@@ -23,21 +19,67 @@
       ignoreSpace = true;
     };
 
+    # TODO: proper login manager
     initExtraFirst = ''
+      [[ "$(tty)" == "/dev/tty" ]] && exec Hyprland
+
+      ZSH_AUTOSUGGEST_STRATEGY=(history completion) 
+
       # This is needed because otherwise, keybinds (from other plugins too) are overwritten, and it's hard to get around that
-      ZVM_INIT_MODE=sourcing
+      ZVM_INIT_MODE="sourcing"
     '';
 
     initExtra = ''
       ${import ./opts.nix {inherit lib;}}
 
+      autoload -Uz up-line-or-beginning-search
+      autoload -Uz down-line-or-beginning-search
+      zle -N up-line-or-beginning-search
+      zle -N down-line-or-beginning-search
+
+      bindkey "^H" backward-kill-word
+      bindkey "^[[3;5~" kill-word
+
+      bindkey "^@" autosuggest-execute
+      bindkey "^[[A" up-line-or-beginning-search
+      bindkey "^[[B" down-line-or-beginning-search
+      bindkey -M vicmd "^@" autosuggest-execute
+      bindkey -M vicmd "k" up-line-or-beginning-search
+      bindkey -M vicmd "j" down-line-or-beginning-search
+
       source ${./hooks.zsh}
       source ${./funcs.zsh}
     '';
 
-    shellAliases = {
+    shellAliases = with pkgs; {
       # Needed for aliases
       sudo = "sudo ";
+      listxwl = "hyprctl -j clients | jq -r '.[] | select( [ .xwayland == true ] | any ) | .title' | awk 'NF'";
+      v = "nvim";
+      # Create a file with execute permissions
+      xtouch = "install /dev/null";
+      rm = "${getExe' rmtrash "rmtrash"}";
+      rmd = "command rm";
+      hash = "sha256sum";
+      copy = "wl-copy";
+      paste = "wl-paste";
+      ip = "${getExe dig} @resolver4.opendns.com myip.opendns.com +short";
+      ip4 = "${getExe dig} @resolver4.opendns.com myip.opendns.com +short -4";
+      ip6 = "${getExe dig} @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short -6";
+      mp = "mkdir -p";
+      page = "$PAGER";
+
+      # eza
+      ls = "${getExe eza} --git --icons --color=auto --group-directories-first";
+      l = "ls -lh --time-style=long-iso";
+      ll = "l -a";
+      la = "ls -a";
+      tree = "ls --tree";
+      lt = "tree";
+
+      # Suffix aliases
+      "-s git" = "git clone";
+      "-s py" = "python";
     };
 
     plugins = with pkgs; [
@@ -50,6 +92,11 @@
         name = "zsh-nix-shell";
         src = zsh-nix-shell;
         file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
+      }
+      {
+        name = "zsh-autosuggestions";
+        src = zsh-autosuggestions;
+        file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
       }
       {
         name = "fzf-tab";

@@ -16,3 +16,33 @@ contaminate() {
     print "$1" "does not exist!"
   fi
 }
+
+yazi() {
+  local tmp="$(mktemp)"
+  command yazi "$@" --cwd-file="$tmp"
+  local cwd="$(cat "$tmp")"
+  [[ -n "$cwd" && "$cwd" != "$PWD" ]] && cd "$cwd"
+}
+
+xv() {
+  [[ -z "$1" ]] && return
+  if [[ -f "$1" ]]; then
+    chmod +x "$1"
+  else
+    install /dev/null "$1"
+  fi
+  nvim "$1"
+}
+
+..() {
+  if [[ -z "$1" ]]; then
+      cd ..
+  else
+    cd `awk "BEGIN {while (c++<$1) printf \"../\"}"`
+  fi
+}
+
+mcd() {
+  [[ -d "$1" ]] || mkdir -p "$1"
+  cd "$1"
+}

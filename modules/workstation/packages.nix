@@ -86,12 +86,13 @@ in {
       pulsemixer
       neovide
       spotify
-      trash-cli # TODO: rmtrash in shell configuration
+      trash-cli
       streamlink-twitch-gui-bin
       chatterino2
       xfce.thunar
       yt-dlp
       fzf
+      xdragon
     ];
 
     mpv = hmPrograms.mpv.package;
