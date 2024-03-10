@@ -5,7 +5,7 @@
   customPkgs,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib) mkIf mkEnableOption types mkOption;
   inherit (pkgs) writeShellScript;
 
   bencodeBin = "${customPkgs.bencode-pretty}/bin";
@@ -21,21 +21,47 @@
     done
   '';
 
-  cfg = config.modules.general.qbittorrent.convertSavePaths;
+  cfg = config.modules.qbittorrent.convertSavePaths;
 in {
-  environment.systemPackages = [pkgs.qbittorrent];
-
-  systemd.services.convertQbittorrentSavepaths = mkIf cfg.enable {
-    description = "Convert the qBittorrent savepaths on startup and shutdown";
-    after = ["multi-user.target"];
-
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStart = "${script} ${cfg.btBackupPath} ${cfg.windowsMatchPath} ${cfg.unixPath}";
-      ExecStop = "${script} ${cfg.btBackupPath} ${cfg.unixPath} ${cfg.windowsPath}";
+  options = {
+    modules.qbittorrent = {
+      convertSavePaths = {
+        enable = mkEnableOption "Convert savepaths from and to Windows on startup and shutdown respectively";
+        btBackupPath = mkOption {
+          type = types.nonEmptyStr;
+          description = "Path to the BT_Backup directory";
+        };
+        windowsMatchPath = mkOption {
+          type = types.nonEmptyStr;
+          description = "A plain sed pattern to match for replacing the Windows path";
+        };
+        windowsPath = mkOption {
+          type = types.nonEmptyStr;
+          description = "Path to the torrent folder on Windows";
+        };
+        unixPath = mkOption {
+          type = types.nonEmptyStr;
+          description = "Path to the torrent folder on Unix";
+        };
+      };
     };
+  };
 
-    wantedBy = ["multi-user.target"];
+  config = {
+    environment.systemPackages = [pkgs.qbittorrent];
+
+    systemd.services.convertQbittorrentSavepaths = mkIf cfg.enable {
+      description = "Convert the qBittorrent savepaths on startup and shutdown";
+      after = ["multi-user.target"];
+
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+        ExecStart = "${script} ${cfg.btBackupPath} ${cfg.windowsMatchPath} ${cfg.unixPath}";
+        ExecStop = "${script} ${cfg.btBackupPath} ${cfg.unixPath} ${cfg.windowsPath}";
+      };
+
+      wantedBy = ["multi-user.target"];
+    };
   };
 }

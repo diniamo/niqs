@@ -5,14 +5,13 @@
   ...
 }: let
   inherit (lib) mkOption types;
-
-  cfg = config.modules.style;
+  cfg = config.modules.style.qt;
 in {
   options.modules.style.qt = {
     kdeglobals.source = mkOption {
       type = types.path;
       description = "The source file for kdeglobals";
-      default = "${cfg.qt.theme.package}/share/color-schemes/CatppuccinMacchiatoBlue.colors";
+      default = "${cfg.theme.package}/share/color-schemes/CatppuccinMacchiatoBlue.colors";
     };
 
     theme = {

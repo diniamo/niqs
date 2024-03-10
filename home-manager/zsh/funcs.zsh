@@ -46,3 +46,23 @@ mcd() {
   [[ -d "$1" ]] || mkdir -p "$1"
   cd "$1"
 }
+
+copypath() {
+  if [[ -n "$1" ]]; then
+    value="$(realpath -s "$1")"
+    print "Copying" "$value"
+    wl-copy <<<"$value"
+  else
+    print "Copying" "$PWD"
+    pwd | wl-copy
+  fi
+}
+
+copyfile() {
+  if [[ -f "$1" ]]; then
+    print "Copying the contents of" "$1"
+    cat "$1" | wl-copy
+  else
+    print "$1" "not found"
+  fi
+}

@@ -30,7 +30,7 @@
     keyMap = "hu";
   };
 
-  users.users.${config.modules.values.mainUser} = {
+  users.users.${config.values.mainUser} = {
     isNormalUser = true;
     extraGroups = ["wheel"];
   };

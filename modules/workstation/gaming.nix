@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf getExe;
+  inherit (lib) mkIf getExe mkEnableOption;
   inherit (pkgs) writeShellScript;
 
   inherit (inputs) nix-gaming;
@@ -20,13 +20,21 @@
     ${pkgs.power-profiles-daemon}/bin/powerprofilesctl set balanced
     ${getExe pkgs.libnotify} -a "Gamemode" "Optimizations deactivated"
   '';
+
+  cfg = config.modules.gaming;
 in {
   imports = [
     nixosModules.pipewireLowLatency
     nixosModules.steamCompat
   ];
 
-  config = mkIf config.modules.general.gaming.enable {
+  options = {
+    modules.gaming = {
+      enable = mkEnableOption "Enable the gaming module";
+    };
+  };
+
+  config = mkIf cfg.enable {
     nixpkgs.config.allowUnfree = true;
 
     services.pipewire.lowLatency.enable = true;

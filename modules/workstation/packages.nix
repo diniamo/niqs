@@ -8,13 +8,13 @@
 }: let
   inherit (lib) throwIf versionOlder;
 
-  inherit (config.modules.general) xdgDesktopPortal;
-  inherit (config.modules) values;
+  inherit (config) values;
+  xdgPortalName = config.xdg.portal.name;
 
   hmPrograms = config.home-manager.users.${values.mainUser}.programs;
 
   flags =
-    if values.nvidia
+    if config.modules.nvidia.enable
     then ["--disable-gpu"]
     else [];
   wrapped = inputs.wrapper-manager.lib.build {
@@ -42,8 +42,8 @@ in {
   programs.hyprland.enable = true;
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs."xdg-desktop-portal-${xdgDesktopPortal}"];
-    config.common.default = ["hyprland" "${xdgDesktopPortal}"];
+    extraPortals = [pkgs."xdg-desktop-portal-${xdgPortalName}"];
+    config.common.default = ["hyprland" "${xdgPortalName}"];
   };
 
   services.pipewire = {
@@ -83,7 +83,6 @@ in {
       wrapped
 
       wl-clipboard
-      pulsemixer
       neovide
       spotify
       trash-cli

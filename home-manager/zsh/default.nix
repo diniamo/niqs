@@ -21,7 +21,7 @@ in {
 
     # TODO: proper login manager
     initExtraFirst = ''
-      [[ "$(tty)" == "/dev/tty" ]] && exec Hyprland
+      [[ "$(tty)" == "/dev/tty1" ]] && exec Hyprland
 
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
@@ -41,8 +41,8 @@ in {
       bindkey "^[[3;5~" kill-word
 
       bindkey "^@" autosuggest-execute
-      bindkey "^[[A" up-line-or-beginning-search
-      bindkey "^[[B" down-line-or-beginning-search
+      bindkey "^K" up-line-or-beginning-search
+      bindkey "^J" down-line-or-beginning-search
       bindkey -M vicmd "^@" autosuggest-execute
       bindkey -M vicmd "k" up-line-or-beginning-search
       bindkey -M vicmd "j" down-line-or-beginning-search

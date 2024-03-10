@@ -2,7 +2,6 @@
   inherit (lib') mkNixosSystem;
 
   modulePath = ../modules;
-  extrasPath = modulePath + /extras;
 
   shared = modulePath + /shared;
   workstation = modulePath + /workstation;
@@ -16,7 +15,6 @@ in {
       ./desktop
       shared
       workstation
-      (extrasPath + /nvidia.nix)
     ];
     inherit specialArgs;
   };

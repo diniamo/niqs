@@ -11,6 +11,7 @@ in {
     settings = {
       color_theme = path;
       vim_keys = true;
+      show_boxes = "proc cpu";
     };
   };
 

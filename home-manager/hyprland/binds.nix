@@ -14,9 +14,9 @@
 
   playerctl = "${getExe pkgs.playerctl}";
 
-  inherit (import ./scripts.nix {inherit pkgs getExe;}) pin;
+  scripts = import ./scripts.nix {inherit pkgs getExe;};
 
-  inherit (osConfig.modules.values) terminal;
+  inherit (osConfig.values) terminal;
 in {
   wayland.windowManager.hyprland.settings = {
     bind = [
@@ -31,11 +31,14 @@ in {
       "${mod}, Space, exec, anyrun"
       # TODO: cliphist, powermenu
 
-      # TODO: scratchpads
+      "${mod}, d, exec, ${scripts.scratchpad} 'terminal' '${terminal}'"
+      "${mod}, m, exec, ${scripts.scratchpad} 'mixer' '${terminal} -- pulsemixer'"
+      # This is subject to change, but I use the official spotify app, because neither of the tui ones work well enough
+      "${mod}, g, exec, ${scripts.scratchpad} 'music' 'spotify'"
+      "${mod}, c, exec, ${scripts.scratchpad} 'calculator' '${terminal} -- ${pkgs.libqalculate}'"
 
       ", XF86Explorer, exec, sleep 1 && hyprctl dispatch dpms off"
       ", XF86HomePage, exec, firefox"
-      # TODO: calculator and msuic scratchpad
 
       ", Print, exec, grimblast --notify copy output"
       "${ctrl}, Print, exec, grimblast --notify --freeze copy area"
@@ -106,10 +109,11 @@ in {
       "${mod}${shift}${secondary}, 0, movetoworkspace, 0"
 
       "${mod}, t, togglefloating"
-      "${mod}, s, exec, ${pin}"
+      "${mod}, s, exec, ${scripts.pin}"
       ", F11, fullscreen, 0"
       "${mod}, f, fullscreen, 1"
 
+      "${mod}, x, exec, wlogout --show-binds"
       "${mod}${secondary}, x, exec, ${getExe pkgs.gnome.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=windows.conf"
     ];
     binde = [

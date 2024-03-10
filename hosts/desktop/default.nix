@@ -1,20 +1,19 @@
 {config, ...}: let
-  inherit (config.modules) values;
+  inherit (config) values;
 in {
   imports = [./hardware.nix];
 
   modules = {
     boot.windows_entry = true;
-    general = {
-      gaming.enable = true;
-      qbittorrent.convertSavePaths = {
-        enable = true;
-        btBackupPath = "/torrent/BT_backup";
-        # 8\ -(nix escaping)> 4\ -(systemd shell escaping)> 2\ (escape in sed)
-        windowsMatchPath = "E:[/\\\\\\\\]complete";
-        windowsPath = "E:/complete";
-        unixPath = "/torrent/complete";
-      };
+    nvidia.enable = true;
+    gaming.enable = true;
+    qbittorrent.convertSavePaths = {
+      enable = true;
+      btBackupPath = "/torrent/BT_backup";
+      # 8\ -(nix escaping)> 4\ -(systemd shell escaping)> 2\ (escape in sed)
+      windowsMatchPath = "E:[/\\\\\\\\]complete";
+      windowsPath = "E:/complete";
+      unixPath = "/torrent/complete";
     };
   };
 

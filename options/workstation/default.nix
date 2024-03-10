@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./style
-
-    ./general.nix
-  ];
-}

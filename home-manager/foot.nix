@@ -17,7 +17,7 @@ in {
         selection-target = "clipboard";
 
         font = "JetBrainsMono Nerd Font Mono:size=11";
-        pad = "10x0 center";
+        pad = "10x10 center";
       };
       scrollback = {
         lines = 10000;

@@ -1,6 +1,4 @@
 {
-  pkgs,
-  lib,
   osConfig,
   ...
 }: let
@@ -10,7 +8,7 @@ in {
     kdeglobals.source = cfg.qt.kdeglobals.source;
   };
 
-  home.packages = with pkgs; [
+  home.packages = [
     cfg.qt.theme.package
   ];
 

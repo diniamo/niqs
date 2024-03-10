@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (lib) mkDefault;
-  inherit (osConfig.modules) values;
+  inherit (osConfig) values;
 in {
   imports = [
     ./hyprland
@@ -27,6 +27,7 @@ in {
     ./yazi.nix
     ./starship.nix
     ./zoxide.nix
+    ./wlogout.nix
   ];
 
   home = {
