@@ -15,6 +15,7 @@ in {
     ./lazyvim
     ./zsh
     ./zathura
+    ./bat
 
     ./xdg.nix
     ./foot.nix

@@ -70,7 +70,5 @@ in {
     };
   };
 
-  home.packages = with pkgs; [
-    xdg-utils
-  ];
+  home.packages = [pkgs.xdg-utils];
 }
