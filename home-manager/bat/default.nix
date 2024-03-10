@@ -5,7 +5,7 @@
       theme = "default";
     };
     themes = {
-      default = { src = ./themes/${osConfig.modules.style.colorScheme.slug}.tmTheme; };
+      default = {src = ./themes/${osConfig.modules.style.colorScheme.slug}.tmTheme;};
     };
   };
 }

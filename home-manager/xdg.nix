@@ -1,12 +1,15 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: let
   browser = ["Schizofox.desktop"];
   documentViewer = ["org.pwmt.zathura.desktop.desktop"];
   fileManager = ["thunar.desktop"];
   editor = ["neovide.desktop"];
+  imageViewer = ["imv.desktop"];
+  mediaPlayer = ["mpv.desktop"];
 
   associations = {
     "text/html" = browser;
@@ -24,15 +27,24 @@
 
     "inode/directory" = fileManager;
 
-    "audio/*" = ["mpv.desktop"];
-    "video/*" = ["mpv.dekstop"];
-    "image/*" = ["imv.desktop"];
-    "text/*" = editor;
     "application/json" = browser;
     "application/pdf" = documentViewer;
     "x-scheme-handler/spotify" = ["spotify.desktop"];
-    "x-scheme-handler/discord" = ["vesktop.desktop"];
+    "x-scheme-handler/discord" = ["webcord.desktop"];
   };
+  globAssociations = {
+    "audio/*" = mediaPlayer;
+    "video/*" = mediaPlayer;
+    "image/*" = imageViewer;
+    "text/*" = editor;
+  };
+
+  inherit (lib.attrsets) mapAttrsToList genAttrs;
+  inherit (lib.strings) splitString hasPrefix removeSuffix;
+  inherit (lib) mergeAttrsList;
+  commonTypes = splitString "\n" (builtins.readFile "${pkgs.shared-mime-info}/share/mime/types");
+  # Glob expansion that only works if the * is at the end, I do NOT want to touch this line ever again
+  expandedAssociations = mergeAttrsList (mapAttrsToList (name: value: genAttrs (builtins.filter (type: hasPrefix (removeSuffix "*" name) type) commonTypes) (_: value)) globAssociations);
 in {
   xdg = {
     enable = true;
@@ -65,8 +77,7 @@ in {
     mime.enable = true;
     mimeApps = {
       enable = true;
-      associations.added = associations;
-      defaultApplications = associations;
+      defaultApplications = associations // expandedAssociations;
     };
   };
 
