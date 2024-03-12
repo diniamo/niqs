@@ -35,7 +35,6 @@ in {
         applications
         rink
         symbols
-        websearch
         shell
         dictionary
         translate
@@ -77,12 +76,6 @@ in {
           prefix: ";",
           language_delimiter: ">",
           max_entries: 3
-        )
-      '';
-      "websearch.ron".text = ''
-        Config(
-          prefix: "?",
-          engines: [Custom(name: "Startpage", url: "startpage.com/do/search?query={}")]
         )
       '';
     };
