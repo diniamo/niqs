@@ -11,6 +11,12 @@ contaminate() {
         print "Contaminating" "$1"
         mv "$1" "$1.pure"
         install -m 644 "$1.pure" "$1"
+
+        print -n "Edit it? [Y/n] "
+        read -r answer
+        if [[ -z "$answer" || "$answer" =~ [yY] ]]
+            "$EDITOR" -- "$1"
+        fi
     fi
   else
     print "$1" "does not exist!"

@@ -22,5 +22,6 @@ in {
 
   mpvScripts = {
     SimpleUndo = mkMpvPackage ./derivations/mpvScripts/SimpleUndo.nix;
+    skiptosilence = mkMpvPackage ./derivations/mpvScripts/skiptosilence.nix;
   };
 }
