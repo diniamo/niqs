@@ -1,8 +1,4 @@
-{
-  config,
-  wrappedPkgs,
-  ...
-}: {
+{wrappedPkgs, ...}: {
   programs.neovim = {
     enable = true;
     package = wrappedPkgs.neovim;
@@ -10,7 +6,7 @@
   };
 
   # TODO: find a way to have the configuration specified in the wrapped package
-  home.file."${config.xdg.configHome}/nvim" = {
+  xdg.configFile.nvim = {
     source = ./nvim;
     recursive = true;
   };

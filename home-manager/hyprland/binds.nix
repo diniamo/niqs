@@ -29,7 +29,8 @@ in {
       "${mod}${secondary}, q, exec, kill -9 $(hyprctl -j activewindow | ${getExe pkgs.jq} -r '.pid')"
 
       "${mod}, Space, exec, anyrun"
-      # TODO: cliphist, powermenu
+      "${mod}, x, exec, wlogout --show-binds"
+      # TODO: cliphist
 
       "${mod}, d, exec, ${scripts.scratchpad} 'terminal' '${terminal}'"
       "${mod}, m, exec, ${scripts.scratchpad} 'mixer' '${terminal} -- ${getExe pkgs.pulsemixer}'"
@@ -61,7 +62,9 @@ in {
 
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-      # TODO: open video, image, link
+      ''${mod}${secondary}, m, exec, ${getExe pkgs.libnotify} "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
+      ''${mod}${secondary}, i, exec, ${scripts.openImage}""''
+      ''${mod}${secondary}, w, exec, ${getExe pkgs.libnotify} "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
 
       "${mod}, h, movefocus, l"
       "${mod}, j, movefocus, d"
@@ -115,7 +118,6 @@ in {
       ", F11, fullscreen, 0"
       "${mod}, f, fullscreen, 1"
 
-      "${mod}, x, exec, wlogout --show-binds"
       "${mod}${secondary}, x, exec, ${getExe pkgs.gnome.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=windows.conf"
     ];
     binde = [

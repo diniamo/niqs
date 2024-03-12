@@ -3,6 +3,7 @@
   fetchFromGitHub,
   gnumake,
   gcc,
+  lib,
 }:
 stdenv.mkDerivation {
   pname = "bencode-pretty";
@@ -22,13 +23,12 @@ stdenv.mkDerivation {
   '';
   installPhase = ''
     mkdir -p $out/bin
-    install -D bencode_pretty bencode_prettier bencode_prettiest bencode_unpretty $out/bin
+    install -Dm755 bencode_pretty bencode_prettier bencode_prettiest bencode_unpretty $out/bin
   '';
 
   meta = {
     description = "Programs to create a \"pretty\" version of a bencoded file that can be easily examined and edited, and another to \"unpretty\" it again.";
     homepage = "https://github.com/tool-maker/bencode-pretty";
-    #   license = lib.licenses.;
-    #   maintainers = with lib.maintainers; [  ];
+    maintainers = with lib.maintainers; [diniamo];
   };
 }

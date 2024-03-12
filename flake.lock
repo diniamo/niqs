@@ -340,11 +340,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1708887042,
-        "narHash": "sha256-lgFsTpIb6i2QNDap9zMUE1qvvVMeMqsyENUMI0xN0Ro=",
+        "lastModified": 1710018569,
+        "narHash": "sha256-+V3jlWXemYhYWPqWD0RfnuHcJo0BCzwsvG7gjP2qOEg=",
         "owner": "justchokingaround",
         "repo": "jerry",
-        "rev": "a5e3bdae8ec49fa3fb0aa71f8f71cc0695612518",
+        "rev": "a49fbc01858a64ec4eac2f359a144b94c6afc8e1",
         "type": "github"
       },
       "original": {

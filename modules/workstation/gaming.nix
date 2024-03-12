@@ -49,6 +49,21 @@ in {
     };
     programs.gamescope = {
       enable = true;
+      package = let
+        inherit (lib) throwIf versionOlder;
+        inherit (pkgs) gamescope fetchFromGitHub;
+      in
+        throwIf (versionOlder "3.14.2" gamescope.version) "A new version of gamescope has been released, remove this override" (gamescope.overrideAttrs (_: oldAttrs: {
+          src = fetchFromGitHub {
+            owner = "ValveSoftware";
+            repo = "gamescope";
+            rev = "ee0143a8792b03cd64e3f29b074b299c498d14af";
+            fetchSubmodules = true;
+            hash = "sha256-ZTlJeFf0EZfeHGoEGQSewxdhU2x5gP6MureY24kZuJk=";
+          };
+
+          buildInputs = oldAttrs.buildInputs ++ [pkgs.libdecor];
+        }));
       capSysNice = true;
     };
     programs.gamemode = {

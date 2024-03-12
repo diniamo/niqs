@@ -29,6 +29,8 @@ in {
     ./starship.nix
     ./zoxide.nix
     ./wlogout.nix
+    ./jerry.nix
+    ./lobster.nix
   ];
 
   home = {

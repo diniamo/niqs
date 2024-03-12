@@ -1,6 +1,11 @@
-{pkgs, ...}: let
-  scripts = with pkgs.mpvScripts; [
-    # Missing: UndoRedo, skip-intro, clipshot, autosubsync
+{
+  pkgs,
+  customPkgs,
+  ...
+}: let
+  scripts = with pkgs.mpvScripts;
+  with customPkgs.mpvScripts; [
+    # Missing: skip-intro, clipshot, autosubsync
     uosc
     reload
     thumbfast
@@ -8,12 +13,15 @@
     mpv-webm
     seekTo
     sponsorblock-minimal
+
+    SimpleUndo
   ];
 in {
   imports = [
     ./config.nix
     ./binds.nix
     ./profiles.nix
+    ./uosc.nix
   ];
 
   programs.mpv = {
@@ -21,10 +29,6 @@ in {
     package = pkgs.wrapMpv (pkgs.mpv-unwrapped.override {vapoursynthSupport = true;}) {
       inherit scripts;
       youtubeSupport = true;
-    };
-
-    scriptOpts = {
-      uosc = import ./uosc.nix;
     };
   };
 }

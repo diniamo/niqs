@@ -1,4 +1,4 @@
-{osConfig, ...}: {
+{
   programs.mpv = {
     config = {
       fullscreen = true;
@@ -10,13 +10,6 @@
       ytdl-raw-options = "format-sort=\"proto:m3u8\",mark-watched=,cookies-from-browser=\"firefox\",user-agent=\"Mozilla/5.0\"";
 
       audio-device = "pipewire";
-
-      # uosc
-      osc = false;
-      osd-bar = false;
-      border = false;
-      osd-font = "${osConfig.modules.style.font.name}";
-      msg-level = "uosc=error";
     };
     defaultProfiles = ["best"];
   };

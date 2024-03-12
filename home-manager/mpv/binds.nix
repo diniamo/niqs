@@ -11,6 +11,9 @@
     y = "add sub-delay -0.1";
     Y = "add sub-delay +0.1";
 
+    u = "script-binding SimpleUndo/undo; script-binding uosc/flash-timeline";
+    U = "script-binding SimpleUndo/undoCaps; script-binding uosc/flash-timeline";
+
     o = "script-message-to uosc flash-elements timeline,top_bar";
     O = "script-binding uosc/flash-ui";
 
