@@ -57,9 +57,9 @@ in {
           src = fetchFromGitHub {
             owner = "ValveSoftware";
             repo = "gamescope";
-            rev = "ee0143a8792b03cd64e3f29b074b299c498d14af";
+            rev = "f9386a769765958b35d996d4e25f9238b757e7d0";
             fetchSubmodules = true;
-            hash = "sha256-ZTlJeFf0EZfeHGoEGQSewxdhU2x5gP6MureY24kZuJk=";
+            hash = "sha256-5JIC5zZe6IiZOA82nNum7in/+7LpeRu9I7tnJTOwqWo=";
           };
 
           buildInputs = oldAttrs.buildInputs ++ [pkgs.libdecor];

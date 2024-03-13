@@ -14,7 +14,7 @@ contaminate() {
 
         print -n "Edit it? [Y/n] "
         read -r answer
-        if [[ -z "$answer" || "$answer" =~ [yY] ]]
+        if [[ -z "$answer" || "$answer" =~ [yY] ]]; then
             "$EDITOR" -- "$1"
         fi
     fi

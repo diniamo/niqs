@@ -69,6 +69,7 @@ in {
       mp = "mkdir -p";
       page = "$PAGER";
       open = "xdg-open";
+      shell = "nix-shell";
 
       # eza
       ls = "${getExe eza} --git --icons --color=auto --group-directories-first";
