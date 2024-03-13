@@ -15,7 +15,7 @@ in {
       path = "${config.xdg.dataHome}/zsh/zsh_history";
       extended = true;
       expireDuplicatesFirst = true;
-      ignoreDups = true;
+      ignoreAllDups = true;
       ignoreSpace = true;
     };
 
@@ -30,13 +30,14 @@ in {
     '';
 
     initExtra = ''
-      ${import ./opts.nix {inherit lib;}}
+      ${import ./opts.nix {inherit (lib) concatStringsSep;}}
 
       autoload -Uz up-line-or-beginning-search
       autoload -Uz down-line-or-beginning-search
       zle -N up-line-or-beginning-search
       zle -N down-line-or-beginning-search
 
+      bindkey "^U" kill-whole-line
       bindkey "^H" backward-kill-word
       bindkey "^[[3;5~" kill-word
 
@@ -70,6 +71,8 @@ in {
       page = "$PAGER";
       open = "xdg-open";
       shell = "nix-shell";
+      cat = "bat --style=plain";
+      size = "du -sh";
 
       # eza
       ls = "${getExe eza} --git --icons --color=auto --group-directories-first";
@@ -79,12 +82,18 @@ in {
       tree = "ls --tree";
       lt = "tree";
 
+      # git
+      gc = "git commit";
+      gp = "git push";
+      gl = "git pull";
+
       # Suffix aliases
       "-s git" = "git clone";
       "-s py" = "python";
     };
 
     plugins = with pkgs; [
+      # vi mode must be first
       {
         name = "zsh-vi-mode";
         src = zsh-vi-mode;
@@ -119,6 +128,11 @@ in {
         name = "zsh-fzf-history-search";
         src = zsh-fzf-history-search;
         file = "share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh";
+      }
+      {
+        name = "forgit";
+        src = zsh-forgit;
+        file = "share/zsh/zsh-forgit/forgit.plugin.zsh";
       }
     ];
   };

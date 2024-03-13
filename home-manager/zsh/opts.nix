@@ -1,13 +1,17 @@
-{lib}: let
+{concatStringsSep}: let
   set = [
     "AUTO_CD"
     "CORRECT"
     "HIST_REDUCE_BLANKS"
+    "NOTIFY"
+    "LONG_LIST_JOBS"
+    "INTERACTIVECOMMENTS"
   ];
   unset = [
+    "BEEP"
     "HIST_BEEP"
   ];
 in ''
-  setopt ${lib.concatStringsSep " " set}
-  unsetopt ${lib.concatStringsSep " " unset}
+  setopt ${concatStringsSep " " set}
+  unsetopt ${concatStringsSep " " unset}
 ''

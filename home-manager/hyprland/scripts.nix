@@ -14,7 +14,7 @@ in {
   # Usage: <script> <scratchpad name> <commands...>
   scratchpad = writeShellScript "scratchpad" ''
     workspace_name="$1"
-    windows="$(hyprctl -j clients | jq ".[] | select(.workspace.name == \"special:$workspace_name\")")"
+    windows="$(hyprctl -j clients | ${getExe pkgs.jq} ".[] | select(.workspace.name == \"special:$workspace_name\")")"
     if [[ -z "$windows" ]]; then
       shift
       for cmd in "$@"; do
@@ -43,15 +43,15 @@ in {
   openImage = writeShellScript "open-image" ''
     case "$(wl-paste --list-types)" in
       *text*)
-        notify-send 'Opening image URL'
+        ${getExe pkgs.libnotify} 'Opening image URL'
         curl -sL "$(wl-paste)" | imv -
         ;;
       *image*)
-        notify-send 'Opening image'
+        ${getExe pkgs.libnotify} 'Opening image'
         wl-paste | imv -
         ;;
       *)
-        notify-send 'Failed to open image'
+        ${getExe pkgs.libnotify} 'Clipboard content is not an image'
         ;;
     esac
   '';
