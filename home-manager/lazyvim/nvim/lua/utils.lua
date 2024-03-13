@@ -1,7 +1,7 @@
 return {
   inputZoxide = function()
     local keyword = vim.fn.input("Keyword: ")
-    local directory = vim.system({ "zoxide", "query", keyword }, { text = true }):wait().stdout:match("(.*)[\n\r]")
+    local directory = vim.fn.system({ "zoxide", "query", keyword }):match("(.*)[\n\r]")
 
     if directory == "" or directory == nil then
       vim.notify("No match found", vim.log.levels.ERROR)

@@ -1,9 +1,13 @@
 {
   pkgs,
-  getExe,
+  lib,
+  osConfig,
 }: let
   inherit (pkgs) writeShellScript;
-in {
+  inherit (lib) getExe;
+
+  inherit (osConfig.values) terminal;
+in rec {
   pin = writeShellScript "pin" ''
     if ! hyprctl -j activewindow | ${getExe pkgs.jq} -e .floating; then
       hyprctl dispatch togglefloating
@@ -54,5 +58,12 @@ in {
         ${getExe pkgs.libnotify} 'Clipboard content is not an image'
         ;;
     esac
+  '';
+
+  editClipboard = writeShellScript "edit-clipboard" ''
+    tmp="$(mktemp)"
+    wl-paste > "$tmp"
+    ${scratchpad} "editclipboard" "${terminal} -- $EDITOR '$tmp'"
+    cat "$tmp" | wl-copy
   '';
 }

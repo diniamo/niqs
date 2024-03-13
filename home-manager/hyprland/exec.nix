@@ -1,11 +1,10 @@
 {
   pkgs,
   lib,
+  osConfig,
   ...
 }: let
-  inherit (lib) getExe;
-
-  scripts = import ./scripts.nix {inherit pkgs getExe;};
+  scripts = import ./scripts.nix {inherit pkgs lib osConfig;};
 in {
   wayland.windowManager.hyprland.settings = {
     exec-once = [

@@ -14,7 +14,7 @@
 
   playerctl = "${getExe pkgs.playerctl}";
 
-  scripts = import ./scripts.nix {inherit pkgs getExe;};
+  scripts = import ./scripts.nix {inherit pkgs lib osConfig;};
 
   inherit (osConfig.values) terminal;
 in {
@@ -50,14 +50,15 @@ in {
 
       # TODO: hyprpicker
 
-      "${mod}, iacute, exec, ${playerctl} previous"
-      "${mod}, y, exec, ${playerctl} next"
-      "${mod}, p, exec, ${playerctl} play-pause"
-      "${mod}, r, exec, ${playerctl} position 0"
+      # "${mod}, iacute, exec, ${playerctl} previous"
+      # "${mod}, y, exec, ${playerctl} next"
+      # "${mod}, p, exec, ${playerctl} play-pause"
+      # "${mod}, r, exec, ${playerctl} position 0"
 
       ", XF86AudioPrev, exec, ${playerctl} previous"
       ", XF86AudioNext, exec, ${playerctl} next"
-      ", XF86AudioStop, exec, ${playerctl} stop"
+      # The stop function is pretty much useless, use it to restart the playing media instead
+      ", XF86AudioStop, exec, ${playerctl} position 0"
       ", XF86AudioPlay, exec, ${playerctl} play-pause"
 
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
@@ -119,6 +120,7 @@ in {
       "${mod}, f, fullscreen, 1"
 
       "${mod}${secondary}, x, exec, ${getExe pkgs.gnome.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=windows.conf"
+      "${mod}, p, exec, ${scripts.editClipboard}"
     ];
     binde = [
       "${mod}${ctrl}, h, resizeactive, -50 0"

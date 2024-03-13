@@ -86,6 +86,7 @@ in {
       gc = "git commit";
       gp = "git push";
       gl = "git pull";
+      gst = "git status";
 
       # Suffix aliases
       "-s git" = "git clone";
