@@ -6,10 +6,12 @@
   inherit (pkgs) writeShellScript;
   inherit (lib) getExe;
 
+  jq = getExe pkgs.jq;
+
   inherit (osConfig.values) terminal;
 in rec {
   pin = writeShellScript "pin" ''
-    if ! hyprctl -j activewindow | ${getExe pkgs.jq} -e .floating; then
+    if ! hyprctl -j activewindow | ${jq} -e .floating; then
       hyprctl dispatch togglefloating
     fi
     hyprctl dispatch pin
@@ -18,7 +20,7 @@ in rec {
   # Usage: <script> <scratchpad name> <commands...>
   scratchpad = writeShellScript "scratchpad" ''
     workspace_name="$1"
-    windows="$(hyprctl -j clients | ${getExe pkgs.jq} ".[] | select(.workspace.name == \"special:$workspace_name\")")"
+    windows="$(hyprctl -j clients | ${jq} ".[] | select(.workspace.name == \"special:$workspace_name\")")"
     if [[ -z "$windows" ]]; then
       shift
       for cmd in "$@"; do
@@ -36,8 +38,9 @@ in rec {
 
       case "$action" in
         workspace)
-          if hyprctl -j monitors | ${getExe pkgs.jq} -e '.[] | select(.focused == true) | .specialWorkspace.id != 0'; then
-            hyprctl dispatch togglespecialworkspace
+          monitor="$(hyprctl -j monitors | ${jq} -r '.[] | select(.focused == true) | .specialWorkspace')"
+          if ${jq} -e '.id != 0' <<<"$monitor"; then
+            hyprctl dispatch togglespecialworkspace "$(${jq} -r '.name' <<<"$monitor" | cut -d':' -f2)"
           fi
           ;;
       esac
