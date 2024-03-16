@@ -88,5 +88,6 @@ in {
     fzf
     xdragon
     libreoffice
+    libnotify
   ];
 }

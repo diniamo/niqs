@@ -23,13 +23,19 @@ in {
     };
 
     search = {
-      defaultSearchEngine = "Startpage";
+      defaultSearchEngine = "SearXNG";
       addEngines = [
         {
           Name = "Startpage";
           Description = "Uses Google's indexer without its logging";
           Method = "GET";
           URLTemplate = "https://startpage.com/do/search?query={searchTerms}";
+        }
+        {
+          Name = "SearXNG";
+          Description = "SearXNG";
+          Method = "GET";
+          URLTemplate = "https://search.notashelf.dev/search?q={searchTerms}";
         }
       ];
     };

@@ -31,6 +31,8 @@ in {
     ./wlogout.nix
     ./jerry.nix
     ./lobster.nix
+    ./direnv.nix
+    ./dunst.nix
   ];
 
   home = {

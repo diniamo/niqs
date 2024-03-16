@@ -6,7 +6,8 @@
 }: let
   inherit (lib) mkOptionType mkOption types;
   inherit (lib.strings) hasPrefix isString removePrefix;
-  inherit (lib.types) attrsOf coercedTo;
+  inherit (lib.types) attrsOf;
+  inherit (lib.attrsets) mapAttrs;
   inherit (lib') nameToSlug;
 
   getPaletteFromSlug = slug:
@@ -14,13 +15,18 @@
     then (import ./palettes/${slug}.nix).palette
     else throw "The following colorscheme was specified, but does not exist: ${slug}";
 
+  hexColorWithPrefixType = mkOptionType {
+    name = "hex-color";
+    descriptionClass = "noun";
+    description = "RGB color in hex format";
+    check = x: isString x && hasPrefix "#" x;
+  };
   hexColorType = mkOptionType {
     name = "hex-color";
     descriptionClass = "noun";
     description = "RGB color in hex format";
     check = x: isString x && !(hasPrefix "#" x);
   };
-  colorType = attrsOf (coercedTo types.str (removePrefix "#") hexColorType);
 
   cfg = config.modules.style.colorScheme;
 in {
@@ -42,9 +48,14 @@ in {
           Only change this if it's different from the inferred value.
         '';
       };
-      colors = mkOption {
-        type = colorType;
+      colorsWithPrefix = mkOption {
+        type = attrsOf hexColorWithPrefixType;
         default = getPaletteFromSlug cfg.slug;
+        description = "The attribute set of the colors of the color scheme with the # prefixes included.";
+      };
+      colors = mkOption {
+        type = attrsOf hexColorType;
+        default = mapAttrs (_: value: removePrefix "#" value) cfg.colorsWithPrefix;
         description = "The attribute set of the colors of the color scheme.";
       };
       # This is currently unused, even though it could be in multiple places

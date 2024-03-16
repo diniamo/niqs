@@ -71,8 +71,10 @@ in {
       page = "$PAGER";
       open = "xdg-open";
       shell = "nix-shell";
-      cat = "bat --style=plain";
+      update-input = "nix flake lock --update-input";
+      nix-clean = "sudo nix-collect-garbage --delete-older-than 3d; nix-collect-garbage -d";
       size = "du -sh";
+      "'\\-'" = "cd -";
 
       # eza
       ls = "${getExe eza} --git --icons --color=auto --group-directories-first";
