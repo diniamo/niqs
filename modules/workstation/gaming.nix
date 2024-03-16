@@ -25,7 +25,6 @@
 in {
   imports = [
     nixosModules.pipewireLowLatency
-    nixosModules.steamCompat
   ];
 
   options = {
