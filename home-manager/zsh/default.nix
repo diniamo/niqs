@@ -73,6 +73,7 @@ in {
       mp = "mkdir -p";
       page = "$PAGER";
       open = "xdg-open";
+      n = "nix";
       shell = "nix-shell";
       develop = "nix develop";
       update-input = "nix flake lock --update-input";
@@ -89,6 +90,7 @@ in {
       lt = "tree";
 
       # git
+      g = "git";
       gc = "git commit";
       gp = "git push";
       gl = "git pull";
