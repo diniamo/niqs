@@ -40,6 +40,8 @@ in {
     security.rtkit.enable = true;
     hardware.xpadneo.enable = true;
 
+    environment.systemPackages = [pkgs.mangohud];
+
     programs.steam = {
       enable = true;
       gamescopeSession.enable = true;

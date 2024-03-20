@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    stable.url = "nixpkgs/nixos-23.11";
     nur.url = "github:nix-community/nur";
 
     home-manager = {

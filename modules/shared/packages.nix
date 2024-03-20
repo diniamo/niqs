@@ -11,5 +11,6 @@
     tldr
     duf
     jq
+    wget
   ];
 }

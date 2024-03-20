@@ -16,7 +16,8 @@ in {
 
         selection-target = "clipboard";
 
-        font = "JetBrainsMono Nerd Font Mono:size=11";
+        font = "JetBrainsMono Nerd Font Mono:size=${toString cfg.font.size}";
+        dpi-aware = true;
         pad = "10x10 center";
       };
       scrollback = {

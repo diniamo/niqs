@@ -1,11 +1,13 @@
-{osConfig, ...}: {
+{osConfig, ...}: let
+  inherit (osConfig.modules.style.colorScheme) slug;
+in {
   programs.bat = {
     enable = true;
     config = {
-      theme = "default";
+      theme = slug;
     };
     themes = {
-      default = {src = ./themes/${osConfig.modules.style.colorScheme.slug}.tmTheme;};
+      "${slug}" = {src = ./themes/${slug}.tmTheme;};
     };
   };
 }

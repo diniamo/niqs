@@ -7,5 +7,6 @@
     ./gaming.nix
     ./qbittorrent.nix
     ./nvidia.nix
+    ./thunar.nix
   ];
 }

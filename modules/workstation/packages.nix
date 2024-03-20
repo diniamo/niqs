@@ -83,7 +83,6 @@ in {
     spotify
     trash-cli
     ungoogled-chromium
-    xfce.thunar
     yt-dlp
     fzf
     xdragon

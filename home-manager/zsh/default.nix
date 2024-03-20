@@ -48,6 +48,9 @@ in {
       bindkey -M vicmd "k" up-line-or-beginning-search
       bindkey -M vicmd "j" down-line-or-beginning-search
 
+      # Can't have these in shellAliases due to escaping
+      alias -s git="git clone"
+
       source ${./hooks.zsh}
       source ${./funcs.zsh}
     '';
@@ -71,10 +74,11 @@ in {
       page = "$PAGER";
       open = "xdg-open";
       shell = "nix-shell";
+      develop = "nix develop";
       update-input = "nix flake lock --update-input";
       nix-clean = "sudo nix-collect-garbage --delete-older-than 3d; nix-collect-garbage -d";
       size = "du -sh";
-      "'\\-'" = "cd -";
+      "-" = "cd -";
 
       # eza
       ls = "${getExe eza} --git --icons --color=auto --group-directories-first";
@@ -89,10 +93,6 @@ in {
       gp = "git push";
       gl = "git pull";
       gst = "git status";
-
-      # Suffix aliases
-      "-s git" = "git clone";
-      "-s py" = "python";
     };
 
     plugins = with pkgs; [
