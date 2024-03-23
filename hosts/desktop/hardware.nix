@@ -12,12 +12,14 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
-  boot.blacklistedKernelModules = ["i2c_nvidia_gpu"];
+  boot = {
+    initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
+    initrd.kernelModules = [];
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
+    blacklistedKernelModules = ["i2c_nvidia_gpu"];
+  };
 
   fileSystems = {
     "/" = {

@@ -44,23 +44,25 @@ in {
 
     environment.systemPackages = [pkgs.mangohud];
 
-    programs.steam = {
-      enable = true;
-      gamescopeSession.enable = true;
+    programs = {
+      steam = {
+        enable = true;
+        gamescopeSession.enable = true;
 
-      extraCompatPackages = [flakePkgs.nix-gaming.proton-ge];
-    };
-    programs.gamescope = {
-      enable = true;
-      capSysNice = true;
-    };
-    programs.gamemode = {
-      enable = true;
-      enableRenice = true;
-      settings = {
-        custom = {
-          start = startScript.outPath;
-          end = endScript.outPath;
+        extraCompatPackages = [flakePkgs.nix-gaming.proton-ge];
+      };
+      gamescope = {
+        enable = true;
+        capSysNice = true;
+      };
+      gamemode = {
+        enable = true;
+        enableRenice = true;
+        settings = {
+          custom = {
+            start = startScript.outPath;
+            end = endScript.outPath;
+          };
         };
       };
     };

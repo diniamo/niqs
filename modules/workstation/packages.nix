@@ -40,18 +40,19 @@ in {
     config.common.default = ["hyprland" "${xdgPortalName}"];
   };
 
-  services.pipewire = {
-    enable = true;
-    wireplumber.enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    jack.enable = true;
-  };
-  services.power-profiles-daemon.enable = true;
-
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  services = {
+    pipewire = {
+      enable = true;
+      wireplumber.enable = true;
+      pulse.enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      jack.enable = true;
+    };
+    power-profiles-daemon.enable = true;
+    blueman.enable = true;
+  };
 
   programs.zsh.enable = true;
   users.users.${values.mainUser}.shell = config.home-manager.users.${values.mainUser}.programs.zsh.package;

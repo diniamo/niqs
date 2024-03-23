@@ -24,7 +24,7 @@ return {
     opts = {
       formatters_by_ft = {
         nix = { "alejandra" },
-        zsh = { "shfmt" }
+        zsh = { "shfmt" },
       },
       formatters = {
         shfmt = {
@@ -95,6 +95,9 @@ return {
         search = {
           enabled = false,
         },
+      },
+      jump = {
+        autojump = true,
       },
     },
   },

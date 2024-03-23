@@ -75,7 +75,7 @@ in {
       open = "xdg-open";
       n = "nix";
       shell = "nix-shell";
-      develop = "nix develop";
+      dev = "nix develop";
       update-input = "nix flake lock --update-input";
       nix-clean = "sudo nix-collect-garbage --delete-older-than 3d; nix-collect-garbage -d";
       size = "du -sh";
