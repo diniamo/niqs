@@ -13,6 +13,7 @@ in {
     ./config.nix
     ./binds.nix
     ./exec.nix
+    ./scripts.nix
   ];
 
   home.packages = [
@@ -30,4 +31,6 @@ in {
       variables = ["--all"];
     };
   };
+
+  xdg.configFile."hypr/hyprland.conf".onChange = "hyprctl reload";
 }

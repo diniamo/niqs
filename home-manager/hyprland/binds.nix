@@ -1,10 +1,12 @@
 {
+  config,
   osConfig,
   lib,
   pkgs,
   ...
 }: let
   inherit (lib) getExe;
+  inherit (config.programs.hyprland) scripts;
 
   mod = "SUPER";
   ctrl = "CONTROL";
@@ -13,8 +15,6 @@
   secondary = "ALT";
 
   playerctl = "${getExe pkgs.playerctl}";
-
-  scripts = import ./scripts.nix {inherit pkgs lib osConfig;};
 
   inherit (osConfig.values) terminal;
 in {

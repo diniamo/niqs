@@ -1,15 +1,16 @@
 {
   pkgs,
   lib,
-  osConfig,
+  config,
   ...
 }: let
-  scripts = import ./scripts.nix {inherit pkgs lib osConfig;};
+  inherit (lib) getExe';
+  inherit (config.programs.hyprland) scripts;
 in {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "[workspace 1] firefox"
-      "${pkgs.gammastep}/bin/gammastep-indicator -l 47.1625:19.5033 -t 6500K:2600K"
+      "${getExe' pkgs.gammastep "gammastep-indicator"} -l 47.1625:19.5033 -t 6500K:2600K"
       "${scripts.socket}"
     ];
   };

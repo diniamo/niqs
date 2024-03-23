@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (lib) getExe';
+in {
   programs.yazi = {
     enable = true;
     settings = {
@@ -66,7 +72,7 @@
           on = [
             "e"
           ];
-          exec = "shell ${pkgs.trash-cli}/bin/trash-restore --block --confirm";
+          exec = "shell ${getExe' pkgs.trash-cli "trash-restore"} --block --confirm";
           desc = "Restore files from the trash";
         }
         {

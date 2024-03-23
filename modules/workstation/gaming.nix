@@ -13,11 +13,13 @@
   inherit (nix-gaming) nixosModules;
 
   startScript = writeShellScript "gamemode-start" ''
-    ${pkgs.power-profiles-daemon}/bin/powerprofilesctl set performance
+    hyprctl --batch 'keyword animations:enabled 0 ; keyword misc:vfr 0'
+    ${getExe pkgs.power-profiles-daemon} set performance
     ${getExe pkgs.libnotify} -a "Gamemode" "Optimizations activated"
   '';
   endScript = writeShellScript "gamemode-end" ''
-    ${pkgs.power-profiles-daemon}/bin/powerprofilesctl set balanced
+    hyprctl --batch 'keyword animations:enabled 1 ; keyword misc:vfr 1'
+    ${getExe pkgs.power-profiles-daemon} set balanced
     ${getExe pkgs.libnotify} -a "Gamemode" "Optimizations deactivated"
   '';
 
