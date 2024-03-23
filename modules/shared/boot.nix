@@ -20,7 +20,7 @@ in {
         systemd-boot = {
           enable = true;
           consoleMode = "auto";
-          # configurationLimit = 3;
+          configurationLimit = 3;
           extraInstallCommands = mkIf cfg.windows_entry "printf 'auto-entries false' >> /boot/loader/loader.conf";
           extraEntries = mkIf cfg.windows_entry {
             "windows.conf" = ''

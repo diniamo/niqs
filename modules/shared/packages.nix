@@ -12,5 +12,6 @@
     duf
     jq
     wget
+    comma
   ];
 }

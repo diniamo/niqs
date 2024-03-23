@@ -555,11 +555,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1710806803,
-        "narHash": "sha256-qrxvLS888pNJFwJdK+hf1wpRCSQcqA6W5+Ox202NDa0=",
+        "lastModified": 1711001935,
+        "narHash": "sha256-URtGpHue7HHZK0mrHnSf8wJ6OmMKYSsoLmJybrOLFSQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b06025f1533a1e07b6db3e75151caa155d1c7eb3",
+        "rev": "20f77aa09916374aa3141cbc605c955626762c9a",
         "type": "github"
       },
       "original": {
@@ -599,21 +599,6 @@
         "type": "github"
       }
     },
-    "nvidiaNixpkgs": {
-      "locked": {
-        "lastModified": 1710960368,
-        "narHash": "sha256-CHnNU2yzeOY2tyOWtLVLerdNCrCgwqgZsGjpHKKWGWc=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2fe0900189c7e9561b9fffac0ad8b007244c13bc",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "2fe0900189c7e9561b9fffac0ad8b007244c13bc",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "anyrun": "anyrun",
@@ -625,7 +610,6 @@
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_4",
         "nur": "nur",
-        "nvidiaNixpkgs": "nvidiaNixpkgs",
         "schizofox": "schizofox",
         "wrapper-manager": "wrapper-manager"
       }

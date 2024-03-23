@@ -11,17 +11,14 @@
 
     registry = {
       nixpkgs.flake = inputs.nixpkgs;
-      stable.flake = inputs.stable;
     };
 
     nixPath = [
       "nixpkgs=/etc/nix/inputs/nixpkgs"
-      "stable=/etc/nix/inputs/stable"
     ];
   };
   environment.etc = {
     "nix/inputs/nixpkgs".source = inputs.nixpkgs.outPath;
-    "nix/inputs/stable".source = inputs.stable.outPath;
   };
 
   time.timeZone = "Europe/Budapest";
