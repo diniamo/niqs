@@ -9,5 +9,6 @@
     ./cachix.nix
     ./environment.nix
     ./values.nix
+    ./overlays.nix
   ];
 }

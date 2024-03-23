@@ -1,12 +1,9 @@
 {
   pkgs,
   inputs,
-  lib,
   config,
   ...
 }: let
-  inherit (lib) throwIf versionOlder;
-
   inherit (config) values;
   xdgPortalName = config.xdg.portal.name;
 
@@ -61,10 +58,6 @@ in {
 
   # For electron apps
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  # This is needed for Obsidian until they update to a newer electron version
-  # https://github.com/NixOS/nixpkgs/issues/273611
-  nixpkgs.config.permittedInsecurePackages = throwIf (versionOlder "1.5.3" pkgs.obsidian.version) "Obsidian has been updated, check if it still requires electron 25 and if not, remove this line, then rebuild" ["electron-25.9.0"];
 
   fonts.packages = with pkgs; [
     inter
