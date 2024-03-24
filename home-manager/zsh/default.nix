@@ -77,12 +77,12 @@ in {
       shell = "nix-shell";
       dev = "nix develop";
       update-input = "nix flake lock --update-input";
-      nix-clean = "sudo nix-collect-garbage --delete-older-than 3d; nix-collect-garbage -d";
+      # nix-clean = "sudo nix-collect-garbage --delete-older-than 3d; nix-collect-garbage -d";
       size = "du -sh";
       "-" = "cd -";
 
       # eza
-      ls = "${getExe eza} --git --icons --color=auto --group-directories-first";
+      ls = "eza --git --icons --color=auto --group-directories-first";
       l = "ls -lh --time-style=long-iso";
       ll = "l -a";
       la = "ls -a";

@@ -4,21 +4,24 @@
   config,
   flakePkgs,
   pkgs,
+  system,
   ...
 }: let
-  inherit (lib) mkIf getExe mkEnableOption;
+  inherit (lib) mkIf getExe getExe' mkEnableOption;
   inherit (pkgs) writeShellScript;
 
   inherit (inputs) nix-gaming;
   inherit (nix-gaming) nixosModules;
 
+  hyprctl = getExe' inputs.hyprland.packages.${system}.default "hyprctl";
+
   startScript = writeShellScript "gamemode-start" ''
-    hyprctl --batch 'keyword animations:enabled 0 ; keyword misc:vfr 0'
+    ${hyprctl} --batch 'keyword animations:enabled 0 ; keyword misc:vfr 0'
     ${getExe pkgs.power-profiles-daemon} set performance
     ${getExe pkgs.libnotify} -a "Gamemode" "Optimizations activated"
   '';
   endScript = writeShellScript "gamemode-end" ''
-    hyprctl --batch 'keyword animations:enabled 1 ; keyword misc:vfr 1'
+    ${hyprctl} --batch 'keyword animations:enabled 1 ; keyword misc:vfr 1'
     ${getExe pkgs.power-profiles-daemon} set balanced
     ${getExe pkgs.libnotify} -a "Gamemode" "Optimizations deactivated"
   '';

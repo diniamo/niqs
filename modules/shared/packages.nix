@@ -13,5 +13,7 @@
     jq
     wget
     comma
+    nh
+    eza
   ];
 }

@@ -81,6 +81,7 @@ in {
     fzf
     xdragon
     libreoffice
-    libnotify
+    libqalculate
+    pulsemixer
   ];
 }
