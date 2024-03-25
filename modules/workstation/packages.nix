@@ -40,7 +40,10 @@ in {
     config.common.default = ["hyprland" "${xdgPortalName}"];
   };
 
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
   services = {
     pipewire = {
       enable = true;
