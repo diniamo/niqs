@@ -95,6 +95,7 @@ in {
       gp = "git push";
       gl = "git pull";
       gst = "git status";
+      grhh = "git reset --hard";
     };
 
     plugins = with pkgs; [

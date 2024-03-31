@@ -42,10 +42,14 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # no_decorations_when_only = {
-    #   url = "github:diniamo/no_decorations_when_only";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    no_decorations_when_only = {
+      url = "github:diniamo/no_decorations_when_only";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    bgar = {
+      url = "github:diniamo/bgar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: let
