@@ -1,11 +1,11 @@
 {
   pkgs,
-  customPkgs,
+  flakePkgs,
   ...
 }: let
   scripts = with pkgs.mpvScripts;
-  with customPkgs.mpvScripts; [
-    # Missing: skip-intro, clipshot, autosubsync
+  with flakePkgs.niqspkgs; [
+    # Missing: clipshot, autosubsync
     uosc
     reload
     thumbfast

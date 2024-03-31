@@ -2,13 +2,13 @@
   pkgs,
   lib,
   config,
-  customPkgs,
+  flakePkgs,
   ...
 }: let
   inherit (lib) mkIf mkEnableOption types mkOption;
   inherit (pkgs) writeShellScript;
 
-  bencodeBin = "${customPkgs.bencode-pretty}/bin";
+  bencodeBin = "${flakePkgs.niqspkgs.bencode-pretty}/bin";
   script = writeShellScript "convert-qbittorrent-savepaths" ''
     # Arguments: 1 - BT_backup path
     #            2 - from path

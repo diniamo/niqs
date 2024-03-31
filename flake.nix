@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/nur";
+    niqspkgs = {
+      url = "github:diniamo/niqspkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       # url = "github:nix-community/home-manager";
