@@ -81,7 +81,6 @@ in {
     trash-cli
     ungoogled-chromium
     yt-dlp
-    fzf
     xdragon
     libreoffice
     libqalculate

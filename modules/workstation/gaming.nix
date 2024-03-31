@@ -4,7 +4,6 @@
   config,
   flakePkgs,
   pkgs,
-  system,
   ...
 }: let
   inherit (lib) mkIf getExe getExe' mkEnableOption;
@@ -13,7 +12,7 @@
   inherit (inputs) nix-gaming;
   inherit (nix-gaming) nixosModules;
 
-  hyprctl = getExe' inputs.hyprland.packages.${system}.default "hyprctl";
+  hyprctl = getExe' flakePkgs.hyprland.default "hyprctl";
 
   startScript = writeShellScript "gamemode-start" ''
     ${hyprctl} --batch 'keyword animations:enabled 0 ; keyword misc:vfr 0'

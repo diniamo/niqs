@@ -25,10 +25,14 @@ return {
       formatters_by_ft = {
         nix = { "alejandra" },
         zsh = { "shfmt" },
+        rs = { "rustfmt" },
       },
       formatters = {
         shfmt = {
           prepend_args = { "-i", "4" },
+        },
+        rustfmt = {
+          prepend_args = { "--edition", "2021" },
         },
       },
     },

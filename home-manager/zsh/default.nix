@@ -51,8 +51,8 @@ in {
       # Can't have these in shellAliases due to escaping
       alias -s git="git clone"
 
-      source ${./hooks.zsh}
-      source ${./funcs.zsh}
+      ${builtins.readFile ./hooks.zsh}
+      ${builtins.readFile ./funcs.zsh}
     '';
 
     shellAliases = with pkgs; {
@@ -74,7 +74,7 @@ in {
       page = "$PAGER";
       open = "xdg-open";
       n = "nix";
-      shell = "nix-shell";
+      pshell = "nix-shell --packages";
       dev = "nix develop";
       update-input = "nix flake lock --update-input";
       # nix-clean = "sudo nix-collect-garbage --delete-older-than 3d; nix-collect-garbage -d";

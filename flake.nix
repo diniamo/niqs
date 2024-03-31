@@ -6,7 +6,8 @@
     nur.url = "github:nix-community/nur";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      # url = "github:nix-community/home-manager";
+      url = "github:diniamo/home-manager/add-spotify-player";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # nixpkgs is only used for tests, so no don't need to follow it here
@@ -37,6 +38,10 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # no_decorations_when_only = {
+    #   url = "github:diniamo/no_decorations_when_only";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = inputs: let

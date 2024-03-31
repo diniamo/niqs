@@ -27,6 +27,8 @@
     keyMap = "hu";
   };
 
+  boot.tmp.useTmpfs = true;
+
   users.users.${config.values.mainUser} = {
     isNormalUser = true;
     extraGroups = ["wheel"];

@@ -70,5 +70,5 @@ copyfile() {
 
 notify-exit() {
     "$@"
-    notify-send 
+    notify-send -i dialog-information "Shell" "$1 has finished executing"
 }

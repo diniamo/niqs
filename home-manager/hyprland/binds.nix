@@ -34,8 +34,8 @@ in {
 
       "${mod}, d, exec, ${scripts.scratchpad} 'terminal' '${terminal}'"
       "${mod}, m, exec, ${scripts.scratchpad} 'mixer' '${terminal} pulsemixer'"
-      # This is subject to change, but I use the official spotify app, because neither of the tui ones work well enough
       "${mod}, g, exec, ${scripts.scratchpad} 'music' 'spotify'"
+      "${mod}${secondary}, g, exec, ${scripts.scratchpad} 'music_tui' '${terminal} spotify_player'"
       "${mod}, c, exec, ${scripts.scratchpad} 'calculator' '${terminal} qalc'"
       "${mod}, e, exec, ${scripts.scratchpad} 'fm' '${terminal} -- yazi'"
       "${mod}${secondary}, e, exec, ${scripts.scratchpad} 'fm_gui' 'thunar'"

@@ -33,6 +33,8 @@ in {
     ./lobster.nix
     ./direnv.nix
     ./dunst.nix
+    ./spotify-player.nix
+    ./fzf.nix
   ];
 
   home = {

@@ -1,14 +1,13 @@
 {
   inputs,
-  system,
   flakePkgs,
   pkgs,
+  lib,
+  config,
   ...
-}: let
-  inherit (inputs) hyprland;
-in {
+}: {
   imports = [
-    hyprland.homeManagerModules.default
+    inputs.hyprland.homeManagerModules.default
 
     ./config.nix
     ./binds.nix
@@ -23,7 +22,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprland.packages.${system}.default;
+    package = flakePkgs.hyprland.default;
 
     xwayland.enable = true;
     systemd = {
@@ -32,5 +31,5 @@ in {
     };
   };
 
-  xdg.configFile."hypr/hyprland.conf".onChange = "hyprctl reload";
+  xdg.configFile."hypr/hyprland.conf".onChange = "${lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"} reload";
 }
