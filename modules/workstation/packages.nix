@@ -85,5 +85,6 @@ in {
     libreoffice
     libqalculate
     pulsemixer
+    libnotify
   ];
 }

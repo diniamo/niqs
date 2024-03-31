@@ -11,7 +11,7 @@ in {
       opener = {
         reveal = [
           {
-            exec = "exiftool \"$1\" | $PAGER";
+            run = "exiftool \"$1\" | $PAGER";
             block = true;
             desc = "Show EXIF";
             for = "unix";
@@ -19,12 +19,12 @@ in {
         ];
         play = [
           {
-            exec = "mpv \"$@\"";
+            run = "mpv \"$@\"";
             orphan = true;
             for = "unix";
           }
           {
-            exec = "mediainfo \"$1\" | $PAGER";
+            run = "mediainfo \"$1\" | $PAGER";
             block = true;
             desc = "Show media info";
             for = "unix";
@@ -38,21 +38,21 @@ in {
           on = [
             "w"
           ];
-          exec = "shell \"$SHELL\" --block --confirm";
+          run = "shell \"$SHELL\" --block --confirm";
           desc = "Open a shell";
         }
         {
           on = [
             "W"
           ];
-          exec = "tasks_show";
+          run = "tasks_show";
           desc = "Show the task manager";
         }
         {
           on = [
             "X"
           ];
-          exec = [
+          run = [
             "unyank"
             "escape --select --visual"
           ];
@@ -62,7 +62,7 @@ in {
           on = [
             "d"
           ];
-          exec = [
+          run = [
             "remove --force"
             "escape --select --visual"
           ];
@@ -72,28 +72,28 @@ in {
           on = [
             "e"
           ];
-          exec = "shell ${getExe' pkgs.trash-cli "trash-restore"} --block --confirm";
+          run = "shell ${getExe' pkgs.trash-cli "trash-restore"} --block --confirm";
           desc = "Restore files from the trash";
         }
         {
           on = [
             "<Enter>"
           ];
-          exec = "plugin --sync smart-enter";
+          run = "plugin --sync smart-enter";
           desc = "Enter directory or open file";
         }
       ];
       input.prepend_keymap = [
         {
           on = ["<Esc>"];
-          exec = "close";
+          run = "close";
           desc = "Cancel input";
         }
       ];
       tasks.prepend_keymap = [
         {
           on = ["W"];
-          exec = "close";
+          run = "close";
           desc = "Hide the task manager";
         }
       ];

@@ -19,8 +19,8 @@
         command = "Quit";
       }
       {
-key_sequence = "í";
-command = "PreviousTrack";
+        key_sequence = "í";
+        command = "PreviousTrack";
       }
       {
         key_sequence = "y";
