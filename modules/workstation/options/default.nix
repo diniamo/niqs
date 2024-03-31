@@ -9,5 +9,10 @@ in {
       type = types.enum ["wlr" "gtk" "xapp" "gnome" "cosmic" "hyprland" "kde" "lxqt" "pantheon"];
       default = "gtk";
     };
+    tmpDownloadsDirectory = mkOption {
+      description = "Whether to place the Downloads directory in /tmp";
+      type = types.bool;
+      default = true;
+    };
   };
 }

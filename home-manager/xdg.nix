@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  osConfig,
   ...
 }: let
   browser = ["Schizofox.desktop"];
@@ -58,7 +59,10 @@ in {
       enable = true;
       createDirectories = true;
 
-      download = "${config.home.homeDirectory}/Downloads";
+      download =
+        if osConfig.tmpDownloadsDirectory
+        then "/tmp/Downloads"
+        else "${config.home.homeDirectory}/Downloads";
       desktop = "${config.home.homeDirectory}/Desktop";
       documents = "${config.home.homeDirectory}/Documents";
 

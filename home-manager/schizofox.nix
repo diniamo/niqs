@@ -1,8 +1,10 @@
 {
   inputs,
   osConfig,
+  lib,
   ...
 }: let
+  inherit (lib) mkIf;
   cfg = osConfig.modules.style;
 
   inherit (cfg.colorScheme) colors;
@@ -60,6 +62,10 @@ in {
       # This makes websites prefer a dark theme (in theory)
       "layout.css.prefers-color-scheme.content-override" = 0;
       "widget.use-xdg-desktop-portal.file-picker" = 1;
+
+      "browser.download.dir" = mkIf osConfig.tmpDownloadsDirectory "/tmp/Downloads";
+      "browser.download.useDownloadDir" = true;
+      "browser.download.start_downloads_in_tmp_dir" = !osConfig.tmpDownloadsDirectory;
     };
 
     extensions = {
