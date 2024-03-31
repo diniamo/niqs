@@ -101,7 +101,7 @@ in {
       "${mod}${shift}, 7, movetoworkspacesilent, 7"
       "${mod}${shift}, 8, movetoworkspacesilent, 8"
       "${mod}${shift}, 9, movetoworkspacesilent, 9"
-      "${mod}${shift}, 0, movetoworkspacesilent, 0"
+      "${mod}${shift}, 0, movetoworkspacesilent, 10"
 
       "${mod}${shift}${secondary}, 1, movetoworkspace, 1"
       "${mod}${shift}${secondary}, 2, movetoworkspace, 2"
@@ -112,7 +112,7 @@ in {
       "${mod}${shift}${secondary}, 7, movetoworkspace, 7"
       "${mod}${shift}${secondary}, 8, movetoworkspace, 8"
       "${mod}${shift}${secondary}, 9, movetoworkspace, 9"
-      "${mod}${shift}${secondary}, 0, movetoworkspace, 0"
+      "${mod}${shift}${secondary}, 0, movetoworkspace, 10"
 
       "${mod}, t, togglefloating"
       "${mod}, s, exec, ${scripts.pin}"
