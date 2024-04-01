@@ -1,11 +1,10 @@
 {
   config,
   pkgs,
-  lib,
   ...
-}: let
-  inherit (lib) getExe;
-in {
+}: {
+  imports = [./aliases.nix];
+
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -30,7 +29,13 @@ in {
     '';
 
     initExtra = ''
-      ${import ./opts.nix {inherit (lib) concatStringsSep;}}
+      setopt AUTO_CD CORRECT HIST_REDUCE_BLANKS NOTIFY LONG_LIST_JOBS INTERACTIVE_COMMENTS
+      unsetopt BEEP HIST_BEEP
+
+      zstyle ':completion:*' menu no
+      zstyle ':completion:*:git-checkout:*' sort false
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+      zstyle ':fzf-tab:*' fzf-min-height 15
 
       autoload -Uz up-line-or-beginning-search
       autoload -Uz down-line-or-beginning-search
@@ -54,49 +59,6 @@ in {
       ${builtins.readFile ./hooks.zsh}
       ${builtins.readFile ./funcs.zsh}
     '';
-
-    shellAliases = with pkgs; {
-      # Needed for aliases
-      sudo = "sudo ";
-      listxwl = "hyprctl -j clients | jq -r '.[] | select( [ .xwayland == true ] | any ) | .title' | awk 'NF'";
-      v = "nvim";
-      # Create a file with execute permissions
-      xtouch = "install /dev/null";
-      rm = "rmtrash";
-      rmd = "command rm";
-      hash = "sha256sum";
-      copy = "wl-copy";
-      paste = "wl-paste";
-      ip = "${getExe dig} @resolver4.opendns.com myip.opendns.com +short";
-      ip4 = "${getExe dig} @resolver4.opendns.com myip.opendns.com +short -4";
-      ip6 = "${getExe dig} @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short -6";
-      mp = "mkdir -p";
-      page = "$PAGER";
-      open = "xdg-open";
-      n = "nix";
-      pshell = "nix-shell --packages";
-      dev = "nix develop";
-      update-input = "nix flake lock --update-input";
-      # nix-clean = "sudo nix-collect-garbage --delete-older-than 3d; nix-collect-garbage -d";
-      size = "du -sh";
-      "-" = "cd -";
-
-      # eza
-      ls = "eza --git --icons --color=auto --group-directories-first";
-      l = "ls -lh --time-style=long-iso";
-      ll = "l -a";
-      la = "ls -a";
-      tree = "ls --tree";
-      lt = "tree";
-
-      # git
-      g = "git";
-      gc = "git commit";
-      gp = "git push";
-      gl = "git pull";
-      gst = "git status";
-      grhh = "git reset --hard";
-    };
 
     plugins = with pkgs; [
       # vi mode must be first
