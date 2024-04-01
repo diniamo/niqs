@@ -37,7 +37,7 @@ in {
   xdg.portal = {
     enable = true;
     extraPortals = [pkgs."xdg-desktop-portal-${xdgPortalName}"];
-    config.common.default = ["hyprland" "${xdgPortalName}"];
+    config.common.default = ["hyprland" xdgPortalName];
   };
 
   hardware.bluetooth = {
@@ -86,5 +86,6 @@ in {
     libqalculate
     pulsemixer
     libnotify
+    rmtrash
   ];
 }

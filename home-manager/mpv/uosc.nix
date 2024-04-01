@@ -4,7 +4,7 @@
       osc = false;
       osd-bar = false;
       border = false;
-      osd-font = "${osConfig.modules.style.font.name}";
+      osd-font = osConfig.modules.style.font.name;
       msg-level = "uosc=error";
     };
     scriptOpts.uosc = {

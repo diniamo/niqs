@@ -31,7 +31,7 @@
       };
 
       theme = {
-        highlight_bg = "${osConfig.modules.style.colorScheme.colors.base02}";
+        highlight_bg = osConfig.modules.style.colorScheme.colors.base02;
       };
     };
   };

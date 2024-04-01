@@ -1,10 +1,32 @@
-{
+{osConfig, ...}: let
+  inherit (osConfig.modules.style.colorScheme) colors;
+  inherit (osConfig.modules.style) font;
+in {
   programs.imv = {
     enable = true;
     settings = {
+      options = {
+        background = colors.base00;
+        overlay = true;
+        overlay_font = "${font.name}:${toString font.size}";
+        overlay_text_color = colors.base05;
+        overlay_background_color = colors.base00;
+        overlay_position_bottom = true;
+      };
+
       binds = {
-        "<less>" = "rotate by -90";
-        "<greater>" = "rotate by 90";
+        r = "rotate by 90";
+        "<Shift+R>" = "rotate by -90";
+        "<Ctrl+R>" = "rotate to 0";
+
+        x = "close";
+        "<Shift+X>" = "quit";
+
+        d = "exec rmtrash \"$imv_current_file\"; close";
+        "<Shift+D>" = "exec rm \"$imv_current_file\"; close";
+
+        i = "overlay";
+        n = "center; reset";
       };
     };
   };

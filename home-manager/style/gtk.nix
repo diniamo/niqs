@@ -19,8 +19,8 @@ in {
     ];
 
     sessionVariables = {
-      GTK_THEME = "${cfg.gtk.theme.name}";
-      GTK_USE_PORTAL = "${toString (lib'.boolToNum cfg.gtk.usePortal)}";
+      GTK_THEME = cfg.gtk.theme.name;
+      GTK_USE_PORTAL = toString (lib'.boolToNum cfg.gtk.usePortal);
     };
   };
 

@@ -38,7 +38,7 @@ in {
   ];
 
   home = {
-    username = "${values.mainUser}";
+    username = values.mainUser;
     homeDirectory = "/home/${values.mainUser}";
     stateVersion = mkDefault "23.11";
   };

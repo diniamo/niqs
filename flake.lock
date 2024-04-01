@@ -698,11 +698,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711926199,
-        "narHash": "sha256-ZnW76DlfsmQQWJUO4bRyDJJTeMVZsy0IOBBKZImiJLA=",
+        "lastModified": 1711928877,
+        "narHash": "sha256-+J+tCrJfuGA869nhAglXeKRK90Sn9x960ma3GPbaUxQ=",
         "owner": "diniamo",
         "repo": "no_decorations_when_only",
-        "rev": "48986a02a58950137201ed738a36111880cc0793",
+        "rev": "7a2170c4d6ea7a3820347aec3f33663b41db8c25",
         "type": "github"
       },
       "original": {

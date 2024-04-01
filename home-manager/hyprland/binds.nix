@@ -14,7 +14,7 @@
   shift = "SHIFT";
   secondary = "ALT";
 
-  playerctl = "${getExe pkgs.playerctl}";
+  playerctl = getExe pkgs.playerctl;
 
   inherit (osConfig.values) terminal;
 in {

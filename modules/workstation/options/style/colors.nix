@@ -41,7 +41,7 @@ in {
       # "name-of-the-scheme"
       slug = mkOption {
         type = types.str;
-        default = nameToSlug "${toString cfg.name}"; # toString to avoid type errors if null, returns ""
+        default = nameToSlug (toString cfg.name); # toString to avoid type errors if null, returns ""
         description = ''
                  The slugified version of the colorscheme's name.
 

@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (lib) getExe getExe';
+  inherit (lib) getExe;
 in {
   programs.zsh = {
     enable = true;
@@ -62,7 +62,7 @@ in {
       v = "nvim";
       # Create a file with execute permissions
       xtouch = "install /dev/null";
-      rm = "${getExe' rmtrash "rmtrash"}";
+      rm = "rmtrash";
       rmd = "command rm";
       hash = "sha256sum";
       copy = "wl-copy";

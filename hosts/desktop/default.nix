@@ -37,6 +37,7 @@ in {
       ];
       windowrule = [
         "workspace 10, WebCord"
+        "opacity 1 0.9, WebCord"
       ];
       exec-once = ["webcord"];
     };
