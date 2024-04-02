@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) getExe;
+  inherit (lib) getExe getExe';
 
   dig = getExe pkgs.dig;
 in {
@@ -15,7 +15,7 @@ in {
     # Create a file with execute permissions
     xtouch = "install /dev/null";
     rm = "rmtrash";
-    rmd = "command rm";
+    rmd = "${getExe' pkgs.coreutils-full "rm"}";
     hash = "sha256sum";
     copy = "wl-copy";
     paste = "wl-paste";

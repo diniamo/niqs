@@ -14,6 +14,6 @@
     wget
     comma
     nh
-    eza
+    nix-tree
   ];
 }

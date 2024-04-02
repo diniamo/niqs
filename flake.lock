@@ -475,11 +475,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1710530683,
-        "narHash": "sha256-n7lFh2GA/H/ZgN1ZRhEgof6gUOp3n1LdfG9XwgPt3So=",
+        "lastModified": 1711905746,
+        "narHash": "sha256-d9KnX5lC8AaYKUiGtAw4K1FSZV6PMc3JkR8FR3Nmz1U=",
         "owner": "justchokingaround",
         "repo": "jerry",
-        "rev": "b040af9e66d03cf0dd4601a952bd07cda795ed8c",
+        "rev": "9238e6e3e93305ac4db68d9dc897a5ef105d55f4",
         "type": "github"
       },
       "original": {
@@ -698,11 +698,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711928877,
-        "narHash": "sha256-+J+tCrJfuGA869nhAglXeKRK90Sn9x960ma3GPbaUxQ=",
+        "lastModified": 1712072316,
+        "narHash": "sha256-p4iEbKtzAoqNs0APBbHGpz/r85SQcxXl0ShRvfILtWU=",
         "owner": "diniamo",
         "repo": "no_decorations_when_only",
-        "rev": "7a2170c4d6ea7a3820347aec3f33663b41db8c25",
+        "rev": "af90c1010cbdba1e355813a4490873aabf00934b",
         "type": "github"
       },
       "original": {

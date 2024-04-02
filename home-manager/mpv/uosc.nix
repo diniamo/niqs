@@ -65,7 +65,6 @@
       border_radius = 4;
       color = "";
       opacity = "";
-      refine = "";
       animation_duration = 100;
       click_threshold = 0;
       click_command = "cycle pause; script-binding uosc/flash-pause-indicator";

@@ -87,5 +87,6 @@ in {
     pulsemixer
     libnotify
     rmtrash
+    eza
   ];
 }
