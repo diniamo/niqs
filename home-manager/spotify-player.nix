@@ -7,6 +7,7 @@
       page_size_in_rows = 30;
       border_type = "Rounded";
       device = {
+        volume = 100;
         device_type = "computer";
         audio_cache = true;
         normalization = true;

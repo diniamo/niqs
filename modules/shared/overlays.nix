@@ -1,9 +1,5 @@
-{
-  lib,
-  lib',
-  ...
-}: let
-  inherit (lib) throwIf versionOlder;
+{lib', ...}: let
+  inherit (lib') overrideError;
 
   overlay = final: prev: {
     pythonPackagesExtensions =
@@ -11,7 +7,7 @@
       ++ [
         (
           _python-final: python-prev: {
-            catppuccin = throwIf (versionOlder "0.7.1" prev.catppuccin-gtk.version) (lib'.overrideError "catppuccin-gtk") python-prev.catppuccin.overridePythonAttrs (_oldAttrs: rec {
+            catppuccin = overrideError prev.catppuccin-gtk "0.7.1" python-prev.catppuccin.overridePythonAttrs (_oldAttrs: rec {
               version = "1.3.2";
               src = prev.fetchFromGitHub {
                 owner = "catppuccin";
@@ -32,13 +28,13 @@
     gamescope = let
       inherit (prev) fetchFromGitHub gamescope;
     in
-      throwIf (versionOlder "3.14.2" gamescope.version) (lib'.overrideError "gamescope") (gamescope.overrideAttrs (_: oldAttrs: {
+      overrideError gamescope "3.14.2" (gamescope.overrideAttrs (_: oldAttrs: {
         src = fetchFromGitHub {
           owner = "ValveSoftware";
           repo = "gamescope";
-          rev = "f9386a769765958b35d996d4e25f9238b757e7d0";
+          rev = "44c16c20c332f441ffd903adbc5380ee85d693e5";
           fetchSubmodules = true;
-          hash = "sha256-5JIC5zZe6IiZOA82nNum7in/+7LpeRu9I7tnJTOwqWo=";
+          hash = "sha256-NesmakUhbYUJ6StvtUMPv0d6Y1yJoql3spyOzgeoiUA=";
         };
 
         buildInputs = oldAttrs.buildInputs ++ [final.libdecor];

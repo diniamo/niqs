@@ -1,10 +1,13 @@
 {lib}: let
-  nameToSlug = name: lib.strings.toLower (builtins.replaceStrings [" "] ["-"] name);
+  inherit (lib) throwIf versionOlder;
+  inherit (lib.strings) toLower;
+
+  nameToSlug = name: toLower (builtins.replaceStrings [" "] ["-"] name);
   boolToNum = bool:
     if bool
     then 1
     else 0;
-  overrideError = pkgName: "A new version of ${pkgName} has been released, remove this overlay/override";
+  overrideError = pkg: version: value: throwIf (versionOlder version pkg.version) "A new version of ${pkg.pname} has been released, remove its overlay/override" value;
 in {
   inherit nameToSlug boolToNum overrideError;
 }

@@ -64,7 +64,7 @@ in {
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
       ''${mod}${secondary}, m, exec, ${getExe pkgs.libnotify} "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
-      ''${mod}${secondary}, i, exec, ${scripts.openImage}""''
+      ''${mod}${secondary}, i, exec, ${scripts.openImage}''
       ''${mod}${secondary}, w, exec, ${getExe pkgs.libnotify} "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
 
       "${mod}, h, movefocus, l"
