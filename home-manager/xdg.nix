@@ -81,7 +81,7 @@ in {
     mime.enable = true;
     mimeApps = {
       enable = true;
-      defaultApplications = associations // expandedAssociations;
+      defaultApplications = expandedAssociations // associations;
     };
   };
 
