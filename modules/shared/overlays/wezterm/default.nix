@@ -50,13 +50,12 @@ rustPlatform.buildRustPackage rec {
     };
   };
 
-  nativeBuildInputs =
-    [
-      installShellFiles
-      ncurses # tic for terminfo
-      pkg-config
-      python3
-    ];
+  nativeBuildInputs = [
+    installShellFiles
+    ncurses # tic for terminfo
+    pkg-config
+    python3
+  ];
 
   buildInputs =
     [
@@ -77,8 +76,6 @@ rustPlatform.buildRustPackage rec {
 
   buildFeatures = ["distro-defaults"];
 
-  env.NIX_LDFLAGS = lib.optionalString stdenv.isDarwin "-framework System";
-
   postInstall = ''
     mkdir -p $out/nix-support
     echo "${passthru.terminfo}" >> $out/nix-support/propagated-user-env-packages
@@ -96,21 +93,12 @@ rustPlatform.buildRustPackage rec {
     install -Dm644 assets/wezterm-nautilus.py -t $out/share/nautilus-python/extensions
   '';
 
-  preFixup =
-    lib.optionalString stdenv.isLinux ''
-      patchelf \
-        --add-needed "${libGL}/lib/libEGL.so.1" \
-        --add-needed "${vulkan-loader}/lib/libvulkan.so.1" \
-        $out/bin/wezterm-gui
-    ''
-    + lib.optionalString stdenv.isDarwin ''
-      mkdir -p "$out/Applications"
-      OUT_APP="$out/Applications/WezTerm.app"
-      cp -r assets/macos/WezTerm.app "$OUT_APP"
-      rm $OUT_APP/*.dylib
-      cp -r assets/shell-integration/* "$OUT_APP"
-      ln -s $out/bin/{wezterm,wezterm-mux-server,wezterm-gui,strip-ansi-escapes} "$OUT_APP"
-    '';
+  preFixup = lib.optionalString stdenv.isLinux ''
+    patchelf \
+      --add-needed "${libGL}/lib/libEGL.so.1" \
+      --add-needed "${vulkan-loader}/lib/libvulkan.so.1" \
+      $out/bin/wezterm-gui
+  '';
 
   passthru = {
     tests = {
