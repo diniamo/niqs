@@ -1,7 +1,8 @@
 {lib', ...}: let
-  inherit (lib') overrideError;
-
-  overlay = final: prev: {
+  overlay = final: prev: let
+    inherit (lib') overrideError;
+    inherit (prev) fetchFromGitHub;
+  in {
     pythonPackagesExtensions =
       prev.pythonPackagesExtensions
       ++ [
@@ -9,7 +10,7 @@
           _python-final: python-prev: {
             catppuccin = overrideError prev.catppuccin-gtk "0.7.1" python-prev.catppuccin.overridePythonAttrs (_oldAttrs: rec {
               version = "1.3.2";
-              src = prev.fetchFromGitHub {
+              src = fetchFromGitHub {
                 owner = "catppuccin";
                 repo = "python";
                 rev = "refs/tags/v${version}";
@@ -26,7 +27,7 @@
       ];
 
     gamescope = let
-      inherit (prev) fetchFromGitHub gamescope;
+      inherit (prev) gamescope;
     in
       overrideError gamescope "3.14.2" (gamescope.overrideAttrs (_: oldAttrs: {
         src = fetchFromGitHub {
@@ -39,6 +40,8 @@
 
         buildInputs = oldAttrs.buildInputs ++ [final.libdecor];
       }));
+
+    wezterm = prev.callPackage ./wezterm {};
   };
 in {
   nixpkgs.overlays = [overlay];

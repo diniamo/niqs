@@ -35,6 +35,7 @@ in {
     ./dunst.nix
     ./spotify-player.nix
     ./fzf.nix
+    ./wezterm.nix
   ];
 
   home = {

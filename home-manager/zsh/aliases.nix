@@ -25,7 +25,7 @@ in {
     page = "$PAGER";
     open = "xdg-open";
     n = "nix";
-    pshell = "nix-shell --packages";
+    psh = "nix-shell --packages";
     dev = "nix develop";
     update-input = "nix flake lock --update-input";
     # nix-clean = "sudo nix-collect-garbage --delete-older-than 3d; nix-collect-garbage -d";
@@ -47,5 +47,7 @@ in {
     gl = "git pull";
     gst = "git status";
     grhh = "git reset --hard";
+    gb = "git branch";
+    gm = "git merge";
   };
 }
