@@ -27,6 +27,14 @@
         key_sequence = "y";
         command = "NextTrack";
       }
+      {
+        key_sequence = "left";
+        command = "SeekBackward";
+      }
+      {
+        key_sequence = "right";
+        command = "SeekForward";
+      }
     ];
   };
 }

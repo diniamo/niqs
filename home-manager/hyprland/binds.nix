@@ -115,12 +115,13 @@ in {
       "${mod}${shift}${secondary}, 0, movetoworkspace, 10"
 
       "${mod}, t, togglefloating"
-      "${mod}, s, exec, ${scripts.pin}"
+      "${mod}, p, exec, ${scripts.pin}"
       ", F11, fullscreen, 0"
       "${mod}, f, fullscreen, 1"
+      "${mod}, s, layoutmsg, swapsplit"
 
       "${mod}${secondary}, x, exec, ${getExe pkgs.gnome.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=windows.conf"
-      "${mod}, p, exec, ${scripts.editClipboard}"
+      "${mod}, y, exec, ${scripts.editClipboard}"
     ];
     binde = [
       "${mod}${ctrl}, h, resizeactive, -50 0"

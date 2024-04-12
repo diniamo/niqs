@@ -71,7 +71,7 @@
     };
     dwindle = {
       pseudotile = true;
-      preserve_split = true;
+      force_split = 2;
       special_scale_factor = 0.95;
     };
     gestures = {

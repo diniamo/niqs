@@ -24,13 +24,27 @@ in {
     mp = "mkdir -p";
     page = "$PAGER";
     open = "xdg-open";
-    n = "nix";
-    psh = "nix-shell --packages";
-    dev = "nix develop";
-    update-input = "nix flake lock --update-input";
-    # nix-clean = "sudo nix-collect-garbage --delete-older-than 3d; nix-collect-garbage -d";
     size = "du -sh";
     "-" = "cd -";
+    fcd = "cd \"$(fd --type directory | fzf)\"";
+
+    sc = "sudo systemctl";
+    jc = "sudo journalctl";
+    scu = "systemctl --user";
+    jcu = "journalctl --user";
+
+    # nix
+    n = "nix";
+    update-input = "nix flake lock --update-input";
+    bloat = "nix path-info -Sh /run/current-system";
+    clean = "nh clean all";
+    curgen = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+    pshell = "nix-shell --packages";
+    shell = "nix shell";
+    dev = "nix develop";
+    run = "nix run";
+    build = ''nix build --builders "" "$@"'';
+    flake = "nix flake";
 
     # eza
     ls = "eza --git --icons --color=auto --group-directories-first";

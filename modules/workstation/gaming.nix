@@ -51,7 +51,7 @@ in {
         enable = true;
         gamescopeSession.enable = true;
 
-        extraCompatPackages = [flakePkgs.nix-gaming.proton-ge];
+        extraCompatPackages = [pkgs.proton-ge-bin];
       };
       gamescope = {
         enable = true;
