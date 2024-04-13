@@ -35,6 +35,14 @@
         key_sequence = "right";
         command = "SeekForward";
       }
+      {
+        key_sequence = "C-u";
+        command = "PageSelectPreviousOrScrollUp";
+      }
+      {
+        key_sequence = "C-d";
+        command = "PageSelectNextOrScrollDown";
+      }
     ];
   };
 }

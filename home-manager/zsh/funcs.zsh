@@ -3,19 +3,39 @@ path() {
 }
 
 contaminate() {
-    if [[ -f "$1" ]]; then
-        print "Contaminating" "$1"
-        mv "$1" "$1.pure"
-        install -m 644 "$1.pure" "$1"
+    for file in "$@"; do
+        if [[ -f "$file.pure" ]]; then
+            print "$file" "is already contaminated"
+        elif [[ ! -f "$file" ]]; then
+            print "$file" "is not a file or does not exist"
+        else
+            print "Contaminating" "$file"
+            mv "$file" "$file.pure"
+            install -m 644 "$file.pure" "$file"
+        fi
+    done
+}
 
-        print "Editing" "$1"
-        "$EDITOR" -- "$1"
+decontaminate() {
+    for file in "$@"; do
+        if [[ -f "$file.pure" ]]; then
+            print "Decontaminating" "$file"
+            mv "$file.pure" "$file"
+        else
+            print "$file" "is not contaminated"
+        fi
+    done
+}
 
-        print "Decontaminating" "$1"
-        mv "$1.pure" "$1"
-    else
-        print "$1" "does not exist!"
-    fi
+nv() {
+    declare -a contaminated
+    for file in "$@"; do
+        [[ "$(readlink "$file")" == /nix/store/* ]] && contaminated+=("$file")
+    done
+
+    contaminate "${contaminated[@]}"
+    "$EDITOR" -- "${contaminated[@]}"
+    decontaminate "${contaminated[@]}"
 }
 
 yazi() {
