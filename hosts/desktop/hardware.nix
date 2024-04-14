@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -15,7 +14,6 @@
   boot = {
     initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
     initrd.kernelModules = [];
-    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
     blacklistedKernelModules = ["i2c_nvidia_gpu"];

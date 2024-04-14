@@ -3,7 +3,8 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/nur";
+    # nur.url = "github:nix-community/nur";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +15,7 @@
       url = "github:diniamo/home-manager/add-spotify-player";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixpkgs is only used for tests, so no don't need to follow it here
+    # nixpkgs is only used for tests, so no need to follow it here
     wrapper-manager.url = "github:viperML/wrapper-manager";
 
     # These are downloaded from caches, so overriding nixpkgs would break them
@@ -34,10 +35,6 @@
       url = "github:justchokingaround/lobster";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixvim = {
-    #   url = "github:nix-community/nixvim";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     hyprwm-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";

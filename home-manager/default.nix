@@ -24,7 +24,6 @@ in {
     ./ncspot.nix
     ./bash.nix
     ./imv.nix
-    # ./nixvim.nix
     ./yazi.nix
     ./starship.nix
     ./zoxide.nix

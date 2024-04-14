@@ -49,6 +49,28 @@ in {
           description = "The name of the font";
           default = "Inter";
         };
+        package = mkOption {
+          type = types.package;
+          description = "The package of the font";
+          default = pkgs.inter;
+        };
+        size = mkOption {
+          type = types.int;
+          description = "The size of the font";
+          default = 12;
+        };
+      };
+      monoFont = {
+        name = mkOption {
+          type = types.str;
+          description = "The name of the font";
+          default = "JetBrainsMono Nerd Font Mono";
+        };
+        package = mkOption {
+          type = types.package;
+          description = "The package of the font";
+          default = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+        };
         size = mkOption {
           type = types.int;
           description = "The size of the font";

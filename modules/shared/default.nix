@@ -1,6 +1,7 @@
 {inputs, ...}: {
   imports = [
-    inputs.nur.nixosModules.nur
+    # inputs.nur.nixosModules.nur
+    inputs.chaotic.nixosModules.default
 
     ./overlays
 
@@ -8,7 +9,6 @@
     ./boot.nix
     ./packages.nix
     ./scripts.nix
-    ./cachix.nix
     ./environment.nix
     ./values.nix
   ];

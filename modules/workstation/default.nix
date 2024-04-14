@@ -8,5 +8,6 @@
     ./qbittorrent.nix
     ./nvidia.nix
     ./thunar.nix
+    ./system.nix
   ];
 }

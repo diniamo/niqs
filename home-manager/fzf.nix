@@ -3,6 +3,7 @@
 in {
   programs.fzf = {
     enable = true;
+    enableZshIntegration = false;
 
     colors = {
       "bg+" = colors.base00;
