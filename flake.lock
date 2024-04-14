@@ -305,6 +305,27 @@
     "flake-parts_3": {
       "inputs": {
         "nixpkgs-lib": [
+          "jerry",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1712014858,
+        "narHash": "sha256-sB4SWl2lX95bExY2gMFG5HIzvva5AVMJd4Igm+GpZNw=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "9126214d0a59633752a136528f5f3b9aa8565b7d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_4": {
+      "inputs": {
+        "nixpkgs-lib": [
           "niqspkgs",
           "nixpkgs"
         ]
@@ -323,7 +344,7 @@
         "type": "github"
       }
     },
-    "flake-parts_4": {
+    "flake-parts_5": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
       },
@@ -341,7 +362,7 @@
         "type": "github"
       }
     },
-    "flake-parts_5": {
+    "flake-parts_6": {
       "inputs": {
         "nixpkgs-lib": [
           "no_decorations_when_only",
@@ -362,7 +383,7 @@
         "type": "github"
       }
     },
-    "flake-parts_6": {
+    "flake-parts_7": {
       "inputs": {
         "nixpkgs-lib": [
           "schizofox",
@@ -383,7 +404,7 @@
         "type": "github"
       }
     },
-    "flake-parts_7": {
+    "flake-parts_8": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_2"
       },
@@ -436,24 +457,6 @@
       }
     },
     "flake-utils_2": {
-      "inputs": {
-        "systems": "systems_3"
-      },
-      "locked": {
-        "lastModified": 1694529238,
-        "narHash": "sha256-zsNZZGTGnMOf9YpHKJqMSsa0dXbfmxeoJ7xHlrt+xmY=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "ff7b65b44d01cf9ba6a71320833626af21126384",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "flake-utils_3": {
       "inputs": {
         "systems": "systems_4"
       },
@@ -685,17 +688,18 @@
     },
     "jerry": {
       "inputs": {
-        "flake-utils": "flake-utils_2",
+        "flake-parts": "flake-parts_3",
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1713018618,
-        "narHash": "sha256-RLMTLSIqScInhQiId9iIy2EBszH62XN1a5PWfP5a8OY=",
+        "lastModified": 1713092134,
+        "narHash": "sha256-WbvyPQgLaKYd9bbKF0ewqAMq+xFVnxiA/fjdIsq/ZWU=",
         "owner": "justchokingaround",
         "repo": "jerry",
-        "rev": "ee848d34be34dfe8c4fa5e22b92c04a658d6625f",
+        "rev": "eb820c61fb1a0ed863afb06e2c5ef45c2d2b5287",
         "type": "github"
       },
       "original": {
@@ -754,7 +758,7 @@
     },
     "lobster": {
       "inputs": {
-        "flake-utils": "flake-utils_3",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -775,7 +779,7 @@
     },
     "niqspkgs": {
       "inputs": {
-        "flake-parts": "flake-parts_3",
+        "flake-parts": "flake-parts_4",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -848,7 +852,7 @@
     },
     "nix-gaming": {
       "inputs": {
-        "flake-parts": "flake-parts_4",
+        "flake-parts": "flake-parts_5",
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
@@ -1061,7 +1065,7 @@
     },
     "no_decorations_when_only": {
       "inputs": {
-        "flake-parts": "flake-parts_5",
+        "flake-parts": "flake-parts_6",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -1145,7 +1149,7 @@
     "schizofox": {
       "inputs": {
         "flake-compat": "flake-compat_2",
-        "flake-parts": "flake-parts_6",
+        "flake-parts": "flake-parts_7",
         "home-manager": "home-manager_3",
         "nixpak": "nixpak",
         "nixpkgs": [
@@ -1171,7 +1175,7 @@
     "searx-randomizer": {
       "inputs": {
         "crane": "crane_2",
-        "flake-parts": "flake-parts_7",
+        "flake-parts": "flake-parts_8",
         "nixpkgs": [
           "schizofox",
           "nixpkgs"

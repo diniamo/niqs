@@ -11,11 +11,9 @@
     rulesProvider =
       if config.programs.gamemode.enable
       then
-        pkgs.ananicy-cpp-rules.overrideAttrs {
-          configurePhase = ''
-            runHook preConfigure
+        pkgs.ananicy-rules-cachyos.overrideAttrs {
+          preInstall = ''
             rm -r 00-default/games
-            runHook postConfigure
           '';
         }
       else pkgs.ananicy-cpp-rules;

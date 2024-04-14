@@ -55,7 +55,7 @@ in {
       };
       gamescope = {
         enable = true;
-        package = pkgs.gamescope_git;
+        package = pkgs.gamescope;
         capSysNice = true;
       };
       gamemode = {

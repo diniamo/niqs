@@ -4,7 +4,6 @@
   lib,
   fetchFromGitHub,
   ncurses,
-  perl,
   pkg-config,
   python3,
   fontconfig,
