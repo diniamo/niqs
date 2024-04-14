@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   config,
+  wrappedPkgs,
   ...
 }: let
   inherit (config) values;
@@ -69,6 +70,7 @@ in {
     with pkgs; [
       font.package
       monoFont.package
+
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
@@ -77,6 +79,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     wrapped
+    wrappedPkgs.xdragon
 
     wl-clipboard
     neovide
@@ -84,7 +87,6 @@ in {
     trash-cli
     ungoogled-chromium
     yt-dlp
-    xdragon
     libreoffice
     libqalculate
     pulsemixer

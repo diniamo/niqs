@@ -4,6 +4,7 @@ in {
   programs.fzf = {
     enable = true;
     enableZshIntegration = false;
+    enableBashIntegration = false;
 
     colors = {
       "bg+" = colors.base00;

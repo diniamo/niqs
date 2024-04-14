@@ -7,6 +7,7 @@
     inherit pkgs;
     modules = [
       ./neovim.nix
+      ./xdragon.nix
     ];
   };
 in

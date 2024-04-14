@@ -69,9 +69,9 @@ in {
       publicShare = "${config.home.homeDirectory}/.local/share/public";
       templates = "${config.home.homeDirectory}/.local/share/templates";
 
-      music = "${config.home.homeDirectory}/Media/Music";
-      pictures = "${config.home.homeDirectory}/Media/Pictures";
-      videos = "${config.home.homeDirectory}/Media/Videos";
+      music = "${config.home.homeDirectory}/Music";
+      pictures = "${config.home.homeDirectory}/Pictures";
+      videos = "${config.home.homeDirectory}/Videos";
 
       extraConfig = {
         XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";

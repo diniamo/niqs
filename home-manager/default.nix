@@ -35,6 +35,7 @@ in {
     ./spotify-player.nix
     ./fzf.nix
     # ./wezterm.nix
+    ./swappy.nix
   ];
 
   home = {

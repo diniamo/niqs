@@ -15,6 +15,7 @@
   secondary = "ALT";
 
   playerctl = getExe pkgs.playerctl;
+  notifySend = getExe pkgs.libnotify;
 
   inherit (osConfig.values) terminal;
 in {
@@ -45,8 +46,10 @@ in {
 
       ", Print, exec, grimblast --notify copy output"
       "${ctrl}, Print, exec, grimblast --notify --freeze copy area"
-      "${shift}, Print, exec, grimblast --notify --freeze save area - | imv -"
+      ''${shift}, Print, exec, tmp="$(mktemp --suffix=.png)"; grimblast --freeze save area "$tmp" && imv "$tmp"''
       "${alt}, Print, exec, grimblast --notify copy active"
+
+      "${mod}, s, exec, wl-paste | swappy -f - -o - | wl-copy"
 
       # TODO: hyprpicker
 
@@ -63,9 +66,9 @@ in {
 
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-      ''${mod}${secondary}, m, exec, ${getExe pkgs.libnotify} "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
+      ''${mod}${secondary}, m, exec, ${notifySend} "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
       ''${mod}${secondary}, i, exec, ${scripts.openImage}''
-      ''${mod}${secondary}, w, exec, ${getExe pkgs.libnotify} "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
+      ''${mod}${secondary}, w, exec, ${notifySend} "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
 
       "${mod}, h, movefocus, l"
       "${mod}, j, movefocus, d"
@@ -118,7 +121,6 @@ in {
       "${mod}, p, exec, ${scripts.pin}"
       ", F11, fullscreen, 0"
       "${mod}, f, fullscreen, 1"
-      "${mod}, s, layoutmsg, swapsplit"
 
       "${mod}${secondary}, x, exec, ${getExe pkgs.gnome.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=windows.conf"
       "${mod}, y, exec, ${scripts.editClipboard}"

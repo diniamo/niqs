@@ -81,7 +81,7 @@
     };
     binds.allow_workspace_cycles = true;
     windowrule = [
-      "pin, dragon-drop"
+      "pin, dragon"
       "float, SVPManager"
 
       "tile, resolve"
