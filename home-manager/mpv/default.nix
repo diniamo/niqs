@@ -4,7 +4,7 @@
   ...
 }: let
   scripts = with pkgs.mpvScripts;
-  with flakePkgs.niqspkgs; [
+  with flakePkgs.niqspkgs.mpvScripts; [
     # Missing: clipshot, autosubsync
     uosc
     reload
@@ -30,10 +30,6 @@ in {
     package = pkgs.wrapMpv (pkgs.mpv-unwrapped.override {vapoursynthSupport = true;}) {
       inherit scripts;
       youtubeSupport = true;
-    };
-
-    scriptOpts = {
-      skiptosilence.mutewhileskipping = true;
     };
   };
 }

@@ -12,5 +12,9 @@
       audio-device = "pipewire";
     };
     defaultProfiles = ["best"];
+
+    scriptOpts = {
+      skiptosilence.mutewhileskipping = true;
+    };
   };
 }
