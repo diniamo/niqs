@@ -41,23 +41,6 @@ in {
     config.common.default = ["hyprland" xdgPortalName];
   };
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
-  };
-  services = {
-    pipewire = {
-      enable = true;
-      wireplumber.enable = true;
-      pulse.enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      jack.enable = true;
-    };
-    power-profiles-daemon.enable = true;
-    blueman.enable = true;
-  };
-
   programs.zsh.enable = true;
   users.users.${values.mainUser}.shell = config.home-manager.users.${values.mainUser}.programs.zsh.package;
 

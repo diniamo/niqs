@@ -9,5 +9,6 @@
     ./nvidia.nix
     ./thunar.nix
     ./system.nix
+    ./services.nix
   ];
 }

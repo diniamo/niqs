@@ -33,6 +33,9 @@
         full)
           full=true
           ;;
+        debug)
+          extra_args+=("--show-trace" "--no-eval-cache")
+          ;;
         -*)
           extra_args+=("$arg")
           ;;
@@ -52,8 +55,8 @@
       # Adds every every untracked file to the index
       ${getExe pkgs.git} add -AN
 
-      ${getExe pkgs.deadnix} -eq ./**/*.nix
-      ${getExe pkgs.statix} fix
+      ${getExe pkgs.deadnix} .
+      ${getExe pkgs.statix} check
       ${getExe pkgs.alejandra} -q .
     fi
 

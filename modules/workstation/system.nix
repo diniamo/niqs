@@ -12,8 +12,7 @@
       if config.programs.gamemode.enable
       then
         pkgs.ananicy-rules-cachyos.overrideAttrs {
-          # HACK: the nixpkgs definition runs preBuild in installPhase
-          preBuild = ''
+          preInstall = ''
             rm -r 00-default/games
           '';
         }

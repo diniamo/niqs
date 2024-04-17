@@ -1,29 +1,35 @@
-{osConfig, ...}: let
-  cfg = osConfig.modules.style;
+{osConfig, pkgs, ...}: let
+  cfg = osConfig.modules.style.qt;
 in {
-  xdg.configFile = {
-    kdeglobals.source = cfg.qt.kdeglobals.source;
+  qt = {
+    enable = true;
+    # platformTheme = "gtk";
+    style = {
+      name = "kvantum";
+      inherit (cfg.theme) package;
+    };
   };
 
-  home.packages = [
-    cfg.qt.theme.package
+  xdg.configFile = {
+    kdeglobals.source = cfg.kdeglobals;
+
+    "Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=default
+    '';
+    "Kvantum/default/default.kvconfig".source = cfg.kvantum.config;
+    "Kvantum/default/default.svg".source = cfg.kvantum.svg;
+  };
+
+  home.packages = with pkgs; [
+    libsForQt5.qtstyleplugin-kvantum
+    qt6Packages.qtstyleplugin-kvantum
   ];
 
   home.sessionVariables = {
-    # The scaling to use everywhere - 1 means no scaling
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     DISABLE_QT5_COMPAT = "0";
     CALIBRE_USE_DARK_PALETTE = "1";
-  };
-
-  qt = {
-    enable = true;
-    # “gtk”, “gtk3”, “gnome”, “lxqt”, “qtct”, “kde”
-    platformTheme = "gtk";
-    # style = {
-    #   name = cfg.qt.theme.name;
-    #   package = cfg.qt.theme.package;
-    # };
   };
 }

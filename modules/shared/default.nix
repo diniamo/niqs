@@ -4,12 +4,12 @@
     inputs.chaotic.nixosModules.default
 
     ./overlays
+    ./options
 
     ./system.nix
     ./boot.nix
     ./packages.nix
     ./scripts.nix
-    ./environment.nix
-    ./values.nix
+    ./no-home-manager.nix
   ];
 }

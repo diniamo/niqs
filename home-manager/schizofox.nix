@@ -8,7 +8,6 @@
   cfg = osConfig.modules.style;
 
   inherit (cfg.colorScheme) colors;
-  fontName = cfg.font.name;
 in {
   imports = [inputs.schizofox.homeManagerModule];
 
@@ -21,11 +20,13 @@ in {
         background = colors.base00;
         foreground = colors.base05;
       };
-      font = fontName;
+      font = cfg.font.name;
     };
 
     search = {
-      defaultSearchEngine = "SearXNG";
+      defaultSearchEngine = "Searx";
+      searxUrl = "https://search.notashelf.dev";
+      searxQuery = "https://search.notashelf.dev/search?q={searchTerms}";
       addEngines = [
         {
           Name = "Startpage";
@@ -33,25 +34,11 @@ in {
           Method = "GET";
           URLTemplate = "https://startpage.com/do/search?query={searchTerms}";
         }
-        {
-          Name = "SearXNG";
-          Description = "SearXNG";
-          Method = "GET";
-          URLTemplate = "https://search.notashelf.dev/search?q={searchTerms}";
-        }
       ];
     };
 
     security = {
-      sanitizeOnShutdown = false;
-      sandbox = true;
       noSessionRestore = false;
-      userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0";
-    };
-
-    misc = {
-      drmFix = true;
-      disableWebgl = false;
     };
 
     settings = {

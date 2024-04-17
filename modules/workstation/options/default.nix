@@ -1,7 +1,10 @@
 {lib, ...}: let
   inherit (lib) mkOption types;
 in {
-  imports = [./style];
+  imports = [
+    ./style
+    ./values.nix
+  ];
 
   options = {
     xdg.portal.name = mkOption {

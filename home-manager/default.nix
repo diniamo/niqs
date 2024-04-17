@@ -4,7 +4,8 @@
   ...
 }: let
   inherit (lib) mkDefault;
-  inherit (osConfig) values;
+
+  username = osConfig.values.mainUser;
 in {
   imports = [
     ./hyprland
@@ -39,8 +40,8 @@ in {
   ];
 
   home = {
-    username = values.mainUser;
-    homeDirectory = "/home/${values.mainUser}";
+    inherit username;
+    homeDirectory = "/home/${username}";
     stateVersion = mkDefault "23.11";
   };
 }
