@@ -38,8 +38,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.config.allowUnfree = true;
-
     services.pipewire.lowLatency.enable = true;
     security.rtkit.enable = true;
     hardware.xpadneo.enable = true;

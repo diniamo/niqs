@@ -1,4 +1,8 @@
-{osConfig, pkgs, ...}: let
+{
+  osConfig,
+  pkgs,
+  ...
+}: let
   cfg = osConfig.modules.style.qt;
 in {
   qt = {
@@ -30,6 +34,9 @@ in {
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     DISABLE_QT5_COMPAT = "0";
+
     CALIBRE_USE_DARK_PALETTE = "1";
+    # libreoffice
+    SAL_USE_VCLPLUGIN = "qt5";
   };
 }

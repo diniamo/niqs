@@ -39,7 +39,6 @@ in {
     bloat = "nix path-info -Sh /run/current-system";
     clean = "nh clean all";
     curgen = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-    pshell = "nix-shell --packages";
     shell = "nix shell";
     dev = "nix develop";
     run = "nix run";

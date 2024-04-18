@@ -8,27 +8,18 @@
   inherit (config) values;
   xdgPortalName = config.xdg.portal.name;
 
-  flags =
+  electronPackages =
     if config.modules.nvidia.enable
-    then ["--disable-gpu"]
-    else [];
-  wrapped = inputs.wrapper-manager.lib.build {
-    inherit pkgs;
-    modules = [
-      {
-        wrappers = {
-          discord = {
-            basePackage = pkgs.webcord;
-            inherit flags;
-          };
-          obsidian = {
-            basePackage = pkgs.obsidian;
-            inherit flags;
-          };
-        };
-      }
-    ];
-  };
+    then
+      with wrappedPkgs; [
+        obsidian-nvidia
+        webcord-nvidia
+      ]
+    else
+      with pkgs; [
+        obsidian
+        webcord
+      ];
 in {
   imports = [
     inputs.hyprland.nixosModules.default
@@ -60,20 +51,21 @@ in {
       noto-fonts-extra
     ];
 
-  environment.systemPackages = with pkgs; [
-    wrapped
-    wrappedPkgs.xdragon
+  environment.systemPackages = with pkgs;
+    [
+      wrappedPkgs.xdragon
 
-    wl-clipboard
-    neovide
-    spotify
-    trash-cli
-    ungoogled-chromium
-    yt-dlp
-    libreoffice
-    libqalculate
-    pulsemixer
-    rmtrash
-    eza
-  ];
+      wl-clipboard
+      neovide
+      spotify
+      trash-cli
+      ungoogled-chromium
+      yt-dlp
+      libreoffice-qt
+      libqalculate
+      pulsemixer
+      rmtrash
+      eza
+    ]
+    ++ electronPackages;
 }

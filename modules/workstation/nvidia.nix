@@ -14,8 +14,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.config.allowUnfree = true;
-
     environment.variables = {
       GBM_BACKEND = "nvidia-drm";
       WLR_NO_HARDWARE_CURSORS = "1";

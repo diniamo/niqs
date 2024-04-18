@@ -8,6 +8,7 @@
     modules = [
       ./neovim.nix
       ./xdragon.nix
+      ./nvidia.nix
     ];
   };
 in

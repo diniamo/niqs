@@ -17,7 +17,7 @@ in {
         selection-target = "clipboard";
 
         font = "${cfg.monoFont.name}:size=${toString cfg.monoFont.size}";
-        dpi-aware = true;
+        dpi-aware = false;
         pad = "10x10 center";
       };
       scrollback = {

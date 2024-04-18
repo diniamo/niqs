@@ -57,7 +57,7 @@ in {
         size = mkOption {
           type = types.int;
           description = "The size of the font";
-          default = 12;
+          default = 11;
         };
       };
       monoFont = {
@@ -74,7 +74,7 @@ in {
         size = mkOption {
           type = types.int;
           description = "The size of the font";
-          default = 12;
+          default = 11;
         };
       };
     };

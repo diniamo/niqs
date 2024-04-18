@@ -16,7 +16,12 @@
     modules,
     ...
   }: let
-    pkgs = inputs.nixpkgs.legacyPackages.${system};
+    # pkgs = inputs.nixpkgs.legacyPackages.${system};
+    # Since this is outside of the main module system, we have to set allowUnfree here too
+    pkgs = import inputs.nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
 
     flakePkgs = inputsToPackages inputs system;
     customPkgs = import ../packages {inherit pkgs;};
@@ -24,7 +29,6 @@
   in
     nixosSystem {
       inherit system modules;
-      # We can't pass lib because that's from nixpkgs, and we need the extended version
       specialArgs = {inherit inputs system flakePkgs customPkgs wrappedPkgs;} // args.specialArgs or {};
     };
 
