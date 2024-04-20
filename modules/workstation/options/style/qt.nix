@@ -12,12 +12,24 @@ in {
       package = mkOption {
         type = types.package;
         description = "The package for the QT theme";
-        default = pkgs.catppuccin-kde.override {
+        default = pkgs.catppuccin-qt5ct;
+      };
+      colorScheme = mkOption {
+        type = types.path;
+        description = "The source file for kdeglobals";
+        default = "${cfg.theme.package}/share/qt5ct/colors/Catppuccin-Macchiato.conf";
+      };
+    };
+
+    kdeglobals = mkOption {
+      type = types.path;
+      description = "Path to the kdeglobals file";
+      default = let
+        package = pkgs.catppuccin-kde.override {
           flavour = ["macchiato"];
           accents = ["blue"];
-          winDecStyles = ["modern"];
         };
-      };
+      in "${package}/share/color-schemes/CatppuccinMacchiatoBlue.colors";
     };
 
     kvantum = {
@@ -39,12 +51,6 @@ in {
         description = "The path to the .svg file";
         default = "${cfg.kvantum.package}/share/Kvantum/Catppuccin-Macchiato-Blue/Catppuccin-Macchiato-Blue.svg";
       };
-    };
-
-    kdeglobals = mkOption {
-      type = types.path;
-      description = "The source file for kdeglobals";
-      default = "${cfg.theme.package}/share/color-schemes/CatppuccinMacchiatoBlue.colors";
     };
   };
 }

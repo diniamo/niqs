@@ -2,12 +2,11 @@
   config,
   pkgs,
   lib,
-  osConfig,
   ...
 }: let
   browser = ["Schizofox.desktop"];
   documentViewer = ["org.pwmt.zathura.desktop.desktop"];
-  fileManager = ["thunar.desktop"];
+  fileManager = ["org.kde.dolphin.desktop"];
   editor = ["neovide.desktop"];
   imageViewer = ["imv.desktop"];
   mediaPlayer = ["mpv.desktop"];
@@ -59,10 +58,7 @@ in {
       enable = true;
       createDirectories = true;
 
-      download =
-        if osConfig.tmpDownloadsDirectory
-        then "/tmp/Downloads"
-        else "${config.home.homeDirectory}/Downloads";
+      download = "${config.home.homeDirectory}/Downloads";
       desktop = "${config.home.homeDirectory}/Desktop";
       documents = "${config.home.homeDirectory}/Documents";
 

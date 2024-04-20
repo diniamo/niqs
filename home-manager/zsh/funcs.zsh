@@ -30,7 +30,7 @@ decontaminate() {
 nv() {
     declare -a contaminated
     for file in "$@"; do
-        [[ "$(readlink "$file")" == /nix/store/* ]] && contaminated+=("$file")
+        [[ -w "$file" ]] && contaminated+=("$file")
     done
 
     contaminate "${contaminated[@]}"

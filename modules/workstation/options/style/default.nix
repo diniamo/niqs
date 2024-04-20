@@ -1,9 +1,12 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
   inherit (lib) mkOption types;
+
+  cfg = config.modules.style;
 in {
   imports = [./colors.nix ./gtk.nix ./qt.nix];
 
@@ -59,6 +62,11 @@ in {
           description = "The size of the font";
           default = 11;
         };
+        sizeString = mkOption {
+          type = types.string;
+          description = "The size of the font as a string";
+          default = toString cfg.font.size;
+        };
       };
       monoFont = {
         name = mkOption {
@@ -75,6 +83,11 @@ in {
           type = types.int;
           description = "The size of the font";
           default = 11;
+        };
+        sizeString = mkOption {
+          type = types.string;
+          description = "The size of the font as a string";
+          default = toString cfg.monoFont.size;
         };
       };
     };

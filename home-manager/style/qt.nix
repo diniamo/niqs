@@ -1,32 +1,45 @@
 {
   osConfig,
   pkgs,
+  config,
   ...
 }: let
-  cfg = osConfig.modules.style.qt;
+  cfg = osConfig.modules.style;
 in {
   qt = {
     enable = true;
-    # platformTheme = "gtk";
-    style = {
-      name = "kvantum";
-      inherit (cfg.theme) package;
-    };
+    platformTheme = "qtct";
+    # style.name = "kvantum";
   };
 
   xdg.configFile = {
-    kdeglobals.source = cfg.kdeglobals;
+    "qt5ct/qt5ct.conf".text = ''
+      [Appearance]
+      custom_palette=true
+      color_scheme_path=${config.xdg.configHome}/qt5ct/colors/default.conf
+      icon_theme=${cfg.iconTheme.name}
+      style=kvantum
+
+      [Fonts]
+      general="${cfg.font.name},${cfg.font.sizeString},-1,5,50,0,0,0,0,0,Regular"
+      fixed="${cfg.monoFont.name},${cfg.monoFont.sizeString},-1,5,50,0,0,0,0,0,Regular"
+    '';
+    "qt5ct/colors/default.conf".source = cfg.qt.theme.colorScheme;
+
+    kdeglobals.source = cfg.qt.kdeglobals;
 
     "Kvantum/kvantum.kvconfig".text = ''
       [General]
       theme=default
     '';
-    "Kvantum/default/default.kvconfig".source = cfg.kvantum.config;
-    "Kvantum/default/default.svg".source = cfg.kvantum.svg;
+    "Kvantum/default/default.kvconfig".source = cfg.qt.kvantum.config;
+    "Kvantum/default/default.svg".source = cfg.qt.kvantum.svg;
   };
 
   home.packages = with pkgs; [
+    libsForQt5.qt5ct
     libsForQt5.qtstyleplugin-kvantum
+    qt6Packages.qt6ct
     qt6Packages.qtstyleplugin-kvantum
   ];
 

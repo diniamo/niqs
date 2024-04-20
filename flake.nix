@@ -11,8 +11,7 @@
     };
 
     home-manager = {
-      # url = "github:nix-community/home-manager";
-      url = "github:diniamo/home-manager/add-spotify-player";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # nixpkgs is only used for tests, so no need to follow it here

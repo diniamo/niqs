@@ -8,7 +8,7 @@ in {
       options = {
         background = colors.base00;
         overlay = true;
-        overlay_font = "${font.name}:${toString font.size}";
+        overlay_font = "${font.name}:${font.sizeString}";
         overlay_text_color = colors.base05;
         overlay_background_color = colors.base00;
         overlay_position_bottom = true;

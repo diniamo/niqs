@@ -39,7 +39,7 @@ in {
       "${mod}${secondary}, g, exec, ${scripts.scratchpad} 'music_tui' '${terminal} spotify_player'"
       "${mod}, c, exec, ${scripts.scratchpad} 'calculator' '${terminal} qalc'"
       "${mod}, e, exec, ${scripts.scratchpad} 'fm' '${terminal} -- yazi'"
-      "${mod}${secondary}, e, exec, ${scripts.scratchpad} 'fm_gui' 'thunar'"
+      "${mod}${secondary}, e, exec, ${scripts.scratchpad} 'fm_gui' 'dolphin'"
 
       ", XF86Explorer, exec, sleep 1 && hyprctl dispatch dpms off"
       ", XF86HomePage, exec, firefox"

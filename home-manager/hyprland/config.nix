@@ -83,9 +83,7 @@
     windowrule = [
       "pin, dragon"
       "float, SVPManager"
-
-      "tile, resolve"
-      "float, title:resolve"
+      "float, org.freedesktop.impl.portal.desktop.kde"
 
       "idleinhibit always, org.qbittorrent.qBittorrent"
 

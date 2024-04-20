@@ -7,7 +7,7 @@ in {
   programs.zathura = {
     enable = true;
     options = {
-      font = "${font.name} ${toString font.size}";
+      font = "${font.name} ${font.sizeString}";
       smooth-scroll = true;
     };
     mappings = {

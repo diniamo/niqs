@@ -16,7 +16,7 @@ in {
 
         selection-target = "clipboard";
 
-        font = "${cfg.monoFont.name}:size=${toString cfg.monoFont.size}";
+        font = "${cfg.monoFont.name}:size=${cfg.monoFont.sizeString}";
         dpi-aware = false;
         pad = "10x10 center";
       };

@@ -3,12 +3,10 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkOption types;
+  inherit (lib) mkOption types;
 in {
   options = {
     modules.style.gtk = {
-      usePortal = mkEnableOption "Use the native desktop portal for file pickers";
-
       theme = {
         name = mkOption {
           type = types.str;

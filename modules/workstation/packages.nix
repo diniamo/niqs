@@ -66,6 +66,8 @@ in {
       pulsemixer
       rmtrash
       eza
+      libnotify
+      dolphin
     ]
     ++ electronPackages;
 }

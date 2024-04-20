@@ -544,16 +544,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1713299978,
-        "narHash": "sha256-Ep4hNby/YnnqIHri7VKzGa5ydxnG0r3BqKTGvAnMqk0=",
-        "owner": "diniamo",
+        "lastModified": 1713536783,
+        "narHash": "sha256-NMUg0BYh1mHhkObOkpaThlliPWl/5seoiMB/EOFCDlc=",
+        "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d80c1b6cbc1623bfc8d9e590e390706cea5a0002",
+        "rev": "7ca7025cf2fa88bebc2190955c44263c3989b706",
         "type": "github"
       },
       "original": {
-        "owner": "diniamo",
-        "ref": "add-spotify-player",
+        "owner": "nix-community",
         "repo": "home-manager",
         "type": "github"
       }

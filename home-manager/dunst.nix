@@ -10,7 +10,7 @@ in {
         gap_size = 8;
         corner_radius = 10;
 
-        font = "${cfg.font.name} ${toString cfg.font.size}";
+        font = "${cfg.font.name} ${cfg.font.sizeString}";
 
         separator_color = "frame";
         frame_color = base0D;

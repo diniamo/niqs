@@ -17,16 +17,11 @@
       zstyle ':completion:*' menu no
       zstyle ':completion:*:git-checkout:*' sort false
       zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+      zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}'
       zstyle ':fzf-tab:*' fzf-min-height 15
 
-      autoload -Uz up-line-or-beginning-search
-      autoload -Uz down-line-or-beginning-search
-      zle -N up-line-or-beginning-search
-      zle -N down-line-or-beginning-search
-
-      bindkey "^U" kill-whole-line
-      bindkey "^H" backward-kill-word
-      bindkey "^[[3;5~" kill-word
+      autoload -Uz up-line-or-beginning-search && zle -N up-line-or-beginning-search
+      autoload -Uz down-line-or-beginning-search && zle -N down-line-or-beginning-search
 
       bindkey "^@" autosuggest-execute
       bindkey "^K" up-line-or-beginning-search
@@ -34,6 +29,10 @@
       bindkey -M vicmd "^@" autosuggest-execute
       bindkey -M vicmd "k" up-line-or-beginning-search
       bindkey -M vicmd "j" down-line-or-beginning-search
+
+      bindkey "^U" kill-whole-line
+      bindkey "^H" backward-kill-word
+      bindkey "^[[3;5~" kill-word
 
       # Can't have these in shellAliases due to escaping
       alias -s git="git clone"
