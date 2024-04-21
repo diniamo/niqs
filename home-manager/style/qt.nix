@@ -1,6 +1,5 @@
 {
   osConfig,
-  pkgs,
   config,
   ...
 }: let
@@ -8,8 +7,9 @@
 in {
   qt = {
     enable = true;
-    platformTheme = "qtct";
-    # style.name = "kvantum";
+    platformTheme.name = "qtct";
+    # platformTheme.name = "gtk3";
+    style.name = "kvantum";
   };
 
   xdg.configFile = {
@@ -35,13 +35,6 @@ in {
     "Kvantum/default/default.kvconfig".source = cfg.qt.kvantum.config;
     "Kvantum/default/default.svg".source = cfg.qt.kvantum.svg;
   };
-
-  home.packages = with pkgs; [
-    libsForQt5.qt5ct
-    libsForQt5.qtstyleplugin-kvantum
-    qt6Packages.qt6ct
-    qt6Packages.qtstyleplugin-kvantum
-  ];
 
   home.sessionVariables = {
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";

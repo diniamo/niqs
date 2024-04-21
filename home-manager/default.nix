@@ -17,6 +17,7 @@ in {
     ./zsh
     ./zathura
     ./bat
+    ./delta
 
     ./xdg.nix
     ./foot.nix

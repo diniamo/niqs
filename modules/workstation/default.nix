@@ -11,5 +11,6 @@
     ./system.nix
     ./services.nix
     ./style.nix
+    ./dolphin.nix
   ];
 }

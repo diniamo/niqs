@@ -1,7 +1,6 @@
-{inputs, ...}: {
+{
   imports = [
     # inputs.nur.nixosModules.nur
-    inputs.chaotic.nixosModules.default
 
     ./overlays
     ./options

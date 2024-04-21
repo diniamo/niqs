@@ -30,11 +30,11 @@ decontaminate() {
 nv() {
     declare -a contaminated
     for file in "$@"; do
-        [[ -w "$file" ]] && contaminated+=("$file")
+        [[ -f "$file" && ! -w "$file" ]] && contaminated+=("$file")
     done
 
     contaminate "${contaminated[@]}"
-    "$EDITOR" -- "${contaminated[@]}"
+    "$EDITOR" -- "$@"
     decontaminate "${contaminated[@]}"
 }
 

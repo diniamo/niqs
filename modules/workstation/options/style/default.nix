@@ -82,7 +82,7 @@ in {
         size = mkOption {
           type = types.int;
           description = "The size of the font";
-          default = 11;
+          default = 12;
         };
         sizeString = mkOption {
           type = types.string;

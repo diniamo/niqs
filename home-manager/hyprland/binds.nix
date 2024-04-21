@@ -30,7 +30,7 @@ in {
       "${mod}${secondary}, q, exec, kill -9 $(hyprctl -j activewindow | ${getExe pkgs.jq} -r '.pid')"
 
       "${mod}, Space, exec, anyrun"
-      "${mod}, x, exec, wlogout --show-binds"
+      "${mod}, x, exec, wlogout --show-binds --column-spacing 5 --row-spacing 5"
       # TODO: cliphist
 
       "${mod}, d, exec, ${scripts.scratchpad} 'terminal' '${terminal}'"

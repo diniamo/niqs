@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   services.ananicy = {
     enable = true;

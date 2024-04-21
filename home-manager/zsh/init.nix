@@ -2,8 +2,6 @@
   programs.zsh = {
     # TODO: proper login manager
     initExtraFirst = ''
-      [[ "$(tty)" == "/dev/tty1" ]] && exec Hyprland
-
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
       # This is needed because otherwise, keybinds (from other plugins too) are overwritten, and it's hard to get around that

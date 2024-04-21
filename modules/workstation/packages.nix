@@ -35,8 +35,11 @@ in {
   programs.zsh.enable = true;
   users.users.${values.mainUser}.shell = config.home-manager.users.${values.mainUser}.programs.zsh.package;
 
-  # For electron apps
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    # For electron apps
+    NIXOS_OZONE_WL = "1";
+    LESS = "-R";
+  };
 
   fonts.packages = let
     inherit (config.modules.style) font monoFont;
@@ -67,7 +70,7 @@ in {
       rmtrash
       eza
       libnotify
-      dolphin
+      gist
     ]
     ++ electronPackages;
 }

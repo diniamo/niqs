@@ -17,21 +17,13 @@ in {
         selection-target = "clipboard";
 
         font = "${cfg.monoFont.name}:size=${cfg.monoFont.sizeString}";
-        dpi-aware = false;
+        dpi-aware = true;
         pad = "10x10 center";
       };
-      scrollback = {
-        lines = 10000;
-      };
-      tweak = {
-        font-monospace-warn = "no";
-      };
-      cursor = {
-        style = "beam";
-      };
-      mouse = {
-        hide-when-typing = "yes";
-      };
+      scrollback.lines = 10000;
+      tweak.font-monospace-warn = "no";
+      cursor.style = "beam";
+      mouse.hide-when-typing = "yes";
 
       colors = {
         foreground = colors.base05; # Text
@@ -62,9 +54,9 @@ in {
   programs.zsh.initExtra = ''
     osc7-pwd() {
       emulate -L zsh # also sets localoptions for us
-        setopt extendedglob
-        local LC_ALL=C
-        printf '\e]7;file://%s%s\e\' $HOST ''${PWD//(#m)([^@-Za-z&-;_~])/%''${(l:2::0:)$(([##16]#MATCH))}}
+      setopt extendedglob
+      local LC_ALL=C
+      printf '\e]7;file://%s%s\e\' $HOST ''${PWD//(#m)([^@-Za-z&-;_~])/%''${(l:2::0:)$(([##16]#MATCH))}}
     }
     chpwd-osc7-pwd() {
       (( ZSH_SUBSHELL )) || osc7-pwd

@@ -5,10 +5,10 @@
   flakePkgs,
   ...
 }: let
-  inherit (lib) mkIf mkEnableOption types mkOption;
+  inherit (lib) mkIf mkEnableOption types mkOption getExe';
   inherit (pkgs) writeShellScript;
+  inherit (flakePkgs.niqspkgs) bencode-pretty;
 
-  bencodeBin = "${flakePkgs.niqspkgs.bencode-pretty}/bin";
   script = writeShellScript "convert-qbittorrent-savepaths" ''
     # Arguments: 1 - BT_backup path
     #            2 - from path
@@ -16,7 +16,7 @@
     tmp=$(mktemp)
 
     for file in "$1"/*.fastresume; do
-      cat "$file" | ${bencodeBin}/bencode_pretty | sed "s,$2,$3,g" | ${bencodeBin}/bencode_unpretty > "$tmp"
+      cat "$file" | ${getExe' bencode-pretty "bencode_pretty"} | sed "s,$2,$3,g" | ${getExe' bencode-pretty "bencode_unpretty"} > "$tmp"
       cp "$tmp" "$file"
     done
   '';

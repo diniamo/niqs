@@ -13,16 +13,18 @@
   inherit (nix-gaming) nixosModules;
 
   hyprctl = getExe' flakePkgs.hyprland.default "hyprctl";
+  powerprofilesctl = getExe pkgs.power-profiles-daemon;
+  notify-send = getExe pkgs.libnotify;
 
   startScript = writeShellScript "gamemode-start" ''
     ${hyprctl} --batch 'keyword animations:enabled 0 ; keyword misc:vfr 0'
-    ${getExe pkgs.power-profiles-daemon} set performance
-    ${getExe pkgs.libnotify} -a "Gamemode" "Optimizations activated"
+    ${powerprofilesctl} set performance
+    ${notify-send} -a "Gamemode" "Optimizations activated"
   '';
   endScript = writeShellScript "gamemode-end" ''
     ${hyprctl} --batch 'keyword animations:enabled 1 ; keyword misc:vfr 1'
-    ${getExe pkgs.power-profiles-daemon} set balanced
-    ${getExe pkgs.libnotify} -a "Gamemode" "Optimizations deactivated"
+    ${powerprofilesctl} set balanced
+    ${notify-send} -a "Gamemode" "Optimizations deactivated"
   '';
 
   cfg = config.modules.gaming;

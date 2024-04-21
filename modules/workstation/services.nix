@@ -1,5 +1,21 @@
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (lib) getExe;
+in {
   services = {
+    greetd = {
+      enable = true;
+      restart = true;
+      settings = {
+        default_session = {
+          command = "${getExe pkgs.greetd.tuigreet} --window-padding 1 --time --time-format '%R - %F' --remember --asterisks --cmd Hyprland";
+          user = "greeter";
+        };
+      };
+    };
     pipewire = {
       enable = true;
       wireplumber.enable = true;

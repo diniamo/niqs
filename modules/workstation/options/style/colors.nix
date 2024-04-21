@@ -43,7 +43,7 @@ in {
         type = types.str;
         default = nameToSlug (toString cfg.name); # toString to avoid type errors if null, returns ""
         description = ''
-                 The slugified version of the colorscheme's name.
+          The slugified version of the colorscheme's name.
 
           Only change this if it's different from the inferred value.
         '';

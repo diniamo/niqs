@@ -15,7 +15,7 @@ in {
     # Create a file with execute permissions
     xtouch = "install /dev/null";
     rm = "rmtrash";
-    rmd = "${getExe' pkgs.coreutils-full "rm"}";
+    rmd = getExe' pkgs.coreutils-full "rm";
     hash = "sha256sum";
     copy = "wl-copy";
     paste = "wl-paste";
@@ -35,7 +35,6 @@ in {
 
     # nix
     n = "nix";
-    update-input = "nix flake lock --update-input";
     bloat = "nix path-info -Sh /run/current-system";
     clean = "nh clean all";
     curgen = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";

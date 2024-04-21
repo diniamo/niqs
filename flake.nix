@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     # nur.url = "github:nix-community/nur";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
       inputs.nixpkgs.follows = "nixpkgs";
