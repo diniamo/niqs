@@ -19,7 +19,7 @@ in {
       useUserPackages = true;
       backupFileExtension = "old";
       extraSpecialArgs = {inherit inputs system flakePkgs customPkgs wrappedPkgs lib';};
-      users.${username} = ../../home-manager;
+      users.${username} = ../../home;
     };
   };
 }
