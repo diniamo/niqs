@@ -3,6 +3,7 @@
     dolphin
     # dolphin-plugins
     kio-extras
+    ark
   ];
   services.udisks2.enable = true;
 }

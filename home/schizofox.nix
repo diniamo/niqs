@@ -49,6 +49,8 @@ in {
       # This makes websites prefer a dark theme (in theory)
       "layout.css.prefers-color-scheme.content-override" = 0;
       "widget.use-xdg-desktop-portal.file-picker" = 1;
+      # Leaving this on breaks a lot
+      "privacy.resistFingerprinting" = false;
 
       "browser.download.dir" = mkIf osConfig.tmpDownloadsDirectory "/tmp/Downloads";
       "browser.download.useDownloadDir" = true;
@@ -76,8 +78,9 @@ in {
         # "addons@wakatime.com".install_url = mkUrl "wakatimes";
         "{6712269b-6289-46fe-b6f3-8144f45afd5e}".install_url = mkUrl "youtube-ad-skip-mute";
 
-        # Disable temporary containers
-        "{c607c8df-14a7-4f28-894f-29e8722976af}".install_url = "";
+        # Disable
+        "{c607c8df-14a7-4f28-894f-29e8722976af}".install_url = ""; # Temporary containers
+        "7esoorv3@alefvanoon.anonaddy.me".install_url = ""; # LibRedirect
       };
     };
   };

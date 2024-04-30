@@ -46,13 +46,15 @@ yazi() {
 }
 
 xv() {
-    [[ -z "$1" ]] && return
-    if [[ -f "$1" ]]; then
-        chmod +x "$1"
-    else
-        install /dev/null "$1"
-    fi
-    nvim "$1"
+    for file in "$@"; do
+        if [[ -f "$file" ]]; then
+            chmod +x "$file"
+        else
+            install /dev/null "$file"
+        fi
+    done
+
+    nvim "$@"
 }
 
 ..() {
@@ -88,19 +90,12 @@ copyfile() {
     fi
 }
 
-notify-exit() {
+notify() {
     "$@"
     notify-send -i dialog-information "Shell" "$1 has finished executing"
 }
 
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line -w
-  else
-    zle push-input -w
-    zle clear-screen -w
-  fi
+# Ensures the derivation is installed, then returns its path in the store
+pkgpath() {
+    nix shell "$1" --command nix eval --raw "$1"
 }
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z

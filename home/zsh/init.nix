@@ -31,11 +31,21 @@
       bindkey "^U" kill-whole-line
       bindkey "^H" backward-kill-word
       bindkey "^[[3;5~" kill-word
+      bindkey "^[[1;5D" backward-word
+      bindkey "^[[1;5C" forward-word
 
-      # Can't have these in shellAliases due to escaping
-      alias -s git="git clone"
+      __fancy_ctrl_z() {
+        if [[ $#BUFFER -eq 0 ]]; then
+          BUFFER="fg"
+          zle accept-line -w
+        else
+          zle push-input -w
+          zle clear-screen -w
+        fi
+      }
+      zle -N __fancy_ctrl_z && bindkey '^Z' __fancy_ctrl_z
 
-      ${builtins.readFile ./funcs.zsh}
+      ${builtins.readFile ./functions.zsh}
     '';
   };
 }

@@ -5,8 +5,9 @@
   ...
 }: let
   browser = ["Schizofox.desktop"];
-  documentViewer = ["org.pwmt.zathura.desktop.desktop"];
+  documentViewer = ["org.pwmt.zathura.desktop"];
   fileManager = ["org.kde.dolphin.desktop"];
+  archiver = ["org.kde.ark.desktop"];
   editor = ["neovide.desktop"];
   imageViewer = ["imv.desktop"];
   mediaPlayer = ["mpv.desktop"];
@@ -26,9 +27,13 @@
     "application/x-extension-xht" = browser;
 
     "inode/directory" = fileManager;
+    "application/zip" = archiver;
 
     "application/json" = browser;
     "application/pdf" = documentViewer;
+
+    "image/gif" = mediaPlayer;
+
     "x-scheme-handler/spotify" = ["spotify.desktop"];
     "x-scheme-handler/discord" = ["webcord.desktop"];
   };

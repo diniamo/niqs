@@ -7,7 +7,7 @@ in {
     settings = {
       options = {
         background = colors.base00;
-        overlay = true;
+        overlay = false;
         overlay_font = "${font.name}:${font.sizeString}";
         overlay_text_color = colors.base05;
         overlay_background_color = colors.base00;

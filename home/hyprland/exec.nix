@@ -14,7 +14,8 @@ in {
       # TODO: Change to indicator once I set a bar up, if I do
       "${getExe' pkgs.gammastep "gammastep"} -l 47.1625:19.5033 -t 6500K:2600K"
       scripts.socket
-      (getExe flakePkgs.no_decorations_when_only.default)
+      # FIX: this is currently broken with hyprland due to https://github.com/hyprwm/Hyprland/commit/10caa03ce5bc2ce8238c494d59405213d32ddead
+      # (getExe flakePkgs.no_decorations_when_only.default)
       (getExe flakePkgs.bgar.default)
     ];
   };

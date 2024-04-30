@@ -29,20 +29,21 @@
 
     declare -a extra_args
     for arg in "$@"; do
-      case "$arg" in
-        full)
-          full=true
-          ;;
-        debug)
-          extra_args+=("--show-trace" "--no-eval-cache")
-          ;;
-        -*)
-          extra_args+=("$arg")
-          ;;
-        *)
-          flake="$(${getSystemFlake} "$arg")"
-          ;;
-      esac
+      if [[ -d "''${arg%#*}" ]]; then
+        flake="$(${getSystemFlake} "$arg")"
+      else
+        case "$arg" in
+          full)
+            full=true
+            ;;
+          debug)
+            extra_args+=("--show-trace" "--no-eval-cache")
+            ;;
+          *)
+            extra_args+=("$arg")
+            ;;
+        esac
+      fi
     done
     [[ -z "$flake" ]] && flake="$(${getSystemFlake})"
 
