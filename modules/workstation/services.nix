@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: let
   inherit (lib) getExe;
@@ -21,11 +22,24 @@ in {
       wireplumber.enable = true;
       pulse.enable = true;
       alsa.enable = true;
-      alsa.support32Bit = true;
       jack.enable = true;
     };
     power-profiles-daemon.enable = true;
     blueman.enable = true;
+
+    ananicy = {
+      enable = true;
+      package = pkgs.ananicy-cpp;
+      rulesProvider =
+        if config.programs.gamemode.enable
+        then
+          pkgs.ananicy-rules-cachyos.overrideAttrs {
+            preInstall = ''
+              rm -r 00-default/games
+            '';
+          }
+        else pkgs.ananicy-cpp-rules;
+    };
   };
 
   hardware.bluetooth = {

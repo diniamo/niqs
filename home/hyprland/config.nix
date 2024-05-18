@@ -1,4 +1,8 @@
-{
+{osConfig, ...}: let
+  inherit (osConfig.values) terminal;
+
+  noDecorations = "gapsin:0, gapsout:0, border:false, shadow:false, rounding:false, decorate:false";
+in {
   wayland.windowManager.hyprland.settings = {
     env = [
       "XDG_SESSION_TYPE, wayland"
@@ -14,7 +18,6 @@
       kb_options = "caps:super";
 
       accel_profile = "flat";
-      follow_mouse = 2;
       scroll_method = "on_button_down";
 
       touchpad = {
@@ -48,6 +51,8 @@
       key_press_enables_dpms = true;
 
       new_window_takes_over_fullscreen = 1;
+      # This doesn' seem to work, so just disable it for now
+      initial_workspace_tracking = 0;
     };
     decoration = {
       rounding = 10;
@@ -79,7 +84,9 @@
       workspace_swipe_direction_lock = false;
       workspace_swipe_cancel_ratio = 0.15;
     };
-    binds.allow_workspace_cycles = true;
+    binds = {
+      allow_workspace_cycles = true;
+    };
     windowrule = [
       "pin, dragon"
       "float, SVPManager"
@@ -92,6 +99,18 @@
     windowrulev2 = [
       "stayfocused, title:^()$, class:^(steam)$"
       "minsize 1 1, title:^()$, class:^(steam)$"
+    ];
+    workspace = [
+      "w[v1] s[false], ${noDecorations}"
+      "f[1], ${noDecorations}"
+
+      "special:terminal, on-created-empty:${terminal}"
+      "special:mixer, on-created-empty:${terminal} pulsemixer"
+      "special:music, on-created-empty:spotify"
+      "special:music_tui, on-created-empty:${terminal} spotify_player"
+      "special:calculator, on-created-empty:qalculate-qt"
+      "special:file_manager, on-created-empty:${terminal} yazi"
+      "special:file_manager_gui, on-created-empty:dolphin"
     ];
   };
 }

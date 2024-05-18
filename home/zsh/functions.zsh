@@ -99,3 +99,10 @@ notify() {
 pkgpath() {
     nix shell "$1" --command nix eval --raw "$1"
 }
+
+rpwd() {
+    dir="${PWD##*/}"
+    cd ..
+    mv "$dir" "$1"
+    cd "$1"
+}

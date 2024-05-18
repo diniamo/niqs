@@ -21,6 +21,10 @@
       ignoreSpace = true;
     };
 
+    envExtra = ''
+      setopt noglobalrcs
+    '';
+
     plugins = with pkgs; [
       # vi mode must be first to avoid overriding binds
       {

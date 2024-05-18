@@ -35,7 +35,7 @@
     "image/gif" = mediaPlayer;
 
     "x-scheme-handler/spotify" = ["spotify.desktop"];
-    "x-scheme-handler/discord" = ["webcord.desktop"];
+    "x-scheme-handler/discord" = ["vesktop.desktop"];
   };
   globAssociations = {
     "audio/*" = mediaPlayer;

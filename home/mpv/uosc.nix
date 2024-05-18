@@ -28,7 +28,7 @@
       controls_spacing = 2;
       controls_persistency = "";
 
-      volume = "right";
+      volume = "left";
       volume_size = 40;
       volume_border = 1;
       volume_step = 1;

@@ -1,44 +1,27 @@
 {
   pkgs,
   lib,
-  osConfig,
   ...
 }: let
   inherit (pkgs) writeShellScript;
   inherit (lib) getExe mkOption types;
 
   jq = getExe pkgs.jq;
-
-  inherit (osConfig.values) terminal;
 in {
   options = {
-    programs.hyprland.scripts = mkOption {
+    modules.hyprland.scripts = mkOption {
       description = "Scripts for Hyprland";
       type = types.attrs;
     };
   };
 
   config = {
-    programs.hyprland.scripts = rec {
+    modules.hyprland.scripts = {
       pin = writeShellScript "pin" ''
         if ! hyprctl -j activewindow | ${jq} -e .floating; then
           hyprctl dispatch togglefloating
         fi
         hyprctl dispatch pin
-      '';
-
-      # Usage: <script> <scratchpad name> <commands...>
-      scratchpad = writeShellScript "scratchpad" ''
-        workspace_name="$1"
-        windows="$(hyprctl -j clients | ${jq} ".[] | select(.workspace.name == \"special:$workspace_name\")")"
-        if [[ -z "$windows" ]]; then
-          shift
-          for cmd in "$@"; do
-            hyprctl dispatch exec "[workspace special:$workspace_name] $cmd"
-          done
-        else
-          hyprctl dispatch togglespecialworkspace "$workspace_name"
-        fi
       '';
 
       socket = writeShellScript "socket" ''
@@ -71,13 +54,6 @@ in {
             ${getExe pkgs.libnotify} 'Clipboard content is not an image'
             ;;
         esac
-      '';
-
-      editClipboard = writeShellScript "edit-clipboard" ''
-        tmp="$(mktemp)"
-        wl-paste > "$tmp"
-        ${scratchpad} "editclipboard" "${terminal} -- $EDITOR '$tmp'"
-        cat "$tmp" | wl-copy
       '';
     };
   };

@@ -1,21 +1,34 @@
 {
+  inputs,
   pkgs,
-  config,
   ...
 }: {
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  # Avoid using the module system
+  # Fix kernel module compilation
+  nixpkgs.overlays = [
+    inputs.chaotic.overlays.default
+    # (final: prev: {
+    #   linuxPackages_cachyos-lto-fixed = final.linuxPackages_cachyos-lto.override (linuxPackagesArgs: {
+    #     linuxPackagesFor = kernel:
+    #       linuxPackagesArgs.linuxPackagesFor (
+    #         kernel.overrideAttrs (kernelAttrs: {
+    #           makeFlags =
+    #             kernelAttrs.makeFlags
+    #             ++ [
+    #               "KBUILD_LDFLAGS+=--thinlto-cache-dir=/var/cache/clang-thinlto"
+    #             ];
+    #         })
+    #       );
+    #   });
+    # })
+  ];
+  # nix.settings.extra-sandbox-paths = [ "/var/cache/clang-thinlto" ];
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
 
-  services.ananicy = {
+  hardware.opengl = {
     enable = true;
-    package = pkgs.ananicy-cpp;
-    rulesProvider =
-      if config.programs.gamemode.enable
-      then
-        pkgs.ananicy-rules-cachyos.overrideAttrs {
-          preInstall = ''
-            rm -r 00-default/games
-          '';
-        }
-      else pkgs.ananicy-cpp-rules;
+    driSupport = true;
+    driSupport32Bit = true;
   };
 }

@@ -3,7 +3,6 @@
   flakePkgs,
   pkgs,
   lib,
-  config,
   ...
 }: {
   imports = [
@@ -31,5 +30,6 @@
     };
   };
 
-  xdg.configFile."hypr/hyprland.conf".onChange = "${lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"} reload";
+  # This is also done in the home-manager module, but it doesn't work(?)
+  xdg.configFile."hypr/hyprland.conf".onChange = "'${lib.getExe' flakePkgs.hyprland.default "hyprctl"}' -i 0 reload";
 }

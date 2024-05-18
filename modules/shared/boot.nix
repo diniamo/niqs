@@ -1,15 +1,20 @@
 {
   config,
   lib,
+  pkgs,
+  inputs,
   ...
 }: let
-  inherit (lib) mkIf mkEnableOption;
+  inherit (lib) mkEnableOption mkDefault;
 
   cfg = config.modules.boot;
 in {
+  imports = [inputs.lanzaboote.nixosModules.lanzaboote];
+
   options = {
     modules.boot = {
-      windows_entry = mkEnableOption "Whether to add a Windows entry or not";
+      secure = mkEnableOption "secure boot";
+      windowsEntry = mkEnableOption "a windows entry in the boot menu";
     };
   };
 
@@ -18,20 +23,31 @@ in {
       loader = {
         timeout = 0;
         systemd-boot = {
-          enable = true;
+          enable = !cfg.secure;
           consoleMode = "auto";
-          configurationLimit = 3;
-          extraInstallCommands = mkIf cfg.windows_entry "printf 'auto-entries false' >> /boot/loader/loader.conf";
-          extraEntries = mkIf cfg.windows_entry {
-            "windows.conf" = ''
-              title Windows
-              efi /EFI/Microsoft/Boot/bootmgfw.efi
-            '';
-          };
+          editor = false;
+          configurationLimit = 4;
+          # extraInstallCommands = mkIf cfg.windowsEntry "printf 'auto-entries false' >> /boot/loader/loader.conf";
+          # extraEntries = mkIf cfg.windowsEntry {
+          #   "windows.conf" = ''
+          #     title Windows
+          #     efi /EFI/Microsoft/Boot/bootmgfw.efi
+          #   '';
+          # };
         };
-        # efi.canTouchEfiVariables = true;
       };
-      kernelParams = ["quiet"];
+
+      lanzaboote = {
+        enable = cfg.secure;
+        # That --yes-this-might-brick-my-machine flag is scary
+        # do it manually with the --microsoft flag (not only when dual booting windows)
+        enrollKeys = false;
+        pkiBundle = "/etc/secureboot";
+      };
+
+      tmp.useTmpfs = mkDefault true;
+      kernelPackages = mkDefault pkgs.linuxPackages_latest;
+      kernelParams = ["quiet" "splash"];
     };
   };
 }

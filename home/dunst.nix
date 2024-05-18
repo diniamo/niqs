@@ -9,6 +9,7 @@ in {
         follow = "mouse";
         gap_size = 8;
         corner_radius = 10;
+        offset = "10x10";
 
         font = "${cfg.font.name} ${cfg.font.sizeString}";
 

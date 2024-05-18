@@ -6,25 +6,25 @@
   ...
 }: let
   inherit (lib) getExe;
-  inherit (config.programs.hyprland) scripts;
+  inherit (config.modules.hyprland) scripts;
+
+  inherit (osConfig.values) terminal;
+
+  playerctl = getExe pkgs.playerctl;
+  notifySend = getExe pkgs.libnotify;
 
   mod = "SUPER";
   ctrl = "CONTROL";
   alt = "ALT";
   shift = "SHIFT";
   secondary = "ALT";
-
-  playerctl = getExe pkgs.playerctl;
-  notifySend = getExe pkgs.libnotify;
-
-  inherit (osConfig.values) terminal;
 in {
   wayland.windowManager.hyprland.settings = {
     bind = [
       "${mod}, Return, exec, ${terminal}"
       "${mod}${secondary}, Return, exec, ${terminal} -- yazi"
       "${mod}, n, exec, neovide"
-      "${mod}${secondary}, n, exec, cd ~/.nixos && neovide"
+      "${mod}${secondary}, n, exec, cd /etc/nixos && neovide"
       "${mod}, w, exec, firefox"
       "${mod}, q, killactive"
       "${mod}${secondary}, q, exec, kill -9 $(hyprctl -j activewindow | ${getExe pkgs.jq} -r '.pid')"
@@ -33,13 +33,13 @@ in {
       "${mod}, x, exec, wlogout --show-binds --column-spacing 5 --row-spacing 5"
       # TODO: cliphist
 
-      "${mod}, d, exec, ${scripts.scratchpad} 'terminal' '${terminal}'"
-      "${mod}, m, exec, ${scripts.scratchpad} 'mixer' '${terminal} pulsemixer'"
-      "${mod}, g, exec, ${scripts.scratchpad} 'music' 'spotify'"
-      "${mod}${secondary}, g, exec, ${scripts.scratchpad} 'music_tui' '${terminal} spotify_player'"
-      "${mod}, c, exec, ${scripts.scratchpad} 'calculator' '${terminal} qalc'"
-      "${mod}, e, exec, ${scripts.scratchpad} 'fm' '${terminal} -- yazi'"
-      "${mod}${secondary}, e, exec, ${scripts.scratchpad} 'fm_gui' 'dolphin'"
+      "${mod}, d, togglespecialworkspace, terminal"
+      "${mod}, m, togglespecialworkspace, mixer"
+      "${mod}, g, togglespecialworkspace, music"
+      "${mod}${secondary}, g, togglespecialworkspace, music_tui"
+      "${mod}, c, togglespecialworkspace, calculator"
+      "${mod}, e, togglespecialworkspace, file_manager"
+      "${mod}${secondary}, e, togglespecialworkspace, file_manager_gui"
 
       ", XF86Explorer, exec, sleep 1 && hyprctl dispatch dpms off"
       ", XF86HomePage, exec, firefox"
@@ -122,8 +122,7 @@ in {
       ", F11, fullscreen, 0"
       "${mod}, f, fullscreen, 1"
 
-      "${mod}${secondary}, x, exec, ${getExe pkgs.gnome.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=windows.conf"
-      "${mod}, y, exec, ${scripts.editClipboard}"
+      "${mod}${secondary}, x, exec, ${getExe pkgs.gnome.zenity} --question --text 'Do you really want to reboot to the boot menu?' --icon system-reboot && systemctl reboot --boot-loader-menu=2147483647"
     ];
     binde = [
       "${mod}${ctrl}, h, resizeactive, -50 0"

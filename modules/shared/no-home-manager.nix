@@ -8,7 +8,7 @@
 in {
   config = mkIf ((config.home-manager.users or {}) == {}) {
     environment = {
-      systemPackages = with pkgs; [neovim];
+      systemPackages = [pkgs.neovim];
       variables = {
         EDITOR = "nvim";
         VISUAL = "nvim";

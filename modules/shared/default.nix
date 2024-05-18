@@ -10,5 +10,6 @@
     ./packages.nix
     ./scripts.nix
     ./no-home-manager.nix
+    ./nix.nix
   ];
 }

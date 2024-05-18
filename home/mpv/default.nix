@@ -23,6 +23,7 @@ in {
     ./binds.nix
     ./profiles.nix
     ./uosc.nix
+    ./anime.nix
   ];
 
   programs.mpv = {

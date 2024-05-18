@@ -62,6 +62,8 @@ in {
       grhh = "git reset --hard";
       gb = "git branch";
       gm = "git merge";
+      gfa = "git fetch --all";
+      gpf = "git push --force";
     };
 
     initExtra = ''

@@ -4,7 +4,8 @@ in {
   imports = [./hardware.nix];
 
   modules = {
-    boot.windows_entry = true;
+    boot.secure = true;
+    boot.windowsEntry = true;
     nvidia.enable = true;
     gaming.enable = true;
     qbittorrent.convertSavePaths = {
@@ -38,10 +39,10 @@ in {
         "10, monitor:DP-2, default:true"
       ];
       windowrule = [
-        "workspace 10, WebCord"
-        "opacity 1 0.9, WebCord"
+        "workspace 10, vesktop"
+        "opacity 1 0.9, vesktop"
       ];
-      exec-once = ["webcord"];
+      exec-once = ["vesktop"];
     };
   };
 

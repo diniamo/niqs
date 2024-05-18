@@ -7,5 +7,6 @@ in {
   wrappers = {
     obsidian-nvidia = mkElectronWrapper pkgs.obsidian;
     webcord-nvidia = mkElectronWrapper pkgs.webcord;
+    vesktop-nvidia = mkElectronWrapper pkgs.vesktop;
   };
 }

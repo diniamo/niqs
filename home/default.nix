@@ -18,12 +18,13 @@ in {
     ./zathura
     ./bat
     ./delta
+    # ./nvf
 
     ./xdg.nix
     ./foot.nix
     ./schizofox.nix
     ./git.nix
-    ./ncspot.nix
+    # ./ncspot.nix
     ./bash.nix
     ./imv.nix
     ./yazi.nix

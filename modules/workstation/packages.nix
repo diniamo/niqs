@@ -13,7 +13,7 @@
     then
       with wrappedPkgs; [
         obsidian-nvidia
-        webcord-nvidia
+        vesktop-nvidia
       ]
     else
       with pkgs; [
@@ -62,12 +62,13 @@ in {
       neovide
       spotify
       trash-cli
+      rmtrash
       ungoogled-chromium
       yt-dlp
       libreoffice-qt
       libqalculate
+      qalculate-qt
       pulsemixer
-      rmtrash
       eza
       libnotify
       gist

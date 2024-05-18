@@ -9,8 +9,7 @@
     '';
 
     initExtra = ''
-      setopt AUTO_CD CORRECT HIST_REDUCE_BLANKS NOTIFY LONG_LIST_JOBS INTERACTIVE_COMMENTS
-      unsetopt BEEP HIST_BEEP
+      setopt autocd correct histreduceblanks longlistjobs interactivecomments nohistbeep nobeep
 
       zstyle ':completion:*' menu no
       zstyle ':completion:*:git-checkout:*' sort false
