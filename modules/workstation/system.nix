@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  config,
   ...
 }: {
   # Avoid using the module system
@@ -26,9 +27,8 @@
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+  users.users.${config.values.mainUser} = {
+    isNormalUser = true;
+    extraGroups = ["wheel"];
   };
 }
