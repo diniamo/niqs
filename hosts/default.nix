@@ -19,13 +19,13 @@ in {
     ];
     inherit specialArgs;
   };
-server = mkNixosSystem {
-  system = "x86_64-linux";
-  modules = [
-    ./server
-    shared
-    server
-  ];
-  inherit specialArgs;
-};
+  server = mkNixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      ./server
+      shared
+      server
+    ];
+    inherit specialArgs;
+  };
 }

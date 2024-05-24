@@ -51,8 +51,6 @@ in {
       key_press_enables_dpms = true;
 
       new_window_takes_over_fullscreen = 1;
-      # This doesn' seem to work, so just disable it for now
-      initial_workspace_tracking = 0;
     };
     decoration = {
       rounding = 10;
@@ -88,17 +86,17 @@ in {
       allow_workspace_cycles = true;
     };
     windowrule = [
-      "pin, dragon"
-      "float, SVPManager"
-      "float, org.freedesktop.impl.portal.desktop.kde"
-
-      "idleinhibit always, org.qbittorrent.qBittorrent"
-
-      "noanim, ueberzugpp_.*"
+      "pin, ^(dragon)$"
+      "float, ^(SVPManager)$"
+      "float, ^(org.freedesktop.impl.portal.desktop.kde)$"
+      "idleinhibit always, ^(org.qbittorrent.qBittorrent)$"
+      "noanim, ^(ueberzugpp_)(.*)$"
+      "maximize, ^(steamwebhelper)$"
     ];
     windowrulev2 = [
-      "stayfocused, title:^()$, class:^(steam)$"
-      "minsize 1 1, title:^()$, class:^(steam)$"
+      # These 2 should fix floating windows
+      "stayfocused, initialtitle:^()$, initialclass:^(steam)$"
+      "minsize 1 1, initialtitle:^()$, initialclass:^(steam)$"
     ];
     workspace = [
       "w[v1] s[false], ${noDecorations}"

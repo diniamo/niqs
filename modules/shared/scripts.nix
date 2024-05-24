@@ -33,10 +33,10 @@
         flake="$(${getSystemFlake} "$arg")"
       else
         case "$arg" in
-          full)
+          -f|--full)
             full=true
             ;;
-          debug)
+          -d|--debug)
             extra_args+=("--show-trace" "--no-eval-cache")
             ;;
           *)

@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  wrappedPkgs,
   ...
 }: let
   inherit (lib) mkIf mkEnableOption;
@@ -14,17 +15,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.variables = {
-      GBM_BACKEND = "nvidia-drm";
-      # WLR_NO_HARDWARE_CURSORS = "1";
-      LIBVA_DRIVER_NAME = "nvidia";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      __GL_VRR_ALLOWED = "1";
-      __GL_GSYNC_ALLOWED = "1";
-    };
-
     hardware.nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
 
       open = false;
       modesetting.enable = true;
@@ -33,5 +25,36 @@ in {
 
     # This is required for Wayland too
     services.xserver.videoDrivers = ["nvidia"];
+
+    # Optimizations taken from https://github.com/ventureoo/nvidia-tweaks
+    services.udev.extraRules = ''
+      ACTION=="bind", SUBSYSTEM=="pci", DRIVERS=="nvidia", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", TEST=="power/control", ATTR{power/control}="auto"
+      ACTION=="unbind", SUBSYSTEM=="pci", DRIVERS=="nvidia", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", TEST=="power/control", ATTR{power/control}="on"
+    '';
+    boot.kernelParams = [
+      "nvidia.NVreg_UsePageAttributeTable=1"
+      "nvidia.NVreg_InitializeSystemMemoryAllocations=0"
+      "nvidia.NVreg_EnableStreamMemOPs=1"
+      "nvidia.NVreg_RegistryDwords=__REGISTRYDWORDS"
+    ];
+    environment.variables = {
+      __GL_YIELD = "USLEEP";
+      __GL_MaxFramesAllowed = "1";
+
+      GBM_BACKEND = "nvidia-drm";
+      LIBVA_DRIVER_NAME = "nvidia";
+      NVD_BACKEND = "direct";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      __GL_VRR_ALLOWED = "1";
+      __GL_GSYNC_ALLOWED = "1";
+    };
+
+    nixpkgs.overlays = [
+      (with wrappedPkgs;
+        _: _: {
+          obsidian = obsidian-nvidia;
+          vesktop = vesktop-nvidia;
+        })
+    ];
   };
 }

@@ -1,7 +1,6 @@
 {
   osConfig,
   pkgs,
-  config,
   ...
 }: let
   cfg = osConfig.modules.style;
@@ -24,25 +23,15 @@ in {
 
   gtk = {
     enable = true;
-    theme = {
-      inherit (cfg.gtk.theme) name package;
-    };
-    iconTheme = {
-      inherit (cfg.iconTheme) name package;
-    };
-    font = {
-      inherit (cfg.font) name size;
-    };
+    theme = {inherit (cfg.gtk.theme) name package;};
+    iconTheme = {inherit (cfg.iconTheme) name package;};
+    font = {inherit (cfg.font) name size;};
 
-    gtk2 = {
-      configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-      extraConfig = ''
-        gtk-xft-antialias=1
-        gtk-xft-hinting=1
-        gtk-xft-hintstyle="hintslight"
-        gtk-xft-rgba="rgb"
-      '';
-    };
+    gtk2.extraConfig = ''
+      gtk-xft-hinting=1
+      gtk-xft-hintstyle="hintslight"
+      gtk-xft-rgba="rgb"
+    '';
     gtk3.extraConfig = {
       gtk-toolbar-style = "GTK_TOOLBAR_BOTH";
       gtk-toolbar-icon-size = "GTK_ICON_SIZE_LARGE_TOOLBAR";
@@ -68,4 +57,13 @@ in {
       gtk-application-prefer-dark-theme = true;
     };
   };
+
+  xdg.configFile."xsettingsd/xsettingsd.conf".text = ''
+    Net/ThemeName "${cfg.gtk.theme.name}"
+    Gtk/CursorThemeName "${cfg.cursor.name}"
+    Gtk/CursorThemeSize ${toString cfg.cursor.size}
+    Net/IconThemeName "${cfg.iconTheme.name}"
+    Gtk/FontName "${cfg.font.name}, ${toString cfg.font.size}"
+    Gtk/DecorationLayout "appmenu:none"
+  '';
 }

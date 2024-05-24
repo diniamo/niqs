@@ -2,8 +2,10 @@
   wrappers.neovim = {
     basePackage = pkgs.neovim-unwrapped;
     pathAdd = with pkgs; [
-      # For luasnip/jsregexp
+      # For luasnip/jsregexp,
       gnumake
+      # For treesitter
+      clang
 
       # LSPs
       lua-language-server

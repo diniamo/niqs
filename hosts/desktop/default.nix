@@ -21,7 +21,6 @@ in {
   home-manager.users.${values.mainUser} = {
     wayland.windowManager.hyprland.settings = {
       misc.background_color = "0x2E3034";
-
       monitor = [
         "DP-1, 1920x1080@165, 0x0, 1, vrr, 2"
         "DP-2, 1920x1080@60, 1920x0, 1"
@@ -43,6 +42,52 @@ in {
         "opacity 1 0.9, vesktop"
       ];
       exec-once = ["vesktop"];
+    };
+
+    xsession.windowManager.i3.config = {
+      workspaceOutputAssign = [
+        {
+          workspace = "1";
+          output = "DP-0";
+        }
+        {
+          workspace = "2";
+          output = "DP-0";
+        }
+        {
+          workspace = "3";
+          output = "DP-0";
+        }
+        {
+          workspace = "4";
+          output = "DP-0";
+        }
+        {
+          workspace = "5";
+          output = "DP-0";
+        }
+        {
+          workspace = "6";
+          output = "DP-0";
+        }
+        {
+          workspace = "7";
+          output = "DP-0";
+        }
+        {
+          workspace = "8";
+          output = "DP-0";
+        }
+        {
+          workspace = "9";
+          output = "DP-0";
+        }
+        {
+          workspace = "10";
+          output = "DP-3";
+        }
+      ];
+      startup = [{command = "xrandr --output DP-0 --mode 1920x1080 --rate 165";}];
     };
   };
 

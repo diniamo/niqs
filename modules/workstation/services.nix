@@ -12,7 +12,7 @@ in {
       restart = true;
       settings = {
         default_session = {
-          command = "${getExe pkgs.greetd.tuigreet} --window-padding 1 --time --time-format '%R - %F' --remember --asterisks --cmd Hyprland";
+          command = "${getExe pkgs.greetd.tuigreet} --window-padding 1 --time --time-format '%R - %F' --remember --remember-session --asterisks";
           user = "greeter";
         };
       };

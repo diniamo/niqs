@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf mkOption types getExe;
+  inherit (lib) mkEnableOption mkIf mkOption types getExe optionalString;
 
   crudini = getExe pkgs.crudini;
   toIniBool = bool:
@@ -18,6 +18,11 @@ in {
   options = {
     services.satisfactory = {
       enable = mkEnableOption "Satisfactory dedicated server";
+      beta = mkOption {
+        description = "The beta release to use";
+        type = types.enum [null "experimental"];
+        default = null;
+      };
 
       maxPlayers = mkOption {
         description = "Player limit";
@@ -57,6 +62,7 @@ in {
           +force_install_dir ${path}/SatisfactoryDedicatedServer \
           +login anonymous \
           +app_update 1690800 \
+          ${optionalString (cfg.beta != null) "-beta ${cfg.beta}"} \
           validate \
           +quit
         ${getExe pkgs.patchelf} --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 ${path}/SatisfactoryDedicatedServer/Engine/Binaries/Linux/UnrealServer-Linux-Shipping

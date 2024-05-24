@@ -1,12 +1,11 @@
 {lib', ...}: {
   nixpkgs.overlays = [
     (final: prev: let
-      inherit (lib') overrideError versionOverride;
-      inherit (prev) fetchFromGitHub;
+      inherit (lib') versionOverride;
+      # inherit (final) fetchFromGitHub;
     in {
-      wezterm = final.callPackage ./wezterm {};
-
       vesktop = versionOverride prev.vesktop "1.5.3";
+      # alacritty = flakePkgs.niqspkgs.alacritty-sixel;
     })
   ];
 }

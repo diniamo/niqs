@@ -19,6 +19,7 @@ in {
     ./bat
     ./delta
     # ./nvf
+    # ./alacritty
 
     ./xdg.nix
     ./foot.nix
@@ -39,6 +40,8 @@ in {
     ./fzf.nix
     # ./wezterm.nix
     ./swappy.nix
+    # ./i3.nix
+    ./mangohud.nix
   ];
 
   home = {

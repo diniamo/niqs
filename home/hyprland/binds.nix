@@ -121,6 +121,7 @@ in {
       "${mod}, p, exec, ${scripts.pin}"
       ", F11, fullscreen, 0"
       "${mod}, f, fullscreen, 1"
+      "${mod}, z, exec, ${scripts.lockCursor}"
 
       "${mod}${secondary}, x, exec, ${getExe pkgs.gnome.zenity} --question --text 'Do you really want to reboot to the boot menu?' --icon system-reboot && systemctl reboot --boot-loader-menu=2147483647"
     ];

@@ -3,14 +3,13 @@
 
   inputs = {
     # nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:diniamo/nixpkgs/global-steam-compat-paths-var";
+    nixpkgs.url = "github:diniamo/nixpkgs/nvidia-555";
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
 
-    systems.url = "github:nix-systems/x86_64-linux";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +18,8 @@
       url = "github:viperML/wrapper-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    systems.url = "github:nix-systems/x86_64-linux";
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
@@ -40,7 +41,7 @@
 
     # These are downloaded from caches, so overriding nixpkgs would break them
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?ref=v0.40.0&submodules=1";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=xwayland-rewrite";
       inputs.systems.follows = "systems";
     };
     anyrun = {
@@ -72,11 +73,6 @@
     hyprwm-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    no_decorations_when_only = {
-      url = "github:diniamo/no_decorations_when_only";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
     };
     bgar = {
       url = "github:diniamo/bgar";

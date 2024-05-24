@@ -7,6 +7,7 @@
   inherit (lib) getExe mkOption types;
 
   jq = getExe pkgs.jq;
+  notify-send = getExe pkgs.libnotify;
 in {
   options = {
     modules.hyprland.scripts = mkOption {
@@ -43,17 +44,38 @@ in {
       openImage = writeShellScript "open-image" ''
         case "$(wl-paste --list-types)" in
           *text*)
-            ${getExe pkgs.libnotify} 'Opening image URL'
+            ${notify-send} 'Opening image URL'
             curl -sL "$(wl-paste)" | imv -
             ;;
           *image*)
-            ${getExe pkgs.libnotify} 'Opening image'
+            ${notify-send} 'Opening image'
             wl-paste | imv -
             ;;
           *)
-            ${getExe pkgs.libnotify} 'Clipboard content is not an image'
+            ${notify-send} 'Clipboard content is not an image'
             ;;
         esac
+      '';
+
+      lockCursor = writeShellScript "lock-cursor" ''
+        # This check only works for vertically placed monitors
+        if hyprctl -j monitors | ${jq} -e '(.[0].y + .[0].height) > .[1].y'; then
+          monitors="$(hyprctl -j monitors)"
+          monitor_configs="$(grep -oP '^\s*monitor\s*=\K.*' ~/.config/hypr/hyprland.conf)"
+          batch=""
+          x=0
+          y=0
+          while IFS= read -r config; do
+            batch="$batch;keyword monitor $(sed -E "s/([^,]*,[^,]*,)[^,]*(,.*)/\1''${x}x$y\2/" <<< "$config")"
+
+            monitor="$(${jq} -r ".[] | select(.name == \"$(grep -o '^[^,]*' <<< "$config")\")" <<< "$monitors")"
+            (( x += $(${jq} -r '.width' <<< "$monitor") + 100 ))
+            (( y += $(${jq} -r '.height' <<< "$monitor") + 100 ))
+          done <<< "$monitor_configs"
+          hyprctl --batch "$batch"
+        else
+          hyprctl reload
+        fi
       '';
     };
   };

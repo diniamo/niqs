@@ -7,19 +7,6 @@
 }: let
   inherit (config) values;
   xdgPortalName = config.xdg.portal.name;
-
-  electronPackages =
-    if config.modules.nvidia.enable
-    then
-      with wrappedPkgs; [
-        obsidian-nvidia
-        vesktop-nvidia
-      ]
-    else
-      with pkgs; [
-        obsidian
-        webcord
-      ];
 in {
   imports = [
     inputs.hyprland.nixosModules.default
@@ -54,24 +41,24 @@ in {
       noto-fonts-extra
     ];
 
-  environment.systemPackages = with pkgs;
-    [
-      wrappedPkgs.xdragon
+  environment.systemPackages = with pkgs; [
+    wrappedPkgs.xdragon
 
-      wl-clipboard
-      neovide
-      spotify
-      trash-cli
-      rmtrash
-      ungoogled-chromium
-      yt-dlp
-      libreoffice-qt
-      libqalculate
-      qalculate-qt
-      pulsemixer
-      eza
-      libnotify
-      gist
-    ]
-    ++ electronPackages;
+    wl-clipboard
+    neovide
+    spotify
+    trash-cli
+    rmtrash
+    ungoogled-chromium
+    yt-dlp
+    libreoffice-qt
+    libqalculate
+    qalculate-qt
+    pulsemixer
+    eza
+    libnotify
+    gist
+    obsidian
+    vesktop
+  ];
 }
