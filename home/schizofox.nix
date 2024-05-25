@@ -51,6 +51,7 @@ in {
       "widget.use-xdg-desktop-portal.file-picker" = 1;
       # Leaving this on breaks a lot
       "privacy.resistFingerprinting" = false;
+      "permissions.fullscreen.allowed" = true;
 
       "browser.download.dir" = mkIf osConfig.tmpDownloadsDirectory "/tmp/Downloads";
       "browser.download.useDownloadDir" = true;

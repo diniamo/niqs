@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) getExe getExe';
+  inherit (lib) getExe;
 
   dig = getExe pkgs.dig;
 in {
@@ -16,7 +16,6 @@ in {
       # Create a file with execute permissions
       xtouch = "install /dev/null";
       rm = "rmtrash";
-      rmd = getExe' pkgs.coreutils-full "rm";
       hash = "sha256sum";
       copy = "wl-copy";
       paste = "wl-paste";
@@ -55,6 +54,7 @@ in {
 
       # git
       g = "git";
+      lg = "lazygit";
       gc = "git commit";
       gp = "git push";
       gl = "git pull";
@@ -64,6 +64,10 @@ in {
       gm = "git merge";
       gfa = "git fetch --all";
       gpf = "git push --force";
+      gco = "git checkout";
+      gd = "git diff";
+      gs = "git switch";
+      gsc = "git switch --create";
     };
 
     initExtra = ''
