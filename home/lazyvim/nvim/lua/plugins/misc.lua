@@ -34,25 +34,6 @@ return {
     end,
   },
   {
-    "echasnovski/mini.pairs",
-    enabled = false,
-  },
-  {
-    "ZhiyuanLck/smart-pairs",
-    -- Loading and enter mapping is handled in nvim-cmp, there is currently no edge case for if nvim-cmp isn't loaded, smart-pairs will simply not load
-    -- Uncomment event, and comment lazy and opts if using without nvim-cmp for some reason
-    -- event = "InsertEnter",
-    lazy = true,
-    opts = {
-      enter = {
-        enable_mapping = false,
-      },
-    },
-    config = function(_, opts)
-      require("pairs"):setup(opts)
-    end,
-  },
-  {
     "wakatime/vim-wakatime",
     lazy = false
   },

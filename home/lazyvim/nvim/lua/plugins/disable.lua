@@ -1,7 +1,6 @@
 local plugins = {
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
-  "echasnovski/mini.pairs"
 }
 
 for i, plugin in ipairs(plugins) do

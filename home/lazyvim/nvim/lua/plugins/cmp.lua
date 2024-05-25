@@ -11,7 +11,6 @@ return {
 
       local luasnip = require("luasnip")
       local cmp = require("cmp")
-      local enter = require("pairs.enter")
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -34,15 +33,6 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-        ["<CR>"] = cmp.mapping(function(fallback)
-          if not cmp.confirm() then
-            if enter then
-              enter.type()
-            else
-              fallback()
-            end
-          end
-        end),
       })
     end,
   },

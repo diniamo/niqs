@@ -61,15 +61,17 @@ in {
     animations = {
       enabled = true;
 
-      bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+      bezier = "myBezier, 0.05, 0.9, 0.1, 1.1";
 
       animation = [
-        "windows, 1, 7, myBezier"
-        "windowsOut, 1, 7, default, popin 80%"
-        "border, 1, 10, default"
-        "borderangle, 1, 8, default"
-        "fade, 1, 7, default"
-        "workspaces, 1, 6, default"
+        "windows, 1, 5, myBezier"
+        "windowsOut, 1, 5, default, popin 80%"
+        "windowsMove, 1, 5, default, popin 80%"
+        "fade, 1, 5, default"
+        "border, 1, 5, default"
+        "borderangle, 0, 8, default"
+        "workspaces, 1, 5, myBezier"
+        "specialWorkspace, 1, 5, myBezier, slidevert"
       ];
     };
     dwindle = {
@@ -91,12 +93,12 @@ in {
       "float, ^(org.freedesktop.impl.portal.desktop.kde)$"
       "idleinhibit always, ^(org.qbittorrent.qBittorrent)$"
       "noanim, ^(ueberzugpp_)(.*)$"
-      "maximize, ^(steamwebhelper)$"
     ];
     windowrulev2 = [
       # These 2 should fix floating windows
       "stayfocused, initialtitle:^()$, initialclass:^(steam)$"
       "minsize 1 1, initialtitle:^()$, initialclass:^(steam)$"
+      "maximize, initialtitle:^(\S+)$, initialclass:^(steamwebhelper)$"
     ];
     workspace = [
       "w[v1] s[false], ${noDecorations}"

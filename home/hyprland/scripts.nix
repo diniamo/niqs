@@ -61,7 +61,7 @@ in {
         # This check only works for vertically placed monitors
         if hyprctl -j monitors | ${jq} -e '(.[0].y + .[0].height) > .[1].y'; then
           monitors="$(hyprctl -j monitors)"
-          monitor_configs="$(grep -oP '^\s*monitor\s*=\K.*' ~/.config/hypr/hyprland.conf)"
+          monitor_configs="$(grep -oP '^\s*monitor\s*=\K.*' $XDG_CONFIG_HOME/hypr/hyprland.conf)"
           batch=""
           x=0
           y=0
