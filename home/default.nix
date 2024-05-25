@@ -42,6 +42,7 @@ in {
     ./swappy.nix
     # ./i3.nix
     ./mangohud.nix
+    ./lazygit.nix
   ];
 
   home = {

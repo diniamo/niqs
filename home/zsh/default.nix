@@ -62,11 +62,6 @@
         src = zsh-fzf-history-search;
         file = "share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh";
       }
-      {
-        name = "forgit";
-        src = zsh-forgit;
-        file = "share/zsh/zsh-forgit/forgit.plugin.zsh";
-      }
     ];
   };
 }
