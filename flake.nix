@@ -41,7 +41,7 @@
 
     # These are downloaded from caches, so overriding nixpkgs would break them
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=xwayland-rewrite";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.systems.follows = "systems";
     };
     anyrun = {

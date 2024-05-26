@@ -246,17 +246,16 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1716586171,
-        "narHash": "sha256-YEEiM5DrVDcBEeF7n/THugmQdGvWnc/iY72GTogjEL8=",
-        "ref": "xwayland-rewrite",
-        "rev": "cb80ea4005dc23d52970b441946b3ae775c96b3d",
-        "revCount": 4726,
+        "lastModified": 1716669967,
+        "narHash": "sha256-wq91XpwR0tv7e7KwSp0qzvu31EMssznl8DzbNy4M4Hk=",
+        "ref": "refs/heads/main",
+        "rev": "553232a3e4c112c8511309e6b685cb614895e714",
+        "revCount": 4743,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
       },
       "original": {
-        "ref": "xwayland-rewrite",
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -514,14 +513,15 @@
         ],
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "systems": "systems"
       },
       "locked": {
-        "lastModified": 1713293308,
-        "narHash": "sha256-n86Om5TEVuun0jrgfwbaXM/Kvp07YEyNCsZmsEUFWfk=",
+        "lastModified": 1716740701,
+        "narHash": "sha256-dQnID38KhQP5/Y5CCy/KodTDJhsZKjD9I8sHyazGIS0=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "34c9c7a14f74c6bcf4f2a45faaf4d19780eed146",
+        "rev": "d10b41c50dcba8102a1869ef0cc0dbe34c187f3b",
         "type": "github"
       },
       "original": {
@@ -2534,7 +2534,7 @@
         "rust-overlay": "rust-overlay",
         "schizofox": "schizofox",
         "searx-randomizer": "searx-randomizer",
-        "systems": "systems",
+        "systems": "systems_2",
         "tidalcycles": "tidalcycles",
         "wrapper-manager": "wrapper-manager",
         "zig": "zig"
@@ -2643,6 +2643,21 @@
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1689347949,
+        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1680978846,
         "narHash": "sha256-Gtqg8b/v49BFDpDetjclCYXm8mAnTrUzR0JnE2nv5aw=",
