@@ -1,7 +1,5 @@
 {
   imports = [
-    # inputs.nur.nixosModules.nur
-
     ./overlays
     ./options
 
@@ -9,7 +7,6 @@
     ./boot.nix
     ./packages.nix
     ./scripts.nix
-    ./no-home-manager.nix
     ./nix.nix
   ];
 }
