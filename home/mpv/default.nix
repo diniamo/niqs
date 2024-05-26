@@ -14,8 +14,8 @@
     seekTo
     sponsorblock-minimal
 
-    SimpleUndo
-    skiptosilence
+    simple-undo
+    skip-to-silence
   ];
 in {
   imports = [
