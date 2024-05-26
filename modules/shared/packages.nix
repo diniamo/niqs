@@ -12,7 +12,6 @@
     duf
     jq
     wget
-    comma
     nh
     nix-tree
   ];

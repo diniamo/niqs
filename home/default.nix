@@ -43,6 +43,7 @@ in {
     # ./i3.nix
     ./mangohud.nix
     ./lazygit.nix
+    ./nix-index.nix
   ];
 
   home = {

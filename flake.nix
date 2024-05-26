@@ -90,22 +90,26 @@
         rust-overlay.follows = "rust-overlay";
       };
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    jujutsu = {
-      url = "github:martinvonz/jj";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        rust-overlay.follows = "rust-overlay";
-      };
-    };
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      inputs = {
-        home-manager.follows = "home-manager";
-        jujutsu.follows = "jujutsu";
-      };
-    };
+    # jujutsu = {
+    #   url = "github:martinvonz/jj";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     flake-utils.follows = "flake-utils";
+    #     rust-overlay.follows = "rust-overlay";
+    #   };
+    # };
+    # chaotic = {
+    #   url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    #   inputs = {
+    #     home-manager.follows = "home-manager";
+    #     jujutsu.follows = "jujutsu";
+    #   };
+    # };
 
     searx-randomizer = {
       url = "github:schizofox/searx-randomizer";
