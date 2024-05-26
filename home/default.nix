@@ -20,6 +20,7 @@ in {
     ./delta
     # ./nvf
     # ./alacritty
+    ./starship
 
     ./xdg.nix
     ./foot.nix
@@ -29,7 +30,6 @@ in {
     ./bash.nix
     ./imv.nix
     ./yazi.nix
-    ./starship.nix
     ./zoxide.nix
     ./wlogout.nix
     ./jerry.nix
