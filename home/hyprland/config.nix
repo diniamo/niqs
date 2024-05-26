@@ -15,7 +15,7 @@ in {
     ];
     input = {
       kb_layout = "hu";
-      kb_options = "caps:super";
+      kb_options = "caps:swapescape,altwin:swap_lalt_lwin";
 
       accel_profile = "flat";
       scroll_method = "on_button_down";
@@ -25,9 +25,6 @@ in {
         scroll_factor = 0.8;
         tap-to-click = false;
       };
-
-      # -1 to 1 multiplier
-      sensitivity = 0;
     };
     general = {
       gaps_in = 2;

@@ -17,7 +17,7 @@
   ctrl = "CONTROL";
   alt = "ALT";
   shift = "SHIFT";
-  secondary = "ALT";
+  secondary = ctrl;
 in {
   wayland.windowManager.hyprland.settings = {
     bind = [
