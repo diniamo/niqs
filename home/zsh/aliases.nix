@@ -37,7 +37,6 @@ in {
       n = "nix";
       bloat = "nix path-info -Sh /run/current-system";
       clean = "nh clean all";
-      curgen = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
       shell = "nix shell";
       dev = "nix develop";
       run = "nix run";
@@ -46,11 +45,14 @@ in {
 
       # eza
       ls = "eza --git --icons --color=auto --group-directories-first";
-      l = "ls -lh --time-style=long-iso";
-      ll = "l -a";
-      la = "ls -a";
-      tree = "ls --tree";
-      lt = "tree";
+      la = "ls --almost-all";
+      l = "ls --long --time-style=long-iso";
+      ll = "l --almost-all";
+      # same as --sort=modified --reverse
+      lm = "l --sort=age";
+      llm = "ll --sort=age";
+      lt = "ls --tree";
+      tree = "lt";
 
       # git
       g = "git";
