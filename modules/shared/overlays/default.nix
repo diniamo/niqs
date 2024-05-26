@@ -1,11 +1,10 @@
-{lib', ...}: {
+{flakePkgs,...}:{
   nixpkgs.overlays = [
     (final: prev: let
-      inherit (lib') versionOverride;
+      # inherit (lib') overrideError;
       # inherit (final) fetchFromGitHub;
     in {
-      vesktop = versionOverride prev.vesktop "1.5.3";
-      # alacritty = flakePkgs.niqspkgs.alacritty-sixel;
+      starship = flakePkgs.niqspkgs.starship-nix3-shell;
     })
   ];
 }

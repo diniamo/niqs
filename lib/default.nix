@@ -39,10 +39,9 @@
     then 1
     else 0;
   overrideError = pkg: version: value: throwIf (versionOlder version pkg.version) "A new version of ${pkg.pname} has been released, remove its overlay/override" value;
-  versionOverride = pkg: version: overrideError pkg version (pkg.overrideAttrs {inherit version;});
 in
   # lib.extend (_: _: foldl recursiveUpdate {} importedLibs)
   # foldl recursiveUpdate {} importedLibs
   {
-    inherit mkNixosSystem nameToSlug boolToNum overrideError versionOverride;
+    inherit mkNixosSystem nameToSlug boolToNum overrideError;
   }
