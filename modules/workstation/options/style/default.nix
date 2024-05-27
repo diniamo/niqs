@@ -16,17 +16,23 @@ in {
         name = mkOption {
           type = types.str;
           description = "The name of the cursor theme";
-          default = "Catppuccin-Macchiato-Dark-Cursors";
+          default = "Bibata-Modern-Classic";
         };
         package = mkOption {
           type = types.package;
           description = "The cursor theme's package";
-          default = pkgs.catppuccin-cursors.macchiatoDark;
+          default = pkgs.bibata-cursors.overrideAttrs {
+            buildPhase = ''
+              runHook preBuild
+              ctgen build.toml -s ${toString cfg.cursor.size} -p x11 -d "$bitmaps/${cfg.cursor.name}" -n '${cfg.cursor.name}' -c '${cfg.cursor.name} variant'
+              runHook postBuild
+            '';
+          };
         };
         size = mkOption {
           type = types.int;
           description = "The size of the cursor";
-          default = 24;
+          default = 20;
         };
       };
 
