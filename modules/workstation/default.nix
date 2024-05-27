@@ -1,7 +1,8 @@
 {
   imports = [
-    ./options
+    ./style
 
+    ./values.nix
     ./packages.nix
     ./home-manager.nix
     ./gaming.nix
@@ -10,7 +11,6 @@
     # ./thunar.nix
     ./system.nix
     ./services.nix
-    ./style.nix
     ./dolphin.nix
   ];
 }

@@ -1,9 +1,6 @@
-{flakePkgs,...}:{
+{flakePkgs, ...}: {
   nixpkgs.overlays = [
-    (final: prev: let
-      # inherit (lib') overrideError;
-      # inherit (final) fetchFromGitHub;
-    in {
+    (final: prev: {
       starship = flakePkgs.niqspkgs.starship-nix3-shell;
     })
   ];

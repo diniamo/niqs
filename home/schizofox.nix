@@ -1,10 +1,8 @@
 {
   inputs,
   osConfig,
-  lib,
   ...
 }: let
-  inherit (lib) mkIf;
   cfg = osConfig.modules.style;
 
   inherit (cfg.colorScheme) colors;
@@ -52,10 +50,6 @@ in {
       # Leaving this on breaks a lot
       "privacy.resistFingerprinting" = false;
       "permissions.fullscreen.allowed" = true;
-
-      "browser.download.dir" = mkIf osConfig.tmpDownloadsDirectory "/tmp/Downloads";
-      "browser.download.useDownloadDir" = true;
-      "browser.download.start_downloads_in_tmp_dir" = !osConfig.tmpDownloadsDirectory;
     };
 
     extensions = {

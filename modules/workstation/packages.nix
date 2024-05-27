@@ -1,32 +1,21 @@
 {
   pkgs,
+  wrappedPkgs,
   inputs,
   config,
-  wrappedPkgs,
   ...
 }: let
-  inherit (config) values;
-  xdgPortalName = config.xdg.portal.name;
+  inherit (config.values) mainUser;
 in {
-  imports = [
-    inputs.hyprland.nixosModules.default
-  ];
+  imports = [inputs.hyprland.nixosModules.default];
 
   programs.hyprland.enable = true;
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs."xdg-desktop-portal-${xdgPortalName}"];
-    config.common.default = ["hyprland" xdgPortalName];
-  };
 
   programs.zsh.enable = true;
-  users.users.${values.mainUser}.shell = config.home-manager.users.${values.mainUser}.programs.zsh.package;
+  users.users.${mainUser}.shell = config.home-manager.users.${mainUser}.programs.zsh.package;
 
-  environment.sessionVariables = {
-    # For electron apps
-    NIXOS_OZONE_WL = "1";
-    LESS = "-R";
-  };
+  # For electron apps
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   fonts.packages = let
     inherit (config.modules.style) font monoFont;
@@ -47,8 +36,8 @@ in {
     wl-clipboard
     neovide
     spotify
-    trash-cli
     rmtrash
+    trash-cli
     ungoogled-chromium
     yt-dlp
     libreoffice-qt

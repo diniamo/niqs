@@ -1,7 +1,6 @@
 {
   imports = [
     ./overlays
-    ./options
 
     ./system.nix
     ./boot.nix
