@@ -371,11 +371,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714755851,
-        "narHash": "sha256-+cBw8bGGebBAGtCNmuWIzVw4FADc0G5gzbbwi48BJ5k=",
+        "lastModified": 1715287750,
+        "narHash": "sha256-U6aMCl4BbKLAjNRb59sQFa0OITd1x/GTnkizWIourq8=",
         "owner": "justchokingaround",
         "repo": "jerry",
-        "rev": "d20dd543f0677c12cea2027fea7b7cdeee7f9f69",
+        "rev": "87933b28933732b6f319fc4b44521358505006d0",
         "type": "github"
       },
       "original": {
@@ -446,11 +446,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1710959155,
-        "narHash": "sha256-6iMMX+aXnBa5kHBVvu4G1WPtba/R7R9aXAOzUlh/8ZQ=",
+        "lastModified": 1716865119,
+        "narHash": "sha256-KBlc92Pqvb9VMM9yfD1pgy+e6EW3HyMGXogRKw8QLDA=",
         "owner": "justchokingaround",
         "repo": "lobster",
-        "rev": "e513c273560b380a868244869efc82eb985a7530",
+        "rev": "dd205d91b703df3d6d41a6d617c96a35a45d42b7",
         "type": "github"
       },
       "original": {
@@ -517,11 +517,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1716740701,
-        "narHash": "sha256-dQnID38KhQP5/Y5CCy/KodTDJhsZKjD9I8sHyazGIS0=",
+        "lastModified": 1717324433,
+        "narHash": "sha256-eVRBZjvCviVvF7zHVJ2dM2cdQJypn8ey13U04lW7/iw=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "d10b41c50dcba8102a1869ef0cc0dbe34c187f3b",
+        "rev": "522482553e67478972b2ec8cfb31ce0306a4567f",
         "type": "github"
       },
       "original": {
@@ -718,18 +718,17 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1716533678,
-        "narHash": "sha256-8LE3/EmIjcRx6ZeELY47ZqQnRbsit/xlBcCYOkMb2P8=",
-        "owner": "diniamo",
+        "lastModified": 1716948383,
+        "narHash": "sha256-SzDKxseEcHR5KzPXLwsemyTR/kaM9whxeiJohbL04rs=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2780acbe19c6f14c7cd425862b5acbfc2fd8a7ab",
+        "rev": "ad57eef4ef0659193044870c731987a6df5cf56b",
         "type": "github"
       },
       "original": {
-        "owner": "diniamo",
-        "ref": "nvidia-555",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
       }
     },
     "nixpkgs_6": {

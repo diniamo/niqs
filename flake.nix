@@ -2,8 +2,7 @@
   description = "My NixOS flake configuration";
 
   inputs = {
-    # nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:diniamo/nixpkgs/nvidia-555";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -188,6 +187,7 @@
       "https://cache.nixos.org?priority=10"
 
       "https://hyprland.cachix.org"
+      "https://cache.garnix.io"
       "https://cache.privatevoid.net"
       "https://nix-gaming.cachix.org"
       "https://anyrun.cachix.org"
@@ -197,6 +197,7 @@
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
 
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "cache.privatevoid.net:SErQ8bvNWANeAvtsOESUwVYr2VJynfuc9JRwlzTTkVg="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
