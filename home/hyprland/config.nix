@@ -48,6 +48,8 @@ in {
       key_press_enables_dpms = true;
 
       new_window_takes_over_fullscreen = 1;
+      # Workaround for #6038 / #6237
+      initial_workspace_tracking = 0;
     };
     decoration = {
       rounding = 10;
