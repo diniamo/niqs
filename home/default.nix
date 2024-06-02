@@ -44,6 +44,7 @@ in {
     ./mangohud.nix
     ./lazygit.nix
     ./nix-index.nix
+    ./less.nix
   ];
 
   home = {
