@@ -111,5 +111,7 @@ in {
       "special:file_manager, on-created-empty:${terminal} yazi"
       "special:file_manager_gui, on-created-empty:dolphin"
     ];
+    # Workaround for a kernel bug
+    monitor = "Unknown-1,disabled";
   };
 }
