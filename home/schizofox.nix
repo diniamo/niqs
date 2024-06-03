@@ -9,6 +9,9 @@
 in {
   imports = [inputs.schizofox.homeManagerModule];
 
+  # Avoid sandboxing libva decoder
+  home.sessionVariables.MOZ_DISABLE_RDD_SANDBOX = 1;
+
   programs.schizofox = {
     enable = true;
 
@@ -41,7 +44,10 @@ in {
 
     settings = {
       "media.ffmpeg.vaapi.enabled" = true;
-      "gfx.webrender.all" = true;
+      "media.rdd-ffmpeg.enabled" = true;
+      "media.av1.enabled" = true;
+      "gfx.x11-egl.force-enabled" = true;
+      "widget.dmabuf.force-enabled" = true;
 
       "browser.ctrlTab.sortByRecentlyUsed" = true;
       # This makes websites prefer a dark theme (in theory)
