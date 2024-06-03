@@ -11,6 +11,7 @@
         filterMode = "fuzzy";
       };
       update.method = "never";
+      promptToReturnFromSubprocess = false;
     };
   };
 }
