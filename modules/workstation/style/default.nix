@@ -1,100 +1,53 @@
 {
-  lib,
+  inputs,
   pkgs,
   config,
   ...
 }: let
-  inherit (lib) mkOption types;
-
-  cfg = config.modules.style;
+  cfg = config.stylix;
 in {
-  imports = [./colors.nix ./gtk.nix ./qt.nix];
+  imports = [
+    inputs.stylix.nixosModules.stylix
 
-  options = {
-    modules.style = {
+    ./qt.nix
+  ];
+
+  config = {
+    stylix = {
+      base16Scheme = ./schemes/catppuccin-macchiato.yaml;
+      polarity = "dark";
+      image = ./wallpapers/romb.png;
+
+      fonts = rec {
+        sansSerif = {
+          package = pkgs.inter;
+          name = "Inter";
+        };
+        # Inter superiority
+        serif = sansSerif;
+        # This is the default but specify anyway
+        emoji = {
+          package = pkgs.noto-fonts-emoji;
+          name = "Noto Color Emoji";
+        };
+
+        monospace = {
+          package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+          name = "JetBrainsMono Nerd Font Mono";
+        };
+      };
+
       cursor = {
-        name = mkOption {
-          type = types.str;
-          description = "The name of the cursor theme";
-          default = "Bibata-Modern-Classic";
+        # TODO: generate the cursor based on the color scheme once cbmp decides to work
+        package = pkgs.bibata-cursors.overrideAttrs {
+          buildPhase = ''
+            runHook preBuild
+            ctgen build.toml -s ${toString cfg.cursor.size} -p x11 -d "$bitmaps/${cfg.cursor.name}" -n '${cfg.cursor.name}' -c '${cfg.cursor.name} variant'
+            runHook postBuild
+          '';
         };
-        package = mkOption {
-          type = types.package;
-          description = "The cursor theme's package";
-          default = pkgs.bibata-cursors.overrideAttrs {
-            buildPhase = ''
-              runHook preBuild
-              ctgen build.toml -s ${toString cfg.cursor.size} -p x11 -d "$bitmaps/${cfg.cursor.name}" -n '${cfg.cursor.name}' -c '${cfg.cursor.name} variant'
-              runHook postBuild
-            '';
-          };
-        };
-        size = mkOption {
-          type = types.int;
-          description = "The size of the cursor";
-          default = 20;
-        };
-      };
-
-      iconTheme = {
-        name = mkOption {
-          type = types.str;
-          description = "The name of the icon theme";
-          default = "Papirus-Dark";
-        };
-        package = mkOption {
-          type = types.package;
-          description = "The package for the icon theme";
-          default = pkgs.catppuccin-papirus-folders.override {
-            flavor = "macchiato";
-            accent = "blue";
-          };
-        };
-      };
-
-      font = {
-        name = mkOption {
-          type = types.str;
-          description = "The name of the font";
-          default = "Inter";
-        };
-        package = mkOption {
-          type = types.package;
-          description = "The package of the font";
-          default = pkgs.inter;
-        };
-        size = mkOption {
-          type = types.int;
-          description = "The size of the font";
-          default = 11;
-        };
-        sizeString = mkOption {
-          type = types.string;
-          description = "The size of the font as a string";
-          default = toString cfg.font.size;
-        };
-      };
-      monoFont = {
-        name = mkOption {
-          type = types.str;
-          description = "The name of the font";
-          default = "JetBrainsMono Nerd Font Mono";
-        };
-        package = mkOption {
-          type = types.package;
-          description = "The package of the font";
-          default = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-        };
-        size = mkOption {
-          type = types.int;
-          description = "The size of the font";
-          default = 12;
-        };
-        sizeString = mkOption {
-          type = types.string;
-          description = "The size of the font as a string";
-          default = toString cfg.monoFont.size;
-        };
+        name = "Bibata-Modern-Classic";
+        size = 20;
       };
     };
   };

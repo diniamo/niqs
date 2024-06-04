@@ -9,14 +9,10 @@
 in {
   imports = [
     ./hyprland
-    ./style
     ./anyrun
-    ./btop
     ./mpv
     ./lazyvim
     ./zsh
-    ./zathura
-    ./bat
     ./delta
     # ./nvf
     # ./alacritty
@@ -27,7 +23,6 @@ in {
     ./schizofox.nix
     ./git.nix
     # ./ncspot.nix
-    ./bash.nix
     ./imv.nix
     ./yazi.nix
     ./zoxide.nix
@@ -45,6 +40,12 @@ in {
     ./lazygit.nix
     ./nix-index.nix
     ./less.nix
+    ./btop.nix
+    ./bat.nix
+    ./qt.nix
+    ./gtk.nix
+    ./stylix.nix
+    ./zathura.nix
   ];
 
   home = {

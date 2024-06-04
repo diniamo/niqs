@@ -1,11 +1,9 @@
 {
   inputs,
-  osConfig,
+  config,
   ...
 }: let
-  cfg = osConfig.modules.style;
-
-  inherit (cfg.colorScheme) colors;
+  inherit (config.lib.stylix) colors;
 in {
   imports = [inputs.schizofox.homeManagerModule];
 
@@ -21,7 +19,7 @@ in {
         background = colors.base00;
         foreground = colors.base05;
       };
-      font = cfg.font.name;
+      font = config.stylix.fonts.sansSerif.name;
     };
 
     search = {

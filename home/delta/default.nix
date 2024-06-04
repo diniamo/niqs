@@ -1,12 +1,9 @@
-{
-  config,
-  osConfig,
-  ...
-}: {
+{config, ...}: {
   programs.git.delta = {
     enable = true;
+    # TODO: there is no stylix module
     options =
-      (import ./themes/${osConfig.modules.style.colorScheme.slug}.nix)
+      (import ./themes/catppuccin-macchiato.nix)
       // {
         dark = true;
         line-numbers = true;

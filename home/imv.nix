@@ -1,6 +1,6 @@
-{osConfig, ...}: let
-  inherit (osConfig.modules.style.colorScheme) colors;
-  inherit (osConfig.modules.style) font;
+{config, ...}: let
+  cfg = config.stylix;
+  inherit (config.lib.stylix) colors;
 in {
   programs.imv = {
     enable = true;
@@ -8,7 +8,7 @@ in {
       options = {
         background = colors.base00;
         overlay = false;
-        overlay_font = "${font.name}:${font.sizeString}";
+        overlay_font = "${cfg.fonts.sansSerif.name}:${toString cfg.fonts.sizes.applications}";
         overlay_text_color = colors.base05;
         overlay_background_color = colors.base00;
         overlay_position_bottom = true;

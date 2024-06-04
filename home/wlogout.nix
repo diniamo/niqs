@@ -1,27 +1,22 @@
-{
-  osConfig,
-  config,
-  ...
-}: let
-  colors = osConfig.modules.style.colorScheme.colorsWithPrefix;
+{config, ...}: let
   iconsPath = "${config.programs.wlogout.package}/share/wlogout/icons";
 in {
   programs.wlogout = {
     enable = true;
-    style = ''
+    style = with config.lib.stylix.colors.withHashtag; ''
       * {
         box-shadow: none;
       }
 
       window {
-        background-color: ${colors.base00};
+        background-color: ${base00};
       }
 
       button {
-        text-decoration-color: ${colors.base05};
-        color: ${colors.base05};
-        background-color: ${colors.base02};
-        border-color: ${colors.base02};
+        text-decoration-color: ${base05};
+        color: ${base05};
+        background-color: ${base02};
+        border-color: ${base02};
         border-width: 2px;
         border-radius: 10px;
         border-style: solid;
@@ -31,8 +26,8 @@ in {
       }
 
       button:hover {
-        background-color: ${colors.base03};
-        border-color: ${colors.base0D};
+        background-color: ${base03};
+        border-color: ${base0D};
         outline-style: none;
       }
 

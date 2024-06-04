@@ -1,10 +1,10 @@
-{osConfig, ...}: {
+{config, ...}: {
   programs.mpv = {
     config = {
       osc = false;
       osd-bar = false;
       border = false;
-      osd-font = osConfig.modules.style.font.name;
+      osd-font = config.stylix.fonts.sansSerif.name;
       msg-level = "uosc=error";
     };
     scriptOpts.uosc = {

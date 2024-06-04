@@ -2,13 +2,12 @@
   pkgs,
   lib,
   config,
-  osConfig,
   ...
 }: let
   conf = {
     save_dir = config.xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR;
     show_panel = true;
-    text_font = osConfig.modules.style.font.name;
+    text_font = config.stylix.fonts.sansSerif.name;
   };
 in {
   home.packages = [pkgs.swappy];

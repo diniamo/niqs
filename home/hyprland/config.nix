@@ -30,8 +30,6 @@ in {
       gaps_in = 2;
       gaps_out = 2;
       border_size = 1;
-      "col.active_border" = "rgb(8aadf4)";
-      "col.inactive_border" = "rgb(494d64)";
 
       layout = "dwindle";
     };
@@ -112,6 +110,7 @@ in {
       "special:file_manager_gui, on-created-empty:dolphin"
     ];
     # Workaround for a kernel bug
-    monitor = "Unknown-1,disabled";
+    # Array so it can be merged with per-config monitors
+    monitor = ["Unknown-1,disabled"];
   };
 }
