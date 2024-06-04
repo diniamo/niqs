@@ -70,6 +70,7 @@ in {
       gd = "git diff";
       gs = "git switch";
       gsc = "git switch --create";
+      ga = "git add";
     };
 
     initExtra = ''
