@@ -1,7 +1,5 @@
 {
   imports = [
-    ./overlays
-
     ./system.nix
     ./boot.nix
     ./packages.nix
