@@ -54,6 +54,7 @@ in {
       # Leaving this on breaks a lot
       "privacy.resistFingerprinting" = false;
       "permissions.fullscreen.allowed" = true;
+      "dom.webnotifications.enabled" = true;
     };
 
     extensions = {
