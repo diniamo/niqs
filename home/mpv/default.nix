@@ -28,7 +28,7 @@ in {
 
   programs.mpv = {
     enable = true;
-    package = pkgs.wrapMpv (pkgs.mpv-unwrapped.override {vapoursynthSupport = true;}) {
+    package = pkgs.wrapMpv pkgs.mpv-unwrapped {
       inherit scripts;
       youtubeSupport = true;
     };
