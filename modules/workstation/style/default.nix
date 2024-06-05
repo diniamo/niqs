@@ -14,7 +14,7 @@ in {
 
   config = {
     stylix = {
-      base16Scheme = ./schemes/catppuccin-macchiato.yaml;
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
       polarity = "dark";
       image = ./wallpapers/romb.png;
 
