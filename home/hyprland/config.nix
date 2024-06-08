@@ -107,7 +107,7 @@ in {
       "special:music_tui, on-created-empty:${terminal} spotify_player"
       "special:calculator, on-created-empty:qalculate-qt"
       "special:file_manager, on-created-empty:${terminal} yazi"
-      "special:file_manager_gui, on-created-empty:dolphin"
+      "special:file_manager_gui, on-created-empty:thunar"
     ];
     # Workaround for a kernel bug
     # Array so it can be merged with per-config monitors

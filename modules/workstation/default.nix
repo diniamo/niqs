@@ -8,9 +8,9 @@
     ./gaming.nix
     ./qbittorrent.nix
     ./nvidia.nix
-    # ./thunar.nix
+    ./thunar.nix
     ./system.nix
     ./services.nix
-    ./dolphin.nix
+    # ./dolphin.nix
   ];
 }

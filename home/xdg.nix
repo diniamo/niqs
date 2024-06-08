@@ -6,7 +6,7 @@
 }: let
   browser = ["Schizofox.desktop"];
   documentViewer = ["org.pwmt.zathura.desktop"];
-  fileManager = ["org.kde.dolphin.desktop"];
+  fileManager = ["thunar.desktop"];
   archiver = ["org.kde.ark.desktop"];
   editor = ["neovide.desktop"];
   imageViewer = ["imv.desktop"];
