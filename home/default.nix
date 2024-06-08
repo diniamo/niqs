@@ -3,8 +3,6 @@
   osConfig,
   ...
 }: let
-  inherit (lib) mkDefault;
-
   username = osConfig.values.mainUser;
 in {
   imports = [
@@ -51,6 +49,6 @@ in {
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
-    stateVersion = mkDefault "23.11";
+    stateVersion = lib.mkDefault "23.11";
   };
 }

@@ -5,7 +5,7 @@
   flakePkgs,
   ...
 }: let
-  inherit (lib) mkIf mkEnableOption types mkOption getExe';
+  inherit (lib) types mkOption getExe';
   inherit (pkgs) writeShellScript;
   inherit (flakePkgs.niqspkgs) bencode-pretty;
 
@@ -26,7 +26,7 @@ in {
   options = {
     modules.qbittorrent = {
       convertSavePaths = {
-        enable = mkEnableOption "Convert savepaths from and to Windows on startup and shutdown respectively";
+        enable = lib.mkEnableOption "Convert savepaths from and to Windows on startup and shutdown respectively";
         btBackupPath = mkOption {
           type = types.nonEmptyStr;
           description = "Path to the BT_Backup directory";
@@ -50,7 +50,7 @@ in {
   config = {
     environment.systemPackages = [pkgs.qbittorrent];
 
-    systemd.services.convertQbittorrentSavepaths = mkIf cfg.enable {
+    systemd.services.convertQbittorrentSavepaths = lib.mkIf cfg.enable {
       description = "Convert the qBittorrent savepaths on startup and shutdown";
       after = ["multi-user.target"];
 

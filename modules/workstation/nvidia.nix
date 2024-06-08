@@ -4,17 +4,15 @@
   wrappedPkgs,
   ...
 }: let
-  inherit (lib) mkIf mkEnableOption;
-
   cfg = config.modules.nvidia;
 in {
   options = {
     modules.nvidia = {
-      enable = mkEnableOption "Enable the Nvidia module";
+      enable = lib.mkEnableOption "Enable the Nvidia module";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     hardware.nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
 

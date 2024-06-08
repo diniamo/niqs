@@ -3,8 +3,6 @@
   lib,
   ...
 }: let
-  inherit (lib) mkForce;
-
   colors = config.lib.stylix.colors.withHashtag;
 in {
   services.dunst = {
@@ -22,8 +20,8 @@ in {
         mouse_right_click = "context";
       };
 
-      urgency_low.frame_color = mkForce colors.base0C;
-      urgency_normal.frame_color = mkForce colors.base0D;
+      urgency_low.frame_color = lib.mkForce colors.base0C;
+      urgency_normal.frame_color = lib.mkForce colors.base0D;
     };
     iconTheme = {
       inherit (config.stylix.icons) package name;

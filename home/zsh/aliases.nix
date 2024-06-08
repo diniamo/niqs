@@ -2,11 +2,7 @@
   lib,
   pkgs,
   ...
-}: let
-  inherit (lib) getExe;
-
-  dig = getExe pkgs.dig;
-in {
+}: {
   programs.zsh = {
     shellAliases = {
       # Needed for aliases
@@ -19,8 +15,8 @@ in {
       hash = "sha256sum";
       copy = "wl-copy";
       paste = "wl-paste";
-      ip4 = "${dig} @resolver4.opendns.com myip.opendns.com +short -4";
-      ip6 = "${dig} @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short -6";
+      ip4 = "${lib.getExe pkgs.dig} @resolver4.opendns.com myip.opendns.com +short -4";
+      # ip6 = "${dig} @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short -6";
       mp = "mkdir -p";
       page = "$PAGER";
       open = "xdg-open";

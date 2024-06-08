@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf mkOption types getExe optionalString;
+  inherit (lib) mkOption types getExe;
 
   crudini = getExe pkgs.crudini;
   toIniBool = bool:
@@ -17,7 +17,7 @@
 in {
   options = {
     services.satisfactory = {
-      enable = mkEnableOption "Satisfactory dedicated server";
+      enable = lib.mkEnableOption "Satisfactory dedicated server";
       beta = mkOption {
         description = "The beta release to use";
         type = types.enum [null "experimental"];
@@ -42,7 +42,7 @@ in {
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     # Needed since Satisfactory stores save files in home
     users.users.satisfactory = {
       home = path;
@@ -62,7 +62,7 @@ in {
           +force_install_dir ${path}/SatisfactoryDedicatedServer \
           +login anonymous \
           +app_update 1690800 \
-          ${optionalString (cfg.beta != null) "-beta ${cfg.beta}"} \
+          ${lib.optionalString (cfg.beta != null) "-beta ${cfg.beta}"} \
           validate \
           +quit
         ${getExe pkgs.patchelf} --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 ${path}/SatisfactoryDedicatedServer/Engine/Binaries/Linux/UnrealServer-Linux-Shipping

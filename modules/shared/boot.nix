@@ -5,16 +5,14 @@
   inputs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkDefault;
-
   cfg = config.modules.boot;
 in {
   imports = [inputs.lanzaboote.nixosModules.lanzaboote];
 
   options = {
     modules.boot = {
-      secure = mkEnableOption "secure boot";
-      windowsEntry = mkEnableOption "a windows entry in the boot menu";
+      secure = lib.mkEnableOption "secure boot";
+      windowsEntry = lib.mkEnableOption "a windows entry in the boot menu";
     };
   };
 
@@ -27,13 +25,6 @@ in {
           consoleMode = "auto";
           editor = false;
           configurationLimit = 4;
-          # extraInstallCommands = mkIf cfg.windowsEntry "printf 'auto-entries false' >> /boot/loader/loader.conf";
-          # extraEntries = mkIf cfg.windowsEntry {
-          #   "windows.conf" = ''
-          #     title Windows
-          #     efi /EFI/Microsoft/Boot/bootmgfw.efi
-          #   '';
-          # };
         };
       };
 
@@ -45,8 +36,8 @@ in {
         pkiBundle = "/etc/secureboot";
       };
 
-      tmp.useTmpfs = mkDefault true;
-      kernelPackages = mkDefault pkgs.linuxPackages_latest;
+      tmp.useTmpfs = lib.mkDefault true;
+      kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
       kernelParams = ["quiet" "splash"];
     };
   };

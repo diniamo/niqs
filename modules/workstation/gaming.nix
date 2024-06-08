@@ -6,14 +6,12 @@
   pkgs,
   ...
 }: let
+  inherit (pkgs) writeShellScript;
   inherit (inputs.nix-gaming.nixosModules) pipewireLowLatency platformOptimizations;
 
-  inherit (lib) mkIf getExe getExe' mkEnableOption;
-  inherit (pkgs) writeShellScript;
-
-  hyprctl = "'${getExe' flakePkgs.hyprland.default "hyprctl"}' -i 0";
-  powerprofilesctl = getExe pkgs.power-profiles-daemon;
-  notify-send = getExe pkgs.libnotify;
+  hyprctl = "'${lib.getExe' flakePkgs.hyprland.default "hyprctl"}' -i 0";
+  powerprofilesctl = lib.getExe pkgs.power-profiles-daemon;
+  notify-send = lib.getExe pkgs.libnotify;
 
   startScript = writeShellScript "gamemode-start" ''
     ${hyprctl} --batch 'keyword animations:enabled 0 ; keyword decoration:blur:enabled 0 ; decoration:drop_shadow 0 ; keyword misc:vfr 0 ; keyword input:scroll_method ""'
@@ -35,11 +33,11 @@ in {
 
   options = {
     modules.gaming = {
-      enable = mkEnableOption "Enable the gaming module";
+      enable = lib.mkEnableOption "Enable the gaming module";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.pipewire.lowLatency.enable = true;
     services.pipewire.alsa.support32Bit = true;
     security.rtkit.enable = true;

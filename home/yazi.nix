@@ -1,10 +1,4 @@
 {
-  pkgs,
-  lib,
-  ...
-}: let
-  inherit (lib) getExe';
-in {
   programs.yazi = {
     enable = true;
     settings = {
@@ -72,7 +66,7 @@ in {
           on = [
             "e"
           ];
-          run = "shell ${getExe' pkgs.trash-cli "trash-restore"} --block --confirm";
+          run = "shell trash-restore --block --confirm";
           desc = "Restore files from the trash";
         }
         {
