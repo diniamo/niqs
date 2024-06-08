@@ -1,16 +1,11 @@
 {
   pkgs,
   wrappedPkgs,
-  inputs,
   config,
   ...
 }: let
   inherit (config.values) mainUser;
 in {
-  imports = [inputs.hyprland.nixosModules.default];
-
-  programs.hyprland.enable = true;
-
   programs.zsh.enable = true;
   users.users.${mainUser}.shell = config.home-manager.users.${mainUser}.programs.zsh.package;
 

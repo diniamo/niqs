@@ -3,24 +3,11 @@
   lib,
   config,
   ...
-}: let
-  inherit (lib) getExe mkOption types;
-
-  xdgPortalName = config.xdg.portal.name;
-in {
-  options = {
-    xdg.portal.name = mkOption {
-      description = "The name of the xdg desktop portal, used both in the package name and to specify the default portal";
-      type = types.enum ["wlr" "gtk" "xapp" "gnome" "cosmic" "hyprland" "kde" "lxqt" "pantheon"];
-      default = "kde";
-    };
-  };
-
-  config = {
+}:{
     xdg.portal = {
       enable = true;
-      extraPortals = [pkgs."xdg-desktop-portal-${xdgPortalName}"];
-      config.common.default = ["hyprland" xdgPortalName];
+      extraPortals = [pkgs.xdg-desktop-portal-kde];
+      config.common.default = ["kde"];
     };
 
     services = {
@@ -29,7 +16,7 @@ in {
         restart = true;
         settings = {
           default_session = {
-            command = "${getExe pkgs.greetd.tuigreet} --window-padding 1 --time --time-format '%R - %F' --remember --remember-session --asterisks";
+            command = "${lib.getExe pkgs.greetd.tuigreet} --window-padding 1 --time --time-format '%R - %F' --remember --remember-session --asterisks";
             user = "greeter";
           };
         };
@@ -63,5 +50,4 @@ in {
       enable = true;
       powerOnBoot = false;
     };
-  };
 }

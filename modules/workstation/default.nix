@@ -12,5 +12,6 @@
     ./system.nix
     ./services.nix
     # ./dolphin.nix
+    ./hyprland.nix
   ];
 }
