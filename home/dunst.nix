@@ -16,6 +16,10 @@ in {
         gap_size = 8;
         corner_radius = 10;
         offset = "10x10";
+
+        mouse_left_click = "do_action, open_url, close_current";
+        mouse_middle_click = "close_current";
+        mouse_right_click = "context";
       };
 
       urgency_low.frame_color = mkForce colors.base0C;
