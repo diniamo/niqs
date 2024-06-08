@@ -1,4 +1,6 @@
 {osConfig, ...}: {
+  stylix.targets.mangohud.enable = false;
+
   programs.mangohud = {
     inherit (osConfig.modules.gaming) enable;
     settings = {
