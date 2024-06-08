@@ -16,12 +16,12 @@
   notify-send = getExe pkgs.libnotify;
 
   startScript = writeShellScript "gamemode-start" ''
-    ${hyprctl} --batch 'keyword animations:enabled 0; keyword misc:vfr 0'
+    ${hyprctl} --batch 'keyword animations:enabled 0 ; keyword decoration:blur:enabled 0 ; decoration:drop_shadow 0 ; keyword misc:vfr 0 ; keyword input:scroll_method ""'
     ${powerprofilesctl} set performance
     ${notify-send} -u low -a 'Gamemode' 'Optimizations activated'
   '';
   endScript = writeShellScript "gamemode-end" ''
-    ${hyprctl} --batch 'keyword animations:enabled 1; keyword misc:vfr 1'
+    ${hyprctl} reload
     ${powerprofilesctl} set balanced
     ${notify-send} -u low -a 'Gamemode' 'Optimizations deactivated'
   '';
