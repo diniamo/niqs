@@ -20,9 +20,10 @@ in {
     modules.hyprland.scripts = {
       pin = writeShellScript "pin" ''
         if ! hyprctl -j activewindow | ${jq} -e .floating; then
-          hyprctl dispatch togglefloating
+          hyprctl --batch 'dispatch togglefloating;dispatch pin'
+        else
+          hyprctl dispatch pin
         fi
-        hyprctl dispatch pin
       '';
 
       socket = writeShellScript "socket" ''
