@@ -18,7 +18,7 @@ in {
         offset = "10x10";
       };
 
-      urgency_low.frame_color = mkForce colors.base0B;
+      urgency_low.frame_color = mkForce colors.base0C;
       urgency_normal.frame_color = mkForce colors.base0D;
     };
     iconTheme = {
