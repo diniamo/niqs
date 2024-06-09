@@ -44,10 +44,6 @@ in {
     hardware.xpadneo.enable = true;
     hardware.opengl.driSupport32Bit = true;
 
-    environment.systemPackages = with pkgs; [
-      mangohud
-    ];
-
     programs = {
       steam = {
         enable = true;
