@@ -2,7 +2,8 @@
   description = "My NixOS flake configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    # nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:diniamo/nixpkgs/custom";
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
       inputs.nixpkgs.follows = "nixpkgs";

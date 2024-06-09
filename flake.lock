@@ -593,11 +593,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716865119,
-        "narHash": "sha256-KBlc92Pqvb9VMM9yfD1pgy+e6EW3HyMGXogRKw8QLDA=",
+        "lastModified": 1717754751,
+        "narHash": "sha256-8hODt9vSVNnK1UK8vh1GP6+H4h1g37h3xc9VTQQWXYw=",
         "owner": "justchokingaround",
         "repo": "lobster",
-        "rev": "dd205d91b703df3d6d41a6d617c96a35a45d42b7",
+        "rev": "cff0995afb09c4e98d8fc5ddf7599e1f4617504a",
         "type": "github"
       },
       "original": {
@@ -865,17 +865,18 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1716948383,
-        "narHash": "sha256-SzDKxseEcHR5KzPXLwsemyTR/kaM9whxeiJohbL04rs=",
-        "owner": "NixOS",
+        "lastModified": 1717937057,
+        "narHash": "sha256-AkXwK7PdY+e7Z8sTmW/kC3h//i2RH5tyg8/lHlOj1SE=",
+        "owner": "diniamo",
         "repo": "nixpkgs",
-        "rev": "ad57eef4ef0659193044870c731987a6df5cf56b",
+        "rev": "a1558fcadc3824b97ca35383f3274e5538eb32c4",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-unstable",
-        "type": "indirect"
+        "owner": "diniamo",
+        "ref": "custom",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs_6": {

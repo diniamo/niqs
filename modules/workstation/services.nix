@@ -21,6 +21,7 @@
         };
       };
     };
+
     pipewire = {
       enable = true;
       wireplumber.enable = true;
@@ -28,9 +29,9 @@
       alsa.enable = true;
       jack.enable = true;
     };
-    power-profiles-daemon.enable = true;
-    blueman.enable = true;
+    playerctld.enable = true;
 
+    power-profiles-daemon.enable = true;
     ananicy = {
       enable = true;
       package = pkgs.ananicy-cpp;
@@ -44,6 +45,8 @@
           }
         else pkgs.ananicy-cpp-rules;
     };
+
+    blueman.enable = true;
   };
 
   hardware.bluetooth = {
