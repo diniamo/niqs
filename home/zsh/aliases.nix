@@ -23,6 +23,7 @@
       size = "du -sh";
       "-" = "cd -";
       fcd = "cd \"$(fd --type directory | fzf)\"";
+      cht = "cht.sh";
 
       sc = "sudo systemctl";
       jc = "sudo journalctl";
