@@ -21,7 +21,7 @@ in {
     ./schizofox.nix
     ./git.nix
     # ./ncspot.nix
-    ./imv.nix
+    # ./imv.nix
     ./yazi.nix
     ./zoxide.nix
     ./wlogout.nix
@@ -44,6 +44,7 @@ in {
     ./gtk.nix
     ./stylix.nix
     ./zathura.nix
+    ./swayimg.nix
   ];
 
   home = {

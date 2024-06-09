@@ -46,7 +46,7 @@ in {
 
       ", Print, exec, grimblast --notify copy output"
       "${ctrl}, Print, exec, grimblast --notify --freeze copy area"
-      ''${shift}, Print, exec, tmp="$(mktemp --suffix=.png)"; grimblast --freeze save area "$tmp" && imv "$tmp"''
+      "${shift}, Print, exec, grimblast --freeze save area - | swayimg -"
       "${alt}, Print, exec, grimblast --notify copy active"
 
       "${mod}, s, exec, wl-paste | swappy -f - -o - | wl-copy"

@@ -17,7 +17,7 @@
     config = {
       player_arguments = "--profile=anime";
       provider = "yugen";
-      manga_opener = "imv";
+      manga_opener = "swayimg";
       score_on_completion = "true";
     };
   };
