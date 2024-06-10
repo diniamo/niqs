@@ -90,6 +90,8 @@ in {
       "float, ^(org.freedesktop.impl.portal.desktop.kde)$"
       "idleinhibit always, ^(org.qbittorrent.qBittorrent)$"
       "noanim, ^(ueberzugpp_)(.*)$"
+      "immediate, ^(steam_app_)(.*)$"
+      "fullscreen, ^(steam_app_)(.*)$"
     ];
     windowrulev2 = [
       # These 2 should fix floating windows
