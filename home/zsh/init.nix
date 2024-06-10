@@ -1,6 +1,5 @@
 {
   programs.zsh = {
-    # TODO: proper login manager
     initExtraFirst = ''
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
