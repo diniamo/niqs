@@ -140,14 +140,6 @@
       };
     };
 
-    tidalcycles = {
-      url = "github:mitchmindtree/tidalcycles.nix";
-      inputs = {
-        vim-tidal-src.url = "github:tidalcycles/vim-tidal";
-        nixpkgs.follows = "nixpkgs";
-        utils.follows = "flake-utils";
-      };
-    };
     zig = {
       url = "github:mitchellh/zig-overlay";
       inputs = {
@@ -176,7 +168,6 @@
         flake-utils.follows = "flake-utils";
         flake-parts.follows = "flake-parts";
 
-        tidalcycles.follows = "tidalcycles";
         zig.follows = "zig";
         rnix-lsp.follows = "rnix-lsp";
         nil.follows = "nil";

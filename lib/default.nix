@@ -1,12 +1,10 @@
 {inputs}: let
   inherit (inputs.nixpkgs) lib;
 
-  # Other
   getPkgs = input: system:
     if (input.legacyPackages.${system} or {}) == {}
     then input.packages.${system}
     else input.legacyPackages.${system};
-  inputsToPackages = inputs: system: builtins.mapAttrs (_: value: getPkgs value system) inputs;
 
   # Builders
   mkNixosSystem = args @ {
@@ -21,7 +19,7 @@
       config.allowUnfree = true;
     };
 
-    flakePkgs = inputsToPackages inputs system;
+    flakePkgs = builtins.mapAttrs (_: value: getPkgs value system) inputs;
     customPkgs = import ../packages {inherit pkgs;};
     wrappedPkgs = import ../wrappers {inherit inputs pkgs;};
   in
@@ -37,9 +35,10 @@
     then 1
     else 0;
   overrideError = pkg: version: value: lib.throwIf (lib.versionOlder version pkg.version) "A new version of ${pkg.pname} has been released, remove its overlay/override" value;
-in
-  # lib.extend (_: _: foldl recursiveUpdate {} importedLibs)
-  # foldl recursiveUpdate {} importedLibs
-  {
-    inherit mkNixosSystem nameToSlug boolToNum overrideError;
-  }
+  inlineLua = expr: {
+    _type = "lua-inline";
+    inherit expr;
+  };
+in {
+  inherit mkNixosSystem nameToSlug boolToNum overrideError inlineLua;
+}

@@ -9,10 +9,10 @@ in {
     ./hyprland
     ./anyrun
     ./mpv
-    ./lazyvim
+    # ./lazyvim
     ./zsh
     ./delta
-    # ./nvf
+    ./nvf
     # ./alacritty
     ./starship
 
