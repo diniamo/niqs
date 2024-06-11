@@ -161,7 +161,8 @@
       };
     };
     nvf = {
-      url = "github:notashelf/nvf";
+      # url = "github:notashelf/nvf";
+      url = "github:diniamo/nvf/which-key-register-allow-null";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";

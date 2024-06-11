@@ -10,6 +10,14 @@
       cheatsheet.enable = true;
       whichKey.enable = true;
     };
-    notes.todo-comments.enable = true;
+
+    notes.todo-comments = {
+      enable = true;
+      mappings = {
+        quickFix = null;
+        telescope = "<leader>st";
+        trouble = "<leader>xt";
+      };
+    };
   };
 }

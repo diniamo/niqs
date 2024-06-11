@@ -14,5 +14,9 @@
     #   enable = true;
     #   crates.enable = true;
     # };
+    clang = {
+      enable = true;
+      lsp.server = "clangd";
+    };
   };
 }

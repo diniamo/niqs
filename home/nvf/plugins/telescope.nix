@@ -36,15 +36,28 @@ in {
         lspReferences = "<leader>slr";
         lspTypeDefinitions = "<leader>slt";
         lspWorkspaceSymbols = "<leader>slsw";
-        open = "<leader>st";
+        open = "<leader>so";
         treesitter = "<leader>ss";
       };
     };
 
-    extraPlugins.telescope-zf-native.package = pkgs.vimPlugins.telescope-zf-native-nvim;
+    optPlugins = [pkgs.vimPlugins.telescope-zf-native-nvim];
     # telescope is already required as a part of the telescope entry
     luaConfigRC.telescope-extensions = entryAfter ["telescope"] ''
       telescope.load_extension('zf-native')
     '';
+
+    binds.whichKey.register = {
+      "<leader>f" = null;
+      "<leader>fl" = null;
+      "<leader>fm" = null;
+      "<leader>fv" = null;
+      "<leader>fvc" = null;
+
+      "<leader>s" = "+Telescope";
+      "<leader>sl" = "+Lsp";
+      "<leader>sv" = "+Git";
+      "<leader>svc" = "+Commit";
+    };
   };
 }

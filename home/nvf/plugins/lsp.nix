@@ -6,7 +6,13 @@
       # lspkind.enable = true;
       lsplines.enable = true;
       # lspsaga.enable = true;
-      # trouble.enable = true;
+      trouble.enable = true;
+    };
+
+    binds.whichKey.register = {
+      "<leader>l" = "+Lsp";
+      "<leader>lg" = "+Goto";
+      "<leader>lt" = "+Toggle";
     };
   };
 }

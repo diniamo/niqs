@@ -1,17 +1,29 @@
 {
-  programs.nvf.settings.vim.maps.normal = {
-    "<leader>bf" = {
-      desc = "Format buffer";
-      lua = true;
-      action = "vim.lsp.buf.format";
+  programs.nvf.settings.vim = {
+    maps.normal = {
+      "<leader>;" = {
+        desc = "Append ;";
+        action = "A;<esc>";
+      };
+      "<leader>hc" = {
+        desc = "Open cheatsheet";
+        action = "<cmd>Cheatsheet<cr>";
+      };
+      "<leader>hk" = {
+        desc = "Keymaps";
+        action = "<cmd>Telescope keymaps<cr>";
+      };
+
+      "<CR>" = {
+        desc = "Insert line below";
+        action = "o<esc>";
+      };
+      "<S-CR>" = {
+        desc = "Insert line above";
+        action = "O<esc>";
+      };
     };
-    "<leader>;" = {
-      desc = "Append ;";
-      action = "A;<esc>";
-    };
-    "<leader>?" = {
-      desc = "Open cheatsheet";
-      action = "<cmd>Cheatsheet<cr>";
-    };
+
+    binds.whichKey.register."<leader>h" = "+Help";
   };
 }
