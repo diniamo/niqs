@@ -7,14 +7,25 @@
   colors = config.lib.stylix.colors.withHashtag;
   inherit (config.stylix) fonts;
 
-  conf = {
+  package = pkgs.swayimg.overrideAttrs {
+    src = pkgs.fetchFromGitHub {
+      owner = "artemsen";
+      repo = "swayimg";
+      rev = "dde598428c495e898b352aa995ef875c070d56d5";
+      hash = "sha256-Q3sMwKHXYdlMek9/S9ZQ4/DRtxzziIKLFqtw7d4z71M=";
+    };
+  };
+
+  settings = {
     general = {
-      antialiasing = true;
+      # TODO: enable this once performance is better
+      antialiasing = false;
+      fixed = false;
       transparency = colors.base02;
       background = colors.base00;
     };
     font = {
-      name = fonts.sansSerif.name;
+      inherit (fonts.sansSerif) name;
       size = fonts.sizes.applications;
       color = colors.base05;
       shadow = colors.base01;
@@ -36,6 +47,7 @@
       i = "info";
       "plus" = "zoom +10";
       "underscore" = "zoom +10";
+      n = "zoom optimal";
 
       d = "exec rmtrash \"%\"";
       "Shift+d" = "exec rm \"%\"";
@@ -49,6 +61,6 @@
     };
   };
 in {
-  home.packages = [pkgs.swayimg];
-  xdg.configFile."swayimg/config".text = lib.generators.toINI {} conf;
+  home.packages = [package];
+  xdg.configFile."swayimg/config".text = lib.generators.toINI {} settings;
 }
