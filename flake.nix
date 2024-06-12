@@ -4,11 +4,6 @@
   inputs = {
     # nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs.url = "github:diniamo/nixpkgs/custom";
-    niqspkgs = {
-      url = "github:diniamo/niqspkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -40,6 +35,10 @@
     };
 
     # These are downloaded from caches, so overriding nixpkgs would break them
+    niqspkgs = {
+      url = "github:diniamo/niqspkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.systems.follows = "systems";

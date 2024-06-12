@@ -4,7 +4,7 @@
   ...
 }: let
   scripts = with pkgs.mpvScripts;
-  with flakePkgs.niqspkgs.mpvScripts; [
+  with flakePkgs.niqspkgs; [
     # Missing: clipshot, autosubsync
     uosc
     reload
