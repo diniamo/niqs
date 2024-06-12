@@ -1,8 +1,6 @@
-local opt = vim.opt
-
-opt.completeopt = "menu,menuone,noselect,preview"
-opt.cursorline = true
-opt.fillchars = {
+vim.opt.completeopt = "menu,menuone,noselect,preview"
+vim.opt.cursorline = true
+vim.opt.fillchars = {
   foldopen = "",
   foldclose = "",
   fold = " ",
@@ -10,29 +8,28 @@ opt.fillchars = {
   diff = "╱",
   eob = " ",
 }
-opt.foldlevel = 99
+vim.opt.foldlevel = 99
 -- TODO: figure this out
--- opt.formatoptions = "jqln"
-opt.laststatus = 3
-opt.linebreak = true
-opt.list = true
-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
-opt.shiftround = true
-opt.shortmess:append({ W = true, I = true, c = true, C = true })
-opt.showmode = false
--- TODO: what should this be?
--- opt.sidescrolloff = 
-opt.signcolumn = "yes"
+-- vim.opt.formatoptions = "jqln"
+vim.opt.laststatus = 3
+vim.opt.linebreak = true
+vim.opt.list = true
+vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
+vim.opt.shiftround = true
+vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
+vim.opt.showmode = false
+vim.opt.sidescrolloff = 2
+vim.opt.signcolumn = "yes"
 -- This seems to break comments in nix
--- opt.smartindent = true
-opt.spelllang = { "en", "hu" }
-opt.spelloptions:append("noplainbuffer")
-opt.undofile = true
-opt.undolevels = 10000
-opt.virtualedit = "block"
-opt.wildmode = "longest:full,full"
-opt.winminwidth = 5
-opt.wrap = false
-opt.smoothscroll = true
+-- vim.opt.smartindent = true
+vim.opt.spelllang = { "en", "hu" }
+vim.opt.spelloptions:append("noplainbuffer")
+vim.opt.undofile = true
+vim.opt.undolevels = 10000
+vim.opt.virtualedit = "block"
+vim.opt.wildmode = "longest:full,full"
+vim.opt.winminwidth = 5
+vim.opt.wrap = false
+vim.opt.smoothscroll = true
 
 vim.g.markdown_recommended_style = 0
