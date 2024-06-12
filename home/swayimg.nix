@@ -11,8 +11,8 @@
     src = pkgs.fetchFromGitHub {
       owner = "artemsen";
       repo = "swayimg";
-      rev = "dde598428c495e898b352aa995ef875c070d56d5";
-      hash = "sha256-Q3sMwKHXYdlMek9/S9ZQ4/DRtxzziIKLFqtw7d4z71M=";
+      rev = "f2bbe7535d80c55e9b743306f22bc22530b78582";
+      hash = "sha256-FQshKPtpbJ2TgA/hJRLYK+QUTX6YarV8nfZGujkmxao=";
     };
   };
 
@@ -49,11 +49,11 @@
       "underscore" = "zoom +10";
       n = "zoom optimal";
 
-      d = "exec rmtrash \"%\"";
-      "Shift+d" = "exec rm \"%\"";
-      Delete = "exec rm \"%\"";
-      y = "exec wl-copy < \"%\"";
-      "Shift+y" = "exec wl-copy \"%\"";
+      d = "exec rmtrash '%'; status 'Trashed %'";
+      "Shift+d" = "exec rm '%'; status 'Deleted %'";
+      Delete = "exec rm '%'; status 'Deleted %'";
+      y = "exec wl-copy < '%'; status 'Copied image'";
+      "Shift+y" = "exec wl-copy '%'; status 'Copied image path'";
     };
     mouse = {
       ScrollUp = "zoom +5";
