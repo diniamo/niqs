@@ -1,20 +1,11 @@
 {
-  pkgs,
+  flakePkgs,
   lib,
   config,
   ...
 }: let
   colors = config.lib.stylix.colors.withHashtag;
   inherit (config.stylix) fonts;
-
-  package = pkgs.swayimg.overrideAttrs {
-    src = pkgs.fetchFromGitHub {
-      owner = "artemsen";
-      repo = "swayimg";
-      rev = "f2bbe7535d80c55e9b743306f22bc22530b78582";
-      hash = "sha256-FQshKPtpbJ2TgA/hJRLYK+QUTX6YarV8nfZGujkmxao=";
-    };
-  };
 
   settings = {
     general = {
@@ -61,6 +52,6 @@
     };
   };
 in {
-  home.packages = [package];
+  home.packages = [flakePkgs.niqspkgs.swayimg-git];
   xdg.configFile."swayimg/config".text = lib.generators.toINI {} settings;
 }

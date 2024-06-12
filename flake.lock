@@ -645,11 +645,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1718213466,
-        "narHash": "sha256-6m4RasZwYUmiqxMCSKJIA45oLpDxD1TI4+Div6Evc8E=",
+        "lastModified": 1718214278,
+        "narHash": "sha256-4BrD3dESJAe9xDMZZTUOaG2+HCBROjx9uqT7nNUIb/E=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "5acd037357ccafb5d4a3727a90530cde9aa752ed",
+        "rev": "032f16d19fcdc361368533a66120dd703c4880de",
         "type": "github"
       },
       "original": {
