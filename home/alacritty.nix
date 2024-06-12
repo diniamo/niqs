@@ -1,13 +1,15 @@
-{osConfig, ...}: let
-  inherit (osConfig.modules.style) monoFont;
-in {
+{
+  flakePkgs,
+  osConfig,
+  ...
+}: {
   programs.alacritty = {
     enable = true;
-    settings = {
-      import = [./themes/${osConfig.modules.style.colorScheme.slug}.toml];
-      live_config_reload = false;
-      ipc_socket = false;
+    package = flakePkgs.niqspkgs.alacritty-sixel;
 
+    settings = {
+      ipc_socket = osConfig.values.terminal.firstInstance != null;
+      live_config_reload = false;
       window = {
         padding = {
           x = 10;
@@ -16,14 +18,7 @@ in {
         dynamic_padding = true;
         decorations = "None";
       };
-      font = {
-        normal = {
-          style = "Regular";
-          family = monoFont.name;
-        };
-        inherit (monoFont) size;
-        builtin_box_drawing = false;
-      };
+      font.builtin_box_drawing = false;
       selection.save_to_clipboard = true;
       cursor = {
         style.shape = "Beam";

@@ -13,11 +13,10 @@ in {
     ./zsh
     ./delta
     ./nvf
-    # ./alacritty
     ./starship
 
     ./xdg.nix
-    ./foot.nix
+    # ./foot.nix
     ./schizofox.nix
     ./git.nix
     # ./ncspot.nix
@@ -45,6 +44,7 @@ in {
     ./stylix.nix
     ./zathura.nix
     ./swayimg.nix
+    ./alacritty.nix
   ];
 
   home = {

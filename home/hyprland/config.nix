@@ -103,12 +103,12 @@ in {
       "w[v1] s[false], ${noDecorations}"
       "f[1], ${noDecorations}"
 
-      "special:terminal, on-created-empty:${terminal}"
-      "special:mixer, on-created-empty:${terminal} pulsemixer"
+      "special:terminal, on-created-empty:${terminal.command}"
+      "special:mixer, on-created-empty:${terminal.command} ${terminal.separator} pulsemixer"
       "special:music, on-created-empty:spotify"
-      "special:music_tui, on-created-empty:${terminal} spotify_player"
+      "special:music_tui, on-created-empty:${terminal.command} ${terminal.separator} spotify_player"
       "special:calculator, on-created-empty:qalculate-qt"
-      "special:file_manager, on-created-empty:${terminal} yazi"
+      "special:file_manager, on-created-empty:${terminal.command} ${terminal.separator} yazi"
       "special:file_manager_gui, on-created-empty:thunar"
     ];
     # Workaround for a kernel bug

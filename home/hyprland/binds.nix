@@ -21,8 +21,8 @@
 in {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "${mod}, Return, exec, ${terminal}"
-      "${mod}${secondary}, Return, exec, ${terminal} -- yazi"
+      "${mod}, Return, exec, ${terminal.command}"
+      "${mod}${secondary}, Return, exec, ${terminal.command} -- yazi"
       "${mod}, n, exec, neovide"
       "${mod}${secondary}, n, exec, cd /etc/nixos && neovide"
       "${mod}, w, exec, firefox"

@@ -47,7 +47,7 @@ in {
           desktop_actions: true,
           max_entries: 10,
           // For terminal entries
-          terminal: Some("${osConfig.values.terminal}"),
+          terminal: Some("${osConfig.values.terminal.command}"),
         )
       '';
       "shell.ron".text = ''
