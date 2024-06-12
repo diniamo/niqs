@@ -5,6 +5,8 @@
 }: let
   luaPaths = [
     ./lua/options.lua
+    ./lua/autocmds.lua
+    ./lua/mappings.lua
   ];
 in {
   imports = [

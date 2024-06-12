@@ -2,16 +2,6 @@
   programs.nvf.settings.vim = {
     notify.nvim-notify.enable = true;
     statusline.lualine.enable = true;
-    tabline.nvimBufferline = {
-      enable = true;
-      mappings = {
-        closeCurrent = "<leader>bd";
-        cycleNext = "<Tab>";
-        cyclePrevious = "<S-Tab>";
-        pick = "<leader>bp";
-      };
-    };
-
     ui = {
       illuminate.enable = true;
       noice.enable = true;
@@ -29,6 +19,16 @@
         showEndOfLine = true;
       };
       nvimWebDevicons.enable = true;
+    };
+
+    tabline.nvimBufferline = {
+      enable = true;
+      mappings = {
+        closeCurrent = "<leader>bd";
+        cycleNext = "<Tab>";
+        cyclePrevious = "<S-Tab>";
+        pick = "<leader>bp";
+      };
     };
   };
 }

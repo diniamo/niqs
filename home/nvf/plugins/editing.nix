@@ -1,6 +1,7 @@
 {
   programs.nvf.settings.vim = {
     autopairs.enable = true;
+    comments.comment-nvim.enable = true;
     utility.surround = {
       enable = true;
       mappings = {
@@ -16,7 +17,6 @@
         visualLine = "gS";
       };
     };
-    comments.comment-nvim.enable = true;
 
     binds.whichKey.register."gs" = "+Surround";
   };

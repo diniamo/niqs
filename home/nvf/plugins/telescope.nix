@@ -28,7 +28,7 @@ in {
         gitCommits = "<leader>svcw";
         gitStash = "<leader>svx";
         gitStatus = "<leader>svs";
-        helpTags = "<leader>sh";
+        helpTags = "<leader>ht";
         liveGrep = "<leader>sg";
         lspDefinitions = "<leader>slD";
         lspDocumentSymbols = "<leader>slsb";

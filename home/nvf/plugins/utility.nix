@@ -6,11 +6,6 @@
       vim-wakatime.enable = true;
     };
 
-    binds = {
-      cheatsheet.enable = true;
-      whichKey.enable = true;
-    };
-
     notes.todo-comments = {
       enable = true;
       mappings = {
@@ -18,6 +13,11 @@
         telescope = "<leader>st";
         trouble = "<leader>xt";
       };
+    };
+
+    binds = {
+      whichKey.enable = true;
+      cheatsheet.enable = true;
     };
   };
 }

@@ -8,5 +8,17 @@
       desc = "Delete word in front";
       action = "<C-o>de";
     };
+    "," = {
+      desc = "Insert undo breakpoint";
+      action = ",<c-g>u";
+    };
+    "." = {
+      desc = "Insert undo breakpoint";
+      action = ".<c-g>u";
+    };
+    ";" = {
+      desc = "Insert undo breakpoint";
+      action = ";<c-g>u";
+    };
   };
 }
