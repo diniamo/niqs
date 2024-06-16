@@ -17,6 +17,6 @@ in {
         scripts.socket
         (lib.getExe flakePkgs.bgar.default)
       ]
-      ++ lib.optional (osConfig.values.terminal.firstInstance != null) "[workspace special:terminal] ${osConfig.values.terminal.firstInstance}";
+      ++ lib.optional (osConfig.values.terminal.firstInstance != null) "[workspace special:terminal silent] ${osConfig.values.terminal.firstInstance}";
   };
 }

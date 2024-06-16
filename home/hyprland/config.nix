@@ -106,7 +106,9 @@ in {
       "special:terminal, on-created-empty:${terminal.command}"
       "special:mixer, on-created-empty:${terminal.command} ${terminal.separator} pulsemixer"
       "special:music, on-created-empty:spotify"
-      "special:music_tui, on-created-empty:${terminal.command} ${terminal.separator} spotify_player"
+      # The library spotify-player uses for sixel checks TERM for supported terminals
+      # so we fake it, since alacritty isn't in the list
+      "special:music_tui, on-created-empty:${terminal.command} ${terminal.separator} TERM=xterm-256color spotify_player"
       "special:calculator, on-created-empty:qalculate-qt"
       "special:file_manager, on-created-empty:${terminal.command} ${terminal.separator} yazi"
       "special:file_manager_gui, on-created-empty:thunar"
