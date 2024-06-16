@@ -4,6 +4,15 @@
   config,
   ...
 }: {
+  systemd.services.polkit-authentication-agent = {
+    description = "PolicyKit Authentication Agent";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+    };
+    wantedBy = ["graphical-session.target"];
+  };
+
   xdg.portal = {
     enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-kde];
