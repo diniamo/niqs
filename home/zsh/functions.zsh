@@ -27,7 +27,7 @@ decontaminate() {
     done
 }
 
-nv() {
+sv() {
     declare -a contaminated
     for file in "$@"; do
         [[ -f "$file" && ! -w "$file" ]] && contaminated+=("$file")
