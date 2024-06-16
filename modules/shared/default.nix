@@ -3,7 +3,7 @@
     ./system.nix
     ./boot.nix
     ./packages.nix
-    ./rebuild.nix
+    ./scripts.nix
     ./nix.nix
   ];
 }
