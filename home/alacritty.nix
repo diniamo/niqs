@@ -18,7 +18,6 @@
         dynamic_padding = true;
         decorations = "None";
       };
-      font.builtin_box_drawing = false;
       selection.save_to_clipboard = true;
       cursor = {
         style.shape = "Beam";
