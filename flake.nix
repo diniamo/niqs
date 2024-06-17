@@ -149,7 +149,8 @@
     };
     nvf = {
       # url = "github:notashelf/nvf";
-      url = "path:/hdd/dev/nvf";
+      # url = "path:/hdd/dev/nvf";
+      url = "github:diniamo/nvf/tmp";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";

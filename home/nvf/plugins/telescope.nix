@@ -1,5 +1,5 @@
 {
-  lib',
+  lib,
   pkgs,
   inputs,
   ...
@@ -14,7 +14,7 @@ in {
         defaults = {
           layout_config.horizontal.prompt_position = "bottom";
           sorting_strategy = "descending";
-          mappings.i."<esc>" = lib'.inlineLua "require('telescope.actions').close";
+          mappings.i."<esc>" = lib.generators.mkLuaInline "require('telescope.actions').close";
         };
       };
 

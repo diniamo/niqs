@@ -31,6 +31,14 @@
         desc = "Quit all";
         action = "<cmd>qa<cr>";
       };
+      "<leader>q!" = {
+        desc = "Force quit all";
+        action = "<cmd>qa!<cr>";
+      };
+      "<leader>qx" = {
+        desc = "Save and quit all";
+        action = "<cmd>xa<cr>";
+      };
 
       "<CR>" = {
         desc = "Insert line below";

@@ -1,4 +1,3 @@
-vim.opt.completeopt = "menu,menuone,noselect,preview"
 vim.opt.cursorline = true
 vim.opt.fillchars = {
   foldopen = "",
@@ -19,10 +18,8 @@ vim.opt.shiftround = true
 vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
 vim.opt.showmode = false
 vim.opt.sidescrolloff = 2
-vim.opt.signcolumn = "yes"
 -- This seems to break comments in nix
 -- vim.opt.smartindent = true
-vim.opt.spelllang = { "en", "hu" }
 vim.opt.spelloptions:append("noplainbuffer")
 vim.opt.undofile = true
 vim.opt.undolevels = 10000

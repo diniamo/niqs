@@ -35,10 +35,6 @@
     then 1
     else 0;
   overrideError = pkg: version: value: lib.throwIf (lib.versionOlder version pkg.version) "A new version of ${pkg.pname} has been released, remove its overlay/override" value;
-  inlineLua = expr: {
-    _type = "lua-inline";
-    inherit expr;
-  };
 in {
-  inherit mkNixosSystem nameToSlug boolToNum overrideError inlineLua;
+  inherit mkNixosSystem nameToSlug boolToNum overrideError;
 }
