@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  systemd.services.polkit-authentication-agent = {
+  systemd.user.services.polkit-authentication-agent = {
     description = "PolicyKit Authentication Agent";
     serviceConfig = {
       Type = "simple";
