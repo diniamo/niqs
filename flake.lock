@@ -1177,13 +1177,17 @@
       },
       "locked": {
         "lastModified": 1718626427,
-        "narHash": "sha256-se9znP6itlhI1T5nd2tvK0tRrTXyqZBbpUeIkYZzjsA=",
-        "path": "/hdd/dev/nvf",
-        "type": "path"
+        "narHash": "sha256-OVaRt0c7WrBkF3GTivQP3IqB14dgwAqJS5hvx6kXOJM=",
+        "owner": "diniamo",
+        "repo": "nvf",
+        "rev": "164cc3b4710e8066c3277fa80ae5a2d1bab026b7",
+        "type": "github"
       },
       "original": {
-        "path": "/hdd/dev/nvf",
-        "type": "path"
+        "owner": "diniamo",
+        "ref": "tmp",
+        "repo": "nvf",
+        "type": "github"
       }
     },
     "plugin-alpha-nvim": {

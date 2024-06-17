@@ -28,4 +28,13 @@ in {
     ];
     inherit specialArgs;
   };
+  thinkpad = mkNixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      ./thinkpad
+      shared
+      workstation
+    ];
+    inherit specialArgs;
+  };
 }
