@@ -55,6 +55,10 @@
       url = "github:privatevoid-net/nix-super";
       inputs.flake-compat.follows = "flake-compat";
     };
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      inputs.home-manager.follows = "home-manager";
+    };
 
     jerry = {
       url = "github:justchokingaround/jerry";
@@ -102,22 +106,6 @@
       };
     };
 
-    # jujutsu = {
-    #   url = "github:martinvonz/jj";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #     flake-utils.follows = "flake-utils";
-    #     rust-overlay.follows = "rust-overlay";
-    #   };
-    # };
-    # chaotic = {
-    #   url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    #   inputs = {
-    #     home-manager.follows = "home-manager";
-    #     jujutsu.follows = "jujutsu";
-    #   };
-    # };
-
     searx-randomizer = {
       url = "github:schizofox/searx-randomizer";
       inputs = {
@@ -161,7 +149,7 @@
     };
     nvf = {
       # url = "github:notashelf/nvf";
-      url = "github:diniamo/nvf/which-key-register-allow-null";
+      url = "path:/hdd/dev/nvf";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
