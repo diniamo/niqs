@@ -40,6 +40,11 @@ in {
       noSessionRestore = false;
     };
 
+    misc = {
+      drm.enable = true;
+      contextMenu.enable = true;
+    };
+
     settings = {
       "media.ffmpeg.vaapi.enabled" = true;
       "media.rdd-ffmpeg.enabled" = true;
