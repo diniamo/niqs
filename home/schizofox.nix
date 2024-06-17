@@ -55,6 +55,8 @@ in {
       "privacy.resistFingerprinting" = false;
       "permissions.fullscreen.allowed" = true;
       "dom.webnotifications.enabled" = true;
+      # Restore previous session
+      "browser.startup.page" = 3;
     };
 
     extensions = {
