@@ -86,8 +86,8 @@ in {
         "{6712269b-6289-46fe-b6f3-8144f45afd5e}".install_url = mkUrl "youtube-ad-skip-mute";
 
         # Disable
-        "{c607c8df-14a7-4f28-894f-29e8722976af}".install_url = ""; # Temporary containers
-        "7esoorv3@alefvanoon.anonaddy.me".install_url = ""; # LibRedirect
+        "{c607c8df-14a7-4f28-894f-29e8722976af}" = null; # Temporary containers
+        "7esoorv3@alefvanoon.anonaddy.me" = null; # LibRedirect
       };
     };
   };

@@ -2858,15 +2858,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1718445001,
-        "narHash": "sha256-L2GTsS0K2Jh7fboBWbqbyjWZpllYl/2vtd9bEJPlpGU=",
-        "owner": "schizofox",
+        "lastModified": 1718649032,
+        "narHash": "sha256-LGrbd3euLTBZ9Kz6DWuknaOr/6jD0UjouBcPJuEAL4o=",
+        "owner": "diniamo",
         "repo": "schizofox",
-        "rev": "c47f46cffd57bd233d7d8c3a2d2e9738ef05edf1",
+        "rev": "10f3089d588df13625ec302b023a57e48c629cfa",
         "type": "github"
       },
       "original": {
-        "owner": "schizofox",
+        "owner": "diniamo",
+        "ref": "filter-null-extensions",
         "repo": "schizofox",
         "type": "github"
       }

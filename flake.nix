@@ -115,7 +115,8 @@
       };
     };
     schizofox = {
-      url = "github:schizofox/schizofox";
+      # url = "github:schizofox/schizofox";
+      url = "github:diniamo/schizofox/filter-null-extensions";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
