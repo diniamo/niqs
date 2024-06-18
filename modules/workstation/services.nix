@@ -52,7 +52,7 @@
               rm -r 00-default/games
             '';
           }
-        else pkgs.ananicy-cpp-rules;
+        else pkgs.ananicy-rules-cachyos;
     };
 
     blueman.enable = true;
