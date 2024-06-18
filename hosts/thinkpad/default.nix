@@ -1,9 +1,12 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib) mkForce;
+
+  brightnessctl = lib.getExe pkgs.brightnessctl;
 
   inherit (config) values;
 in {
@@ -13,25 +16,15 @@ in {
   networking.networkmanager.enable = true;
 
   services = {
-  power-profiles-daemon.enable = lib.mkForce false;
+    power-profiles-daemon.enable = lib.mkForce false;
     auto-cpufreq.enable = true;
     thermald.enable = true;
-    # The CPU stuff conflicts with auto-cpufreq.
-    # Should I bother with this?
-    # tlp = {
-    #   enable = true;
-    #   settings = {
-    #     TLP_ENABLE = 1;
-    #
-    #     DEVICES_TO_ENABLE_ON_STARTUP = "wifi";
-    #     DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth nfc wwan";
-    #     DEVICES_TO_DISABLE_ON_SHUTDOWN = "bluetooth nfc wifi wwan";
-    #     DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth nfc wifi wwan";
-    #
-    #     DEVICES_TO_DISABLE_ON_WIFI_CONNECT = "wwan";
-    #     DEVICES_TO_DISABLE_ON_WWAN_CONNECT = "wifi";
-    #   };
-    # };
+  };
+
+  zramSwap.enable = true;
+  hardware = {
+    opengl.extraPackages = with pkgs; [intel-vaapi-driver intel-media-driver];
+    intel-gpu-tools.enable = true;
   };
 
   home-manager.users.${values.mainUser} = {
@@ -41,6 +34,10 @@ in {
         blur.enabled = mkForce false;
         drop_shadow = mkForce false;
       };
+      binde = [
+        ", XF86MonBrightnessUp, exec, ${brightnessctl} set 2%+"
+        ", XF86MonBrightnessDown, exec, ${brightnessctl} set 2%- -n"
+      ];
     };
   };
 
