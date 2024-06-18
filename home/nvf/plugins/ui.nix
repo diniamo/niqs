@@ -6,7 +6,6 @@
 }: {
   programs.nvf.settings.vim = {
     notify.nvim-notify.enable = true;
-    statusline.lualine.enable = true;
     ui = {
       illuminate.enable = true;
       noice.enable = true;
@@ -16,14 +15,109 @@
       enable = true;
 
       highlight-undo.enable = true;
+      # TODO: Disable start-end display once this is converted to setupOpts
       indentBlankline = {
         enable = true;
         fillChar = null;
-        # TODO: the module is wrong, make a pr
         eolChar = null;
-        showEndOfLine = true;
+        scope.showEndOfLine = true;
       };
       nvimWebDevicons.enable = true;
+    };
+
+    statusline.lualine = {
+      enable = true;
+      componentSeparator = {
+        left = "";
+        right = "";
+      };
+      sectionSeparator = {
+        left = "";
+        right = "";
+      };
+      activeSection = lib.mkForce {
+        a = ["{ 'mode' }"];
+        b = ["{ 'branch' }"];
+        c = [
+          ''
+            {
+              'diagnostics',
+              symbols = { error = '󰅙  ', warn = '  ', info = '  ', hint = '󰌵 ' }
+            }
+          ''
+          ''
+            {
+              "filetype",
+              icon_only = true,
+              separator = "",
+              padding = { left = 1, right = 0 }
+            }
+          ''
+          ''
+            {
+              "filename",
+              symbols = { modified = ' ', readonly = ' ' },
+            }
+          ''
+        ];
+        x = [
+          ''
+            {
+              function() return require("noice").api.status.command.get() end,
+              cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+              color = 'Statement',
+            }
+          ''
+          ''
+            {
+              function() return require("noice").api.status.mode.get() end,
+              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+              color = 'Constant',
+            }
+          ''
+          ''
+            {
+              function() return "  " .. require("dap").status() end,
+              cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
+              color = 'Debug',
+            }
+          ''
+          ''
+            {
+              "diff",
+              diff_color = {
+                added = 'DiffAdd',
+                modified = 'DiffChange',
+                removed = 'DiffDelete'
+              },
+              symbols = { added = ' ', modified = ' ', removed = ' ' },
+              source = function()
+                local gitsigns = vim.b.gitsigns_status_dict
+                if gitsigns then
+                  return {
+                    added = gitsigns.added,
+                    modified = gitsigns.changed,
+                    removed = gitsigns.removed,
+                  }
+                end
+              end,
+            }
+          ''
+        ];
+        y = [
+          "{ 'progress', separator = ' ', padding = { left = 1, right = 0 }}"
+          "{ 'location', padding = { left = 0, right = 1 }}"
+        ];
+        z = [
+          ''
+            {
+              function()
+                return " " .. os.date("%R")
+              end
+            }
+          ''
+        ];
+      };
     };
 
     tabline.nvimBufferline = {

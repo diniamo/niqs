@@ -17,6 +17,7 @@
         visualLine = "gS";
       };
     };
+    snippets.vsnip.enable = true;
 
     binds.whichKey.register."gs" = "+Surround";
   };
