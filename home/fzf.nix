@@ -19,6 +19,6 @@
       pointer = base08;
       header = base09;
     };
-    defaultOptions = ["--border=rounded"];
+    defaultOptions = ["--border=rounded" "--pointer='>'"];
   };
 }
