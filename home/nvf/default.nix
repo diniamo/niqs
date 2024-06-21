@@ -28,6 +28,7 @@ in {
 
     ./mappings/normal.nix
     ./mappings/insert.nix
+    ./mappings/visual.nix
   ];
 
   programs.nvf = {
