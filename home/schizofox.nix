@@ -46,6 +46,7 @@ in {
     };
 
     settings = {
+      "gfx.webrender.all" = true;
       "media.ffmpeg.vaapi.enabled" = true;
       "media.rdd-ffmpeg.enabled" = true;
       "media.av1.enabled" = true;
