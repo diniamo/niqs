@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (config) values;
@@ -21,6 +22,15 @@ in {
       unixPath = "/torrent/complete";
     };
   };
+
+  networking.hostName = "${values.mainUser}-PC";
+  hardware.pulseaudio.enable = false;
+  # services.xserver = {
+  #   enable = true;
+  #   displayManager.startx.enable = true;
+  #   desktopManager.gnome.enable = true;
+  # };
+  boot.kernelPackages = pkgs.linuxPackages;
 
   home-manager.users.${values.mainUser} = {
     wayland.windowManager.hyprland.settings = {
@@ -94,8 +104,6 @@ in {
       startup = [{command = "xrandr --output DP-0 --mode 1920x1080 --rate 165";}];
     };
   };
-
-  networking.hostName = "${values.mainUser}-PC";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
