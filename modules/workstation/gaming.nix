@@ -48,7 +48,7 @@ in {
     services.pipewire.alsa.support32Bit = true;
     security.rtkit.enable = true;
     hardware.xpadneo.enable = true;
-    hardware.opengl.driSupport32Bit = true;
+    hardware.graphics.enable32Bit = true;
 
     programs = {
       steam = {

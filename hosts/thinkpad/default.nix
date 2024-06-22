@@ -23,7 +23,7 @@ in {
 
   zramSwap.enable = true;
   hardware = {
-    opengl.extraPackages = with pkgs; [intel-vaapi-driver intel-media-driver];
+    graphics.extraPackages = with pkgs; [intel-vaapi-driver intel-media-driver];
     intel-gpu-tools.enable = true;
   };
 
