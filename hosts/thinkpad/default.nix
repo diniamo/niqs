@@ -6,14 +6,16 @@
 }: let
   inherit (lib) mkForce;
 
-  brightnessctl = lib.getExe pkgs.brightnessctl;
-
   inherit (config) values;
 in {
   imports = [./hardware.nix];
 
   networking.hostName = "${values.mainUser}-THINKPAD";
   networking.networkmanager.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+  ];
 
   services = {
     power-profiles-daemon.enable = lib.mkForce false;
@@ -34,10 +36,6 @@ in {
         blur.enabled = mkForce false;
         drop_shadow = mkForce false;
       };
-      binde = [
-        ", XF86MonBrightnessUp, exec, ${brightnessctl} set 2%+"
-        ", XF86MonBrightnessDown, exec, ${brightnessctl} set 2%- -n"
-      ];
     };
   };
 
