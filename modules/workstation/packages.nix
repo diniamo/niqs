@@ -20,7 +20,7 @@ in {
     spotify
     rmtrash
     trash-cli
-    # ungoogled-chromium
+    ungoogled-chromium
     yt-dlp
     libreoffice-qt
     libqalculate
