@@ -35,6 +35,14 @@
     then 1
     else 0;
   overrideError = pkg: version: value: lib.throwIf (lib.versionOlder version pkg.version) "A new version of ${pkg.pname} has been released, remove its overlay/override" value;
+
+  pow = base: exponent:
+    if exponent == 0
+    then 1
+    else if exponent == 1
+    then base
+    else base * (pow base (exponent - 1));
+  shiftLeft = number: amount: number * (pow 2 amount);
 in {
-  inherit mkNixosSystem nameToSlug boolToNum overrideError;
+  inherit mkNixosSystem nameToSlug boolToNum overrideError shiftLeft;
 }

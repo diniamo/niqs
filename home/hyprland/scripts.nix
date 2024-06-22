@@ -7,7 +7,6 @@
   inherit (lib) getExe mkOption types;
 
   jq = getExe pkgs.jq;
-  notify-send = getExe pkgs.libnotify;
 in {
   options = {
     modules.hyprland.scripts = mkOption {
@@ -40,22 +39,6 @@ in {
               ;;
           esac
         done
-      '';
-
-      openImage = writeShellScript "open-image" ''
-        case "$(wl-paste --list-types)" in
-          *text*)
-            ${notify-send} 'Opening image URL'
-            curl -sL "$(wl-paste)" | swayimg -
-            ;;
-          *image*)
-            ${notify-send} 'Opening image'
-            wl-paste | swayimg -
-            ;;
-          *)
-            ${notify-send} 'Clipboard content is not an image'
-            ;;
-        esac
       '';
 
       lockCursor = writeShellScript "lock-cursor" ''

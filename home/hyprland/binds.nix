@@ -6,9 +6,11 @@
   ...
 }: let
   inherit (lib) getExe;
-  inherit (config.modules.hyprland) scripts;
 
   inherit (osConfig.values) terminal;
+
+  inherit (config) scripts;
+  hyprlandScripts = config.modules.hyprland.scripts;
 
   playerctl = getExe pkgs.playerctl;
   notifySend = getExe pkgs.libnotify;
@@ -118,10 +120,10 @@ in {
       "${mod}${shift}${secondary}, 0, movetoworkspace, 10"
 
       "${mod}, t, togglefloating"
-      "${mod}, p, exec, ${scripts.pin}"
+      "${mod}, p, exec, ${hyprlandScripts.pin}"
       ", F11, fullscreen, 0"
       "${mod}, f, fullscreen, 1"
-      "${mod}, z, exec, ${scripts.lockCursor}"
+      "${mod}, z, exec, ${hyprlandScripts.lockCursor}"
 
       "${mod}${secondary}, x, exec, ${getExe pkgs.gnome.zenity} --question --text 'Do you really want to reboot to the boot menu?' --icon system-reboot && systemctl reboot --boot-loader-menu=2147483647"
     ];

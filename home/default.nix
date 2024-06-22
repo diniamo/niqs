@@ -14,6 +14,7 @@ in {
     ./delta
     ./nvf
     ./starship
+    ./river
 
     ./xdg.nix
     # ./foot.nix
@@ -45,6 +46,7 @@ in {
     ./zathura.nix
     ./swayimg.nix
     ./alacritty.nix
+    ./scripts.nix
   ];
 
   home = {
