@@ -9,7 +9,7 @@
       sudo = "sudo ";
       listxwl = "hyprctl -j clients | jq -r '.[] | select( [ .xwayland == true ] | any ) | .title' | awk 'NF'";
       v = "nvim";
-      nv = "neovide --fork .";
+      nv = "neovide --fork";
       # Create a file with execute permissions
       xtouch = "install /dev/null";
       rm = "rmtrash";
@@ -25,6 +25,7 @@
       "-" = "cd -";
       fcd = "cd \"$(fd --type directory | fzf)\"";
       cht = "cht.sh";
+      cat = "bat --style=plain";
 
       sc = "sudo systemctl";
       jc = "sudo journalctl";
