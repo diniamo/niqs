@@ -29,4 +29,6 @@
       variables = ["--all"];
     };
   };
+
+  services.hyprpaper.enable = lib.mkForce false;
 }
