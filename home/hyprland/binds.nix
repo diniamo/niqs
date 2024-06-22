@@ -29,7 +29,7 @@ in {
       "${mod}${secondary}, n, exec, cd /etc/nixos && neovide"
       "${mod}, w, exec, firefox"
       "${mod}, q, killactive"
-      "${mod}${secondary}, q, exec, kill -9 $(hyprctl -j activewindow | ${getExe pkgs.jq} -r '.pid')"
+      "${mod}${secondary}, q, exec, kill -9 $(hyprctl -j activewindow | jaq -r '.pid')"
 
       "${mod}, Space, exec, anyrun"
       "${mod}, x, exec, wlogout --show-binds --column-spacing 5 --row-spacing 5"

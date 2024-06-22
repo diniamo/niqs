@@ -5,8 +5,6 @@
 }: let
   inherit (pkgs) writeShellScript;
   inherit (lib) getExe mkOption types;
-
-  jq = getExe pkgs.jq;
 in {
   options = {
     modules.hyprland.scripts = mkOption {
@@ -18,7 +16,7 @@ in {
   config = {
     modules.hyprland.scripts = {
       pin = writeShellScript "pin" ''
-        if ! hyprctl -j activewindow | ${jq} -e .floating; then
+        if ! hyprctl -j activewindow | jaq -e .floating; then
           hyprctl --batch 'dispatch togglefloating;dispatch pin'
         else
           hyprctl dispatch pin
@@ -32,9 +30,9 @@ in {
 
           case "$action" in
             workspace)
-              monitor="$(hyprctl -j monitors | ${jq} -r '.[] | select(.focused == true) | .specialWorkspace')"
-              if ${jq} -e '.id != 0' <<<"$monitor"; then
-                hyprctl dispatch togglespecialworkspace "$(${jq} -r '.name' <<<"$monitor" | cut -d':' -f2)"
+              monitor="$(hyprctl -j monitors | jaq -r '.[] | select(.focused == true) | .specialWorkspace')"
+              if jaq -e '.id != 0' <<<"$monitor"; then
+                hyprctl dispatch togglespecialworkspace "$(jaq -r '.name' <<<"$monitor" | cut -d':' -f2)"
               fi
               ;;
           esac
@@ -43,7 +41,7 @@ in {
 
       lockCursor = writeShellScript "lock-cursor" ''
         # This check only works for vertically placed monitors
-        if hyprctl -j monitors | ${jq} -e '(.[0].y + .[0].height) > .[1].y'; then
+        if hyprctl -j monitors | jaq -e '(.[0].y + .[0].height) > .[1].y'; then
           monitors="$(hyprctl -j monitors)"
           monitor_configs="$(grep -oP '^\s*monitor\s*=\K.*' $XDG_CONFIG_HOME/hypr/hyprland.conf)"
           batch=""
@@ -52,9 +50,9 @@ in {
           while IFS= read -r config; do
             batch="$batch;keyword monitor $(sed -E "s/([^,]*,[^,]*,)[^,]*(,.*)/\1''${x}x$y\2/" <<< "$config")"
 
-            monitor="$(${jq} -r ".[] | select(.name == \"$(grep -o '^[^,]*' <<< "$config")\")" <<< "$monitors")"
-            (( x += $(${jq} -r '.width' <<< "$monitor") + 100 ))
-            (( y += $(${jq} -r '.height' <<< "$monitor") + 100 ))
+            monitor="$(jaq -r ".[] | select(.name == \"$(grep -o '^[^,]*' <<< "$config")\")" <<< "$monitors")"
+            (( x += $(jaq -r '.width' <<< "$monitor") + 100 ))
+            (( y += $(jaq -r '.height' <<< "$monitor") + 100 ))
           done <<< "$monitor_configs"
           hyprctl --batch "$batch"
         else

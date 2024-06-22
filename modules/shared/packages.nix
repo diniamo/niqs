@@ -7,9 +7,10 @@
     fd
     cht-sh
     duf
-    jq
+    jaq
     wget
     nh
     nix-tree
+    nix-inspect
   ];
 }

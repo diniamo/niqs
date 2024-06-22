@@ -7,7 +7,7 @@
     shellAliases = {
       # Needed for aliases
       sudo = "sudo ";
-      listxwl = "hyprctl -j clients | jq -r '.[] | select( [ .xwayland == true ] | any ) | .title' | awk 'NF'";
+      listxwl = "hyprctl -j clients | jaq -r '.[] | select( [ .xwayland == true ] | any ) | .title' | awk 'NF'";
       v = "nvim";
       nv = "neovide --fork";
       # Create a file with execute permissions
