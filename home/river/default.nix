@@ -1,17 +1,21 @@
 {
   config,
   pkgs,
+  flakePkgs,
   ...
 }: let
   rgb = hex: "0x${hex}";
 in {
   imports = [
     ./maps.nix
+    ./spawn.nix
   ];
 
   home.packages = with pkgs; [
     wayshot
     slurp
+    gammastep
+    flakePkgs.bgar.default
   ];
 
   wayland.windowManager.river = {
@@ -35,7 +39,7 @@ in {
 
       rule-add = "ssd";
       default-layout = "rivertile";
-      spawn = "rivertile";
+      spawn = ["rivertile"];
 
       keyboard-layout = "-options caps:swapescape,altwin:swap_lalt_lwin hu";
       # input."*" = {
