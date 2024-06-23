@@ -14,7 +14,7 @@ in {
     ./delta
     ./nvf
     ./starship
-    ./river
+    # ./river
 
     ./xdg.nix
     # ./foot.nix
