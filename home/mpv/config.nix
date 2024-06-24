@@ -6,6 +6,7 @@
       save-position-on-quit = "";
       no-window-dragging = "";
       osd-duration = 3000;
+      osd-status-msg = "Frame: \${estimated-frame-number} / \${estimated-frame-count}";
       audio-device = "pipewire";
 
       ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";

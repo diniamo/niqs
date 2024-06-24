@@ -16,7 +16,6 @@
     TAB = "script-binding skip-to-silence";
 
     o = "script-message-to uosc flash-elements timeline,top_bar";
-    O = "script-binding uosc/flash-ui";
 
     right = "seek 5; script-binding uosc/flash-timeline";
     left = "seek -5; script-binding uosc/flash-timeline";

@@ -20,7 +20,7 @@
 in {
   imports = [
     ./config.nix
-    ./binds.nix
+    ./input.nix
     ./profiles.nix
     ./uosc.nix
     ./anime.nix
