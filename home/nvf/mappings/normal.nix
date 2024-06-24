@@ -31,7 +31,7 @@
         desc = "Quit all";
         action = "<cmd>qa<cr>";
       };
-      "<leader>q!" = {
+      "<leader>qf" = {
         desc = "Force quit all";
         action = "<cmd>qa!<cr>";
       };
