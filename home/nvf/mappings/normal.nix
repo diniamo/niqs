@@ -1,6 +1,9 @@
 {
   programs.nvf.settings.vim = {
-    binds.whichKey.register."<leader>h" = "+Help";
+    binds.whichKey.register = {
+      "<leader>h" = "+Help";
+      "<leader>z" = "+Zoxide";
+    };
 
     maps.normal = {
       "<leader>;" = {
@@ -38,6 +41,23 @@
       "<leader>qx" = {
         desc = "Save and quit all";
         action = "<cmd>xa<cr>";
+      };
+      "<leader>zz" = {
+        desc = "Zoxide via input";
+        lua = true;
+        action = ''
+          function()
+            local keyword = vim.fn.input("Keyword: ")
+            local directory = vim.fn.system({ "zoxide", "query", keyword }):match("(.*)[\n\r]")
+
+            if directory == "" or directory == nil then
+              vim.notify("No match found", vim.log.levels.ERROR)
+            else
+              vim.notify(directory)
+              vim.fn.chdir(directory)
+            end
+          end
+        '';
       };
 
       "<CR>" = {

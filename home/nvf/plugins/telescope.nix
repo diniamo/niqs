@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (inputs.nvf.lib.nvim.dag) entryAfter;
+  inherit (lib.generators) mkLuaInline;
 in {
   programs.nvf.settings.vim = {
     telescope = {
@@ -14,7 +15,11 @@ in {
         defaults = {
           layout_config.horizontal.prompt_position = "bottom";
           sorting_strategy = "descending";
-          mappings.i."<esc>" = lib.generators.mkLuaInline "require('telescope.actions').close";
+          mappings.i = {
+            "<esc>" = mkLuaInline "require('telescope.actions').close";
+            "<C-j>" = mkLuaInline "require('telescope.actions').move_selection_next";
+            "<C-k>" = mkLuaInline "require('telescope.actions').move_selection_previous";
+          };
         };
       };
 
@@ -41,11 +46,20 @@ in {
       };
     };
 
-    optPlugins = [pkgs.vimPlugins.telescope-zf-native-nvim];
+    optPlugins = with pkgs.vimPlugins; [
+      telescope-zf-native-nvim
+      telescope-zoxide
+    ];
     # telescope is already required as a part of the telescope entry
     luaConfigRC.telescope-extensions = entryAfter ["telescope"] ''
       telescope.load_extension('zf-native')
+      telescope.load_extension('zoxide')
     '';
+    maps.normal."<leader>zi" = {
+      desc = "";
+      lua = true;
+      action = "require('telescope').extensions.zoxide.list";
+    };
 
     binds.whichKey.register = {
       "<leader>f" = null;
