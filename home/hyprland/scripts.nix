@@ -4,6 +4,7 @@
   ...
 }: let
   inherit (pkgs) writeShellScript;
+  inherit (pkgs.writers) writeDash;
   inherit (lib) getExe mkOption types;
 in {
   options = {
@@ -15,7 +16,7 @@ in {
 
   config = {
     modules.hyprland.scripts = {
-      pin = writeShellScript "pin" ''
+      pin = writeDash "pin" ''
         if ! hyprctl -j activewindow | jaq -e .floating; then
           hyprctl --batch 'dispatch togglefloating;dispatch pin'
         else
@@ -23,7 +24,7 @@ in {
         fi
       '';
 
-      socket = writeShellScript "socket" ''
+      socket = writeDash "socket" ''
         ${getExe pkgs.socat} -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r event; do
           action="''${event%%>>*}"
           details="''${event##*>>}"

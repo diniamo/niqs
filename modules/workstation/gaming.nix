@@ -6,14 +6,14 @@
   pkgs,
   ...
 }: let
-  inherit (pkgs) writeShellScript;
+  inherit (pkgs.writers) writeDash;
   inherit (inputs.nix-gaming.nixosModules) pipewireLowLatency platformOptimizations;
 
   hyprctl = "'${lib.getExe' flakePkgs.hyprland.default "hyprctl"}' -i 0";
   powerprofilesctl = lib.getExe pkgs.power-profiles-daemon;
   notify-send = lib.getExe pkgs.libnotify;
 
-  startScript = writeShellScript "gamemode-start" ''
+  startScript = writeDash "gamemode-start" ''
     ${hyprctl} --batch "\
       keyword animations:enabled false;\
       keyword decoration:blur:enabled false;\
@@ -24,7 +24,7 @@
     ${powerprofilesctl} set performance
     ${notify-send} -u low -a 'Gamemode' 'Optimizations activated'
   '';
-  endScript = writeShellScript "gamemode-end" ''
+  endScript = writeDash "gamemode-end" ''
     ${hyprctl} reload
     ${powerprofilesctl} set balanced
     ${notify-send} -u low -a 'Gamemode' 'Optimizations deactivated'

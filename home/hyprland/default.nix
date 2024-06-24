@@ -2,7 +2,6 @@
   inputs,
   flakePkgs,
   pkgs,
-  lib,
   ...
 }: {
   imports = [
@@ -29,6 +28,4 @@
       variables = ["--all"];
     };
   };
-
-  services.hyprpaper.enable = lib.mkForce false;
 }

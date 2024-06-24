@@ -6,14 +6,14 @@
   ...
 }: let
   inherit (lib) types mkOption getExe';
-  inherit (pkgs) writeShellScript;
+  inherit (pkgs.writers) writeDash;
   inherit (flakePkgs.niqspkgs) bencode-pretty;
 
-  script = writeShellScript "convert-qbittorrent-savepaths" ''
+  script = writeDash "convert-qbittorrent-savepaths" ''
     # Arguments: 1 - BT_backup path
     #            2 - from path
     #            3 - to path
-    tmp=$(mktemp)
+    tmp="$(mktemp)"
 
     for file in "$1"/*.fastresume; do
       cat "$file" | ${getExe' bencode-pretty "bencode_pretty"} | sed "s,$2,$3,g" | ${getExe' bencode-pretty "bencode_unpretty"} > "$tmp"

@@ -3,10 +3,11 @@
   lib,
   ...
 }: let
-  inherit (pkgs) writeShellScript writeShellScriptBin;
+  inherit (pkgs) writeShellScriptBin;
+  inherit (pkgs.writers) writeDash writeDashBin;
   inherit (lib) getExe;
 
-  getSystemFlake = writeShellScript "get-flake-path" ''
+  getSystemFlake = writeDash "get-flake-path" ''
     stored_flake_path="''${XDG_STATE_HOME:-$HOME/.local/state}/rebuild_flake"
 
     if [ -z "$1" ]; then
@@ -70,7 +71,7 @@
       ${getExe pkgs.nh} os switch "$flake_root" -- "''${extra_args[@]}"
     fi
   '';
-  repl = writeShellScriptBin "repl" ''
+  repl = writeDashBin "repl" ''
     nixos-rebuild --flake "$(${getSystemFlake})" repl
   '';
 in {

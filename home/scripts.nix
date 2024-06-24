@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (lib) mkOption types;
-  inherit (pkgs) writeShellScript;
+  inherit (pkgs.writers) writeDash;
 in {
   options = {
     scripts = mkOption {
@@ -15,15 +15,15 @@ in {
 
   config = {
     scripts = {
-      openImage = writeShellScript "open-image" ''
+      openImage = writeDash "open-image" ''
         case "$(wl-paste --list-types)" in
-          *text*)
-            notify-send 'Opening image URL'
-            curl -sL "$(wl-paste)" | swayimg -
-            ;;
           *image*)
             notify-send 'Opening image'
             wl-paste | swayimg -
+            ;;
+          *text*)
+            notify-send 'Opening image URL'
+            curl -sL "$(wl-paste)" | swayimg -
             ;;
           *)
             notify-send 'Clipboard content is not an image'
