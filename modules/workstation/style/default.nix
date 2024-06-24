@@ -18,7 +18,7 @@ in {
 
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
       polarity = "dark";
-      image = ./wallpapers/romb.png;
+      image = ./wallpapers/miles.png;
 
       fonts = rec {
         sansSerif = {
