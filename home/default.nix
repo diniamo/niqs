@@ -15,6 +15,7 @@ in {
     ./nvf
     ./starship
     # ./river
+    ./style
 
     ./xdg.nix
     # ./foot.nix
@@ -40,13 +41,11 @@ in {
     ./less.nix
     ./btop.nix
     ./bat.nix
-    ./qt.nix
-    ./gtk.nix
-    ./stylix.nix
     ./zathura.nix
     ./swayimg.nix
     ./alacritty.nix
     ./scripts.nix
+    ./hyprpaper.nix
   ];
 
   home = {

@@ -1,10 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
-  inherit (lib) mkOption types;
-
+{pkgs, ...}: let
   kdePackage = pkgs.catppuccin-kde.override {
     flavour = ["macchiato"];
     accents = ["blue"];
@@ -14,18 +8,11 @@
     variant = "Macchiato";
   };
 in {
-  options = {
-    stylix.icons = {
-      package = mkOption {
-        description = "Package providing the icons.";
-        type = types.package;
-      };
-      name = mkOption {
-        description = "The icons' name within the package.";
-        type = types.str;
-      };
-    };
-  };
+  imports = [
+    ./icons.nix
+    ./gtk.nix
+    ./qt.nix
+  ];
 
   config = {
     stylix = {
@@ -36,6 +23,7 @@ in {
         };
         name = "Papirus-Dark";
       };
+
       targets.qt = {
         colors = "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/Catppuccin-Macchiato.conf";
         kdeglobals = "${kdePackage}/share/color-schemes/CatppuccinMacchiatoBlue.colors";
