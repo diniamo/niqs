@@ -34,7 +34,6 @@ in {
 
   home-manager.users.${values.mainUser} = {
     wayland.windowManager.hyprland.settings = {
-      misc.background_color = lib.mkForce "0x2E3034";
       monitor = [
         "DP-1, 1920x1080@165, 0x0, 1, vrr, 2"
         "DP-2, 1920x1080@60, 1920x0, 1"
