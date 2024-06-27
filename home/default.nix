@@ -46,6 +46,7 @@ in {
     ./alacritty.nix
     ./scripts.nix
     ./hyprpaper.nix
+    # ./iabm.nix
   ];
 
   home = {
