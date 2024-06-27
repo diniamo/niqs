@@ -1,7 +1,6 @@
 {
-  lib,
+  flakePkgs,
   config,
-  inputs,
   ...
 }: {
   programs.nvf.settings.vim = {
@@ -9,6 +8,15 @@
     ui = {
       illuminate.enable = true;
       noice.enable = true;
+      breadcrumbs = {
+        enable = true;
+
+        navbuddy = {
+          enable = true;
+          setupOpts.useDefaultMappings = false;
+          mappings.help = "?";
+        };
+      };
     };
 
     visuals = {
@@ -25,136 +33,33 @@
       nvimWebDevicons.enable = true;
     };
 
-    statusline.lualine = {
-      enable = true;
-      componentSeparator = {
-        left = "";
-        right = "";
-      };
-      sectionSeparator = {
-        left = "";
-        right = "";
-      };
-      activeSection = lib.mkForce {
-        a = ["{ 'mode' }"];
-        b = ["{ 'branch' }"];
-        c = [
-          ''
-            {
-              'diagnostics',
-              symbols = { error = '󰅙  ', warn = '  ', info = '  ', hint = '󰌵 ' }
-            }
-          ''
-          ''
-            {
-              "filetype",
-              icon_only = true,
-              separator = "",
-              padding = { left = 1, right = 0 }
-            }
-          ''
-          ''
-            {
-              "filename",
-              symbols = { modified = ' ', readonly = ' ' },
-            }
-          ''
-        ];
-        x = [
-          ''
-            {
-              function() return require("noice").api.status.command.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              color = 'Statement',
-            }
-          ''
-          ''
-            {
-              function() return require("noice").api.status.mode.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = 'Constant',
-            }
-          ''
-          ''
-            {
-              function() return "  " .. require("dap").status() end,
-              cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-              color = 'Debug',
-            }
-          ''
-          ''
-            {
-              "diff",
-              diff_color = {
-                added = 'DiffAdd',
-                modified = 'DiffChange',
-                removed = 'DiffDelete'
-              },
-              symbols = { added = ' ', modified = ' ', removed = ' ' },
-              source = function()
-                local gitsigns = vim.b.gitsigns_status_dict
-                if gitsigns then
-                  return {
-                    added = gitsigns.added,
-                    modified = gitsigns.changed,
-                    removed = gitsigns.removed,
-                  }
-                end
+    extraPlugins = {
+      dressing = {
+        package = "dressing-nvim";
+        after = ["noice-nvim"];
+        setup = ''
+          require("dressing").setup({
+            builtin = {
+              relative = "cursor",
+              override = function(opts)
+                opts.row = 1
+                return opts
               end,
-            }
-          ''
-        ];
-        y = [
-          "{ 'progress', separator = ' ', padding = { left = 1, right = 0 }}"
-          "{ 'location', padding = { left = 0, right = 1 }}"
-        ];
-        z = [
-          ''
-            {
-              function()
-                return " " .. os.date("%R")
-              end
-            }
-          ''
-        ];
+
+              mappings = {
+                q = "Close"
+              }
+            },
+
+            backend = "builtin"
+          })
+        '';
       };
     };
 
-    tabline.nvimBufferline = {
-      enable = true;
-      mappings = {
-        closeCurrent = "<leader>bd";
-        cycleNext = "<Tab>";
-        cyclePrevious = "<S-Tab>";
-        pick = "<leader>bp";
-      };
-      setupOpts = {
-        highlights = let
-          inherit (config.lib.stylix.colors.withHashtag) base04 base05 base0D;
-          inherit (lib.generators) mkLuaInline;
-          inherit (inputs.nvf.lib.nvim.lua) toLuaObject;
-
-          highlights = {
-            styles = ["bold"];
-            custom.all = {
-              separator.fg = base04;
-              separator_visible.fg = base04;
-              separator_selected.fg = base05;
-              offset_separator.fg = base04;
-              modified.fg = base0D;
-              modified_visible.fg = base0D;
-              modified_selected.fg = base0D;
-            };
-          };
-        in
-          mkLuaInline "require('catppuccin.groups.integrations.bufferline').get(${toLuaObject highlights})";
-        options = {
-          always_show_bufferline = false;
-          auto_toggle_bufferline = true;
-          numbers = "none";
-          indicator.style = "none";
-        };
-      };
+    maps.normal."<leader>ln" = {
+      desc = "Open Navbuddy";
+      action = "<cmd>Navbuddy<cr>";
     };
   };
 }

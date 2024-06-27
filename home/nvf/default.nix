@@ -25,6 +25,9 @@ in {
     ./plugins/telescope.nix
     ./plugins/terminal.nix
     ./plugins/utility.nix
+    ./plugins/file-tree.nix
+    ./plugins/buffer-line.nix
+    ./plugins/status-line.nix
 
     ./mappings/normal.nix
     ./mappings/insert.nix

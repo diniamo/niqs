@@ -1,12 +1,21 @@
 {
   programs.nvf.settings.vim = {
     lsp = {
+      mappings.renameSymbol = "<leader>lr";
+
       # lightbulb.enable = true;
-      # lspSignature.enable = true;
-      # lspkind.enable = true;
-      lsplines.enable = true;
+      lspSignature.enable = true;
+      lspkind.enable = true;
+      # lsplines.enable = true;
       # lspsaga.enable = true;
-      trouble.enable = true;
+
+      trouble = {
+        enable = true;
+        mappings = {
+          documentDiagnostics = "<leader>xd";
+          lspReferences = "<leader>xr";
+        };
+      };
     };
 
     binds.whichKey.register = {
