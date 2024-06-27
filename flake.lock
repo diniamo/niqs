@@ -675,11 +675,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1718214278,
-        "narHash": "sha256-4BrD3dESJAe9xDMZZTUOaG2+HCBROjx9uqT7nNUIb/E=",
+        "lastModified": 1719405519,
+        "narHash": "sha256-TCeQ8q4AvSuIzg2mroF/4Y9adZcZ00IkmBCz4O4zhQk=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "032f16d19fcdc361368533a66120dd703c4880de",
+        "rev": "59987b071ba6013bd22e88105b99c3c44cfc5515",
         "type": "github"
       },
       "original": {
@@ -1041,6 +1041,7 @@
         "plugin-toggleterm-nvim": "plugin-toggleterm-nvim",
         "plugin-tokyonight": "plugin-tokyonight",
         "plugin-trouble": "plugin-trouble",
+        "plugin-ts-error-translator": "plugin-ts-error-translator",
         "plugin-vim-dirtytalk": "plugin-vim-dirtytalk",
         "plugin-vim-fugitive": "plugin-vim-fugitive",
         "plugin-vim-illuminate": "plugin-vim-illuminate",
@@ -1060,11 +1061,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718626427,
-        "narHash": "sha256-OVaRt0c7WrBkF3GTivQP3IqB14dgwAqJS5hvx6kXOJM=",
+        "lastModified": 1719338996,
+        "narHash": "sha256-gSMHefJ+HQee25Oma8bANdqtUOhSiVtj3Hs6ErIzf8E=",
         "owner": "diniamo",
         "repo": "nvf",
-        "rev": "164cc3b4710e8066c3277fa80ae5a2d1bab026b7",
+        "rev": "2b7ac5f2b059fac4c452f50dfc67387eefd9f773",
         "type": "github"
       },
       "original": {
@@ -2480,6 +2481,22 @@
       "original": {
         "owner": "folke",
         "repo": "trouble.nvim",
+        "type": "github"
+      }
+    },
+    "plugin-ts-error-translator": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712269172,
+        "narHash": "sha256-NJ0qfKvkwZ/0GolAeATlQLyQ7nGN6Z6q3uRqI+73wPk=",
+        "owner": "dmmulroy",
+        "repo": "ts-error-translator.nvim",
+        "rev": "11ae55b28bde02663b5f983f59b0e3fd9c4e845b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dmmulroy",
+        "repo": "ts-error-translator.nvim",
         "type": "github"
       }
     },
