@@ -18,8 +18,9 @@ vim.opt.shiftround = true
 vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
 vim.opt.showmode = false
 vim.opt.sidescrolloff = 2
--- This seems to break comments in nix
--- vim.opt.smartindent = true
+vim.opt.cindent = true
+vim.opt.cinkeys:remove({"0", "#"})
+vim.opt.indentkeys:remove({"0", "#"})
 vim.opt.spelloptions:append("noplainbuffer")
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
