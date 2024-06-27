@@ -31,6 +31,10 @@
         action = "<cmd>Cheatsheet<cr>";
       };
       "<leader>qq" = {
+        desc = "Quit";
+        action = "<cmd>q<cr>";
+      };
+      "<leader>qa" = {
         desc = "Quit all";
         action = "<cmd>qa<cr>";
       };
