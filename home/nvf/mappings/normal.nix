@@ -90,44 +90,6 @@
         noremap = false;
       };
 
-      "<C-h>" = {
-        desc = "Go to left window";
-        action = "<C-w>h";
-        noremap = false;
-      };
-      "<C-j>" = {
-        desc = "Go to lower window";
-        action = "<C-w>j";
-        noremap = false;
-      };
-      "<C-k>" = {
-        desc = "Go to upper window";
-        action = "<C-w>k";
-        noremap = false;
-      };
-      "<C-l>" = {
-        desc = "Go to right window";
-        action = "<C-w>l";
-        noremap = false;
-      };
-
-      "<C-Up>" = {
-        desc = "Increase window height";
-        action = "<cmd>resize +2<cr>";
-      };
-      "<C-Down>" = {
-        desc = "Decrease window height";
-        action = "<cmd>resize -2<cr>";
-      };
-      "<C-Left>" = {
-        desc = "Decrease window width";
-        action = "<cmd>vertical resize -2<cr>";
-      };
-      "<C-Right>" = {
-        desc = "Increase window width";
-        action = "<cmd>vertical resize +2<cr>";
-      };
-
       "gco" = {
         desc = "Add comment below";
         action = "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>";

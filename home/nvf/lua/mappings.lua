@@ -22,3 +22,14 @@ vim.keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev se
 
 -- Save file
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>silent w<cr><esc>", { desc = "Save file" })
+
+-- Window movement
+vim.keymap.set({ "n", "t" }, "<C-h>", "<C-w>h", { desc = "Go to left window", noremap = true })
+vim.keymap.set({ "n", "t" }, "<C-j>", "<C-w>j", { desc = "Go to lower window", noremap = true })
+vim.keymap.set({ "n", "t" }, "<C-k>", "<C-w>k", { desc = "Go to upper window", noremap = true })
+vim.keymap.set({ "n", "t" }, "<C-l>", "<C-w>l", { desc = "Go to right window", noremap = true })
+
+vim.keymap.set({ "n", "t" }, "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+vim.keymap.set({ "n", "t" }, "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+vim.keymap.set({ "n", "t" }, "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+vim.keymap.set({ "n", "t" }, "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
