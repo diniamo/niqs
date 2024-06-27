@@ -20,6 +20,12 @@
 
     additionalRuntimePaths = [./runtime];
 
+    ui.borders = {
+      enable = true;
+      # Maybe try to get `none` working at some point?
+      globalStyle = "rounded";
+    };
+
     luaConfigRC.neovide = ''
       if vim.g.neovide then
         vim.opt.guifont = "${config.stylix.fonts.monospace.name}:h${toString config.stylix.fonts.sizes.terminal}"
