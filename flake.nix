@@ -2,8 +2,8 @@
   description = "My NixOS flake configuration";
 
   inputs = {
-    # nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:diniamo/nixpkgs/custom";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:diniamo/nixpkgs/custom";
 
     home-manager = {
       url = "github:nix-community/home-manager";
