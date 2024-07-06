@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: let
@@ -23,14 +22,8 @@ in {
     };
   };
 
-  networking.hostName = "${values.mainUser}-PC";
-  hardware.pulseaudio.enable = false;
-  # services.xserver = {
-  #   enable = true;
-  #   displayManager.startx.enable = true;
-  #   desktopManager.gnome.enable = true;
-  # };
   boot.kernelPackages = pkgs.linuxPackages;
+  networking.hostName = "${values.mainUser}-PC";
 
   home-manager.users.${values.mainUser} = {
     wayland.windowManager.hyprland.settings = {
