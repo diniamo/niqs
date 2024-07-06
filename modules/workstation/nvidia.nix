@@ -2,6 +2,7 @@
   config,
   lib,
   wrappedPkgs,
+  pkgs,
   ...
 }: let
   cfg = config.modules.nvidia;
@@ -14,7 +15,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     hardware.nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
 
       open = false;
       modesetting.enable = true;
@@ -41,6 +42,7 @@ in {
 
       # For tearing
       WLR_DRM_NO_ATOMIC = "1";
+
       GBM_BACKEND = "nvidia-drm";
       LIBVA_DRIVER_NAME = "nvidia";
       NVD_BACKEND = "direct";
@@ -49,12 +51,18 @@ in {
       __GL_GSYNC_ALLOWED = "1";
     };
 
+    environment.systemPackages = [pkgs.nvtopPackages.nvidia];
+
     nixpkgs.overlays = [
-      (with wrappedPkgs;
-        _: _: {
-          obsidian = obsidian-nvidia;
-          vesktop = vesktop-nvidia;
-        })
+      (
+        _: _:
+          with wrappedPkgs; {
+            obsidian = obsidian-nvidia;
+            vesktop = vesktop-nvidia;
+            webcord = webcord-nvidia;
+            spotify = spotify-nvidia;
+          }
+      )
     ];
   };
 }
