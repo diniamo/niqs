@@ -1,12 +1,13 @@
 {pkgs, ...}: let
   mkElectronWrapper = pkg: {
     basePackage = pkg;
-    flags = ["--disable-gpu"];
+    flags = ["--disable-gpu-compositing"];
   };
 in {
-  wrappers = {
-    obsidian-nvidia = mkElectronWrapper pkgs.obsidian;
-    webcord-nvidia = mkElectronWrapper pkgs.webcord;
-    vesktop-nvidia = mkElectronWrapper pkgs.vesktop;
+  wrappers = with pkgs; {
+    obsidian-nvidia = mkElectronWrapper obsidian;
+    webcord-nvidia = mkElectronWrapper webcord;
+    vesktop-nvidia = mkElectronWrapper vesktop;
+    spotify-nvidia = mkElectronWrapper spotify;
   };
 }
