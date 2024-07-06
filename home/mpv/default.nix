@@ -13,6 +13,7 @@
     mpv-webm
     seekTo
     sponsorblock-minimal
+    autoload
 
     simple-undo
     skip-to-silence

@@ -24,6 +24,8 @@
         duration = 0.5;
         mutewhileskipping = true;
       };
+
+      autoload.same_type = true;
     };
   };
 }
