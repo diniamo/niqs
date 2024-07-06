@@ -1,8 +1,4 @@
 {
-  flakePkgs,
-  config,
-  ...
-}: {
   programs.nvf.settings.vim = {
     notify.nvim-notify.enable = true;
     ui = {
@@ -14,7 +10,6 @@
         navbuddy = {
           enable = true;
           setupOpts.useDefaultMappings = false;
-          mappings.help = "?";
         };
       };
     };
