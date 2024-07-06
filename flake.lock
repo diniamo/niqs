@@ -1060,11 +1060,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719338996,
-        "narHash": "sha256-gSMHefJ+HQee25Oma8bANdqtUOhSiVtj3Hs6ErIzf8E=",
+        "lastModified": 1719583413,
+        "narHash": "sha256-mccdQxdKLksau86cKrV4cecd+9ww862MGk54qcVraD8=",
         "owner": "diniamo",
         "repo": "nvf",
-        "rev": "2b7ac5f2b059fac4c452f50dfc67387eefd9f773",
+        "rev": "2a6ee212c9ca7203afc5a15ef8d88e3c2dcd5753",
         "type": "github"
       },
       "original": {
