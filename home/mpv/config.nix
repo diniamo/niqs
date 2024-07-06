@@ -12,7 +12,7 @@
       ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
       ytdl-raw-options = "format-sort=\"proto:m3u8\",mark-watched=,cookies-from-browser=\"firefox\",user-agent=\"Mozilla/5.0\"";
 
-      alang = "en,hu";
+      alang = "ja,en,hu";
       slang = "en,hu";
       no-sub-visibility = "";
     };
