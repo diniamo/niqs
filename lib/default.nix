@@ -1,5 +1,6 @@
 {inputs}: let
-  inherit (inputs.nixpkgs) lib;
+  inherit (inputs) nixpkgs;
+  inherit (nixpkgs) lib;
 
   getPkgs = input: system:
     if (input.legacyPackages.${system} or {}) == {}
@@ -7,33 +8,25 @@
     else input.legacyPackages.${system};
 
   # Builders
-  mkNixosSystem = args @ {
-    system,
-    modules,
-    ...
-  }: let
-    # pkgs = inputs.nixpkgs.legacyPackages.${system};
-    # Since this is outside of the main module system, we have to set allowUnfree here too
-    pkgs = import inputs.nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
+  mkNixosSystem = args @ {system, ...}: let
+    pkgs = nixpkgs.legacyPackages.${system};
 
     flakePkgs = builtins.mapAttrs (_: value: getPkgs value system) inputs;
-    customPkgs = import ../packages {inherit pkgs;};
     wrappedPkgs = import ../wrappers {inherit inputs pkgs;};
   in
     lib.nixosSystem {
-      inherit system modules;
-      specialArgs = {inherit inputs system flakePkgs customPkgs wrappedPkgs;} // args.specialArgs or {};
+      inherit system;
+      specialArgs = {inherit inputs system flakePkgs wrappedPkgs;} // args.specialArgs or {};
+      # For some reason, the source set by nixosSystem does not have the options set by nixpkgs-unfree
+      # so we set pkgs instead
+      modules =
+        [
+          {nixpkgs.pkgs = pkgs;}
+        ]
+        ++ args.modules or [];
     };
 
   # Helpers
-  nameToSlug = name: lib.toLower (builtins.replaceStrings [" "] ["-"] name);
-  boolToNum = bool:
-    if bool
-    then 1
-    else 0;
   overrideError = pkg: version: value: lib.throwIf (lib.versionOlder version pkg.version) "A new version of ${pkg.pname} has been released, remove its overlay/override" value;
 
   pow = base: exponent:
@@ -44,5 +37,5 @@
     else base * (pow base (exponent - 1));
   shiftLeft = number: amount: number * (pow 2 amount);
 in {
-  inherit mkNixosSystem nameToSlug boolToNum overrideError shiftLeft;
+  inherit mkNixosSystem overrideError shiftLeft;
 }

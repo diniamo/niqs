@@ -23,16 +23,7 @@ in {
       http-connections = 50;
     };
 
-    registry = {
-      nixpkgs.flake = nixpkgs;
-      n.flake = nixpkgs;
-    };
-
-    nixPath = [
-      "nixpkgs=${nixpkgsPath}"
-      "n=${nixpkgsPath}"
-    ];
+    registry.n.flake = nixpkgs;
+    nixPath = ["n=${nixpkgsPath}"];
   };
-
-  nixpkgs.config.allowUnfree = true;
 }

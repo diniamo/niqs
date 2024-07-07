@@ -531,15 +531,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1715287750,
-        "narHash": "sha256-U6aMCl4BbKLAjNRb59sQFa0OITd1x/GTnkizWIourq8=",
-        "owner": "justchokingaround",
+        "lastModified": 1720354128,
+        "narHash": "sha256-8e/IcAmgSJtTFbokmIdOVQ99GqzU+RGfpQ6PWFD+I/k=",
+        "owner": "diniamo",
         "repo": "jerry",
-        "rev": "87933b28933732b6f319fc4b44521358505006d0",
+        "rev": "9bebe5726172cfde9174721b63bedb10ee3fc9cc",
         "type": "github"
       },
       "original": {
-        "owner": "justchokingaround",
+        "owner": "diniamo",
+        "ref": "fix-image-preview",
         "repo": "jerry",
         "type": "github"
       }
@@ -559,7 +560,7 @@
           "flake-utils"
         ],
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-upstream"
         ],
         "pre-commit-hooks-nix": "pre-commit-hooks-nix",
         "rust-overlay": [
@@ -590,15 +591,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1717754751,
-        "narHash": "sha256-8hODt9vSVNnK1UK8vh1GP6+H4h1g37h3xc9VTQQWXYw=",
-        "owner": "justchokingaround",
+        "lastModified": 1720348884,
+        "narHash": "sha256-MX4aLvmFfeNwloBSZtij77mr/a5VC4LXbiBEEy3hHsM=",
+        "owner": "diniamo",
         "repo": "lobster",
-        "rev": "cff0995afb09c4e98d8fc5ddf7599e1f4617504a",
+        "rev": "df137276a0b78d1dcd151d7d767eb963c8fa400b",
         "type": "github"
       },
       "original": {
-        "owner": "justchokingaround",
+        "owner": "diniamo",
+        "ref": "no-import-nixpkgs",
         "repo": "lobster",
         "type": "github"
       }
@@ -677,11 +679,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1720316897,
-        "narHash": "sha256-hLZ8XykDo2rfNjykHgCx4JD91DF9WJufO0xwLGbxbVs=",
+        "lastModified": 1720357682,
+        "narHash": "sha256-16OOeHc7Jtp+f0D2WNo6OMT380usP0PcIdjJEIueuHo=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "3e4b8913a9758c99b39095589fe5b9f4e1781598",
+        "rev": "3a045f7fddc43aa3f5bd6c4156f8d12067276b7c",
         "type": "github"
       },
       "original": {
@@ -789,6 +791,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-upstream": {
+      "locked": {
+        "lastModified": 1720031269,
+        "narHash": "sha256-rwz8NJZV+387rnWpTYcXaRNvzUSnnF9aHONoJIYmiUQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1718530797,
@@ -838,18 +855,24 @@
       }
     },
     "nixpkgs_5": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-upstream"
+        ]
+      },
       "locked": {
-        "lastModified": 1720031269,
-        "narHash": "sha256-rwz8NJZV+387rnWpTYcXaRNvzUSnnF9aHONoJIYmiUQ=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+        "lastModified": 1720189307,
+        "narHash": "sha256-LRuWmlWnTpsmOKh8O6yAdGXdP+CtgOV2/7aeyZpDNzY=",
+        "owner": "numtide",
+        "repo": "nixpkgs-unfree",
+        "rev": "7250785c605950b6137dcfc0069a24791eb0e937",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
+        "owner": "numtide",
         "ref": "nixos-unstable",
-        "type": "indirect"
+        "repo": "nixpkgs-unfree",
+        "type": "github"
       }
     },
     "nixpkgs_6": {
@@ -968,6 +991,7 @@
         "plugin-nvim-colorizer-lua": "plugin-nvim-colorizer-lua",
         "plugin-nvim-cursorline": "plugin-nvim-cursorline",
         "plugin-nvim-dap": "plugin-nvim-dap",
+        "plugin-nvim-dap-go": "plugin-nvim-dap-go",
         "plugin-nvim-dap-ui": "plugin-nvim-dap-ui",
         "plugin-nvim-docs-view": "plugin-nvim-docs-view",
         "plugin-nvim-lightbulb": "plugin-nvim-lightbulb",
@@ -1021,11 +1045,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719583413,
-        "narHash": "sha256-mccdQxdKLksau86cKrV4cecd+9ww862MGk54qcVraD8=",
+        "lastModified": 1720392477,
+        "narHash": "sha256-nP7NMzmnE7vdHwhIXhACLwjZAdhUEeqZPyRAgcELuTE=",
         "owner": "diniamo",
         "repo": "nvf",
-        "rev": "2a6ee212c9ca7203afc5a15ef8d88e3c2dcd5753",
+        "rev": "1e192149d1bfdce302c1e049e7eb4eed1534e232",
         "type": "github"
       },
       "original": {
@@ -1043,15 +1067,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1719888045,
-        "narHash": "sha256-sOAKxWAJbTeNoGSqFU6WlrCGAy1JUy08Ptirnh9km/o=",
-        "owner": "Beastwick18",
+        "lastModified": 1720348235,
+        "narHash": "sha256-pNU4gAzSvPGV9NqMTfTX0mycUJM1cbbm6wDTS4BYsWo=",
+        "owner": "diniamo",
         "repo": "nyaa",
-        "rev": "23536c22b8f19df42377a8c57d72893e20a2a938",
+        "rev": "faa804c4e8560b8d17fb99865bf311f50e7224d2",
         "type": "github"
       },
       "original": {
-        "owner": "Beastwick18",
+        "owner": "diniamo",
+        "ref": "no-import-nixpkgs",
         "repo": "nyaa",
         "type": "github"
       }
@@ -1937,6 +1962,22 @@
         "type": "github"
       }
     },
+    "plugin-nvim-dap-go": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716775637,
+        "narHash": "sha256-B8A+ven18YgePLxAN3Q/j5NFb0FeTHCQak1uzaNDX9c=",
+        "owner": "leoluz",
+        "repo": "nvim-dap-go",
+        "rev": "a0c5a2b991d7e9304a9a032cf177e22a4b0acda1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "leoluz",
+        "repo": "nvim-dap-go",
+        "type": "github"
+      }
+    },
     "plugin-nvim-dap-ui": {
       "flake": false,
       "locked": {
@@ -2681,6 +2722,7 @@
         "nix-gaming": "nix-gaming",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_5",
+        "nixpkgs-upstream": "nixpkgs-upstream",
         "nvf": "nvf",
         "nyaa": "nyaa",
         "rnix-lsp": "rnix-lsp",
