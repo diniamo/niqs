@@ -1,4 +1,26 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: let
+  inherit (inputs.nvf.lib.nvim.dag) entryAfter;
+  inherit (builtins) concatStringsSep;
+
+  loadedVariables = [
+    "g:loaded_getscriptPlugin"
+    "loaded_gzip"
+    "loaded_logiPat"
+    "g:loaded_manpager_plugin"
+    # "g:loaded_matchparen"
+    "g:loaded_netrwPlugin"
+    "loaded_rrhelper"
+    "loaded_spellfile_plugin"
+    "g:loaded_tarPlugin"
+    "g:loaded_2html_plugin"
+    "g:loaded_vimballPlugin"
+    "g:loaded_zipPlugin"
+  ];
+in {
   programs.nvf.settings.vim = {
     viAlias = false;
     vimAlias = false;
@@ -25,6 +47,8 @@
       # Maybe try to get `none` working at some point?
       globalStyle = "rounded";
     };
+
+    configRC.disablePlugins = entryAfter ["globalsScript"] (concatStringsSep "\n" (map (name: "let ${name} = 1") loadedVariables));
 
     luaConfigRC.neovide = ''
       if vim.g.neovide then
