@@ -3,6 +3,8 @@
     binds.whichKey.register = {
       "<leader>h" = "+Help";
       "<leader>z" = "+Zoxide";
+      "<leader>q" = "+Quit";
+      "<leader>w" = "+Window";
     };
 
     maps.normal = {
