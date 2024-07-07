@@ -1,4 +1,4 @@
-{pkgs,...}:{
+{pkgs, ...}: {
   home.packages = [pkgs.iamb];
 
   xdg.configFile."iamb/config.toml".source = pkgs.writers.writeTOML "iamb-config.toml" {
