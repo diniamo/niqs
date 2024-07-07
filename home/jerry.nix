@@ -19,6 +19,7 @@
       provider = "yugen";
       manga_opener = "swayimg";
       score_on_completion = "true";
+      image_preview = "true";
     };
   };
 }
