@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./setup-plugins.nix
+  ];
+}

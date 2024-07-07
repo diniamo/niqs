@@ -1,4 +1,6 @@
-{
+{lib, ...}: let
+  inherit (lib.generators) mkLuaInline;
+in {
   programs.nvf.settings.vim = {
     notify.nvim-notify.enable = true;
     ui = {
@@ -28,33 +30,29 @@
       nvimWebDevicons.enable = true;
     };
 
-    extraPlugins = {
-      dressing = {
-        package = "dressing-nvim";
-        after = ["noice-nvim"];
-        setup = ''
-          require("dressing").setup({
-            builtin = {
-              relative = "cursor",
-              override = function(opts)
-                opts.row = 1
-                return opts
-              end,
-
-              mappings = {
-                q = "Close"
-              }
-            },
-
-            backend = "builtin"
-          })
-        '';
-      };
-    };
-
     maps.normal."<leader>ln" = {
       desc = "Open Navbuddy";
       action = "<cmd>Navbuddy<cr>";
+    };
+  };
+
+  programs.nvf.modules.setupPlugins.dressing = {
+    package = "dressing-nvim";
+    after = ["noice-nvim"];
+    setupOpts = {
+      builtin = {
+        relative = "cursor";
+        override = mkLuaInline ''
+          function(opts)
+            opts.row = 1;
+            return opts;
+          end
+        '';
+
+        mappings.q = "Close";
+      };
+
+      backend = "builtin";
     };
   };
 }

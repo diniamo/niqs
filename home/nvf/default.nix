@@ -12,26 +12,11 @@ in {
   imports = [
     inputs.nvf.homeManagerModules.default
 
+    ./modules
+    ./plugins
+    ./mappings
+
     ./settings.nix
-
-    ./plugins/theme.nix
-    ./plugins/languages.nix
-    ./plugins/debugger.nix
-    ./plugins/cmp.nix
-    ./plugins/editing.nix
-    ./plugins/git.nix
-    ./plugins/ui.nix
-    ./plugins/lsp.nix
-    ./plugins/telescope.nix
-    ./plugins/terminal.nix
-    ./plugins/utility.nix
-    ./plugins/file-tree.nix
-    ./plugins/buffer-line.nix
-    ./plugins/status-line.nix
-
-    ./mappings/normal.nix
-    ./mappings/insert.nix
-    ./mappings/visual.nix
   ];
 
   programs.nvf = {

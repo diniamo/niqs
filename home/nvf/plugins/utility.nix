@@ -6,8 +6,6 @@
       vim-wakatime.enable = true;
     };
 
-    extraPlugins.vim-startuptime.package = pkgs.vimPlugins.vim-startuptime;
-
     notes.todo-comments = {
       enable = true;
       mappings = {
@@ -17,9 +15,13 @@
       };
     };
 
+    optPlugins = [pkgs.vimPlugins.vim-startuptime];
+
     binds = {
       whichKey.enable = true;
       cheatsheet.enable = true;
     };
   };
+
+  programs.nvf.modules.setupPlugins.nvim-lastplace.package = pkgs.vimPlugins.nvim-lastplace;
 }
