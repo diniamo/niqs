@@ -47,6 +47,7 @@ in {
     ./scripts.nix
     ./hyprpaper.nix
     # ./iabm.nix
+    ./nyaa.nix
   ];
 
   home = {
