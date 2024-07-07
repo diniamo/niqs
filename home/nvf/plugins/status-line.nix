@@ -82,6 +82,13 @@
         y = [
           ''
             {
+              function() return require("noice").api.status.mode.get() end,
+                cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+                color = { fg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = 'Constant' }).fg) }
+            }
+          ''
+          ''
+            {
               function() return require("noice").api.status.command.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
               color = { fg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = 'Statement' }).fg) }
