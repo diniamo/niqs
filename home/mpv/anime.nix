@@ -53,6 +53,9 @@ in {
       "gpu-hq"
       "svp"
     ];
+
+    sub-visibility = true;
+
     gpu-api = "auto";
     # fbo-format = "rgba16hf";
 
