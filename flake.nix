@@ -51,10 +51,6 @@
       url = "github:fufexan/nix-gaming";
       inputs.flake-parts.follows = "flake-parts";
     };
-    nix-super = {
-      url = "github:privatevoid-net/nix-super";
-      inputs.flake-compat.follows = "flake-compat";
-    };
 
     jerry = {
       url = "github:justchokingaround/jerry";
@@ -159,6 +155,10 @@
         nil.follows = "nil";
       };
     };
+    nyaa = {
+      url = "github:Beastwick18/nyaa";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: let
@@ -174,7 +174,6 @@
 
       "https://hyprland.cachix.org"
       "https://cache.garnix.io"
-      "https://cache.privatevoid.net"
       "https://nix-gaming.cachix.org"
       "https://anyrun.cachix.org"
     ];
@@ -183,7 +182,6 @@
 
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-      "cache.privatevoid.net:SErQ8bvNWANeAvtsOESUwVYr2VJynfuc9JRwlzTTkVg="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
     ];

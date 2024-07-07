@@ -7,7 +7,7 @@
   nixpkgsPath = nixpkgs.outPath;
 in {
   nix = {
-    package = flakePkgs.nix-super.default;
+    package = flakePkgs.niqspkgs.lix-default-flake;
 
     settings = {
       accept-flake-config = true;
@@ -18,18 +18,19 @@ in {
       builders-use-substitutes = true;
 
       experimental-features = ["nix-command" "flakes"];
+      default-flake = nixpkgs;
       log-lines = 30;
       http-connections = 50;
     };
 
     registry = {
       nixpkgs.flake = nixpkgs;
-      default.flake = nixpkgs;
+      n.flake = nixpkgs;
     };
 
     nixPath = [
       "nixpkgs=${nixpkgsPath}"
-      "default=${nixpkgsPath}"
+      "n=${nixpkgsPath}"
     ];
   };
 
