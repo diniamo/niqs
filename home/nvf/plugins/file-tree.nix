@@ -15,7 +15,7 @@ in {
     };
 
     # This can technically be anywhere, but might as well have it where it makes sense
-    luaConfigRC.nvimtree-open = entryAfter ["nvimtreelua"] ''
+    luaConfigRC.nvimTreeOpen = entryAfter ["nvimtreelua"] ''
       vim.api.nvim_create_autocmd("VimEnter", {
         callback = function(data)
           if vim.fn.isdirectory(data.file) == 1 then

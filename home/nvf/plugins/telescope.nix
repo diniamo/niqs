@@ -51,7 +51,7 @@ in {
       telescope-zoxide
     ];
     # telescope is already required as a part of the telescope entry
-    luaConfigRC.telescope-extensions = entryAfter ["telescope"] ''
+    luaConfigRC.telescopeExtensions = entryAfter ["telescope"] ''
       telescope.load_extension('zf-native')
       telescope.load_extension('zoxide')
     '';
