@@ -531,16 +531,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1720354128,
-        "narHash": "sha256-8e/IcAmgSJtTFbokmIdOVQ99GqzU+RGfpQ6PWFD+I/k=",
-        "owner": "diniamo",
+        "lastModified": 1720406208,
+        "narHash": "sha256-4pmrsy3aBV2yEZA1pzHlG9b6nYpVybWbbpUo0Dsid20=",
+        "owner": "justchokingaround",
         "repo": "jerry",
-        "rev": "9bebe5726172cfde9174721b63bedb10ee3fc9cc",
+        "rev": "761b7b6f19af063bc908f56842dab167b0ce0af8",
         "type": "github"
       },
       "original": {
-        "owner": "diniamo",
-        "ref": "fix-image-preview",
+        "owner": "justchokingaround",
         "repo": "jerry",
         "type": "github"
       }
@@ -591,16 +590,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1720348884,
-        "narHash": "sha256-MX4aLvmFfeNwloBSZtij77mr/a5VC4LXbiBEEy3hHsM=",
-        "owner": "diniamo",
+        "lastModified": 1720406230,
+        "narHash": "sha256-RbWWpVdoAlV5xbpCbX68xQZ5IzcbI43VwoWostxYUXo=",
+        "owner": "justchokingaround",
         "repo": "lobster",
-        "rev": "df137276a0b78d1dcd151d7d767eb963c8fa400b",
+        "rev": "a58f3063afe42e7ac0c9338f5fa370fa910af28d",
         "type": "github"
       },
       "original": {
-        "owner": "diniamo",
-        "ref": "no-import-nixpkgs",
+        "owner": "justchokingaround",
         "repo": "lobster",
         "type": "github"
       }
@@ -1067,16 +1065,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1720348235,
-        "narHash": "sha256-pNU4gAzSvPGV9NqMTfTX0mycUJM1cbbm6wDTS4BYsWo=",
-        "owner": "diniamo",
+        "lastModified": 1720380178,
+        "narHash": "sha256-bWoJmoBUx0Cprv+/R2x7IJez4kx29YsmtlH86Zfchsw=",
+        "owner": "Beastwick18",
         "repo": "nyaa",
-        "rev": "faa804c4e8560b8d17fb99865bf311f50e7224d2",
+        "rev": "71c7a87e341f5e45bef8930d7b1601f512f1149e",
         "type": "github"
       },
       "original": {
-        "owner": "diniamo",
-        "ref": "no-import-nixpkgs",
+        "owner": "Beastwick18",
         "repo": "nyaa",
         "type": "github"
       }
