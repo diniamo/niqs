@@ -3,6 +3,7 @@
 
   programs.starship = {
     enable = true;
+    enableFishIntegration = false;
 
     settings = {
       format = "$directory$time$all";

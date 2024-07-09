@@ -1,9 +1,19 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [inputs.nix-index-database.hmModules.nix-index];
 
   programs = {
-    nix-index.enable = true;
-    nix-index-database.comma.enable = true;
+    nix-index = {
+      enable = true;
+
+      # Disable command-not-found
+      enableBashIntegration = false;
+      enableZshIntegration = false;
+      enableFishIntegration = false;
+    };
   };
 
   # Not using the included wrapper, since the DB is symlinked to the appropriate place anyway,

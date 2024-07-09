@@ -3,7 +3,10 @@
 
   programs.fzf = {
     enable = true;
+
+    enableBashIntegration = false;
     enableZshIntegration = false;
+    enableFishIntegration = false;
 
     colors = with config.lib.stylix.colors.withHashtag; {
       fg = base05;
