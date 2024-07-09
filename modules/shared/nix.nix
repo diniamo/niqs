@@ -1,17 +1,19 @@
 {
   inputs,
-  flakePkgs,
+  pkgs,
   lib,
   ...
 }: let
   # The unfree version breaks repl/devshells that rely on `import <nixpkgs> {}`
   # but we still want to use it for the default flake, which may be used for nix3 shells, builds, and runs
   inherit (inputs) nixpkgs;
+  nixpkgsPath = nixpkgs.outPath;
+
   nixpkgsUpstream = inputs.nixpkgs-upstream;
   upstreamPath = nixpkgsUpstream.outPath;
 in {
   nix = {
-    package = flakePkgs.niqspkgs.lix-default-flake;
+    package = pkgs.lix;
 
     settings = {
       accept-flake-config = true;
@@ -30,10 +32,14 @@ in {
     registry = {
       nixpkgs.flake = lib.mkForce nixpkgsUpstream;
       n.flake = nixpkgsUpstream;
+
+      default.flake = nixpkgs;
     };
     nixPath = [
       "nixpkgs=${upstreamPath}"
       "n=${upstreamPath}"
+
+      "default=${nixpkgsPath}"
     ];
   };
 }

@@ -5,5 +5,6 @@
     ./packages.nix
     ./scripts.nix
     ./nix.nix
+    ./overlays.nix
   ];
 }

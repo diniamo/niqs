@@ -1,5 +1,5 @@
 {
-  flakePkgs,
+  pkgs,
   lib,
   config,
   ...
@@ -52,6 +52,6 @@
     };
   };
 in {
-  home.packages = [flakePkgs.niqspkgs.swayimg-git];
+  home.packages = [pkgs.swayimg];
   xdg.configFile."swayimg/config".text = lib.generators.toINI {} settings;
 }

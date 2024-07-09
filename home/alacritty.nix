@@ -1,11 +1,6 @@
-{
-  flakePkgs,
-  osConfig,
-  ...
-}: {
+{osConfig, ...}: {
   programs.alacritty = {
     enable = true;
-    package = flakePkgs.niqspkgs.alacritty-sixel;
 
     settings = {
       ipc_socket = osConfig.values.terminal.firstInstance != null;
