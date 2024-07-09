@@ -15,5 +15,6 @@
       crates.enable = true;
     };
     # clang.enable = true;
+    markdown.enable = true;
   };
 }

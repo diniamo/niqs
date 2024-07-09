@@ -15,5 +15,6 @@
     ./buffer-line.nix
     ./status-line.nix
     ./direnv.nix
+    ./treesitter.nix
   ];
 }
