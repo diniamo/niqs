@@ -38,7 +38,6 @@ in {
 
   programs.nvf.modules.setupPlugins.dressing = {
     package = "dressing-nvim";
-    after = ["noice-nvim"];
     setupOpts = {
       builtin = {
         relative = "cursor";
