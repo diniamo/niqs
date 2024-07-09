@@ -9,7 +9,7 @@
   inherit (pkgs.writers) writeDash;
   inherit (inputs.nix-gaming.nixosModules) pipewireLowLatency platformOptimizations;
 
-  hyprctl = "'${lib.getExe' flakePkgs.hyprland.default "hyprctl"}' -i 0";
+  hyprctl = "${lib.getExe' flakePkgs.hyprland.default "hyprctl"} -i 0";
   powerprofilesctl = lib.getExe pkgs.power-profiles-daemon;
   notify-send = lib.getExe pkgs.libnotify;
 
