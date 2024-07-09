@@ -35,6 +35,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    naersk = {
+      url = "github:nix-community/naersk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # These are downloaded from caches, so overriding nixpkgs would break them
     niqspkgs = {
@@ -92,12 +96,19 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    base16-fish = {
+      url = "github:diniamo/base16-fish/tmp";
+      flake = false;
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
         flake-compat.follows = "flake-compat";
+
+        base16-fish.follows = "base16-fish";
       };
     };
 
@@ -134,6 +145,7 @@
     rnix-lsp = {
       url = "github:nix-community/rnix-lsp";
       inputs.utils.follows = "flake-utils";
+      inputs.naersk.follows = "naersk";
     };
     nil = {
       url = "github:oxalica/nil";
@@ -161,6 +173,7 @@
     nyaa = {
       url = "github:Beastwick18/nyaa";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.naersk.follows = "naersk";
     };
   };
 
