@@ -9,7 +9,7 @@ in {
 
       openOnSetup = false;
       setupOpts = {
-        actions.open_file.resize_window = true;
+        actions.open_file.quit_on_open = true;
         diagnostics.enable = true;
         git.enable = true;
       };
