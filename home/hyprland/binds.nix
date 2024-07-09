@@ -125,7 +125,7 @@ in {
       "${mod}, f, fullscreen, 1"
       "${mod}, z, exec, ${hyprlandScripts.lockCursor}"
 
-      "${mod}${secondary}, x, exec, ${getExe pkgs.gnome.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=auto-windows"
+      "${mod}${secondary}, x, exec, ${getExe pkgs.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=auto-windows"
     ];
     binde = [
       "${mod}${ctrl}, h, resizeactive, -50 0"

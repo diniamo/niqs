@@ -23,7 +23,7 @@
 
     "Super Space" = "spawn anyrun";
     "Super x" = "spawn 'wlogout --show-binds --column-spacing 5 --row-spacing 5'";
-    "Super+Control x" = "spawn '${getExe pkgs.gnome.zenity} --question --text \"Do you really want to reboot to the boot menu?\" --icon system-reboot && systemctl reboot --boot-loader-menu=2147483647'";
+    "Super+Control x" = "spawn '${getExe pkgs.zenity} --question --text \"Do you really want to reboot to the boot menu?\" --icon system-reboot && systemctl reboot --boot-loader-menu=2147483647'";
     # TODO: cliphist
 
     # TODO: scratchpads
