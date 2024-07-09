@@ -6,5 +6,6 @@
       l right-scroll
     '';
   };
-  home.sessionVariables.LESS = "-R";
+
+  home.sessionVariables.LESS = "-R --use-color";
 }
