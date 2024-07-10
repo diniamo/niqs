@@ -57,7 +57,7 @@
       description = "edit files that aren't writable";
       body = ''
         for file in $argv
-          [ -f $file && ! -w $file ]; and set -l cond $cond $file
+          [ -f $file -a ! -w $file ]; and set -l cond $cond $file
         end
 
         con $cond
@@ -87,7 +87,7 @@
         set -l tmp (mktemp)
         command yazi $argv --cwd-file=$tmp
         set -l dir (cat $tmp)
-        [ -n $dir && $cwd != $PWD ]; and cd $dir
+        [ -n $dir -a $cwd != $PWD ]; and cd $dir
       '';
     };
 
@@ -131,7 +131,7 @@
       description = "copy the contents of a file";
       argumentNames = "file";
       body = ''
-        if [ -f $file && -r $file ]
+        if [ -f $file -a -r $file ]
           cat $file | wl-copy
         else
           echo "$file doesn't exist or cannot be read"
