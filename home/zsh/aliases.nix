@@ -27,8 +27,8 @@
       cht = "cht.sh";
       cat = "bat --style=plain";
 
-      sc = "sudo systemctl";
-      jc = "sudo journalctl";
+      sc = "systemctl";
+      jc = "journalctl";
       scu = "systemctl --user";
       jcu = "journalctl --user";
 
@@ -39,11 +39,11 @@
       shell = "nix shell";
       dev = "nix develop";
       run = "nix run";
-      build = ''nix build --builders "" "$@"'';
+      build = "nix build --builders ''";
       flake = "nix flake";
 
       # eza
-      ls = "eza --git --icons --color=auto --group-directories-first";
+      ls = "eza --git --icons --group-directories-first";
       la = "ls --almost-all";
       l = "ls --long --time-style=long-iso";
       ll = "l --almost-all";
@@ -51,7 +51,7 @@
       lm = "l --sort=age";
       llm = "ll --sort=age";
       lt = "ls --tree";
-      tree = "lt";
+      tree = "ls --tree";
 
       # git
       g = "git";
