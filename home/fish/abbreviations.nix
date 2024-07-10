@@ -52,6 +52,7 @@ in {
     gs = "git switch";
     gsc = "git switch --create";
     ga = "git add";
+    gf = "git fetch";
 
     # fancy
     git-clone = {
