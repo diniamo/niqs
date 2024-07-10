@@ -3,7 +3,8 @@
 
   inputs = {
     # Might want to make everything follow this instead
-    nixpkgs-upstream.url = "nixpkgs/nixos-unstable";
+    # nixpkgs-upstream.url = "nixpkgs/nixos-unstable";
+    nixpkgs-upstream.url = "github:diniamo/nixpkgs/custom";
     nixpkgs.url = "github:numtide/nixpkgs-unfree/nixos-unstable";
     nixpkgs.inputs.nixpkgs.follows = "nixpkgs-upstream";
 
@@ -33,7 +34,6 @@
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
     naersk = {
       url = "github:nix-community/naersk";
@@ -43,6 +43,7 @@
     # These are downloaded from caches, so overriding nixpkgs would break them
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
+      inputs.systems.follows = "systems";
       inputs.flake-parts.follows = "flake-parts";
     };
     hyprland = {
@@ -51,6 +52,7 @@
     };
     anyrun = {
       url = "github:Kirottu/anyrun";
+      inputs.systems.follows = "systems";
       inputs.flake-parts.follows = "flake-parts";
     };
     nix-gaming = {
