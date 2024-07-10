@@ -159,7 +159,7 @@
     };
     nvf = {
       # url = "github:notashelf/nvf";
-      url = "github:diniamo/nvf/hm-merge-lists";
+      url = "github:diniamo/nvf/custom";
       # url = "path:/hdd/dev/nvf";
       inputs = {
         nixpkgs.follows = "nixpkgs";
