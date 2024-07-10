@@ -5,6 +5,7 @@
     ./functions.nix
     ./aliases.nix
     ./abbreviations.nix
+    ./hooks.nix
   ];
 
   programs.fish = {
