@@ -5,6 +5,7 @@
     settings = {
       ipc_socket = osConfig.values.terminal.firstInstance != null;
       live_config_reload = false;
+
       window = {
         padding = {
           x = 10;
