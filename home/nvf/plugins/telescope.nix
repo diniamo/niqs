@@ -46,10 +46,10 @@ in {
       };
     };
 
-    optPlugins = with pkgs.vimPlugins; [
-      telescope-zf-native-nvim
-      telescope-zoxide
-    ];
+    extraPlugins = with pkgs.vimPlugins; {
+      telescope-zf-native.package = telescope-zf-native-nvim;
+      telescope-zoxide.package = telescope-zoxide;
+    };
     # telescope is already required as a part of the telescope entry
     luaConfigRC.telescopeExtensions = entryAfter ["telescope"] ''
       telescope.load_extension('zf-native')

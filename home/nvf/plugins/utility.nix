@@ -15,7 +15,7 @@
       };
     };
 
-    optPlugins = [pkgs.vimPlugins.vim-startuptime];
+    extraPlugins.startuptime.package = pkgs.vimPlugins.vim-startuptime;
 
     binds = {
       whichKey.enable = true;
