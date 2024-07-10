@@ -55,7 +55,7 @@ in {
 
     # fancy
     git-clone = {
-      regex = ".+\.git";
+      regex = ".+\\.git";
       function = "_prepend_git_clone";
     };
     "!!" = {
