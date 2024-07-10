@@ -10,12 +10,13 @@ in {
     ./anyrun
     ./mpv
     # ./lazyvim
-    ./zsh
+    # ./zsh
     ./delta
     ./nvf
     ./starship
     # ./river
     ./style
+    ./fish
 
     ./xdg.nix
     # ./foot.nix

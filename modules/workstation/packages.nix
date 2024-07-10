@@ -7,8 +7,8 @@
   inherit (config.values) mainUser;
 in {
   programs.command-not-found.enable = false;
-  programs.zsh.enable = true;
-  users.users.${mainUser}.shell = config.home-manager.users.${mainUser}.programs.zsh.package;
+  programs.fish.enable = true;
+  users.users.${mainUser}.shell = config.home-manager.users.${mainUser}.programs.fish.package;
 
   # For electron apps
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

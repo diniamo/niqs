@@ -8,6 +8,7 @@
       comma = comma-sensible-print;
       nix-output-monitor = nom-traces-nf-icons;
       nh = nh-patched-nom;
+      fish = fish-no-etc-config;
     };
 in {
   nixpkgs.overlays = [niqspkgs];
