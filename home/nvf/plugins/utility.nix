@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  flakePkgs,
+  ...
+}: {
   programs.nvf.settings.vim = {
     utility = {
       # images.image-nvim.enable = true;
@@ -23,5 +27,18 @@
     };
   };
 
-  programs.nvf.modules.setupPlugins.nvim-lastplace.package = pkgs.vimPlugins.nvim-lastplace;
+  programs.nvf.modules.setupPlugins = {
+    nvim-lastplace.package = pkgs.vimPlugins.nvim-lastplace;
+    neo-zoom = {
+      package = flakePkgs.niqspkgs.neozoom-lua;
+      setupOpts.winopts = {
+        offset = {
+          width = 1;
+          height = 1;
+        };
+
+        border = "none";
+      };
+    };
+  };
 }

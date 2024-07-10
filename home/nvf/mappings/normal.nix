@@ -95,6 +95,10 @@
         action = "<C-W>v";
         noremap = false;
       };
+      "<leader>wf" = {
+        desc = "Fullscreen window";
+        action = "<cmd>NeoZoomToggle<cr>";
+      };
 
       "gco" = {
         desc = "Add comment below";
