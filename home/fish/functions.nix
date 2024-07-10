@@ -9,7 +9,7 @@
             command sudo $argv
             return
           else if functions -q -- $argv[$i]
-            if test $i != 1
+            if [ $i != 1 ]
               set sudo_args $argv[..(math $i - 1)]
             end
             command sudo $sudo_args -E fish -C "source $(functions (functions | string split ', ') | psub)" -c '$argv' $argv[$i..]
@@ -25,9 +25,9 @@
       description = "temporarily subtitute a file with a writable copy of it";
       body = ''
         for file in $argv
-          if test -f $file.pure
+          if [ -f $file.pure ]
             echo "$file is already contaminated"
-          else if not test -f $file
+          else if not [ -f $file ]
             echo "$file is not a file or does not exist"
           else
             echo "Contaminating $file"
@@ -42,7 +42,7 @@
       description = "restore the original file moved by con";
       body = ''
         for file in $argv
-          if test -f $file.pure
+          if [ -f $file.pure ]
             echo "Decontaminating $file"
             mv $file.pure $file
           else
@@ -57,7 +57,7 @@
       description = "edit files that aren't writable";
       body = ''
         for file in $argv
-          test -f $file && ! -w $file; and set -l cond $cond $file
+          [ -f $file && ! -w $file ]; and set -l cond $cond $file
         end
 
         con $cond
@@ -70,7 +70,7 @@
       description = "make file executable and edit it";
       body = ''
         for file in $argv
-          if test -f $file
+          if [ -f $file ]
             chmod +x $file
           else
             install /dev/null $file
@@ -87,7 +87,7 @@
         set -l tmp (mktemp)
         command yazi $argv --cwd-file=$tmp
         set -l dir (cat $tmp)
-        test -n $dir && $cwd != $PWD; and cd $dir
+        [ -n $dir && $cwd != $PWD ]; and cd $dir
       '';
     };
 
@@ -131,7 +131,7 @@
       description = "copy the contents of a file";
       argumentNames = "file";
       body = ''
-        if test -f $file && -r $file
+        if [ -f $file && -r $file ]
           cat $file | wl-copy
         else
           echo "$file doesn't exist or cannot be read"
