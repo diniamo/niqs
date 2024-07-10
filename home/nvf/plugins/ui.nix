@@ -5,7 +5,12 @@ in {
     notify.nvim-notify.enable = true;
     ui = {
       illuminate.enable = true;
-      noice.enable = true;
+
+      noice = {
+        enable = true;
+        setupOpts.presets.bottom_search = false;
+      };
+
       breadcrumbs = {
         enable = true;
 
