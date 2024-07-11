@@ -18,6 +18,15 @@ in {
   ];
 
   services = {
+    # For remote rebuilding
+    openssh = {
+      enable = true;
+      startWhenNeeded = true;
+      settings = {
+        PermitRootLogin = "yes";
+      };
+    };
+
     power-profiles-daemon.enable = lib.mkForce false;
     auto-cpufreq.enable = true;
     thermald.enable = true;
