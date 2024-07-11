@@ -13,7 +13,10 @@
     plugins = with pkgs.fishPlugins; [
       {
         name = "tide";
-        inherit (tide) src;
+        src = pkgs.applyPatches {
+          inherit (tide) src;
+          patches = [./tide-no-newline-bind.patch];
+        };
       }
       {
         name = "autopair";

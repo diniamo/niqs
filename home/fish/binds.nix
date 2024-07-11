@@ -3,8 +3,9 @@
   pkgs,
   ...
 }: {
-  programs.fish.interactiveShellInit = lib.throwIf (lib.versionOlder "3.8" pkgs.fish.version) "Fish 3.8 has been released, change to using `accept-autosuggestion and execute`, then remove this error" ''
-    fish_vi_key_bindings
+  programs.fish.functions.fish_user_key_bindings = lib.throwIf (lib.versionOlder "3.8" pkgs.fish.version) "Fish 3.8 has been released, change to using `accept-autosuggestion and execute`, then remove this error" ''
+    fish_default_key_bindings -M insert
+    fish_vi_key_bindings --no-erase
 
     bind -M insert \cu kill-whole-line
 
@@ -13,14 +14,12 @@
 
     bind -M insert -k nul accept-autosuggestion execute
 
-    bind -M insert \n history-prefix-search-forward
-    bind -M insert \ck history-prefix-search-backward
-
-    bind -M insert \ej history-token-search-forward
-    bind -M insert \ek history-token-search-backward
-
     bind -M insert \e\[B history-search-forward
     bind -M insert \e\[A history-search-backward
+    bind -M insert \n history-prefix-search-forward
+    bind -M insert \ck history-prefix-search-backward
+    bind -M insert \ej history-token-search-forward
+    bind -M insert \ek history-token-search-backward
 
     bind -M insert \t complete-and-search
   '';
