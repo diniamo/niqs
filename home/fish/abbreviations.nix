@@ -59,14 +59,16 @@ in {
       regex = ".+\\.git";
       function = "_prepend_git_clone";
     };
-    "!!" = {
-      position = "anywhere";
-      function = "_last_history_item";
+    command = {
+      regex = "\\\\\\\\.*";
+      function = "_prepend_command";
     };
+    "!!".function = "_last_history_item";
   };
 
   programs.fish.functions = {
     _prepend_git_clone = "echo -n git clone $argv";
     _last_history_item = "echo -n $history[1]";
+    _prepend_command = "echo -n command (string sub -s 2 $argv[1]) $argv[2..]";
   };
 }
