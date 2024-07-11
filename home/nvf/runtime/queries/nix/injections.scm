@@ -19,8 +19,7 @@
     "shellInit"
 
     "body")
-  (#set! injection.language "fish")
-  (#set! injection.combined))
+  (#set! injection.language "fish"))
 
 ; home-manager: programs.fish.functions.*.body
 ; ((binding
