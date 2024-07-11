@@ -12,7 +12,7 @@
             if [ $i != 1 ]
               set sudo_args $argv[..(math $i - 1)]
             end
-            command sudo $sudo_args -E fish -C "source $(functions (functions | string split ', ') | psub)" -c '$argv' $argv[$i..]
+            command sudo $sudo_args -E fish -C "source $(functions --no-details (functions | string split ', ') | psub)" -c '$argv' $argv[$i..]
             return
           end
         end
@@ -57,7 +57,7 @@
       description = "edit files that aren't writable";
       body = ''
         for file in $argv
-          [ -f $file -a ! -w $file ]; and set -l cond $cond $file
+          [ -f $file -a ! -w $file ]; and set -f cond $cond $file
         end
 
         con $cond
@@ -93,10 +93,9 @@
 
     ".." = {
       description = "go up n directories";
-      argumentNames = "amount";
       body = ''
-        if set -q amount
-          cd (string repeat -Nn $amount ../)
+        if set -q argv[1]
+          cd (string repeat -Nn $argv[1] ../)
         else
           cd ..
         end
@@ -114,10 +113,9 @@
 
     copypath = {
       description = "copy the path of a file";
-      argumentNames = "file";
       body = ''
-        if set -q file
-          set path (realpath -s $file)
+        if set -q argv[1]
+          set path (realpath -s $argv[1])
           echo "Copying $path"
           echo -n $path | wl-copy
         else
