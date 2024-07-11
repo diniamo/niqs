@@ -4,25 +4,24 @@
   ...
 }: {
   programs.fish.interactiveShellInit = lib.throwIf (lib.versionOlder "3.8" pkgs.fish.version) "Fish 3.8 has been released, change to using `accept-autosuggestion and execute`, then remove this error" ''
-    bind \cu kill-whole-line
+    fish_vi_key_bindings
 
-    bind \b backward-kill-word
-    bind \e\[3\;5~ kill-word
-    # \ch = \cb so I can't do this
-    # bind \ch backward-word
-    # bind \cl forward-word
+    bind -M insert \cu kill-whole-line
 
-    bind -k nul accept-autosuggestion execute
+    bind -M insert \b backward-kill-word
+    bind -M insert \e\[3\;5~ kill-word
 
-    bind \cj history-prefix-search-forward
-    bind \ck history-prefix-search-backward
+    bind -M insert -k nul accept-autosuggestion execute
 
-    bind \ej history-token-search-forward
-    bind \ek history-token-search-backward
+    bind -M insert \n history-prefix-search-forward
+    bind -M insert \ck history-prefix-search-backward
 
-    bind \e\[B history-search-forward
-    bind \e\[A history-search-backward
+    bind -M insert \ej history-token-search-forward
+    bind -M insert \ek history-token-search-backward
 
-    bind \t complete-and-search
+    bind -M insert \e\[B history-search-forward
+    bind -M insert \e\[A history-search-backward
+
+    bind -M insert \t complete-and-search
   '';
 }

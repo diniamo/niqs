@@ -12,6 +12,11 @@
       set -U fish_color_param white
       set -U fish_color_end blue
 
+      set -U fish_cursor_insert line
+      set -U fish_cursor_replace_once underscore
+      set -U fish_cursor_replace underscore
+      set -U fish_cursor_external line
+
       tide configure --auto \
         --style=Lean \
         --prompt_colors='16 colors' \
