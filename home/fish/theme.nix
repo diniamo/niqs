@@ -26,6 +26,9 @@
         --prompt_spacing=Sparse \
         --icons='Many icons' \
         --transient=Yes
+
+      set tide_time_format %R
+
       tide reload
 
       set -U theme_configured
