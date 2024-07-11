@@ -1017,16 +1017,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1720654742,
-        "narHash": "sha256-Z6WZXC1cA2g0iyElmtjfH52MZAVSXpbtc9U7OYZ222Y=",
-        "owner": "diniamo",
+        "lastModified": 1720738184,
+        "narHash": "sha256-zvADI8Y7qWIu0c+36oWnj6w1z38K30gGJ15EbuFdHiQ=",
+        "owner": "notashelf",
         "repo": "nvf",
-        "rev": "33fdf88c7333e95dcc162d72f901171914cae89b",
+        "rev": "901363d1acfbe584e2e652633891f84d9244454f",
         "type": "github"
       },
       "original": {
-        "owner": "diniamo",
-        "ref": "custom",
+        "owner": "notashelf",
         "repo": "nvf",
         "type": "github"
       }

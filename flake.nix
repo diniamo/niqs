@@ -158,9 +158,7 @@
       };
     };
     nvf = {
-      # url = "github:notashelf/nvf";
-      url = "github:diniamo/nvf/custom";
-      # url = "path:/hdd/dev/nvf";
+      url = "github:notashelf/nvf";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
