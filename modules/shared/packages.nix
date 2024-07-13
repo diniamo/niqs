@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
+  environment.defaultPackages = lib.mkForce [];
   environment.systemPackages = with pkgs; [
     htop
     man-pages
