@@ -57,7 +57,7 @@
       description = "edit files that aren't writable";
       body = ''
         for file in $argv
-          [ -f $file -a ! -w $file ]; and set -f cond $cond $file
+          [ -f $file -a ! -w $file ] && set -f cond $cond $file
         end
 
         con $cond
@@ -87,7 +87,7 @@
         set -l tmp (mktemp)
         command yazi $argv --cwd-file=$tmp
         set -l dir (cat $tmp)
-        [ -n $dir -a $cwd != $PWD ]; and cd $dir
+        [ -n $dir -a $cwd != $PWD ] && cd $dir
       '';
     };
 
