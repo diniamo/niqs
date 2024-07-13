@@ -16,8 +16,8 @@
         src = pkgs.applyPatches {
           inherit (tide) src;
           patches = [
-            ./tide-no-newline-bind.patch
-            ./tide-nix3-shell.patch
+            ./patches/tide-no-newline-bind.patch
+            ./patches/tide-nix3-shell.patch
           ];
         };
       }
