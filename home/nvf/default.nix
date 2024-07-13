@@ -1,14 +1,4 @@
-{
-  inputs,
-  lib,
-  ...
-}: let
-  luaPaths = [
-    ./lua/options.lua
-    ./lua/autocmds.lua
-    ./lua/mappings.lua
-  ];
-in {
+{inputs, ...}: {
   imports = [
     inputs.nvf.homeManagerModules.default
 
@@ -25,6 +15,10 @@ in {
     defaultEditor = true;
     enableManpages = true;
 
-    settings.vim.luaConfigPost = builtins.concatStringsSep "\n" (map (path: lib.fileContents path) luaPaths);
+    settings.vim.extraLuaFiles = [
+      ./lua/options.lua
+      ./lua/autocmds.lua
+      ./lua/mappings.lua
+    ];
   };
 }
