@@ -4,22 +4,6 @@
   ...
 }: let
   inherit (inputs.nvf.lib.nvim.dag) entryAfter;
-  inherit (builtins) concatStringsSep;
-
-  loadedVariables = [
-    "g:loaded_getscriptPlugin"
-    "loaded_gzip"
-    "loaded_logiPat"
-    "g:loaded_manpager_plugin"
-    # "g:loaded_matchparen"
-    "g:loaded_netrwPlugin"
-    "loaded_rrhelper"
-    "loaded_spellfile_plugin"
-    "g:loaded_tarPlugin"
-    "g:loaded_2html_plugin"
-    "g:loaded_vimballPlugin"
-    "g:loaded_zipPlugin"
-  ];
 in {
   programs.nvf.settings.vim = {
     viAlias = false;
@@ -48,7 +32,20 @@ in {
       globalStyle = "rounded";
     };
 
-    configRC.disablePlugins = entryAfter ["globalsScript"] (concatStringsSep "\n" (map (name: "let ${name} = 1") loadedVariables));
+    luaConfigRC.disablePlugins = entryAfter ["basic"] ''
+      vim.g.loaded_getscriptPlugin = 1
+      vim.g.loaded_gzip = 1
+      vim.g.loaded_logiPat = 1
+      vim.g.loaded_manpager_plugin = 1
+      -- vim.g.loaded_matchparen = 1
+      vim.g.loaded_netrwPlugin = 1
+      vim.g.loaded_rrhelper = 1
+      vim.g.loaded_spellfile_plugin = 1
+      vim.g.loaded_tarPlugin = 1
+      vim.g.loaded_2html_plugin = 1
+      vim.g.loaded_vimballPlugin = 1
+      vim.g.loaded_zipPlugin = 1
+    '';
 
     luaConfigRC.neovide = ''
       if vim.g.neovide then
