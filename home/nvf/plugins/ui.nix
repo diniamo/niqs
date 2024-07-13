@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  lib,
+  flakePkgs,
+  ...
+}: let
   inherit (lib.generators) mkLuaInline;
 in {
   programs.nvf.settings.vim = {
@@ -24,14 +28,8 @@ in {
     visuals = {
       enable = true;
 
+      indentBlankline.enable = true;
       highlight-undo.enable = true;
-      # TODO: Disable start-end display once this is converted to setupOpts
-      indentBlankline = {
-        enable = true;
-        fillChar = null;
-        eolChar = null;
-        scope.showEndOfLine = true;
-      };
       nvimWebDevicons.enable = true;
     };
 
@@ -41,22 +39,34 @@ in {
     };
   };
 
-  programs.nvf.modules.setupPlugins.dressing = {
-    package = "dressing-nvim";
-    setupOpts = {
-      builtin = {
-        relative = "cursor";
-        override = mkLuaInline ''
-          function(opts)
-            opts.row = 1;
-            return opts;
-          end
-        '';
+  programs.nvf.modules.setupPlugins = {
+    dressing = {
+      package = "dressing-nvim";
+      setupOpts = {
+        builtin = {
+          relative = "cursor";
+          override = mkLuaInline ''
+            function(opts)
+              opts.row = 1;
+              return opts;
+            end
+          '';
 
-        mappings.q = "Close";
+          mappings.q = "Close";
+        };
+
+        backend = "builtin";
       };
+    };
 
-      backend = "builtin";
+    bufresize = {
+      package = flakePkgs.niqspkgs.bufresize-nvim;
+      setupOpts = {
+        register = {
+          keys = {};
+          trigger_events = ["WinResized"];
+        };
+      };
     };
   };
 }

@@ -1,7 +1,7 @@
 {config, ...}: {
   programs.git.delta = {
     enable = true;
-    # TODO: there is no stylix module
+    # TODO: stylix module
     options =
       (import ./themes/catppuccin-macchiato.nix)
       // {

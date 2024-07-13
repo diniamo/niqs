@@ -40,7 +40,6 @@ in {
       };
 
       cursor = {
-        # TODO: generate the cursor based on the color scheme once cbmp decides to work
         package = pkgs.bibata-cursors.overrideAttrs {
           buildPhase = ''
             runHook preBuild

@@ -26,8 +26,6 @@ vim.api.nvim_create_autocmd("VimResized", {
   end,
 })
 
--- TODO: Go to last location when opening a buffer
-
 -- Close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("CloseWithQ", {}),
