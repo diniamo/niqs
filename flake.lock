@@ -45,16 +45,15 @@
     "base16-fish": {
       "flake": false,
       "locked": {
-        "lastModified": 1720479918,
-        "narHash": "sha256-ADW/+GGKUM5kbjVJk5NSLYtsk+5ZrEHqr8HFUnxB+NU=",
-        "owner": "diniamo",
+        "lastModified": 1622559957,
+        "narHash": "sha256-PebymhVYbL8trDVVXxCvZgc0S5VxI7I1Hv4RMSquTpA=",
+        "owner": "tomyun",
         "repo": "base16-fish",
-        "rev": "fa2baccb2bfe16d9492dcaf3781285540e70e31a",
+        "rev": "2f6dd973a9075dabccd26f1cded09508180bf5fe",
         "type": "github"
       },
       "original": {
-        "owner": "diniamo",
-        "ref": "tmp",
+        "owner": "tomyun",
         "repo": "base16-fish",
         "type": "github"
       }
@@ -684,11 +683,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720967614,
-        "narHash": "sha256-ykUij/MsETkQ8dYWS//px889t3DmrGxpB5gfdaVJUTQ=",
+        "lastModified": 1720993522,
+        "narHash": "sha256-q1H9Cijw46NJM75MScbfCiZ/FSL23CFnkGwp4lgOJ2g=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "b501c8a3910ecb949366a7e35c944b6873ca1c23",
+        "rev": "6b266198e670afac2da020cfd8b18ad6e57904f3",
         "type": "github"
       },
       "original": {
@@ -2698,7 +2697,6 @@
     "root": {
       "inputs": {
         "anyrun": "anyrun",
-        "base16-fish": "base16-fish",
         "bgar": "bgar",
         "crane": "crane",
         "flake-compat": "flake-compat",
@@ -2815,9 +2813,7 @@
     "stylix": {
       "inputs": {
         "base16": "base16",
-        "base16-fish": [
-          "base16-fish"
-        ],
+        "base16-fish": "base16-fish",
         "base16-foot": "base16-foot",
         "base16-helix": "base16-helix",
         "base16-kitty": "base16-kitty",

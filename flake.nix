@@ -98,10 +98,10 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    base16-fish = {
-      url = "github:diniamo/base16-fish/tmp";
-      flake = false;
+    nyaa = {
+      url = "github:Beastwick18/nyaa";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.naersk.follows = "naersk";
     };
     stylix = {
       url = "github:danth/stylix";
@@ -109,8 +109,6 @@
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
         flake-compat.follows = "flake-compat";
-
-        base16-fish.follows = "base16-fish";
       };
     };
 
@@ -170,11 +168,6 @@
         rnix-lsp.follows = "rnix-lsp";
         nil.follows = "nil";
       };
-    };
-    nyaa = {
-      url = "github:Beastwick18/nyaa";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.naersk.follows = "naersk";
     };
   };
 
