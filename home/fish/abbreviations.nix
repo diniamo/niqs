@@ -32,6 +32,7 @@ in {
     run = "nix run";
     build = "nix build --builders ''";
     flake = "nix flake";
+    repl = "nix repl --expr 'import <nixpkgs> {}'";
     insecure = cursor "NIXPKGS_ALLOW_INSECURE=1 % --impure";
     broken = cursor "NIXPKGS_ALLOW_BROKEN=1 % --impure";
 
