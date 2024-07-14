@@ -34,7 +34,7 @@ in {
     ./spotify-player.nix
     ./fzf.nix
     # ./wezterm.nix
-    ./swappy.nix
+    # ./swappy.nix
     # ./i3.nix
     ./mangohud.nix
     ./lazygit.nix
@@ -49,6 +49,7 @@ in {
     ./hyprpaper.nix
     # ./iabm.nix
     ./nyaa.nix
+    ./satty.nix
   ];
 
   home = {

@@ -51,7 +51,7 @@ in {
       "${shift}, Print, exec, grimblast --freeze save area - | swayimg -"
       "${alt}, Print, exec, grimblast --notify copy active"
 
-      "${mod}, s, exec, wl-paste | swappy -f - -o - | wl-copy"
+      "${mod}, s, exec, wl-paste | satty -f -"
 
       # TODO: hyprpicker
 

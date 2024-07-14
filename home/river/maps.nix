@@ -34,11 +34,11 @@
     "Control Print" = "spawn 'wayshot --slurp $(slurp) --stdout | wl-copy'";
     "Shift Print" = "spawn 'wayshot --slurp $(slurp) --stdout | swayimg -'";
     # TODO: screenshot focused window
-    "Super Print" = "spawn 'wayshot --slurp $(slurp) --stdout | swappy -f - -o - | wl-copy'";
+    "Super Print" = "spawn 'wayshot --slurp $(slurp) --stdout | satty -f -'";
 
     # TODO: color picker?
 
-    "Super s" = "spawn 'wl-paste | swappy -f - -o - | wl-copy'";
+    "Super s" = "spawn 'wl-paste | satty -f -'";
     "Super+Control m" = "spawn 'mpv \"$(wl-paste | sed \"s/&.*$//\")\"'";
     "Super+Control i" = "spawn '${scripts.openImage}'";
     "Super+Control w" = "spawn 'firefox \"$(wl-paste)\"'";

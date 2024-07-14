@@ -9,6 +9,7 @@
       nix-output-monitor = nom-traces-nf-icons;
       nh = nh-patched-nom;
       fish = fish-no-etc-config;
+      satty = satty-git;
     };
 in {
   nixpkgs.overlays = [niqspkgs];
