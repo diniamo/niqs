@@ -10,7 +10,7 @@
             return
           else if functions -q -- $argv[$i]
             if [ $i != 1 ]
-              set sudo_args $argv[..(math $i - 1)]
+              set -f sudo_args $argv[..(math $i - 1)]
             end
             command sudo $sudo_args -E fish -C "source $(functions --no-details (functions | string split ', ') | psub)" -c '$argv' $argv[$i..]
             return
@@ -84,9 +84,9 @@
     yazi = {
       description = "go to yazi directory";
       body = ''
-        set -l tmp (mktemp)
+        set -f tmp (mktemp)
         command yazi $argv --cwd-file=$tmp
-        set -l dir (cat $tmp)
+        set -f dir (cat $tmp)
         [ -n $dir -a $cwd != $PWD ] && cd $dir
       '';
     };
@@ -163,7 +163,7 @@
       description = "rename current directory";
       argumentNames = "to";
       body = ''
-        set dir (basename $PWD)
+        set -f dir (basename $PWD)
         cd ..
         mv $dir $to
         cd $to
@@ -173,6 +173,33 @@
     listxwl = {
       description = "list XWayland windows in Hyprland";
       body = "hyprctl -j clients | jaq -r '.[] | select( [ .xwayland == true ] | any ) | .title'";
+    };
+
+    mkshell = {
+      description = "nix shell with inputsFrom";
+      body = ''
+        set -f list direct
+
+        for arg in $argv
+          switch $arg
+          case -p --packages
+            set -f list direct
+          case -i --inputs-from
+            set -f list inputs_from
+          case '*'
+            set -f $list $$list $arg
+          end
+        end
+
+        nix shell --impure --expr "
+          let
+            pkgs = import <nixpkgs> {};
+          in pkgs.mkShellNoCC with pkgs; {
+            packages = [$direct];
+            inputsFrom = [$inputs_from];
+          }
+        "
+      '';
     };
   };
 }
