@@ -71,12 +71,13 @@
       ${getExe pkgs.nh} os switch "$flake_root" -- "''${extra_args[@]}"
     fi
   '';
-  repl = writeDashBin "repl" ''
+
+  osrepl = writeDashBin "osrepl" ''
     nixos-rebuild --flake "$(${getSystemFlake})" repl
   '';
 in {
   environment.systemPackages = [
     rebuild
-    repl
+    osrepl
   ];
 }
