@@ -15,13 +15,16 @@
       transparency = colors.base02;
       background = colors.base00;
     };
+
     font = {
       inherit (fonts.sansSerif) name;
       size = fonts.sizes.applications;
       color = colors.base05;
       shadow = colors.base01;
     };
+
     info."full.topleft" = "name, imagesize, filesize";
+
     keys = {
       "0" = "first_file";
       "dollar" = "last_file";
@@ -46,6 +49,7 @@
       y = "exec wl-copy < '%'; status 'Copied image'";
       "Shift+y" = "exec wl-copy '%'; status 'Copied image path'";
     };
+
     mouse = {
       ScrollUp = "zoom +5";
       ScrollDown = "zoom -5";
