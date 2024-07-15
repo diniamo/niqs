@@ -117,15 +117,6 @@
         flake-compat.follows = "flake-compat";
       };
     };
-
-    searx-randomizer = {
-      url = "github:schizofox/searx-randomizer";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        crane.follows = "crane";
-      };
-    };
     schizofox = {
       # url = "github:schizofox/schizofox";
       url = "github:diniamo/schizofox/filter-null-extensions";
@@ -136,29 +127,11 @@
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
 
-        searx-randomizer.follows = "searx-randomizer";
-      };
-    };
-
-    zig = {
-      url = "github:mitchellh/zig-overlay";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        flake-compat.follows = "flake-compat";
-      };
-    };
-    rnix-lsp = {
-      url = "github:nix-community/rnix-lsp";
-      inputs.utils.follows = "flake-utils";
-      inputs.naersk.follows = "naersk";
-    };
-    nil = {
-      url = "github:oxalica/nil";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        rust-overlay.follows = "rust-overlay";
+        searx-randomizer.inputs = {
+          crane.follows = "crane";
+          flake-parts.follows = "flake-parts";
+          nixpkgs.follows = "nixpkgs";
+        };
       };
     };
     nvf = {
@@ -170,9 +143,20 @@
         flake-utils.follows = "flake-utils";
         flake-parts.follows = "flake-parts";
 
-        zig.follows = "zig";
-        rnix-lsp.follows = "rnix-lsp";
-        nil.follows = "nil";
+        zig.inputs = {
+          flake-utils.follows = "flake-utils";
+          flake-compat.follows = "flake-compat";
+          nixpkgs.follows = "nixpkgs";
+        };
+        rnix-lsp.inputs = {
+          naersk.follows = "naersk";
+          utils.follows = "flake-utils";
+          nixpkgs.follows = "nixpkgs";
+        };
+        nil.inputs = {
+          rust-overlay.follows = "rust-overlay";
+          flake-utils.follows = "flake-utils";
+        };
       };
     };
   };

@@ -646,9 +646,7 @@
         "flake-utils": [
           "flake-utils"
         ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_6",
         "rust-overlay": [
           "rust-overlay"
         ]
@@ -877,16 +875,16 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1656753965,
-        "narHash": "sha256-BCrB3l0qpJokOnIVc3g2lHiGhnjUi0MoXiw6t1o8H1E=",
+        "lastModified": 1721016451,
+        "narHash": "sha256-Cypl9ORr5UjtBsbjXMTJRepTe362yNVrPrntUvHiTaw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "0ea7a8f1b939d74e5df8af9a8f7342097cdf69eb",
+        "rev": "a14c5d651cee9ed70f9cd9e83f323f1e531002db",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -916,9 +914,7 @@
           "flake-utils"
         ],
         "mnw": "mnw",
-        "nil": [
-          "nil"
-        ],
+        "nil": "nil",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -1022,15 +1018,11 @@
         "plugin-vim-startify": "plugin-vim-startify",
         "plugin-vim-vsnip": "plugin-vim-vsnip",
         "plugin-which-key": "plugin-which-key",
-        "rnix-lsp": [
-          "rnix-lsp"
-        ],
+        "rnix-lsp": "rnix-lsp",
         "systems": [
           "systems"
         ],
-        "zig": [
-          "zig"
-        ]
+        "zig": "zig"
       },
       "locked": {
         "lastModified": 1721041679,
@@ -2687,7 +2679,9 @@
         "naersk": [
           "naersk"
         ],
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "utils": [
           "flake-utils"
         ]
@@ -2721,7 +2715,6 @@
         "lanzaboote": "lanzaboote",
         "lobster": "lobster",
         "naersk": "naersk",
-        "nil": "nil",
         "niqspkgs": "niqspkgs",
         "nix-gaming": "nix-gaming",
         "nix-index-database": "nix-index-database",
@@ -2729,14 +2722,11 @@
         "nixpkgs-upstream": "nixpkgs-upstream",
         "nvf": "nvf",
         "nyaa": "nyaa",
-        "rnix-lsp": "rnix-lsp",
         "rust-overlay": "rust-overlay",
         "schizofox": "schizofox",
-        "searx-randomizer": "searx-randomizer",
         "stylix": "stylix",
         "systems": "systems",
-        "wrapper-manager": "wrapper-manager",
-        "zig": "zig"
+        "wrapper-manager": "wrapper-manager"
       }
     },
     "rust-overlay": {
@@ -2774,9 +2764,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "searx-randomizer": [
-          "searx-randomizer"
-        ],
+        "searx-randomizer": "searx-randomizer",
         "systems": [
           "systems"
         ]
@@ -2934,11 +2922,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720613397,
-        "narHash": "sha256-LsquTm0TJNt024hvKkzKxYhSqn9/N8twqFMC1/o4Eo4=",
+        "lastModified": 1721262322,
+        "narHash": "sha256-1mSkU9XUgfZxq9mygfEVnd20AnF/55W/cOR+M/EUwkw=",
         "owner": "mitchellh",
         "repo": "zig-overlay",
-        "rev": "73b757ef555811efdfb2ddd6288cdceff81957eb",
+        "rev": "c256675465370526173ed3e2dec4634f40fa4e6a",
         "type": "github"
       },
       "original": {
