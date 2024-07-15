@@ -380,10 +380,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1720453602,
-        "narHash": "sha256-7+PjJZn/jpqNkVKJ3AGVT9G601rVj/R8KkT+WWjhwyk=",
-        "rev": "b03f41efec14273cf25c42d4cef326acc36cb319",
-        "revCount": 4913,
+        "lastModified": 1721037472,
+        "narHash": "sha256-l9zqE86XsIKlfx/A5pMvEAeEgxSRrDu2GbKEPvrf+GE=",
+        "ref": "refs/heads/main",
+        "rev": "f442f435d34e983768fcc83b54374ac94a7f7658",
+        "revCount": 4926,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -605,6 +606,21 @@
         "type": "github"
       }
     },
+    "mnw": {
+      "locked": {
+        "lastModified": 1720927281,
+        "narHash": "sha256-4Z2FtCuL0lT+sM2gb1JMcXOUkeYrWeYZjjs1HuVTlOs=",
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "rev": "302b18ddb8498aa9a7e0c01f7026e49d545e6898",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "type": "github"
+      }
+    },
     "naersk": {
       "inputs": {
         "nixpkgs": [
@@ -622,27 +638,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "naersk",
-        "type": "github"
-      }
-    },
-    "neovim-wrapper": {
-      "inputs": {
-        "nixpkgs": [
-          "nvf",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1720539383,
-        "narHash": "sha256-HF4+pQJwgw62lLpWo5TiXFb8ui0FpZcb2TkSh9qXju8=",
-        "owner": "Gerg-L",
-        "repo": "neovim-wrapper",
-        "rev": "a2b26accc1c414bc0ef0132ab167e2973dc26e68",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Gerg-L",
-        "repo": "neovim-wrapper",
         "type": "github"
       }
     },
@@ -920,7 +915,7 @@
         "flake-utils": [
           "flake-utils"
         ],
-        "neovim-wrapper": "neovim-wrapper",
+        "mnw": "mnw",
         "nil": [
           "nil"
         ],
@@ -971,6 +966,7 @@
         "plugin-mind-nvim": "plugin-mind-nvim",
         "plugin-minimap-vim": "plugin-minimap-vim",
         "plugin-modes-nvim": "plugin-modes-nvim",
+        "plugin-neo-tree-nvim": "plugin-neo-tree-nvim",
         "plugin-neocord": "plugin-neocord",
         "plugin-neodev-nvim": "plugin-neodev-nvim",
         "plugin-noice-nvim": "plugin-noice-nvim",
@@ -1037,11 +1033,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720886720,
-        "narHash": "sha256-R36umUYa/q34dL1wF4QWD7CVXo5zEpx8W4++Xb4Bz38=",
+        "lastModified": 1721041679,
+        "narHash": "sha256-A1SheeheMP0RQJLZhbeNxDdqMO1Ox8240ajjmT/IDYQ=",
         "owner": "diniamo",
         "repo": "nvf",
-        "rev": "a74fdfa072d098c6904b018765173c8fbde200f0",
+        "rev": "3261b2d356398dba059f0397c3b3075abebe5091",
         "type": "github"
       },
       "original": {
@@ -1759,6 +1755,22 @@
       "original": {
         "owner": "mvllow",
         "repo": "modes.nvim",
+        "type": "github"
+      }
+    },
+    "plugin-neo-tree-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713050882,
+        "narHash": "sha256-cZwOVpdMT0NCtp6Ha592QA2RzKVS6LhXXcjfDBCQ+0k=",
+        "owner": "nvim-neo-tree",
+        "repo": "neo-tree.nvim",
+        "rev": "22e566aeb075c94f670f34077e05ba95190dfb4a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-neo-tree",
+        "repo": "neo-tree.nvim",
         "type": "github"
       }
     },
