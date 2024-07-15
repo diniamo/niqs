@@ -1,6 +1,12 @@
 {
   description = "My NixOS flake configuration";
 
+  outputs = inputs: let
+    lib' = import ./lib {inherit inputs lib';};
+  in {
+    nixosConfigurations = import ./hosts {inherit lib';};
+  };
+
   inputs = {
     # Might want to make everything follow this instead
     # nixpkgs-upstream.url = "nixpkgs/nixos-unstable";
@@ -169,12 +175,6 @@
         nil.follows = "nil";
       };
     };
-  };
-
-  outputs = inputs: let
-    lib' = import ./lib {inherit inputs lib';};
-  in {
-    nixosConfigurations = import ./hosts {inherit lib';};
   };
 
   nixConfig = {
