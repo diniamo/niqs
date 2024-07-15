@@ -1,4 +1,7 @@
-{inputs}: let
+{
+  inputs,
+  lib',
+}: let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib;
 
@@ -15,15 +18,22 @@
     wrappedPkgs = import ../wrappers {inherit inputs pkgs;};
   in
     lib.nixosSystem {
-      inherit system;
-      specialArgs = {inherit inputs system flakePkgs wrappedPkgs;} // args.specialArgs or {};
-      # For some reason, the source set by nixosSystem does not have the options set by nixpkgs-unfree
-      # so we set pkgs instead
+      system = null;
+
+      # Infinite recursion if I don't put this here
+      specialArgs = {inherit inputs;};
+
       modules =
-        [
-          {nixpkgs.pkgs = pkgs;}
-        ]
-        ++ args.modules or [];
+        (args.modules or [])
+        ++ [
+          {
+            _module.args = {inherit lib' system flakePkgs wrappedPkgs;};
+
+            # For some reason, the source set by nixosSystem does not have the options set by nixpkgs-unfree
+            # so we set pkgs instead
+            nixpkgs.pkgs = pkgs;
+          }
+        ];
     };
 
   # Helpers

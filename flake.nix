@@ -172,7 +172,7 @@
   };
 
   outputs = inputs: let
-    lib' = import ./lib {inherit inputs;};
+    lib' = import ./lib {inherit inputs lib';};
   in {
     nixosConfigurations = import ./hosts {inherit lib';};
   };
