@@ -12,7 +12,7 @@
       nv = "neovide --fork";
       # Create a file with execute permissions
       xtouch = "install /dev/null";
-      rm = "rmtrash";
+      rm = "trash put";
       hash = "sha256sum";
       copy = "wl-copy";
       paste = "wl-paste";

@@ -5,7 +5,7 @@
 }: {
   programs.fish.shellAliases = {
     xtouch = "install /dev/null";
-    rm = "rmtrash";
+    rm = "trash put";
     ip4 = "${lib.getExe pkgs.dig} @resolver4.opendns.com myip.opendns.com +short -4";
     # ip6 = "${dig} @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short -6";
     cht = "cht.sh";

@@ -10,6 +10,7 @@
       nh = nh-patched-nom;
       fish = fish-no-etc-config;
       satty = satty-git;
+      trashy = trashy-match-exact-dir;
     };
 in {
   nixpkgs.overlays = [niqspkgs];

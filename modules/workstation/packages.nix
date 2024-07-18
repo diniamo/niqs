@@ -19,8 +19,7 @@ in {
     wl-clipboard
     neovide
     spotify
-    rmtrash
-    trash-cli
+    trashy
     ungoogled-chromium
     yt-dlp
     libreoffice-qt

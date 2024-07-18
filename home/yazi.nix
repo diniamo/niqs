@@ -66,7 +66,7 @@
           on = [
             "e"
           ];
-          run = "shell trash-restore --block --confirm";
+          run = "shell trash restore --directory .";
           desc = "Restore files from the trash";
         }
         {

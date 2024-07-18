@@ -43,7 +43,7 @@
       "underscore" = "zoom +10";
       n = "zoom optimal";
 
-      d = "exec rmtrash '%'; status 'Trashed %'";
+      d = "exec trash put '%'; status 'Trashed %'";
       "Shift+d" = "exec rm '%'; status 'Deleted %'";
       Delete = "exec rm '%'; status 'Deleted %'";
       y = "exec wl-copy < '%'; status 'Copied image'";
