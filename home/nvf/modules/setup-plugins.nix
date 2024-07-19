@@ -7,8 +7,8 @@
   inherit (lib) mkOption;
   inherit (lib.types) attrsOf submodule listOf nullOr str attrs;
   inherit (inputs.nvf.lib.nvim.types) pluginType;
-  inherit (builtins) mapAttrs;
   inherit (inputs.nvf.lib.nvim.lua) toLuaObject;
+  inherit (builtins) mapAttrs;
 in {
   options = {
     programs.nvf.modules.setupPlugins = mkOption {

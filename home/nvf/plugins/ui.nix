@@ -1,10 +1,8 @@
 {
-  lib,
   flakePkgs,
+  pkgs,
   ...
-}: let
-  inherit (lib.generators) mkLuaInline;
-in {
+}: {
   programs.nvf.settings.vim = {
     notify.nvim-notify.enable = true;
     ui = {
@@ -40,22 +38,16 @@ in {
   };
 
   programs.nvf.modules.setupPlugins = {
-    dressing = {
-      package = "dressing-nvim";
+    fastaction = {
+      package = flakePkgs.niqspkgs.fastaction-nvim;
       setupOpts = {
-        builtin = {
+        dismiss_keys = ["q" "<esc>"];
+        keys = "abcdefghijklmnoprstuvwxyz";
+        popup = {
+          title = "Select:";
           relative = "cursor";
-          override = mkLuaInline ''
-            function(opts)
-              opts.row = 1;
-              return opts;
-            end
-          '';
-
-          mappings.q = "Close";
         };
-
-        backend = "builtin";
+        register_ui_select = true;
       };
     };
 
