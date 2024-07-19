@@ -16,5 +16,6 @@
     ./status-line.nix
     ./direnv.nix
     ./treesitter.nix
+    ./motion.nix
   ];
 }

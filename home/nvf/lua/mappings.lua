@@ -39,3 +39,11 @@ map({ "n", "t" }, "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window heig
 map({ "n", "t" }, "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map({ "n", "t" }, "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 map({ "n", "t" }, "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+
+-- flash.nvim
+local flash = require("flash")
+
+map({ "n", "x", "o" }, "s", flash.jump, { desc = "Flash" })
+map({ "n", "x", "o" }, "S", flash.treesitter, { desc = "Flash Treesitter" })
+map("o", "r", flash.remote, { desc = "Remote Flash" })
+map({ "o", "x" }, "R", flash.treesitter_search, { desc = "Treesitter Search" })
