@@ -53,8 +53,10 @@ in {
     programs = {
       steam = {
         enable = true;
-        platformOptimizations.enable = true;
+        # Does this break any games?
+        package = pkgs.steam-small;
 
+        platformOptimizations.enable = true;
         protontricks.enable = true;
         extraCompatPackages = [pkgs.proton-ge-bin];
       };
