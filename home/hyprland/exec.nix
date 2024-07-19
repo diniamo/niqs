@@ -6,7 +6,7 @@
   osConfig,
   ...
 }: let
-  inherit (config.modules.hyprland) scripts;
+  inherit (config.programs.hyprland) scripts;
 in {
   wayland.windowManager.hyprland.settings = {
     exec-once =

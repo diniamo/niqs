@@ -8,14 +8,14 @@
   inherit (lib) getExe mkOption types;
 in {
   options = {
-    modules.hyprland.scripts = mkOption {
+    programs.hyprland.scripts = mkOption {
       description = "Scripts for Hyprland";
       type = types.attrs;
     };
   };
 
   config = {
-    modules.hyprland.scripts = {
+    programs.hyprland.scripts = {
       pin = writeDash "pin" ''
         if ! hyprctl -j activewindow | jaq -e .floating; then
           hyprctl --batch 'dispatch togglefloating;dispatch pin'
@@ -24,8 +24,8 @@ in {
         fi
       '';
 
-      socket = writeDash "socket" ''
-        ${getExe pkgs.socat} -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r event; do
+      socket = writeShellScript "socket" ''
+        ${getExe pkgs.socat} -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r event; do
           action="''${event%%>>*}"
           details="''${event##*>>}"
 

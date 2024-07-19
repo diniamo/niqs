@@ -10,7 +10,7 @@
   inherit (osConfig.values) terminal;
 
   inherit (config) scripts;
-  hyprlandScripts = config.modules.hyprland.scripts;
+  hyprlandScripts = config.programs.hyprland.scripts;
 
   playerctl = getExe pkgs.playerctl;
   notifySend = getExe pkgs.libnotify;
