@@ -1,8 +1,4 @@
-{
-  flakePkgs,
-  pkgs,
-  ...
-}: {
+{flakePkgs, ...}: {
   programs.nvf.settings.vim = {
     notify.nvim-notify.enable = true;
     ui = {
@@ -38,6 +34,13 @@
   };
 
   programs.nvf.modules.setupPlugins = {
+    dressing = {
+      package = "dressing-nvim";
+      setupOpts = {
+        select.enabled = false;
+      };
+    };
+
     fastaction = {
       package = flakePkgs.niqspkgs.fastaction-nvim;
       setupOpts = {
