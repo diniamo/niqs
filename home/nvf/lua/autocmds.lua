@@ -16,16 +16,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- Resize splits if window got resized
-vim.api.nvim_create_autocmd("VimResized", {
-  group = vim.api.nvim_create_augroup("ResizeSplits", {}),
-  callback = function()
-    local current_tab = vim.fn.tabpagenr()
-    vim.cmd("tabdo wincmd =")
-    vim.cmd("tabnext " .. current_tab)
-  end,
-})
-
 -- Close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("CloseWithQ", {}),
