@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   config,
+  flakePkgs,
   ...
 }: let
   cfg = config.stylix;
@@ -48,8 +49,14 @@ in {
           '';
         };
         name = "Bibata-Modern-Classic";
-        size = 20;
+        size = 22;
       };
+    };
+
+    environment.systemPackages = [flakePkgs.niqspkgs.bibata-hyprcursor];
+    environment.variables = {
+      HYPRCURSOR_THEME = "Bibata-modern";
+      HYPRCURSOR_SIZE = cfg.cursor.size;
     };
   };
 }
