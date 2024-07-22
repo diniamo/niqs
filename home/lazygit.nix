@@ -15,16 +15,17 @@
 
       customCommands = [
         {
+          description = "Delete both local and remote branch";
           key = "D";
           context = "localBranches";
-          stream = true;
           prompts = [
             {
               type = "confirm";
-              title = "Delete branch locally and remotely";
+              title = "Delete both local and remote branch";
               body = "Are you are you want to delete this branch both locally and remotely?";
             }
           ];
+          loadingText = "Deleting branch";
           command = "git push {{ .SelectedLocalBranch.UpstreamRemote }} --delete {{ .SelectedLocalBranch.UpstreamBranch }}; git branch --delete --force {{ .SelectedLocalBranch.Name }}";
         }
       ];
