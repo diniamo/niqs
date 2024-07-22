@@ -9,8 +9,8 @@
 
   inputs = {
     # Might want to make everything follow this instead
-    # nixpkgs-upstream.url = "nixpkgs/nixos-unstable";
-    nixpkgs-upstream.url = "github:diniamo/nixpkgs/custom";
+    nixpkgs-upstream.url = "nixpkgs/nixos-unstable";
+    # nixpkgs-upstream.url = "github:diniamo/nixpkgs/custom";
     nixpkgs.url = "github:numtide/nixpkgs-unfree/nixos-unstable";
     nixpkgs.inputs.nixpkgs.follows = "nixpkgs-upstream";
 
@@ -154,6 +154,9 @@
           nixpkgs.follows = "nixpkgs";
         };
         nil.inputs = {
+          # This should already be followed, nix is tripping
+          nixpkgs.follows = "nixpkgs";
+
           rust-overlay.follows = "rust-overlay";
           flake-utils.follows = "flake-utils";
         };
