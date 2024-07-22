@@ -27,6 +27,25 @@
       nvimWebDevicons.enable = true;
     };
 
+    lsp.code-actions.enable = true;
+    lsp.code-actions.fastaction-nvim = {
+      enable = true;
+
+      mappings = {
+        code_action = null;
+        range_action = null;
+      };
+      setupOpts = {
+        dismiss_keys = ["q" "<esc>"];
+        keys = "abcdefghijklmnoprstuvwxyz";
+        popup = {
+          title = "Select:";
+          relative = "cursor";
+        };
+        register_ui_select = true;
+      };
+    };
+
     maps.normal."<leader>ln" = {
       desc = "Open Navbuddy";
       action = "<cmd>Navbuddy<cr>";
@@ -38,19 +57,6 @@
       package = "dressing-nvim";
       setupOpts = {
         select.enabled = false;
-      };
-    };
-
-    fastaction = {
-      package = flakePkgs.niqspkgs.fastaction-nvim;
-      setupOpts = {
-        dismiss_keys = ["q" "<esc>"];
-        keys = "abcdefghijklmnoprstuvwxyz";
-        popup = {
-          title = "Select:";
-          relative = "cursor";
-        };
-        register_ui_select = true;
       };
     };
 
