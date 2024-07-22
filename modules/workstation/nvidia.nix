@@ -40,9 +40,6 @@ in {
       __GL_YIELD = "USLEEP";
       __GL_MaxFramesAllowed = "1";
 
-      # For tearing
-      WLR_DRM_NO_ATOMIC = "1";
-
       GBM_BACKEND = "nvidia-drm";
       LIBVA_DRIVER_NAME = "nvidia";
       NVD_BACKEND = "direct";
