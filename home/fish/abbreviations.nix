@@ -28,7 +28,7 @@ in {
     n = "nix";
     clean = "nh clean all";
     shell = "nix shell";
-    dev = "nix develop";
+    dev = "nix develop --command fish";
     run = "nix run";
     build = "nix build --builders ''";
     flake = "nix flake";
