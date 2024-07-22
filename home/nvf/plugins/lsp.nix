@@ -1,4 +1,13 @@
 {
+  # programs.nvf.modules.lspSources = {
+  #   nixd = {
+  #     package = pkgs.nixd;
+  #     arguments = ["--semantic-tokens=false"];
+  #     settings.nixpkgs.expr = "import <nixpkgs> {}";
+  #     extra = true;
+  #   };
+  # };
+
   programs.nvf.settings.vim = {
     lsp = {
       mappings.renameSymbol = "<leader>lr";
