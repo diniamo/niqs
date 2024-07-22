@@ -142,7 +142,7 @@
       description = "show notification after executing a command";
       body = ''
         $argv
-        notify-send -i dialog-information Shell "$argv[1] has finished executing"
+        notify-send -i dialog-information -t 0 Shell "$argv[1] has finished executing"
       '';
     };
 
