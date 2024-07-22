@@ -33,9 +33,10 @@ in {
 
       layout = "dwindle";
     };
-    xwayland = {
-      force_zero_scaling = true;
-    };
+    xwayland.force_zero_scaling = true;
+    # Firefox is broken
+    # experimental.explicit_sync = true;
+    # opengl.nvidia_anti_flicker = false;
     misc = {
       force_default_wallpaper = 0;
       disable_hyprland_logo = true;
@@ -113,8 +114,5 @@ in {
       "special:file_manager, on-created-empty:${terminal.command} ${terminal.separator} yazi"
       "special:file_manager_gui, on-created-empty:thunar"
     ];
-    # Workaround for a kernel bug
-    # Array so it can be merged with per-config monitors
-    monitor = ["Unknown-1,disabled"];
   };
 }
