@@ -25,7 +25,7 @@
               body = "Are you are you want to delete this branch both locally and remotely?";
             }
           ];
-          command = "git push {{ .SelectedLocalBranch.UpstreamRemote }} --delete {{ .SelectedLocalBranch.UpstreamBranch }}; git branch --delete {{ .SelectedLocalBranch.Name }}";
+          command = "git push {{ .SelectedLocalBranch.UpstreamRemote }} --delete {{ .SelectedLocalBranch.UpstreamBranch }}; git branch --delete --force {{ .SelectedLocalBranch.Name }}";
         }
       ];
     };
