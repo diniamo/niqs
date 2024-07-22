@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  pkgs,
   ...
 }: let
   inherit (config.lib.stylix) colors;
@@ -12,6 +13,14 @@ in {
 
   programs.schizofox = {
     enable = true;
+    # HACK: I sure do love deal-breaking fixes not being in the stable release for months!
+    # package = pkgs.firefox-bin-unwrapped.overrideAttrs {
+    #   version = "130.0a1";
+    #   src = pkgs.fetchurl {
+    #     url = "https://archive.mozilla.org/pub/firefox/nightly/2024/07/2024-07-20-09-15-22-mozilla-central/firefox-130.0a1.en-US.linux-x86_64.tar.bz2";
+    #     hash = "sha256-4GHGTJ/Px1l84u/8svxi0FDMBfTHy4OXj2I1Hb1IK6g=";
+    #   };
+    # };
 
     theme = {
       colors = {
