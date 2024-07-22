@@ -28,6 +28,13 @@
           loadingText = "Deleting branch";
           command = "git push {{ .SelectedLocalBranch.UpstreamRemote }} --delete {{ .SelectedLocalBranch.UpstreamBranch }}; git branch --delete --force {{ .SelectedLocalBranch.Name }}";
         }
+        {
+          description = "Push branch to origin";
+          key = "<c-p>";
+          context = "localBranches";
+          loadingText = "Pushing to origin";
+          command = "git push --set-upstream origin";
+        }
       ];
     };
   };
