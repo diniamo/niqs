@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{config, ...}: let
   inherit (config) values;
 in {
   imports = [./hardware.nix];
@@ -22,7 +18,6 @@ in {
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages;
   networking.hostName = "${values.mainUser}-PC";
 
   home-manager.users.${values.mainUser} = {
