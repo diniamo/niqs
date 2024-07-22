@@ -40,7 +40,7 @@ in {
           Name = "Startpage";
           Description = "Uses Google's indexer without its logging";
           Method = "GET";
-          URLTemplate = "https://startpage.com/do/search?query={searchTerms}";
+          URLTemplate = "https://startpage.com/sp/search?query={searchTerms}";
         }
       ];
     };
