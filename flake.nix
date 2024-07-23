@@ -9,8 +9,8 @@
 
   inputs = {
     # Might want to make everything follow this instead
-    nixpkgs-upstream.url = "nixpkgs/nixos-unstable";
-    # nixpkgs-upstream.url = "github:diniamo/nixpkgs/custom";
+    # nixpkgs-upstream.url = "nixpkgs/nixos-unstable";
+    nixpkgs-upstream.url = "github:diniamo/nixpkgs/custom";
     nixpkgs.url = "github:numtide/nixpkgs-unfree/nixos-unstable";
     nixpkgs.inputs.nixpkgs.follows = "nixpkgs-upstream";
 
