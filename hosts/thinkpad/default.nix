@@ -10,8 +10,13 @@
 in {
   imports = [./hardware.nix];
 
-  networking.hostName = "${values.mainUser}-THINKPAD";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "${values.mainUser}-THINKPAD";
+    networkmanager = {
+      enable = true;
+      plugins = mkForce [];
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     brightnessctl
