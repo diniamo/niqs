@@ -33,11 +33,20 @@
           };
         in
           mkLuaInline "require('catppuccin.groups.integrations.bufferline').get(${toLuaObject highlights})";
+
         options = {
           always_show_bufferline = false;
           auto_toggle_bufferline = true;
           numbers = "none";
           indicator.style = "none";
+          offsets = [
+            {
+              filetype = "neo-tree";
+              highlight = "Directory";
+              separator = true;
+              text = "File Tree";
+            }
+          ];
         };
       };
     };

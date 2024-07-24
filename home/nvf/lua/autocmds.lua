@@ -79,3 +79,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
 })
+
+-- Change CWD to opened directory
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function(data)
+    if vim.fn.isdirectory(data.file) == 1 then
+      vim.cmd.cd(data.file)
+    end
+  end
+})

@@ -1,29 +1,20 @@
-{inputs, ...}: let
-  inherit (inputs.nvf.lib.nvim.dag) entryAfter;
-in {
+{
   programs.nvf.settings.vim = {
-    filetree.nvimTree = {
+    filetree.neo-tree = {
       enable = true;
 
-      mappings.toggle = "<leader>to";
-
-      openOnSetup = false;
       setupOpts = {
-        actions.open_file.quit_on_open = true;
-        diagnostics.enable = true;
-        git.enable = true;
+        close_if_last_window = true;
+        filesystem = {
+          hijack_netrw_behavior = "open_current";
+          follow_current_file.enabled = true;
+        };
       };
     };
 
-    luaConfigRC.nvimTreeOpen = entryAfter ["pluginConfigs"] ''
-      vim.api.nvim_create_autocmd("VimEnter", {
-        callback = function(data)
-          if vim.fn.isdirectory(data.file) == 1 then
-            vim.cmd.cd(data.file)
-            require("nvim-tree.api").tree.open()
-          end
-        end
-      })
-    '';
+    maps.normal."<C-e>" = {
+      desc = "Toggle Neotree";
+      action = "<cmd>Neotree toggle reveal<cr>";
+    };
   };
 }
