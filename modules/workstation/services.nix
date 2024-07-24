@@ -40,7 +40,6 @@
     };
     playerctld.enable = true;
 
-    power-profiles-daemon.enable = true;
     ananicy = {
       enable = true;
       package = pkgs.ananicy-cpp;
@@ -54,8 +53,10 @@
           }
         else pkgs.ananicy-rules-cachyos;
     };
+    power-profiles-daemon.enable = true;
 
     blueman.enable = true;
+    printing.enable = true;
   };
 
   hardware.bluetooth = {
