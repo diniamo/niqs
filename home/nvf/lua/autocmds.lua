@@ -1,6 +1,5 @@
 -- Check if we need to reload
 vim.api.nvim_create_autocmd("TermLeave", {
-  group = vim.api.nvim_create_augroup("CheckTime", {}),
   callback = function()
     if vim.o.buftype ~= "nofile" then
       vim.cmd("checktime")
@@ -10,7 +9,6 @@ vim.api.nvim_create_autocmd("TermLeave", {
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = vim.api.nvim_create_augroup("HighlightYank", {}),
   callback = function()
     vim.highlight.on_yank()
   end,
@@ -18,7 +16,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("CloseWithQ", {}),
   pattern = {
     "PlenaryTestPopup",
     "help",
@@ -42,7 +39,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Make it easier to close man-files when opened inline
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("ManUnlisted", {}),
   pattern = { "man" },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
@@ -51,7 +47,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("WrapSpell", {}),
   pattern = { "*.txt", "*.tex", "*.typ", "gitcommit", "markdown" },
   callback = function()
     vim.opt_local.wrap = true
@@ -61,7 +56,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Fix conceallevel for json files
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("JsonConceal", {}),
   pattern = { "json", "jsonc", "json5" },
   callback = function()
     vim.opt_local.conceallevel = 0
@@ -70,7 +64,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
 vim.api.nvim_create_autocmd("BufWritePre", {
-  group = vim.api.nvim_create_augroup("AutoCreateDirectory", {}),
   callback = function(event)
     if event.match:match("^%w%w+:[\\/][\\/]") then
       return
