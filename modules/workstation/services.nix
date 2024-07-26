@@ -55,8 +55,17 @@
     };
     power-profiles-daemon.enable = true;
 
+    printing = {
+      enable = true;
+      drivers = [pkgs.canon-cups-ufr2];
+    };
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+
     blueman.enable = true;
-    printing.enable = true;
   };
 
   hardware.bluetooth = {
