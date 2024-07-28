@@ -72,6 +72,7 @@ in {
       "dom.webnotifications.enabled" = true;
       # Restore previous session
       "browser.startup.page" = 3;
+      "dom.event.clipboardevents.enabled" = true;
     };
 
     extensions = {
