@@ -14,7 +14,7 @@
       enable = true;
       crates.enable = true;
     };
-    # clang.enable = true;
+    clang.enable = true;
     markdown.enable = true;
   };
 }
