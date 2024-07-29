@@ -16,6 +16,8 @@ in {
   config = lib.mkIf cfg.enable {
     hardware.nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
+      # HACK: disable this once Nvidia is graceful enough to work
+      open = false;
 
       modesetting.enable = true;
       powerManagement.enable = true;
