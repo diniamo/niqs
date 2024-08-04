@@ -1,8 +1,8 @@
 {
   config,
   lib,
-  wrappedPkgs,
   pkgs,
+  lib',
   ...
 }: let
   cfg = config.modules.nvidia;
@@ -51,15 +51,16 @@ in {
 
     environment.systemPackages = [pkgs.nvtopPackages.nvidia];
 
+    nixpkgs.config.cudaSupport = true;
     nixpkgs.overlays = [
       (
-        _: _:
-          with wrappedPkgs; {
-            obsidian = obsidian-nvidia;
-            vesktop = vesktop-nvidia;
-            webcord = webcord-nvidia;
-            spotify = spotify-nvidia;
-          }
+        final: prev:
+          lib'.mapToAttrs (name: {
+            inherit name;
+            value = lib'.wrapProgram final prev.${name} {
+              makeWrapperArgs = ["--add-flags" "--disable-gpu-compositing"];
+            };
+          }) ["obsidian" "vesktop" "webcord" "spotify"]
       )
     ];
   };

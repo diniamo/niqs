@@ -2,8 +2,7 @@
   inputs,
   lib',
 }: let
-  inherit (inputs) nixpkgs;
-  inherit (nixpkgs) lib;
+  inherit (inputs.nixpkgs) lib;
 
   getPkgs = input: system:
     if (input.legacyPackages.${system} or {}) == {}
@@ -11,12 +10,7 @@
     else input.legacyPackages.${system};
 
   # Builders
-  mkNixosSystem = args @ {system, ...}: let
-    pkgs = nixpkgs.legacyPackages.${system};
-
-    flakePkgs = builtins.mapAttrs (_: value: getPkgs value system) inputs;
-    wrappedPkgs = import ../wrappers {inherit inputs pkgs;};
-  in
+  mkNixosSystem = args @ {system, ...}:
     lib.nixosSystem {
       system = null;
 
@@ -24,17 +18,28 @@
       specialArgs = {inherit inputs;};
 
       modules =
-        (args.modules or [])
-        ++ [
+        [
           {
-            _module.args = {inherit lib' system flakePkgs wrappedPkgs;};
+            _module.args = {
+              inherit system lib';
+              flakePkgs = builtins.mapAttrs (_: value: getPkgs value system) inputs;
+            };
 
-            # For some reason, the source set by nixosSystem does not have the options set by nixpkgs-unfree
-            # so we set pkgs instead
-            nixpkgs.pkgs = pkgs;
+            nixpkgs = {
+              inherit system;
+              config.allowUnfree = true;
+            };
           }
-        ];
+        ]
+        ++ args.modules or [];
     };
+
+  wrapProgram = pkgs: package: args:
+    package.overrideAttrs (prev: {
+      nativeBuildInputs = (prev.nativeBuildInputs or []) ++ [pkgs.makeBinaryWrapper];
+      postPhases = (prev.postPhases or []) ++ ["wrapPhase"];
+      wrapPhase = "wrapProgram $(realpath $out/bin/${args.executable or prev.meta.mainProgram}) ${lib.escapeShellArgs args.makeWrapperArgs}";
+    });
 
   # Helpers
   overrideError = pkg: version: value: lib.throwIf (lib.versionOlder version pkg.version) "A new version of ${pkg.pname} has been released, remove its overlay/override" value;
@@ -46,6 +51,8 @@
     then base
     else base * (pow base (exponent - 1));
   shiftLeft = number: amount: number * (pow 2 amount);
+
+  mapToAttrs = func: list: builtins.listToAttrs (map func list);
 in {
-  inherit mkNixosSystem overrideError shiftLeft;
+  inherit mkNixosSystem wrapProgram overrideError shiftLeft mapToAttrs;
 }

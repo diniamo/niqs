@@ -8,11 +8,8 @@
   };
 
   inputs = {
-    # Might want to make everything follow this instead
-    # nixpkgs-upstream.url = "nixpkgs/nixos-unstable";
-    nixpkgs-upstream.url = "github:diniamo/nixpkgs/custom";
-    nixpkgs.url = "github:numtide/nixpkgs-unfree/nixos-unstable";
-    nixpkgs.inputs.nixpkgs.follows = "nixpkgs-upstream";
+    # nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:diniamo/nixpkgs/custom";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -91,8 +88,7 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs = {
-        # Imoprts nixpkgs, which nixpkgs-unfree doesn't allow
-        nixpkgs.follows = "nixpkgs-upstream";
+        nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
         flake-utils.follows = "flake-utils";
         flake-compat.follows = "flake-compat";
@@ -168,19 +164,19 @@
     extra-substituters = [
       # Use this first
       "https://cache.nixos.org?priority=10"
+      "https://cache.garnix.io"
       "https://numtide.cachix.org"
 
       "https://hyprland.cachix.org"
-      "https://cache.garnix.io"
       "https://nix-gaming.cachix.org"
       "https://anyrun.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
 
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
     ];

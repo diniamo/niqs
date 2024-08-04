@@ -1,6 +1,6 @@
 {
   pkgs,
-  wrappedPkgs,
+  lib',
   config,
   ...
 }: let
@@ -14,7 +14,11 @@ in {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = with pkgs; [
-    wrappedPkgs.xdragon
+    (
+      lib'.wrapProgram pkgs xdragon {
+        makeWrapperArgs = ["--add-flags" "--all --and-exit"];
+      }
+    )
 
     wl-clipboard
     neovide

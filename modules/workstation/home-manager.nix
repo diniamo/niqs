@@ -5,7 +5,6 @@
   config,
   flakePkgs,
   customPkgs,
-  wrappedPkgs,
   ...
 }: let
   username = config.values.mainUser;
@@ -18,7 +17,7 @@ in {
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "old";
-      extraSpecialArgs = {inherit inputs system flakePkgs customPkgs wrappedPkgs lib';};
+      extraSpecialArgs = {inherit inputs system flakePkgs customPkgs lib';};
       users.${username} = ../../home;
     };
   };
