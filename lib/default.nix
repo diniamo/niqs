@@ -36,7 +36,10 @@
 
   wrapProgram = pkgs: package: args:
     package.overrideAttrs (prev: {
-      nativeBuildInputs = (prev.nativeBuildInputs or []) ++ [pkgs.makeBinaryWrapper];
+      # HACK: has to be added first, since if the program relies on the Bash wrapper's variable expansion, it breaks with the binary wrapper
+      # sourcing makeBinaryWrapper's setup hook fails with some random error
+      # is there a better way?
+      nativeBuildInputs = [pkgs.makeBinaryWrapper] ++ prev.nativeBuildInputs or [];
       postPhases = (prev.postPhases or []) ++ ["wrapPhase"];
       wrapPhase = "wrapProgram $(realpath $out/bin/${args.executable or prev.meta.mainProgram}) ${lib.escapeShellArgs args.makeWrapperArgs}";
     });
