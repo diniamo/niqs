@@ -48,7 +48,7 @@
         desc = "Save and quit all";
         action = "<cmd>xa<cr>";
       };
-      "<leader>zz" = {
+      "<leader>jj" = {
         desc = "Zoxide via input";
         lua = true;
         action = ''

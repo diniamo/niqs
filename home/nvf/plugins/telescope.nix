@@ -68,7 +68,7 @@ in {
       telescope.load_extension('zf-native')
       telescope.load_extension('zoxide')
     '';
-    maps.normal."<leader>zi" = {
+    maps.normal."<leader>ji" = {
       desc = "";
       lua = true;
       action = "telescope.extensions.zoxide.list";
