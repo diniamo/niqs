@@ -31,7 +31,7 @@ in {
       "${mod}, q, killactive"
       "${mod}${secondary}, q, exec, kill -9 $(hyprctl -j activewindow | jaq -r '.pid')"
 
-      "${mod}, Space, exec, anyrun"
+      "${mod}, Space, exec, walker"
       "${mod}, x, exec, wlogout --show-binds --column-spacing 5 --row-spacing 5"
       # TODO: cliphist
 

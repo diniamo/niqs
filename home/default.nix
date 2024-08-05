@@ -7,7 +7,7 @@
 in {
   imports = [
     ./hyprland
-    ./anyrun
+    # ./anyrun
     ./mpv
     # ./lazyvim
     # ./zsh
@@ -50,6 +50,7 @@ in {
     # ./iabm.nix
     ./nyaa.nix
     ./satty.nix
+    ./walker.nix
   ];
 
   home = {

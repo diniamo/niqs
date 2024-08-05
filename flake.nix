@@ -53,13 +53,13 @@
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.systems.follows = "systems";
     };
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.systems.follows = "systems";
-      inputs.flake-parts.follows = "flake-parts";
-    };
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+    walker = {
+      # url = "github:abenz1267/walker";
+      url = "github:diniamo/walker/hm-themeing";
       inputs.flake-parts.follows = "flake-parts";
     };
 
@@ -168,8 +168,8 @@
       "https://numtide.cachix.org"
 
       "https://hyprland.cachix.org"
+      "https://walker.cachix.org"
       "https://nix-gaming.cachix.org"
-      "https://anyrun.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -177,8 +177,8 @@
       "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
 
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-      "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
     ];
   };
 }
