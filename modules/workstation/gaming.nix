@@ -44,6 +44,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
+
     services.pipewire.lowLatency.enable = true;
     services.pipewire.alsa.support32Bit = true;
     security.rtkit.enable = true;
@@ -53,12 +55,13 @@ in {
     programs = {
       steam = {
         enable = true;
-        # Does this break any games?
         package = pkgs.steam-small;
+
+        extraPackages = [pkgs.openssl_1_1];
+        extraCompatPackages = [pkgs.proton-ge-bin];
 
         platformOptimizations.enable = true;
         protontricks.enable = true;
-        extraCompatPackages = [pkgs.proton-ge-bin];
       };
 
       # gamescope = {
