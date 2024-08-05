@@ -642,11 +642,11 @@
     },
     "mnw": {
       "locked": {
-        "lastModified": 1721440413,
-        "narHash": "sha256-PF/FbgCUZ6mQrKp28G2YoVDlSThBy8AxIT9d2Ju3kTY=",
+        "lastModified": 1722191188,
+        "narHash": "sha256-YF//iMALbrd2Ni9aju7w8NniH16Qz6RFTRD6md5UkDc=",
         "owner": "Gerg-L",
         "repo": "mnw",
-        "rev": "4ea225024677e7c3a96080af8624fd3aa5dfa1b6",
+        "rev": "c7b289f3f5a31b6e744be37d83fc231816621231",
         "type": "github"
       },
       "original": {
@@ -1025,11 +1025,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1721901429,
-        "narHash": "sha256-U6JcC3CeeO03Ff/f/gb9dmcmgiwIn4g+SlQlC+kI2QM=",
+        "lastModified": 1722875608,
+        "narHash": "sha256-U3JAlsQht4Srlfl7+uhMw4B5aMA6cbvV6gKpaWntMtY=",
         "owner": "diniamo",
         "repo": "nvf",
-        "rev": "26efab184dd9d8e520537bbfe06e789a065113b7",
+        "rev": "7d434ef5f81712e27de69fafabc25bbed4e424f8",
         "type": "github"
       },
       "original": {
@@ -2937,11 +2937,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722731301,
-        "narHash": "sha256-B5c6XRvtBDh/LSCfFUrJGxNwn6pthBZcZWHE/FWF3y4=",
+        "lastModified": 1722859843,
+        "narHash": "sha256-sQQgqxkOPA6DLUVf3UCzE9d7qs/sHUVF4D8dX5ZMYnQ=",
         "owner": "mitchellh",
         "repo": "zig-overlay",
-        "rev": "4add177933369a8e8e36eac5838013d3f324fcfd",
+        "rev": "10378e7f397e7e1c00c4563ae111a5b21a073869",
         "type": "github"
       },
       "original": {
