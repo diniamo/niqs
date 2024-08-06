@@ -37,10 +37,11 @@ in {
 
       "${mod}, d, togglespecialworkspace, terminal"
       "${mod}, m, togglespecialworkspace, mixer"
-      "${mod}, g, togglespecialworkspace, music"
+      "${mod}, g, togglespecialworkspace, music_gui"
       "${mod}${secondary}, g, togglespecialworkspace, music_tui"
-      "${mod}, c, togglespecialworkspace, calculator"
-      "${mod}, e, togglespecialworkspace, file_manager"
+      "${mod}, c, togglespecialworkspace, calculator_tui"
+      "${mod}${secondary}, c, togglespecialworkspace, calculator_gui"
+      "${mod}, e, togglespecialworkspace, file_manager_tui"
       "${mod}${secondary}, e, togglespecialworkspace, file_manager_gui"
 
       ", XF86Explorer, exec, sleep 1 && hyprctl dispatch dpms off"

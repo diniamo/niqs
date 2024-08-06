@@ -104,11 +104,12 @@ in {
 
       "special:terminal, on-created-empty:${terminal.command}"
       "special:mixer, on-created-empty:${terminal.command} ${terminal.separator} pulsemixer"
-      "special:music, on-created-empty:spotify"
+      "special:music_gui, on-created-empty:spotify"
       "special:music_tui, on-created-empty:${terminal.command} ${terminal.separator} spotify_player"
-      "special:calculator, on-created-empty:qalculate-qt"
-      "special:file_manager, on-created-empty:${terminal.command} ${terminal.separator} yazi"
+      "special:calculator_gui, on-created-empty:qalculate-qt"
+      "special:calculator_tui, on-created-empty:${terminal.command} ${terminal.separator} qalc"
       "special:file_manager_gui, on-created-empty:thunar"
+      "special:file_manager_tui, on-created-empty:${terminal.command} ${terminal.separator} yazi"
     ];
   };
 }
