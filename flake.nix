@@ -58,8 +58,7 @@
       inputs.flake-parts.follows = "flake-parts";
     };
     walker = {
-      # url = "github:abenz1267/walker";
-      url = "github:diniamo/walker/hm-themeing";
+      url = "github:abenz1267/walker";
       inputs.flake-parts.follows = "flake-parts";
     };
 
