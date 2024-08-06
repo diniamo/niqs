@@ -50,7 +50,8 @@ in {
     # ./iabm.nix
     ./nyaa.nix
     ./satty.nix
-    ./walker.nix
+    # ./walker.nix
+    ./fuzzel.nix
   ];
 
   home = {
