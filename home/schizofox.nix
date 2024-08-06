@@ -62,7 +62,7 @@ in {
       "widget.dmabuf.force-enabled" = true;
 
       "browser.ctrlTab.sortByRecentlyUsed" = true;
-      # This makes websites prefer a dark theme (in theory)
+      # This makes websites prefer dark theme (in theory)
       "layout.css.prefers-color-scheme.content-override" = 0;
       "widget.use-xdg-desktop-portal.file-picker" = 1;
       # Leaving this on breaks a lot
