@@ -19,7 +19,7 @@ in {
     ./fish
 
     ./xdg.nix
-    # ./foot.nix
+    ./foot.nix
     ./schizofox.nix
     ./git.nix
     # ./ncspot.nix
@@ -44,7 +44,7 @@ in {
     ./bat.nix
     ./zathura.nix
     ./swayimg.nix
-    ./alacritty.nix
+    # ./alacritty.nix
     ./scripts.nix
     ./hyprpaper.nix
     # ./iabm.nix
