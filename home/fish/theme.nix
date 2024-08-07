@@ -27,7 +27,7 @@
         --icons='Many icons' \
         --transient=Yes
 
-      set tide_time_format %R
+      set -U tide_time_format %R
 
       tide reload
 
