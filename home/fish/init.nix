@@ -1,11 +1,11 @@
 {config, ...}: {
   # This does a lot of useless stuff, like theming the terminal itself
-  # which is reduant. Just adjust unwanted colors manually instead
+  # which is useless. Just adjust unwanted colors manually instead
   stylix.targets.fish.enable = false;
 
   # Use `-U` because it's slightly faster
   programs.fish.interactiveShellInit = ''
-    if not set -q theme_configured
+    if not set -q fish_configured
       set -U fish_greeting
 
       set -U fish_color_command green
@@ -32,6 +32,7 @@
       tide reload
 
       set -U theme_configured
+      set -U fish_configured
     end
   '';
 

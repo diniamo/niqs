@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./theme.nix
+    ./init.nix
     ./binds.nix
     ./functions.nix
     ./aliases.nix
