@@ -31,7 +31,8 @@
 
       tide reload
 
-      set -U theme_configured
+      set -U sponge_regex_patterns '\\/nix\\/store\\/\\S+'
+
       set -U fish_configured
     end
   '';

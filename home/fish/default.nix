@@ -20,6 +20,7 @@
       })
 
       autopair.src
+      sponge.src
     ];
   };
 }
