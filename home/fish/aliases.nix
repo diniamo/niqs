@@ -1,11 +1,8 @@
 {
   lib,
   pkgs,
-flakePkgs,
   ...
-}: let
-  advcpmv = flakePkgs.niqspkgs.coreutils-advcpmv;
-in {
+}: {
   programs.fish.shellAliases = {
     xtouch = "install /dev/null";
     rm = "trash put";
@@ -13,8 +10,6 @@ in {
     # ip6 = "${dig} @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short -6";
     cht = "cht.sh";
     cat = "bat --style=plain";
-    cp = "${advcpmv}/bin/cp";
-    mv = "${advcpmv}/bin/mv";
 
     # eza
     ls = "eza --git --icons --group-directories-first";

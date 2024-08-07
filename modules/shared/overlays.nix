@@ -11,6 +11,7 @@
       fish = fish-no-etc-config;
       satty = satty-git;
       trashy = trashy-match-exact-dir;
+      coreutils-full = coreutils-full-advcpmv;
     };
 in {
   nixpkgs.overlays = [niqspkgs];
