@@ -57,7 +57,7 @@
       description = "edit files that aren't writable";
       body = ''
         for file in $argv
-          [ -f $file -a ! -w $file ] && set -f cond $cond $file
+          [ -f $file -a ! -w $file ] && set -fa cond $file
         end
 
         con $cond
@@ -188,7 +188,7 @@
           case -i --inputs-from
             set -f list inputs_from
           case '*'
-            set -f $list $$list $arg
+            set -fa $list $arg
           end
         end
 
