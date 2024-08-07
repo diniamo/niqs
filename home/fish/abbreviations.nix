@@ -16,6 +16,7 @@ in {
     size = "du -sh";
     "-" = "cd -";
     anime = "mpv --profile=anime";
+    cht = "cht.sh";
 
     cpath = cursor "realpath (which %)";
 
@@ -33,6 +34,7 @@ in {
     build = "nix build --builders ''";
     flake = "nix flake";
     repl = "nix repl --expr 'import <nixpkgs> {}'";
+    bloat = "nix path-info -Sh /run/current-system";
     unfree = cursor "NIXPKGS_ALLOW_UNFREE=1 % --impure";
     insecure = cursor "NIXPKGS_ALLOW_INSECURE=1 % --impure";
     broken = cursor "NIXPKGS_ALLOW_BROKEN=1 % --impure";
