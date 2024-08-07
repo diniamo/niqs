@@ -48,6 +48,10 @@ in {
       # Workaround for #6038 / #6237
       initial_workspace_tracking = 0;
     };
+    render = {
+      explicit_sync = 0;
+      explicit_sync_kms = 0;
+    };
     decoration = {
       rounding = 10;
 
