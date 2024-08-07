@@ -6,7 +6,9 @@
         font = lib.mkForce "${config.stylix.fonts.sansSerif.name}:size=20";
         icon-theme = config.stylix.icons.name;
         prompt = "'   '";
-        inner-pad = 20;
+        lines = 10;
+        line-height = 50;
+        inner-pad = 5;
         horizontal-pad = 8;
         show-actions = true;
       };
