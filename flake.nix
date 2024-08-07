@@ -12,7 +12,8 @@
     nixpkgs.url = "github:diniamo/nixpkgs/custom";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      # url = "github:nix-community/home-manager";
+      url = "github:diniamo/home-manager/fish-copy-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     wrapper-manager = {

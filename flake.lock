@@ -334,15 +334,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1720646128,
-        "narHash": "sha256-BivO5yIQukDlJL+1875Sqf3GuOPxZDdA48dYDi3PkL8=",
-        "owner": "nix-community",
+        "lastModified": 1723042288,
+        "narHash": "sha256-QOugEBO4SSvAYFQOhMjhWOBtSvs2TNtJNv1PTmJRrOo=",
+        "owner": "diniamo",
         "repo": "home-manager",
-        "rev": "c085b984ff2808bf322f375b10fea5a415a9c43d",
+        "rev": "4d52400bc62c64d93d4fbcfab093d16ddda3f677",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
+        "owner": "diniamo",
+        "ref": "fish-copy-plugins",
         "repo": "home-manager",
         "type": "github"
       }
@@ -2896,11 +2897,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722946212,
-        "narHash": "sha256-N9keJLRSjjDSyMuFKo+Z6oovBEbnkbLrNAu1Vu89oQk=",
+        "lastModified": 1723032653,
+        "narHash": "sha256-KZi8v1g5bP+pw/So7Wx9+24KnZLuxVf/4dD8QPh58dE=",
         "owner": "mitchellh",
         "repo": "zig-overlay",
-        "rev": "2df0d6c6d32ba6ee74d889a27a32bd7a95464111",
+        "rev": "51099e8d5b5c1b272124d3914bbbc5979f4c96a0",
         "type": "github"
       },
       "original": {
