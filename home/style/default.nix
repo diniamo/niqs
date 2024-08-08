@@ -1,37 +1,14 @@
-{pkgs, ...}: let
-  kdePackage = pkgs.catppuccin-kde.override {
-    flavour = ["macchiato"];
-    accents = ["blue"];
-  };
-  kvantumPackage = pkgs.catppuccin-kvantum.override {
-    accent = "Blue";
-    variant = "Macchiato";
-  };
-in {
+{osConfig, ...}: {
   imports = [
-    ./icons.nix
     ./gtk.nix
     ./qt.nix
   ];
 
   config = {
+    # HACK: stylix only mirrors internally defined options (and fonts.*.path for some reason)
     stylix = {
-      icons = {
-        package = pkgs.catppuccin-papirus-folders.override {
-          flavor = "macchiato";
-          accent = "blue";
-        };
-        name = "Papirus-Dark";
-      };
-
-      targets.qt = {
-        colors = "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/Catppuccin-Macchiato.conf";
-        kdeglobals = "${kdePackage}/share/color-schemes/CatppuccinMacchiatoBlue.colors";
-        kvantum = {
-          config = "${kvantumPackage}/share/Kvantum/Catppuccin-Macchiato-Blue/Catppuccin-Macchiato-Blue.kvconfig";
-          svg = "${kvantumPackage}/share/Kvantum/Catppuccin-Macchiato-Blue/Catppuccin-Macchiato-Blue.svg";
-        };
-      };
+      inherit (osConfig.stylix) icons;
+      targets.qt = osConfig.stylix.targets.qt;
     };
   };
 }
