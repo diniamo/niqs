@@ -5,7 +5,7 @@
       alacritty = alacritty-sixel;
       swayimg = swayimg-git;
       lix = lix-super;
-      comma = comma-sensible-print;
+      comma = comma-patched;
       nix-output-monitor = nom-traces-nf-icons;
       nh = nh-patched-nom;
       fish = fish-no-etc-config;
