@@ -22,6 +22,7 @@
     bind -M insert \ej history-token-search-forward
     bind -M insert \ek history-token-search-backward
 
-    bind -M insert \t complete-and-search
+    bind -M insert \t 'if commandline -P; commandline -f complete; else; commandline -f complete-and-search; end'
+    bind -M insert \e\[Z complete-and-search
   '';
 }
