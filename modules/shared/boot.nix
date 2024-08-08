@@ -38,7 +38,7 @@ in {
 
       tmp.useTmpfs = lib.mkDefault true;
       kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-      kernelParams = ["quiet" "splash"];
+      kernelParams = ["quiet"];
     };
   };
 }

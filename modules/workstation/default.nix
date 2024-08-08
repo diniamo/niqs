@@ -13,5 +13,6 @@
     ./services.nix
     # ./dolphin.nix
     ./hyprland.nix
+    ./plymouth.nix
   ];
 }
