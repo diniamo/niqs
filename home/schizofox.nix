@@ -72,6 +72,8 @@ in {
       # Restore previous session
       "browser.startup.page" = 3;
       "dom.event.clipboardevents.enabled" = true;
+      # Remove window control buttons
+      "browser.tabs.inTitlebar" = 0;
     };
 
     extensions = {
