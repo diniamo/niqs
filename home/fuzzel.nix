@@ -9,7 +9,7 @@
         lines = 8;
         line-height = 50;
         inner-pad = 5;
-        horizontal-pad = 8;
+        horizontal-pad = 13;
         show-actions = true;
       };
 
