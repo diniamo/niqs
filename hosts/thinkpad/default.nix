@@ -22,10 +22,11 @@ in {
     brightnessctl
   ];
 
+  # pipewire-pulse kept getting killed by God himself, and most programs use pulseaudio anyway
+  services.pipewire.enable = lib.mkForce false;
+  hardware.pulseaudio.enable = true;
+
   services = {
-    # It keeps getting killed by God himself
-    # and programs keep trying to use it even if they have a fallback
-    pipewire.pulse.enable = lib.mkForce false;
 
     # For remote rebuilding
     openssh = {
