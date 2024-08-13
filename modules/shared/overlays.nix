@@ -8,7 +8,7 @@
       comma = comma-patched;
       nix-output-monitor = nom-traces-nf-icons;
       nh = nh-patched-nom;
-      fish = fish-no-etc-config;
+      fish = fish-patched;
       satty = satty-git;
       trashy = trashy-match-exact-dir;
       coreutils-full = coreutils-full-advcpmv;
