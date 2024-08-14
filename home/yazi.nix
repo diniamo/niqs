@@ -66,7 +66,7 @@
           on = [
             "e"
           ];
-          run = "shell trash restore --directory .";
+          run = "shell gtrash restore --cwd .";
           desc = "Restore files from the trash";
         }
         {

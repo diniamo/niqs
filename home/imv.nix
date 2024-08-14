@@ -22,7 +22,7 @@ in {
         x = "close";
         "<Shift+X>" = "quit";
 
-        d = "exec trash put \"$imv_current_file\"; close";
+        d = "exec gtrash put \"$imv_current_file\"; close";
         "<Shift+D>" = "exec rm \"$imv_current_file\"; close";
 
         i = "overlay";

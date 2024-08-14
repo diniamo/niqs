@@ -23,7 +23,7 @@ in {
     wl-clipboard
     neovide
     spotify
-    trashy
+    gtrash
     ungoogled-chromium
     yt-dlp
     libreoffice-qt

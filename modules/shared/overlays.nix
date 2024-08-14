@@ -10,7 +10,6 @@
       nh = nh-patched-nom;
       fish = fish-patched;
       satty = satty-git;
-      trashy = trashy-match-exact-dir;
       coreutils-full = coreutils-full-advcpmv;
     };
 in {

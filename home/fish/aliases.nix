@@ -4,7 +4,7 @@
   ...
 }: {
   programs.fish.shellAliases = {
-    rm = "trash put";
+    rm = "gtrash put --rm-mode";
     ip4 = "${lib.getExe pkgs.dig} @resolver4.opendns.com myip.opendns.com +short -4";
     # ip6 = "${dig} @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short -6";
     cat = "bat --style=plain";
