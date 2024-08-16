@@ -31,7 +31,7 @@ in {
     shell = "nix shell";
     dev = "nix develop --command fish";
     run = "nix run";
-    build = "nix build --builders ''";
+    build = "nix build";
     flake = "nix flake";
     repl = "nix repl --expr 'import <nixpkgs> {}'";
     bloat = "nix path-info -Sh /run/current-system";
