@@ -11,7 +11,7 @@ in {
     ./mpv
     # ./lazyvim
     # ./zsh
-    ./delta
+    # ./delta
     ./nvf
     ./starship
     # ./river
@@ -52,6 +52,7 @@ in {
     # ./walker.nix
     ./fuzzel.nix
     # ./sway.nix
+    ./difftastic.nix
   ];
 
   home = {
