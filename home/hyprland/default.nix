@@ -20,7 +20,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = flakePkgs.hyprland.default;
+    # Installed by the NixOS module
+    package = null;
 
     xwayland.enable = true;
     systemd = {
