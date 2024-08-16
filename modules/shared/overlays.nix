@@ -1,16 +1,16 @@
 {flakePkgs, ...}: let
   niqspkgs = _: _:
     with flakePkgs.niqspkgs; {
-      starship = starship-nix3-shell;
+      starship = starship-patched;
       alacritty = alacritty-sixel;
       swayimg = swayimg-git;
-      lix = lix-super;
+      lix = lix-patched;
       comma = comma-patched;
-      nix-output-monitor = nom-traces-nf-icons;
-      nh = nh-patched-nom;
+      nix-output-monitor = nom-patched;
+      nh = nh-patched;
       fish = fish-patched;
-      satty = satty-git;
-      coreutils-full = coreutils-full-advcpmv;
+      coreutils-full = coreutils-full-patched;
+      sway-unwrapped = sway-unwrapped-git;
     };
 in {
   nixpkgs.overlays = [niqspkgs];
