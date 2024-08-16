@@ -44,52 +44,6 @@ in {
       ];
       exec-once = ["vesktop"];
     };
-
-    xsession.windowManager.i3.config = {
-      workspaceOutputAssign = [
-        {
-          workspace = "1";
-          output = "DP-0";
-        }
-        {
-          workspace = "2";
-          output = "DP-0";
-        }
-        {
-          workspace = "3";
-          output = "DP-0";
-        }
-        {
-          workspace = "4";
-          output = "DP-0";
-        }
-        {
-          workspace = "5";
-          output = "DP-0";
-        }
-        {
-          workspace = "6";
-          output = "DP-0";
-        }
-        {
-          workspace = "7";
-          output = "DP-0";
-        }
-        {
-          workspace = "8";
-          output = "DP-0";
-        }
-        {
-          workspace = "9";
-          output = "DP-0";
-        }
-        {
-          workspace = "10";
-          output = "DP-3";
-        }
-      ];
-      startup = [{command = "xrandr --output DP-0 --mode 1920x1080 --rate 165";}];
-    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
