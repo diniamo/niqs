@@ -51,6 +51,7 @@ in {
     ./satty.nix
     # ./walker.nix
     ./fuzzel.nix
+    # ./sway.nix
   ];
 
   home = {
