@@ -20,10 +20,10 @@ in {
         "<Ctrl+R>" = "rotate to 0";
 
         x = "close";
-        "<Shift+X>" = "quit";
 
         d = "exec gtrash put \"$imv_current_file\"; close";
         "<Shift+D>" = "exec rm \"$imv_current_file\"; close";
+        "<Delete>" = "exec rm \"$imv_current_file\"; close";
 
         i = "overlay";
         n = "center; reset";
