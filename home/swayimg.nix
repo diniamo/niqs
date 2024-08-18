@@ -8,14 +8,6 @@
   inherit (config.stylix) fonts;
 
   settings = {
-    general = {
-      # TODO: enable this once performance is better
-      antialiasing = false;
-      fixed = false;
-      transparency = colors.base02;
-      background = colors.base00;
-    };
-
     font = {
       inherit (fonts.sansSerif) name;
       size = fonts.sizes.applications;
@@ -23,9 +15,17 @@
       shadow = colors.base01;
     };
 
-    info."full.topleft" = "name, imagesize, filesize";
+    viewer = {
+      # TODO: enable this once performance is better
+      antialiasing = false;
+      fixed = false;
+      transparency = colors.base02;
+      window = colors.base00;
+    };
 
-    keys = {
+    "info.viewer".top_left = "name, imagesize, filesize";
+
+    "keys.viewer" = {
       "0" = "first_file";
       "dollar" = "last_file";
       "Ctrl+h" = "prev_file";
@@ -48,9 +48,7 @@
       Delete = "exec rm '%'; status 'Deleted %'";
       y = "exec wl-copy < '%'; status 'Copied image'";
       "Shift+y" = "exec wl-copy '%'; status 'Copied image path'";
-    };
 
-    mouse = {
       ScrollUp = "zoom +5";
       ScrollDown = "zoom -5";
     };
