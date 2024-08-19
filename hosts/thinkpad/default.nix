@@ -49,6 +49,8 @@ in {
 
   home-manager.users.${values.mainUser} = {
     programs.mpv.config.ao = "pulse";
+    programs.jerry.config.player_arguments = lib.mkForce "";
+
     wayland.windowManager.hyprland.settings = {
       animations.enabled = mkForce false;
       decoration = {
