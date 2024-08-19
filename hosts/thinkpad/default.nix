@@ -22,11 +22,6 @@ in {
     brightnessctl
   ];
 
-  # pipewire-pulse kept getting killed by God himself, and most programs use pulseaudio anyway
-  services.pipewire.enable = lib.mkForce false;
-  hardware.pulseaudio.enable = true;
-  home-manager.users.${values.mainUser}.programs.mpv.config.ao = "pulse";
-
   services = {
     # For remote rebuilding
     openssh = {
@@ -48,7 +43,12 @@ in {
     intel-gpu-tools.enable = true;
   };
 
+  # pipewire-pulse kept getting killed by God himself, and most programs use pulseaudio anyway
+  services.pipewire.enable = lib.mkForce false;
+  hardware.pulseaudio.enable = true;
+
   home-manager.users.${values.mainUser} = {
+    programs.mpv.config.ao = "pulse";
     wayland.windowManager.hyprland.settings = {
       animations.enabled = mkForce false;
       decoration = {
