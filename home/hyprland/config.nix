@@ -93,14 +93,15 @@ in {
       "float, ^(org.freedesktop.impl.portal.desktop.kde)$"
       "idleinhibit always, ^(org.qbittorrent.qBittorrent)$"
       "noanim, ^(ueberzugpp_)(.*)$"
-      "immediate, ^(steam_app_)(.*)$"
-      "fullscreen, ^(steam_app_)(.*)$"
     ];
     windowrulev2 = [
       # These 2 should fix floating windows
       "stayfocused, initialtitle:^()$, initialclass:^(steam)$"
       "minsize 1 1, initialtitle:^()$, initialclass:^(steam)$"
       "maximize, initialtitle:^(\S+)$, initialclass:^(steamwebhelper)$"
+
+      "immediate, initialclass:^(steam_app_)(.*)$"
+      "fullscreen, initialclass:^(steam_app_)(.*)$"
     ];
     workspace = [
       "w[v1] s[false], ${noDecorations}"
