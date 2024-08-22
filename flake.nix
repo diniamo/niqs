@@ -8,8 +8,8 @@
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:diniamo/nixpkgs/custom";
+    # nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:diniamo/nixpkgs/custom";
 
     home-manager = {
       # url = "github:nix-community/home-manager";
@@ -110,8 +110,7 @@
       };
     };
     schizofox = {
-      # url = "github:schizofox/schizofox";
-      url = "github:diniamo/schizofox/filter-null-extensions";
+      url = "github:schizofox/schizofox";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";

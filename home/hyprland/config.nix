@@ -32,9 +32,6 @@ in {
       layout = "dwindle";
     };
     xwayland.force_zero_scaling = true;
-    # Firefox is broken
-    # experimental.explicit_sync = true;
-    # opengl.nvidia_anti_flicker = false;
     misc = {
       force_default_wallpaper = 0;
       disable_hyprland_logo = true;
@@ -49,9 +46,10 @@ in {
       initial_workspace_tracking = 0;
     };
     render = {
-      explicit_sync = 0;
-      explicit_sync_kms = 0;
+      explicit_sync = 1;
+      explicit_sync_kms = 1;
     };
+    opengl.nvidia_anti_flicker = false;
     decoration = {
       rounding = 10;
 
