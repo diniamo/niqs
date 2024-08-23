@@ -44,6 +44,15 @@ in {
       ];
       exec-once = ["vesktop"];
     };
+
+    wayland.windowManager.river.settings = {
+      spawn = [
+        "wlr-randr --output DP-1 --mode 1920x1080@164.917007Hz --adaptive-sync enabled"
+
+        "vesktop"
+      ];
+      rule-add = ["-app-id vesktop output DP-2"];
+    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

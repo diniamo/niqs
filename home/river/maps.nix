@@ -30,15 +30,15 @@
 
     # TODO: turn off monitors
 
-    "None Print" = "spawn 'wayshot --stdout | wl-copy'";
-    "Control Print" = "spawn 'wayshot --slurp $(slurp) --stdout | wl-copy'";
-    "Shift Print" = "spawn 'wayshot --slurp $(slurp) --stdout | swayimg -'";
+    # TODO: only screenshot current output
+    "None Print" = "spawn 'grim - | wl-copy'";
+    "Control Print" = "spawn 'grim -g $(slurp) - | wl-copy'";
+    "Shift Print" = "spawn 'grim -g $(slurp) - | swayimg -'";
     # TODO: screenshot focused window
-    "Super Print" = "spawn 'wayshot --slurp $(slurp) --stdout | satty -f -'";
+    "Super s" = "spawn 'wl-paste | satty -f -'";
 
     # TODO: color picker?
 
-    "Super s" = "spawn 'wl-paste | satty -f -'";
     "Super+Control m" = "spawn 'mpv \"$(wl-paste | sed \"s/&.*$//\")\"'";
     "Super+Control i" = "spawn '${scripts.openImage}'";
     "Super+Control w" = "spawn 'firefox \"$(wl-paste)\"'";
@@ -58,6 +58,11 @@
     "Super+Shift j" = "swap down";
     "Super+Shift k" = "swap up";
     "Super+Shift l" = "swap right";
+
+    "Super+Alt h" = "focus-output left";
+    "Super+Alt j" = "focus-output down";
+    "Super+Alt k" = "focus-output up";
+    "Super+Alt l" = "focus-output right";
 
     "Super Tab" = "focus-previous-tags";
 
