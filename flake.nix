@@ -47,8 +47,11 @@
     # These are downloaded from caches, so overriding nixpkgs would break them
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
-      inputs.systems.follows = "systems";
-      inputs.flake-parts.follows = "flake-parts";
+      inputs = {
+        systems.follows = "systems";
+        flake-parts.follows = "flake-parts";
+        lix.inputs.flake-compat.follows = "flake-compat";
+      };
     };
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
