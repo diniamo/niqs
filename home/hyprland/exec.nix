@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   flakePkgs,
@@ -12,7 +11,7 @@ in {
     exec-once =
       [
         "[workspace 1] firefox"
-        "${lib.getExe' pkgs.gammastep "gammastep"} -l 47.1625:19.5033 -t 6500K:2600K"
+        "gammastep -l 47.1625:19.5033 -t 6500K:2600K"
         scripts.socket
         (lib.getExe flakePkgs.bgar.default)
       ]

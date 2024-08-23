@@ -13,9 +13,11 @@
     ./scripts.nix
   ];
 
-  home.packages = [
+  home.packages = with pkgs; [
+    hyprpicker
+    gammastep
+
     flakePkgs.hyprwm-contrib.grimblast
-    pkgs.hyprpicker
   ];
 
   wayland.windowManager.hyprland = {

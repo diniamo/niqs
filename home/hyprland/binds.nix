@@ -12,9 +12,6 @@
   inherit (config) scripts;
   hyprlandScripts = config.programs.hyprland.scripts;
 
-  playerctl = getExe pkgs.playerctl;
-  notifySend = getExe pkgs.libnotify;
-
   mod = "SUPER";
   ctrl = "CONTROL";
   alt = "ALT";
@@ -61,17 +58,17 @@ in {
       # "${mod}, p, exec, ${playerctl} play-pause"
       # "${mod}, r, exec, ${playerctl} position 0"
 
-      ", XF86AudioPrev, exec, ${playerctl} previous"
-      ", XF86AudioNext, exec, ${playerctl} next"
+      ", XF86AudioPrev, exec,  previous"
+      ", XF86AudioNext, exec, next"
       # The stop function is pretty much useless, use it to restart the playing media instead
-      ", XF86AudioStop, exec, ${playerctl} position 0"
-      ", XF86AudioPlay, exec, ${playerctl} play-pause"
+      ", XF86AudioStop, exec, position 0"
+      ", XF86AudioPlay, exec, play-pause"
 
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-      ''${mod}${secondary}, m, exec, ${notifySend} "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
+      ''${mod}${secondary}, m, exec, "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
       ''${mod}${secondary}, i, exec, ${scripts.openImage}''
-      ''${mod}${secondary}, w, exec, ${notifySend} "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
+      ''${mod}${secondary}, w, exec, "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
 
       "${mod}, h, movefocus, l"
       "${mod}, j, movefocus, d"
