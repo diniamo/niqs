@@ -16,7 +16,7 @@
     client.default_app.use_magnet = true;
     source = {
       nyaa = {
-        default_sort = "Downloads";
+        default_sort = "Seeders";
         default_filter = "TrustedOnly";
         default_category = "AnimeEnglishTranslated";
       };
