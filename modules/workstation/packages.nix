@@ -30,6 +30,7 @@ in {
     libqalculate
     qalculate-qt
     pulsemixer
+    pavucontrol
     eza
     libnotify
     gist

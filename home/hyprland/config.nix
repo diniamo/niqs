@@ -106,7 +106,8 @@ in {
       "f[1], ${noDecorations}"
 
       "special:terminal, on-created-empty:${terminal.command}"
-      "special:mixer, on-created-empty:${terminal.command} ${terminal.separator} pulsemixer"
+      "special:mixer_gui, on-created-empty:pavucontrol"
+      "special:mixer_tui, on-created-empty:${terminal.command} ${terminal.separator} pulsemixer"
       "special:music_gui, on-created-empty:spotify"
       "special:music_tui, on-created-empty:${terminal.command} ${terminal.separator} spotify_player"
       "special:calculator_gui, on-created-empty:qalculate-qt"

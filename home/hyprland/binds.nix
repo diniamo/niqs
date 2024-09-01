@@ -33,7 +33,8 @@ in {
       # TODO: cliphist
 
       "${mod}, d, togglespecialworkspace, terminal"
-      "${mod}, m, togglespecialworkspace, mixer"
+      "${mod}, m, togglespecialworkspace, mixer_tui"
+      "${mod}${secondary}, m, togglespecialworkspace, mixer_gui"
       "${mod}, g, togglespecialworkspace, music_gui"
       "${mod}${secondary}, g, togglespecialworkspace, music_tui"
       "${mod}, c, togglespecialworkspace, calculator_tui"
@@ -66,8 +67,8 @@ in {
 
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-      ''${mod}${secondary}, m, exec, "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
-      ''${mod}${secondary}, i, exec, ${scripts.openImage}''
+      ''${mod}${secondary}, v, exec, "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
+      ''${mod}, i, exec, ${scripts.openImage}''
       ''${mod}${secondary}, w, exec, "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
 
       "${mod}, h, movefocus, l"
