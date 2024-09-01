@@ -59,17 +59,17 @@ in {
       # "${mod}, p, exec, ${playerctl} play-pause"
       # "${mod}, r, exec, ${playerctl} position 0"
 
-      ", XF86AudioPrev, exec,  previous"
-      ", XF86AudioNext, exec, next"
+      ", XF86AudioPrev, exec, playerctl previous"
+      ", XF86AudioNext, exec, playerctl next"
       # The stop function is pretty much useless, use it to restart the playing media instead
-      ", XF86AudioStop, exec, position 0"
-      ", XF86AudioPlay, exec, play-pause"
+      ", XF86AudioStop, exec, playerctl position 0"
+      ", XF86AudioPlay, exec, playerctl play-pause"
 
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-      ''${mod}${secondary}, v, exec, "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
+      ''${mod}${secondary}, v, exec, notify-send "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
       ''${mod}, i, exec, ${scripts.openImage}''
-      ''${mod}${secondary}, w, exec, "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
+      ''${mod}${secondary}, w, exec, notify-send "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
 
       "${mod}, h, movefocus, l"
       "${mod}, j, movefocus, d"
