@@ -1,9 +1,16 @@
-{config, lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: let
+  inherit (config.lib.stylix.colors) base0B;
+  inherit (lib) mkForce;
+in {
   programs.fuzzel = {
     enable = true;
     settings = {
       main = {
-        font = lib.mkForce "${config.stylix.fonts.sansSerif.name}:size=20";
+        font = mkForce "${config.stylix.fonts.sansSerif.name}:size=20";
         icon-theme = config.stylix.icons.name;
         prompt = "'   '";
         lines = 8;
@@ -11,6 +18,11 @@
         inner-pad = 5;
         horizontal-pad = 13;
         show-actions = true;
+      };
+
+      colors = {
+        match = mkForce "${base0B}ff";
+        selection-match = mkForce "${base0B}ff";
       };
 
       key-bindings = {
