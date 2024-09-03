@@ -2794,6 +2794,7 @@
         "schizofox": "schizofox",
         "stylix": "stylix",
         "systems": "systems",
+        "wallpapers": "wallpapers",
         "wrapper-manager": "wrapper-manager"
       }
     },
@@ -2923,6 +2924,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "x86_64-linux",
+        "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725376177,
+        "narHash": "sha256-OsDg8AWn6PNPiU2iovYHXX6aNp5Nzh2GTZq1QzxsTuU=",
+        "owner": "diniamo",
+        "repo": "wallpapers",
+        "rev": "969773047a3aac0c5d0348a17c6fdec4db1d6874",
+        "type": "github"
+      },
+      "original": {
+        "owner": "diniamo",
+        "repo": "wallpapers",
         "type": "github"
       }
     },

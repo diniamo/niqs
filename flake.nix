@@ -156,6 +156,11 @@
         };
       };
     };
+
+    wallpapers = {
+      url = "github:diniamo/wallpapers";
+      flake = false;
+    };
   };
 
   nixConfig = {
