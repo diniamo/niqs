@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  osConfig,
   ...
 }: let
   inherit (config.lib.stylix.colors) base0B;
@@ -18,6 +19,7 @@ in {
         inner-pad = 5;
         horizontal-pad = 13;
         show-actions = true;
+        terminal = osConfig.values.terminal.command;
       };
 
       colors = {
