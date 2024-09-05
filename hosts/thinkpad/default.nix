@@ -20,6 +20,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     brightnessctl
+    gmetronome
   ];
 
   services = {
