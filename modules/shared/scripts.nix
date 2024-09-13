@@ -63,8 +63,6 @@
       ${getExe pkgs.alejandra} -q .
     fi
 
-    # nixos-rebuild --use-remote-sudo switch --flake "$flake" "''${extra_args[@]}"
-
     if [[ -n "$flake_hostname" ]]; then
       ${getExe pkgs.nh} os switch --hostname "$flake_hostname" "$flake_root" -- "''${extra_args[@]}"
     else
