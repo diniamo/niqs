@@ -13,7 +13,7 @@ in {
     # ./zsh
     # ./delta
     ./nvf
-    ./starship
+    # ./starship
     # ./river
     ./style
     ./fish
