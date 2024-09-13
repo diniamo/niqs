@@ -1,5 +1,5 @@
 {
-  programs.nvf.settings.vim.ui.breadcrumbs.enable = true;
+  programs.nvf.settings.vim.ui.breadcrumbs.lualine.winbar.enable = false;
 
   programs.nvf.settings.vim.statusline = {
     lualine = {
@@ -13,7 +13,6 @@
         right = "";
       };
 
-      # setupOpts.winbar.lualine_c = mkForce [];
       activeSection = {
         a = ["'mode'"];
         b = [
