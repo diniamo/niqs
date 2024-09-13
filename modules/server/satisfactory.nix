@@ -6,11 +6,8 @@
 }: let
   inherit (lib) mkOption types getExe;
 
-  crudini = getExe pkgs.crudini;
-  toIniBool = bool:
-    if bool
-    then "True"
-    else "False";
+  patchelf = getExe pkgs.patchelf;
+  interpreter = "${pkgs.glibc}/lib/ld-linux-x86-64.so.2";
 
   path = "/var/lib/satisfactory";
   cfg = config.services.satisfactory;
@@ -18,26 +15,11 @@ in {
   options = {
     services.satisfactory = {
       enable = lib.mkEnableOption "Satisfactory dedicated server";
-      beta = mkOption {
-        description = "The beta release to use";
-        type = types.enum [null "experimental"];
-        default = null;
-      };
 
-      maxPlayers = mkOption {
-        description = "Player limit";
-        type = types.int;
-        default = 3;
-      };
-      autoPause = mkOption {
-        description = "Automatically pause the game when there are no palyers online";
+      experimental = mkOption {
+        description = "Whether to use the experimental branch";
         type = types.bool;
-        default = true;
-      };
-      autoSaveOnDisconnet = mkOption {
-        description = "Automatically save the game when a player disconnects";
-        type = types.bool;
-        default = true;
+        default = false;
       };
     };
   };
@@ -52,7 +34,10 @@ in {
     };
     users.groups.satisfactory = {};
 
-    networking.firewall.allowedUDPPorts = [15777 15000 7777];
+    networking.firewall = {
+      allowedTCPPorts = [7777];
+      allowedUDPPorts = [7777];
+    };
 
     systemd.services.satisfactory = {
       description = "Satisfactory dedicated server";
@@ -62,27 +47,24 @@ in {
           +force_install_dir ${path}/SatisfactoryDedicatedServer \
           +login anonymous \
           +app_update 1690800 \
-          ${lib.optionalString (cfg.beta != null) "-beta ${cfg.beta}"} \
+          ${lib.optionalString cfg.experimental "-beta experimental"} \
           validate \
           +quit
-        ${getExe pkgs.patchelf} --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 ${path}/SatisfactoryDedicatedServer/Engine/Binaries/Linux/UnrealServer-Linux-Shipping
 
-        mkdir -p ${path}/SatisfactoryDedicatedServer/FactoryGame/Saved/Config/LinuxServer
-        ${crudini} --set ${path}/SatisfactoryDedicatedServer/FactoryGame/Saved/Config/LinuxServer/Game.ini '/Script/Engine.GameSession' MaxPlayers ${toString cfg.maxPlayers}
-        ${crudini} \
-          --set ${path}/SatisfactoryDedicatedServer/FactoryGame/Saved/Config/LinuxServer/ServerSettings.ini '/Script/FactoryGame.FGServerSubsystem' mAutoPause ${toIniBool cfg.autoPause} \
-          --set ${path}/SatisfactoryDedicatedServer/FactoryGame/Saved/Config/LinuxServer/ServerSettings.ini '/Script/FactoryGame.FGServerSubsystem' mAutoSaveOnDisconnect ${toIniBool cfg.autoSaveOnDisconnet}
+        ${patchelf} --set-interpreter ${interpreter} ${path}/SatisfactoryDedicatedServer/Engine/Binaries/Linux/FactoryServer-Linux-Shipping
+        ${patchelf} --set-interpreter ${interpreter} ${path}/SatisfactoryDedicatedServer/Engine/Binaries/Linux/CrashReportClient
       '';
+
       serviceConfig = {
-        ExecStart = "${path}/SatisfactoryDedicatedServer/Engine/Binaries/Linux/UnrealServer-Linux-Shipping FactoryGame -DisablePacketRouting";
-        # steamcmd can be slow, especially on the initial download
-        # shutdown is also either slow or indefinite
-        TimeoutSec = "infinity";
+        ExecStart = "${path}/SatisfactoryDedicatedServer/Engine/Binaries/Linux/FactoryServer-Linux-Shipping FactoryGame -DisablePacketRouting";
+        # 10 minutes might be too much for the download, but I want to be safe
+        TimeoutSec = 600;
         User = "satisfactory";
         Group = "satisfactory";
         WorkingDirectory = path;
       };
-      environment.LD_LIBRARY_PATH = "SatisfactoryDedicatedServer/linux64:SatisfactoryDedicatedServer/Engine/Binaries/Linux";
+
+      environment.LD_LIBRARY_PATH = "${path}/SatisfactoryDedicatedServer/linux64:${path}/SatisfactoryDedicatedServer/Engine/Binaries/Linux";
     };
   };
 }
