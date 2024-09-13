@@ -184,18 +184,32 @@
         for arg in $argv
           switch $arg
           case -p --packages
+            if set -q with[1]
+              set -f direct[-1] "($direct[-1].withPackages (ps: with ps; [$with]))"
+              set -fe with
+            end
+
             set -f list direct
           case -i --inputs-from
+            if set -q with[1]
+              set -f direct[-1] "($direct[-1].withPackages (ps: with ps; [$with]))"
+              set -fe with
+            end
+
             set -f list inputs_from
+          case -w --with
+            set -f list with
           case '*'
             set -fa $list $arg
           end
         end
 
+        if set -q with[1]
+          set -f direct[-1] "($direct[-1].withPackages (ps: with ps; [$with]))"
+        end
+
         nix shell --impure --expr "
-          let
-            pkgs = import <nixpkgs> {};
-          in pkgs.mkShellNoCC with pkgs; {
+          with import <nixpkgs> {}; mkShellNoCC {
             packages = [$direct];
             inputsFrom = [$inputs_from];
           }
