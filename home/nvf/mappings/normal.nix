@@ -49,18 +49,18 @@
         action = "<cmd>xa<cr>";
       };
       "<leader>jj" = {
-        desc = "Zoxide via input";
+        desc = "Zoxide input";
         lua = true;
         action = ''
           function()
             local keyword = vim.fn.input("Keyword: ")
             local directory = vim.fn.system({ "zoxide", "query", keyword }):match("(.*)[\n\r]")
 
-            if directory == "" or directory == nil then
+            if directory == "zoxide: no match found" then
               vim.notify("No match found", vim.log.levels.ERROR)
             else
-              vim.notify(directory)
               vim.fn.chdir(directory)
+              vim.notify(directory)
             end
           end
         '';

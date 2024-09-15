@@ -70,7 +70,7 @@ in {
       telescope.load_extension('zoxide')
     '';
     maps.normal."<leader>ji" = {
-      desc = "";
+      desc = "Zoxide list";
       lua = true;
       action = "telescope.extensions.zoxide.list";
     };
@@ -86,6 +86,7 @@ in {
       "<leader>sl" = "+Lsp";
       "<leader>sv" = "+Git";
       "<leader>svc" = "+Commit";
+      "<leader>j" = "+Zoxide";
     };
   };
 }
