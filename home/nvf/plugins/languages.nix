@@ -21,6 +21,7 @@
     };
     # clang.enable = true;
     markdown.enable = true;
+    # nu.enable = true;
   };
 
   programs.nvf.modules.lspSources = {
