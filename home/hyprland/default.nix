@@ -1,12 +1,9 @@
 {
-  inputs,
   flakePkgs,
   pkgs,
   ...
 }: {
   imports = [
-    inputs.hyprland.homeManagerModules.default
-
     ./config.nix
     ./binds.nix
     ./exec.nix
