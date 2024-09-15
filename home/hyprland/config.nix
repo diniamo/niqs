@@ -31,7 +31,9 @@ in {
 
       layout = "dwindle";
     };
-    xwayland.force_zero_scaling = true;
+    xwayland = {
+      force_zero_scaling = true;
+    };
     misc = {
       force_default_wallpaper = 0;
       disable_hyprland_logo = true;
@@ -42,6 +44,9 @@ in {
       key_press_enables_dpms = true;
 
       new_window_takes_over_fullscreen = 1;
+    };
+    cursor = {
+      allow_dumb_copy = true;
     };
     render = {
       explicit_sync = 1;
