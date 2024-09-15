@@ -55,6 +55,7 @@ in {
         lspTypeDefinitions = "<leader>slt";
         lspWorkspaceSymbols = "<leader>slsw";
         open = "<leader>so";
+        resume = "<leader>sr";
         treesitter = "<leader>ss";
       };
     };
