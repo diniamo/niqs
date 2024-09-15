@@ -1046,11 +1046,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1726243589,
-        "narHash": "sha256-sBRkTpMwYHiR/IUgIond/y2Hc1bxoZ8x/pgvPR7BO3U=",
+        "lastModified": 1726331488,
+        "narHash": "sha256-QLTSON1PMZ6SvYWL5F0UhgFXXyjjB01x8dMozdt08Dc=",
         "owner": "diniamo",
         "repo": "nvf",
-        "rev": "320216d46542200488800bc23db4e18be2f822eb",
+        "rev": "6b3b03784e9b6249080819d243ecacbcaf7c9d4a",
         "type": "github"
       },
       "original": {
