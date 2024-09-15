@@ -71,7 +71,7 @@ in {
   };
 
   programs.fish.functions = {
-    _prepend_git_clone = "echo -n git clone $argv";
+    _prepend_git_clone = ''echo -n "git clone $argv && cd $(string match -gr '/(.+)\.git$' $argv[1])"'';
     _last_history_item = "echo -n $history[1]";
     _prepend_command = "echo -n command (string sub -s 2 $argv[1]) $argv[2..]";
   };
