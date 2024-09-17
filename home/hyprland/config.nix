@@ -67,7 +67,7 @@ in {
       drop_shadow = false;
     };
     animations = {
-      enabled = false;
+      enabled = true;
 
       bezier = "myBezier, 0.05, 0.9, 0.1, 1.1";
 
@@ -78,8 +78,10 @@ in {
         "fade, 1, 5, default"
         "border, 1, 5, default"
         "borderangle, 0, 8, default"
-        "workspaces, 1, 5, myBezier"
-        "specialWorkspace, 1, 5, myBezier, slidevert"
+        # "workspaces, 1, 5, myBezier"
+        # "specialWorkspace, 1, 5, myBezier, slidevert"
+        "workspaces, 0"
+        "specialWorkspace, 0"
       ];
     };
     dwindle = {
