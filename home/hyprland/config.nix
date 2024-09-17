@@ -38,12 +38,19 @@ in {
       force_default_wallpaper = 0;
       disable_hyprland_logo = true;
       disable_splash_rendering = true;
+
       disable_autoreload = true;
+      middle_click_paste = false;
+      focus_on_activate = true;
+
+      animate_manual_resizes = true;
+      animate_mouse_windowdragging = true;
 
       mouse_move_enables_dpms = false;
       key_press_enables_dpms = true;
 
       new_window_takes_over_fullscreen = 1;
+      exit_window_retains_fullscreen = true;
     };
     cursor = {
       allow_dumb_copy = true;
@@ -87,6 +94,7 @@ in {
     };
     binds = {
       allow_workspace_cycles = true;
+      workspace_center_on = 1;
     };
     windowrule = [
       "pin, ^(dragon)$"
