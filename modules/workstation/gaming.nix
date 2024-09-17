@@ -15,11 +15,12 @@
 
   startScript = writeDash "gamemode-start" ''
     ${hyprctl} --batch "\
-      keyword animations:enabled false;\
-      keyword decoration:blur:enabled false;\
-      keyword decoration:drop_shadow false;\
-      keyword misc:vfr false;\
-      keyword general:allow_tearing true;\
+      keyword animations:enabled false; \
+      keyword decoration:blur:enabled false; \
+      keyword decoration:drop_shadow false; \
+      keyword misc:vfr false; \
+      keyword general:allow_tearing true; \
+      keyword render:direct_scanout true; \
       keyword input:scroll_method '''"
     ${powerprofilesctl} set performance
     ${notify-send} -u low -a 'Gamemode' 'Optimizations activated'
