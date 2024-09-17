@@ -43,9 +43,7 @@ in {
         };
       });
       default = {};
-      description = ''
-        This is an abstraction over vim.extraPlugins, that uses setupOpts instead of setup.
-      '';
+      description = "This is an abstraction over vim.extraPlugins, that uses setupOpts instead of setup.";
     };
   };
 
