@@ -5,14 +5,16 @@
   inputs,
   ...
 }: let
+  inherit (lib) mkEnableOption mkDefault; 
+
   cfg = config.modules.boot;
 in {
   imports = [inputs.lanzaboote.nixosModules.lanzaboote];
 
   options = {
     modules.boot = {
-      secure = lib.mkEnableOption "secure boot";
-      windowsEntry = lib.mkEnableOption "a windows entry in the boot menu";
+      secure = mkEnableOption "secure boot";
+      windowsEntry = mkEnableOption "a windows entry in the boot menu";
     };
   };
 
@@ -24,7 +26,7 @@ in {
           enable = !cfg.secure;
           consoleMode = "auto";
           editor = false;
-          configurationLimit = 4;
+          configurationLimit = 9;
         };
       };
 
@@ -36,8 +38,8 @@ in {
         pkiBundle = "/etc/secureboot";
       };
 
-      tmp.useTmpfs = lib.mkDefault true;
-      kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+      tmp.useTmpfs = mkDefault true;
+      kernelPackages = mkDefault pkgs.linuxPackages_6_10;
       kernelParams = ["quiet"];
     };
   };
