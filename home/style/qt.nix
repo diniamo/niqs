@@ -2,6 +2,8 @@
   cfg = config.stylix;
 in {
   config = {
+    stylix.targets.kde.enable = false;
+
     qt = {
       enable = true;
       platformTheme.name = "qtct";
