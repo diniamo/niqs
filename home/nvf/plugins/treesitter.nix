@@ -5,8 +5,8 @@
     # Why is c a default?
     addDefaultGrammars = false;
     grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      vim
       query
-
       fish
       regex
     ];
