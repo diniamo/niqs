@@ -33,6 +33,8 @@ in {
       n.flake = nixpkgs;
       default.flake = nixpkgs;
     };
+
+    channel.enable = false;
     nixPath = [
       "nixpkgs=${nixpkgsPath}"
       "n=${nixpkgsPath}"
