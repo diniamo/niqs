@@ -64,7 +64,7 @@ in {
     #   "${./shaders/SSimDownscaler.glsl}"
     #   "${./shaders/KrigBilateral.glsl}"
     # ];
-    script = "${autoAnime4k}";
+    script = autoAnime4k.outPath;
 
     scale = "ewa_lanczossharp";
     dscale = "mitchell";
