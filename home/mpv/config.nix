@@ -4,6 +4,7 @@
       fullscreen = true;
       no-keepaspect-window = "";
       save-position-on-quit = "";
+      watch-later-options-remove = "vf,af";
       no-window-dragging = "";
       osd-duration = 3000;
       osd-status-msg = "Frame: \${estimated-frame-number} / \${estimated-frame-count}";

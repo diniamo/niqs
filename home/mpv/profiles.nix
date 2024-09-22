@@ -9,7 +9,7 @@
     svp = {
       input-ipc-server = "/tmp/mpvsocket";
       hr-seek-framedrop = false;
-      watch-later-options-remove = "vf";
+      # watch-later-options-remove = "vf";
     };
   };
 }
