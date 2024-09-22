@@ -8,7 +8,11 @@
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    # Using Hyprland's nixpkgs input
+    # - avoids mesa version mismatches
+    # - avoids a lot of duplicate packages due to different versions
+    nixpkgs.follows = "hyprland/nixpkgs";
+    # nixpkgs.url = "nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:diniamo/nixpkgs/custom";
 
     home-manager = {
