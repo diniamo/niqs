@@ -57,7 +57,7 @@ in {
 
       neovide = ''
         if vim.g.neovide then
-          vim.opt.guifont = "${config.stylix.fonts.monospace.name}:h${toString config.stylix.fonts.sizes.terminal}"
+          vim.o.guifont = "${config.stylix.fonts.monospace.name}:h${toString config.stylix.fonts.sizes.terminal}:#h-normal:#e-subpixelantialias"
           vim.g.neovide_remember_window_size = false
         end
       '';
