@@ -38,11 +38,11 @@
         "fromYaml": "fromYaml"
       },
       "locked": {
-        "lastModified": 1721224776,
-        "narHash": "sha256-iakVQHg2DSmdOc5dNBwrDt9JLRxX5MT+IIbxfZEpGdo=",
+        "lastModified": 1708890466,
+        "narHash": "sha256-LlrC09LoPi8OPYOGPXegD72v+//VapgAqhbOFS3i8sc=",
         "owner": "SenchoPens",
         "repo": "base16.nix",
-        "rev": "c89c8123310257f3ddc04cc59aa4b5573c6d515f",
+        "rev": "665b3c6748534eb766c777298721cece9453fdae",
         "type": "github"
       },
       "original": {
@@ -119,22 +119,6 @@
       "original": {
         "owner": "diniamo",
         "repo": "bgar",
-        "type": "github"
-      }
-    },
-    "catppuccin-base16": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1712772035,
-        "narHash": "sha256-HHodDRrlcBVWGE3MN0i6UvUn30zY/JFEbgeUpnZG5C0=",
-        "owner": "catppuccin",
-        "repo": "base16",
-        "rev": "99aa911b29c9c7972f7e1d868b6242507efd508c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "base16",
         "type": "github"
       }
     },
@@ -237,11 +221,11 @@
     "fromYaml": {
       "flake": false,
       "locked": {
-        "lastModified": 1721222302,
-        "narHash": "sha256-5vL4w9+tS9yd8WpIiDUtxN1IuxCVK2nebZMs/hCXXis=",
+        "lastModified": 1689549921,
+        "narHash": "sha256-iX0pk/uB019TdBGlaJEWvBCfydT6sRq+eDcGPifVsCM=",
         "owner": "SenchoPens",
         "repo": "fromYaml",
-        "rev": "93bad85d1633b8b27287b438c0bd394094c24d06",
+        "rev": "11fbbbfb32e3289d3c631e0134a23854e7865c84",
         "type": "github"
       },
       "original": {
@@ -730,11 +714,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727514214,
-        "narHash": "sha256-yKIstyIy6gmTw52FD9ziWp53fCFqCTY77CgIcfDjpdk=",
+        "lastModified": 1727517915,
+        "narHash": "sha256-DB5qaFb8MvDZYpXoJjnpcITAVIWgFXJtK/akYlwZDwg=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "7d8e66da4e92d96d89c8854a9dec1eae3adec9f8",
+        "rev": "b7130c39b77cd0d5718ef54f6ed39772615abe45",
         "type": "github"
       },
       "original": {
@@ -876,11 +860,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1726062873,
-        "narHash": "sha256-IiA3jfbR7K/B5+9byVi9BZGWTD4VSbWe8VLpp9B/iYk=",
+        "lastModified": 1727122398,
+        "narHash": "sha256-o8VBeCWHBxGd4kVMceIayf5GApqTavJbTa44Xcg5Rrk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4f807e8940284ad7925ebd0a0993d2a1791acb2f",
+        "rev": "30439d93eb8b19861ccbe3e581abf97bdc91b093",
         "type": "github"
       },
       "original": {
@@ -2752,7 +2736,6 @@
     "root": {
       "inputs": {
         "bgar": "bgar",
-        "catppuccin-base16": "catppuccin-base16",
         "crane": "crane",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
@@ -2884,16 +2867,15 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1727516274,
-        "narHash": "sha256-Y8Fge98iaTRqqMuuWRqk7c/wuZtnaLuB2W/9HNo0fjM=",
-        "owner": "diniamo",
+        "lastModified": 1727545964,
+        "narHash": "sha256-x9871msLvyZbMNWmVgJWPC2yiSdwZ1K5+UZrQgrdMFM=",
+        "owner": "danth",
         "repo": "stylix",
-        "rev": "db07059edde73e34e0cf6964d9699d9c3d413a4e",
+        "rev": "1e9ec16a3739f275ec771434c2ad8cff9a54c42e",
         "type": "github"
       },
       "original": {
-        "owner": "diniamo",
-        "ref": "custom",
+        "owner": "danth",
         "repo": "stylix",
         "type": "github"
       }
