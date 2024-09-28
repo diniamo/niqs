@@ -58,7 +58,7 @@
       };
     };
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      url = "github:hyprwm/Hyprland";
       inputs.systems.follows = "systems";
     };
     nix-gaming = {
@@ -109,7 +109,8 @@
       inputs.naersk.follows = "naersk";
     };
     stylix = {
-      url = "github:danth/stylix";
+      # url = "github:danth/stylix";
+      url = "github:diniamo/stylix/custom";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";

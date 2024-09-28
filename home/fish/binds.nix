@@ -1,9 +1,5 @@
 {
-  lib,
-  pkgs,
-  ...
-}: {
-  programs.fish.functions.fish_user_key_bindings = lib.throwIf (lib.versionOlder "3.8" pkgs.fish.version) "Fish 3.8 has been released, change to using `accept-autosuggestion and execute`, then remove this error" ''
+  programs.fish.functions.fish_user_key_bindings = ''
     fish_default_key_bindings -M insert
     fish_vi_key_bindings --no-erase
     set -g fish_key_bindings fish_vi_key_bindings
