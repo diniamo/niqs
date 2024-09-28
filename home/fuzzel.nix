@@ -14,6 +14,7 @@ in {
         font = mkForce "${config.stylix.fonts.sansSerif.name}:size=20";
         icon-theme = config.stylix.icons.name;
         prompt = "'   '";
+        match-counter = true;
         lines = 8;
         line-height = 50;
         inner-pad = 5;
