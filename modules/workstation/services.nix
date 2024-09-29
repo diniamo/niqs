@@ -8,15 +8,15 @@
     description = "PolicyKit Authentication Agent";
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+      ExecStart = "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit";
     };
     wantedBy = ["graphical-session.target"];
   };
 
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-kde];
-    config.common.default = ["kde"];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    config.common.default = ["gtk"];
   };
 
   services = {

@@ -40,7 +40,7 @@ in {
 
       CALIBRE_USE_DARK_PALETTE = "1";
       # libreoffice
-      SAL_USE_VCLPLUGIN = "qt5";
+      # SAL_USE_VCLPLUGIN = "qt5";
     };
   };
 }

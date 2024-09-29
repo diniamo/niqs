@@ -7,7 +7,7 @@
   browser = ["Schizofox.desktop"];
   documentViewer = ["org.pwmt.zathura.desktop"];
   fileManager = ["thunar.desktop"];
-  archiver = ["org.kde.ark.desktop"];
+  archiver = ["org.gnome.FileRoller.desktop"];
   editor = ["neovide.desktop"];
   imageViewer = ["swayimg.desktop"];
   mediaPlayer = ["mpv.desktop"];
