@@ -102,6 +102,7 @@ in {
       "pin, ^(dragon)$"
       "float, ^(SVPManager)$"
       "float, ^(org.freedesktop.impl.portal.desktop.kde)$"
+      "float, ^(xdg-desktop-portal-gtk)$"
       "idleinhibit always, ^(org.qbittorrent.qBittorrent)$"
       "noanim, ^(ueberzugpp_)(.*)$"
     ];
