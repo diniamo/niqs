@@ -38,10 +38,7 @@ in {
         "9, monitor:DP-1"
         "10, monitor:DP-2, default:true"
       ];
-      windowrule = [
-        "workspace 10, vesktop"
-        "opacity 1 0.9, vesktop"
-      ];
+      windowrule = ["workspace 10, vesktop"];
       exec-once = ["vesktop"];
     };
 

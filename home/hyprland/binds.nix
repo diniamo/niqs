@@ -10,7 +10,7 @@
   inherit (osConfig.values) terminal;
 
   inherit (config) scripts;
-  hyprlandScripts = config.programs.hyprland.scripts;
+  hyprlandScripts = config.wayland.windowManager.hyprland.scripts;
 
   mod = "SUPER";
   ctrl = "CONTROL";
@@ -67,10 +67,6 @@ in {
 
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-      ''${mod}${secondary}, v, exec, notify-send "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
-      ''${mod}, i, exec, ${scripts.openImage}''
-      ''${mod}${secondary}, w, exec, notify-send "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
-
       "${mod}, h, movefocus, l"
       "${mod}, j, movefocus, d"
       "${mod}, k, movefocus, u"
@@ -124,7 +120,11 @@ in {
       "${mod}, f, fullscreen, 1"
       "${mod}, z, exec, ${hyprlandScripts.lockCursor}"
 
+      ''${mod}${secondary}, v, exec, notify-send "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
+      "${mod}, i, exec, ${scripts.openImage}"
+      ''${mod}${secondary}, w, exec, notify-send "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
       "${mod}${secondary}, x, exec, ${getExe pkgs.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=auto-windows"
+      "${mod}, a, exec, ${scripts.notifyInformation}"
     ];
     binde = [
       "${mod}${ctrl}, h, resizeactive, -50 0"

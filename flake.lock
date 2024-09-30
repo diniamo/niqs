@@ -99,29 +99,6 @@
         "type": "github"
       }
     },
-    "bgar": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1714737692,
-        "narHash": "sha256-GVRxT4s32nvqXeXMfBnnXIZFojpsBhMWIMzDrb1QLSU=",
-        "owner": "diniamo",
-        "repo": "bgar",
-        "rev": "43b56458d9cbbeb9d0a232ec408f2655adaa1661",
-        "type": "github"
-      },
-      "original": {
-        "owner": "diniamo",
-        "repo": "bgar",
-        "type": "github"
-      }
-    },
     "crane": {
       "inputs": {
         "nixpkgs": [
@@ -2735,7 +2712,6 @@
     },
     "root": {
       "inputs": {
-        "bgar": "bgar",
         "crane": "crane",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",

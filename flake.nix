@@ -83,11 +83,6 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    bgar = {
-      url = "github:diniamo/bgar";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-    };
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs = {
