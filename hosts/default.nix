@@ -25,10 +25,10 @@ in {
     ];
   };
 
-  thinkpad = mkNixosSystem {
+  laptop = mkNixosSystem {
     system = "x86_64-linux";
     modules = [
-      ./thinkpad
+      ./laptop
       shared
       workstation
     ];
