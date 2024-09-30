@@ -4,41 +4,15 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkForce;
-
   inherit (config) values;
 in {
   imports = [./hardware.nix];
 
-  networking = {
-    hostName = "${values.mainUser}-THINKPAD";
-    networkmanager = {
-      enable = true;
-      plugins = mkForce [];
-    };
-  };
+  networking.hostName = "${values.mainUser}-LAPTOP";
+  modules.mobile.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    brightnessctl
-    gmetronome
-  ];
+  environment.systemPackages = [pkgs.gmetronome];
 
-  services = {
-    # For remote rebuilding
-    openssh = {
-      enable = true;
-      startWhenNeeded = true;
-      settings = {
-        PermitRootLogin = "yes";
-      };
-    };
-
-    power-profiles-daemon.enable = lib.mkForce false;
-    auto-cpufreq.enable = true;
-    thermald.enable = true;
-  };
-
-  zramSwap.enable = true;
   hardware = {
     graphics.extraPackages = with pkgs; [intel-vaapi-driver intel-media-driver];
     intel-gpu-tools.enable = true;
@@ -51,14 +25,6 @@ in {
   home-manager.users.${values.mainUser} = {
     programs.mpv.config.ao = "pulse";
     programs.jerry.config.player_arguments = lib.mkForce "";
-
-    wayland.windowManager.hyprland.settings = {
-      animations.enabled = mkForce false;
-      decoration = {
-        blur.enabled = mkForce false;
-        drop_shadow = mkForce false;
-      };
-    };
   };
 
   system.stateVersion = "24.05";
