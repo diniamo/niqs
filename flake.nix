@@ -128,7 +128,8 @@
       };
     };
     nvf = {
-      url = "github:NotAShelf/nvf";
+      # url = "github:NotAShelf/nvf";
+      url = "github:NotAShelf/nvf/v0.7";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
