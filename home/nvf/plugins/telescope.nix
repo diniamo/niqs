@@ -24,6 +24,8 @@ in {
             "<esc>" = mkLuaInline "actions.close";
             "<C-j>" = mkLuaInline "actions.move_selection_next";
             "<C-k>" = mkLuaInline "actions.move_selection_previous";
+            # Clears the prompt
+            "<C-u>" = false;
 
             "<cr>" = mkLuaInline ''
               function(prompt_bufnr)
