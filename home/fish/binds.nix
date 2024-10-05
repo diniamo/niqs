@@ -9,8 +9,8 @@
     bind -M insert ctrl-backspace backward-kill-word
     bind -M insert ctrl-delete kill-word
 
-    bind -M default ctrl-space accept-autosuggestion execute
-    bind -M insert ctrl-space accept-autosuggestion execute
+    bind -M default ctrl-space accept-autosuggestion and execute
+    bind -M insert ctrl-space accept-autosuggestion and execute
 
     bind -M insert down history-search-forward
     bind -M insert up history-search-backward
