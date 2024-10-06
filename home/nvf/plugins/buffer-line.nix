@@ -12,6 +12,8 @@
         cycleNext = "<Tab>";
         cyclePrevious = "<S-Tab>";
         pick = "<leader>bp";
+        moveNext = "<leader>b>";
+        movePrevious = "<leader>b<";
       };
       setupOpts = {
         highlights = let
@@ -49,6 +51,18 @@
           ];
         };
       };
+    };
+  };
+
+  programs.nvf.settings.vim = {
+    maps.normal."<leader>bc" = {
+      desc = "Close other buffers";
+      action = "<Cmd>BufferLineCloseOthers<CR>";
+    };
+
+    binds.whichKey.register = {
+      "<leader>bm" = null;
+      "<leader>bs" = "+Sort";
     };
   };
 }
