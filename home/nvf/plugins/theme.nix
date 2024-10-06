@@ -22,7 +22,7 @@ in {
           }
         end,
 
-        default_integrations = false,
+        default_integrations = true,
         integrations = {
           flash = true,
           gitsigns = true,
@@ -33,28 +33,8 @@ in {
           cmp = true,
           dap = true,
           dap_ui = true,
-          native_lsp = {
-            enabled = true,
-            virtual_text = {
-              errors = { "italic" },
-              hints = { "italic" },
-              warnings = { "italic" },
-              information = { "italic" },
-              ok = { "italic" }
-            },
-            underlines = {
-              errors = { "underline" },
-              hints = { "underline" },
-              warnings = { "underline" },
-              information = { "underline" },
-              ok = { "underline" }
-            },
-            inlay_hints = { background = true }
-          },
-          navic = {
-            enabled = true,
-            custom_bg = "NONE"
-          },
+          native_lsp = { enabled = true },
+          navic = { enabled = true },
           notify = true,
           nvim_surround = true,
           treesitter = true,
