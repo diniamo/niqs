@@ -4,17 +4,19 @@
     comments.comment-nvim.enable = true;
     utility.surround = {
       enable = true;
-      mappings = {
-        change = "gsr";
-        delete = "gsd";
+      useVendoredKeybindings = false;
+      setupOpts.keymaps = {
         insert = "<C-g>s";
-        insertLine = "<C-g>S";
+        insert_line = "<C-g>S";
         normal = "gs";
-        normalCur = "gS";
-        normalCurLine = "gSS";
-        normalLine = "gss";
+        normal_cur = "gS";
+        normal_line = "gss";
+        normal_cur_line = "gSS";
         visual = "gs";
-        visualLine = "gS";
+        visual_line = "gS";
+        delete = "gsd";
+        change = "gsr";
+        change_line = "gSR";
       };
     };
     snippets.vsnip.enable = true;
