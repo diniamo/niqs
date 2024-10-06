@@ -3,7 +3,7 @@
     ./theme.nix
     ./languages.nix
     ./debugger.nix
-    ./cmp.nix
+    ./completion.nix
     ./editing.nix
     ./git.nix
     ./ui.nix

@@ -129,7 +129,8 @@
     };
     nvf = {
       # url = "github:NotAShelf/nvf";
-      url = "github:NotAShelf/nvf/v0.7";
+      # url = "github:NotAShelf/nvf/v0.7";
+      url = "github:diniamo/nvf/nvim-cmp-sorting";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
