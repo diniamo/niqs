@@ -32,6 +32,7 @@ in {
       '';
       "Kvantum/default/default.kvconfig".source = cfg.targets.qt.kvantum.config;
       "Kvantum/default/default.svg".source = cfg.targets.qt.kvantum.svg;
+      "Kvantum/default/default.colors".source = cfg.targets.qt.kdeglobals;
     };
 
     home.sessionVariables = {
