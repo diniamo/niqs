@@ -1,6 +1,8 @@
 {
   programs.mpv.bindings = {
-    MBTN_LEFT = "cycle pause";
+    MBTN_LEFT = "cycle pause; script-binding uosc/flash-pause-indicator";
+    p = "cycle pause; script-binding uosc/flash-pause-indicator";
+    SPACE = "cycle pause; script-binding uosc/flash-pause-indicator";
     MBTN_RIGHT = "script-binding uosc/menu";
     menu = "script-binding uosc/menu";
 

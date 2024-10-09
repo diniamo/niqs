@@ -76,7 +76,7 @@
       time_precision = 0;
       buffered_time_threshold = 60;
       autohide = true;
-      pause_indicator = "flash";
+      pause_indicator = "manual";
       stream_quality_options = "4320,2160,1440,1080,720,480,360,240,144";
       video_types = "3g2,3gp,asf,avi,f4v,flv,h264,h265,m2ts,m4v,mkv,mov,mp4,mp4v,mpeg,mpg,ogm,ogv,rm,rmvb,ts,vob,webm,wmv,y4m";
       audio_types = "aac,ac3,aiff,ape,au,cue,dsf,dts,flac,m4a,mid,midi,mka,mp3,mp4a,oga,ogg,opus,spx,tak,tta,wav,weba,wma,wv";
