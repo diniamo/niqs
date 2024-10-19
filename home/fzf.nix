@@ -22,6 +22,10 @@
       pointer = base08;
       header = base09;
     };
-    defaultOptions = ["--border=rounded" "--pointer='>'"];
+    defaultOptions = [
+      "--border=rounded"
+      "--pointer='>'"
+      "--bind=ctrl-s:toggle"
+    ];
   };
 }
