@@ -30,5 +30,6 @@ vim.o.winminwidth = 5
 vim.o.wrap = false
 vim.o.smoothscroll = true
 vim.o.gdefault = true
+vim.o.splitkeep = "screen"
 
 vim.g.markdown_recommended_style = 0
