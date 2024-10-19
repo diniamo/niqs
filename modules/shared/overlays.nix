@@ -11,6 +11,7 @@
       fish = fish-patched;
       coreutils-full = coreutils-full-patched;
       sway-unwrapped = sway-unwrapped-git;
+      libqalculate = libqalculate-git;
     };
 in {
   nixpkgs.overlays = [niqspkgs];
