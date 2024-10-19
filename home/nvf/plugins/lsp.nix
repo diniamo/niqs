@@ -10,7 +10,10 @@
 
   programs.nvf.settings.vim = {
     lsp = {
-      mappings.renameSymbol = "<leader>lr";
+      mappings = {
+        renameSymbol = "<leader>lr";
+        format = "<leader>f";
+      };
 
       # lightbulb.enable = true;
       lspSignature.enable = true;
