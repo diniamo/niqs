@@ -1,4 +1,4 @@
-let
+{osConfig, ...}: let
   cursor = expansion: {
     setCursor = true;
     inherit expansion;
@@ -27,7 +27,7 @@ in {
 
     # nix
     n = "nix";
-    clean = "nh clean all";
+    clean = "nh clean all --keep ${toString osConfig.boot.loader.systemd-boot.configurationLimit}";
     shell = "nix shell";
     dev = "nix develop --command fish";
     run = "nix run";
