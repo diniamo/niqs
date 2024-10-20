@@ -11,9 +11,10 @@
     # Using Hyprland's nixpkgs input
     # - avoids mesa version mismatches
     # - avoids a lot of duplicate packages due to different versions
-    nixpkgs.follows = "hyprland/nixpkgs";
+    # nixpkgs.follows = "hyprland/nixpkgs";
     # nixpkgs.url = "nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:diniamo/nixpkgs/custom";
+    nixpkgs.url = "github:diniamo/nixpkgs/custom";
+    # nixpkgs.url = "path:/hdd/dev/nixpkgs";
 
     home-manager = {
       # url = "github:nix-community/home-manager";
@@ -130,6 +131,7 @@
     nvf = {
       # url = "github:NotAShelf/nvf";
       url = "github:NotAShelf/nvf/v0.7";
+      # url = "path:/hdd/dev/nvf";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
