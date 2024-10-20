@@ -1,4 +1,4 @@
-{pkgs,...}:{
+{pkgs, ...}: {
   imports = [./hardware.nix];
 
   networking.hostName = "diniamo-SERVER";
@@ -21,12 +21,20 @@
         rpc-authentication-required = true;
 
         rename-partial-files = false;
-        incomplete-dir-enabled = false;
-        umask = 493; # 755 (octal) in decimal
+        incomplete-dir-enabled = true;
       };
     };
 
     jellyfin = {
+      enable = true;
+      openFirewall = true;
+    };
+
+    shokoserver = {
+      enable = true;
+      openFirewall = true;
+    };
+    prowlarr = {
       enable = true;
       openFirewall = true;
     };
