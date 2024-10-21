@@ -108,6 +108,18 @@
         desc = "Add comment above";
         action = "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>";
       };
+
+      "<C-g>" = {
+        desc = "Copy file path to system clipboard";
+        lua = true;
+        action = ''
+          function()
+            local path = vim.api.nvim_buf_get_name(0)
+            vim.fn.setreg('+', path)
+            vim.notify('Copied "' .. path .. '"')
+          end
+        '';
+      };
     };
   };
 }
