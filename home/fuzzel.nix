@@ -44,6 +44,7 @@ in {
         cursor-end = "Control+e";
         first = "Home Control+g";
         last = "End Control+Shift+g";
+        delete-prev = "BackSpace";
       };
     };
   };
