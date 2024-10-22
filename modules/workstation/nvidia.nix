@@ -13,7 +13,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     hardware.nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       # HACK: disable this once Nvidia is graceful enough to work
       open = false;
 
