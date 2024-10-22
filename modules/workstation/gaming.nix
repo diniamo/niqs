@@ -31,7 +31,7 @@
     ${notify-send} -u low -a 'Gamemode' 'Optimizations deactivated'
   '';
 
-  cfg = config.modules.gaming;
+  cfg = config.custom.gaming;
 in {
   imports = [
     pipewireLowLatency
@@ -39,9 +39,7 @@ in {
   ];
 
   options = {
-    modules.gaming = {
-      enable = lib.mkEnableOption "Enable the gaming module";
-    };
+    custom.gaming.enable = lib.mkEnableOption "Enable the gaming module";
   };
 
   config = lib.mkIf cfg.enable {

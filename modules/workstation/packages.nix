@@ -21,8 +21,6 @@ in {
         wrapperArgs = ["--add-flags" "--all --and-exit"];
       }
     )
-      }
-    )
 
     wl-clipboard
     neovide

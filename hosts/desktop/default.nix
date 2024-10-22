@@ -3,7 +3,7 @@
 in {
   imports = [./hardware.nix];
 
-  modules = {
+  custom = {
     boot.secure = true;
     boot.windowsEntry = true;
     nvidia.enable = true;

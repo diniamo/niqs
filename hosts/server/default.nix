@@ -4,7 +4,7 @@
   networking.hostName = "diniamo-SERVER";
 
   services = {
-    satisfactory.enable = true;
+    custom.satisfactory.enable = true;
 
     transmission = {
       enable = true;

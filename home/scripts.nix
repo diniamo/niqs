@@ -29,7 +29,7 @@ in {
         '';
 
         notifyInformation = let
-          summary = optionalString osConfig.modules.mobile.enable "\"$(cat /sys/class/power_supply/BAT0/capacity)% - $(cat /sys/class/power_supply/BAT0/status)\"";
+          summary = optionalString osConfig.custom.mobile.enable "\"$(cat /sys/class/power_supply/BAT0/capacity)% - $(cat /sys/class/power_supply/BAT0/status)\"";
         in
           writeDash "notify-information" ''
             if [ -f /tmp/information-notification-id ]; then

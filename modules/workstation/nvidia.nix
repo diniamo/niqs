@@ -5,12 +5,10 @@
   lib',
   ...
 }: let
-  cfg = config.modules.nvidia;
+  cfg = config.custom.nvidia;
 in {
   options = {
-    modules.nvidia = {
-      enable = lib.mkEnableOption "Enable the Nvidia module";
-    };
+    custom.nvidia.enable = lib.mkEnableOption "Enable the Nvidia module";
   };
 
   config = lib.mkIf cfg.enable {

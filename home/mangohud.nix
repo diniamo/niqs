@@ -2,7 +2,7 @@
   stylix.targets.mangohud.enable = false;
 
   programs.mangohud = {
-    inherit (osConfig.modules.gaming) enable;
+    inherit (osConfig.custom.gaming) enable;
     settings = {
       cpu_temp = true;
       gpu_temp = true;

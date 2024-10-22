@@ -4,11 +4,11 @@
   config,
   ...
 }: let
-  inherit (lib) mkEnableOption mkForce mkDefault mkIf;
+  inherit (lib) mkEnableOption mkForce mkIf;
 in {
-  options.modules.mobile.enable = mkEnableOption "configuration for mobile devices";
+  options.custom.mobile.enable = mkEnableOption "configuration for mobile devices";
 
-  config = mkIf config.modules.mobile.enable {
+  config = mkIf config.custom.mobile.enable {
     environment.systemPackages = [pkgs.brightnessctl];
 
     networking.networkmanager = {
@@ -16,16 +16,12 @@ in {
       plugins = mkForce [];
     };
 
-    zramSwap.enable = mkDefault true;
-
     services = {
       # For remote rebuilding, mobile devices are usually weak
       openssh = {
         enable = true;
         startWhenNeeded = true;
-        settings = {
-          PermitRootLogin = "yes";
-        };
+        settings.PermitRootLogin = "yes";
       };
 
       power-profiles-daemon.enable = lib.mkForce false;

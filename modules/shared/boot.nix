@@ -7,12 +7,12 @@
 }: let
   inherit (lib) mkEnableOption mkDefault; 
 
-  cfg = config.modules.boot;
+  cfg = config.custom.boot;
 in {
   imports = [inputs.lanzaboote.nixosModules.lanzaboote];
 
   options = {
-    modules.boot = {
+    custom.boot = {
       secure = mkEnableOption "secure boot";
       windowsEntry = mkEnableOption "a windows entry in the boot menu";
     };
