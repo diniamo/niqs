@@ -15,8 +15,12 @@ in {
 
   environment.systemPackages = with pkgs; [
     (
-      lib'.wrapProgram pkgs xdragon {
-        makeWrapperArgs = ["--add-flags" "--all --and-exit"];
+      lib'.wrapProgram {
+        inherit pkgs;
+        package = "xdragon";
+        wrapperArgs = ["--add-flags" "--all --and-exit"];
+      }
+    )
       }
     )
 

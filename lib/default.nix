@@ -34,15 +34,31 @@
         ++ args.modules or [];
     };
 
-  wrapProgram = pkgs: package: args:
-    package.overrideAttrs (prev: {
-      # HACK: has to be added first, since if the program relies on the Bash wrapper's variable expansion, it breaks with the binary wrapper
-      # sourcing makeBinaryWrapper's setup hook fails with some random error
-      # is there a better way?
-      nativeBuildInputs = [pkgs.makeBinaryWrapper] ++ prev.nativeBuildInputs or [];
-      postPhases = (prev.postPhases or []) ++ ["wrapPhase"];
-      wrapPhase = "wrapProgram $(realpath $out/bin/${args.executable or prev.meta.mainProgram}) ${lib.escapeShellArgs args.makeWrapperArgs}";
-    });
+  wrapProgram = {
+    pkgs,
+    package,
+    binaryWrapper ? true,
+    wrapperArgs,
+  } @ args: let
+    package' =
+      if builtins.isString package
+      then pkgs.${package}
+      else package;
+
+    wrapper =
+      if binaryWrapper
+      then pkgs.makeBinaryWrapper
+      else pkgs.makeWrapper;
+
+    file = args.executable or package'.meta.mainProgram;
+  in
+    pkgs.symlinkJoin {
+      name = "${package'.pname}-wrapped";
+      paths = [package'];
+
+      nativeBuildInputs = [wrapper];
+      postBuild = "wrapProgram $out/bin/${file} ${lib.escapeShellArgs wrapperArgs}";
+    };
 
   # Helpers
   overrideError = pkg: version: value: lib.throwIf (lib.versionOlder version pkg.version) "A new version of ${pkg.pname} has been released, remove its overlay/override" value;
@@ -55,7 +71,7 @@
     else base * (pow base (exponent - 1));
   shiftLeft = number: amount: number * (pow 2 amount);
 
-  mapToAttrs = func: list: builtins.listToAttrs (map func list);
+  mapListToAttrs = func: list: builtins.listToAttrs (map func list);
 in {
-  inherit mkNixosSystem wrapProgram overrideError shiftLeft mapToAttrs;
+  inherit mkNixosSystem wrapProgram overrideError shiftLeft mapListToAttrs;
 }

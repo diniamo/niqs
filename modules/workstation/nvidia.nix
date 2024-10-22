@@ -55,10 +55,12 @@ in {
     nixpkgs.overlays = [
       (
         final: prev:
-          lib'.mapToAttrs (name: {
+          lib'.mapListToAttrs (name: {
             inherit name;
-            value = lib'.wrapProgram final prev.${name} {
-              makeWrapperArgs = ["--add-flags" "--disable-gpu-compositing"];
+            value = lib'.wrapProgram {
+              pkgs = final;
+              package = prev.${name};
+              wrapperArgs = ["--add-flags" "--disable-gpu-compositing"];
             };
           }) ["obsidian" "vesktop" "webcord" "spotify"]
       )
