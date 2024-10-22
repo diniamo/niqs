@@ -5,7 +5,7 @@
   inputs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkDefault; 
+  inherit (lib) mkEnableOption mkDefault;
 
   cfg = config.custom.boot;
 in {

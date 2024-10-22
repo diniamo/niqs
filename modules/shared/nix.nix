@@ -7,7 +7,6 @@
   # but we still want to use it for the default flake, which may be used for nix3 shells, builds, and runs
   # At least that used to be the case, but using nixpkgs-unfree comes with disadvantages, such as not being able to set config options yourself
   # TODO: is there a solution without using it?
-
   inherit (inputs) nixpkgs;
   nixpkgsPath = nixpkgs.outPath;
 in {
