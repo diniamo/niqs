@@ -18,6 +18,7 @@ in {
       lib'.wrapProgram {
         inherit pkgs;
         package = "xdragon";
+        executable = "dragon";
         wrapperArgs = ["--add-flags" "--all --and-exit"];
       }
     )

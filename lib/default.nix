@@ -37,9 +37,10 @@
   wrapProgram = {
     pkgs,
     package,
+    executable ? null,
     binaryWrapper ? true,
     wrapperArgs,
-  } @ args: let
+  }: let
     package' =
       if builtins.isString package
       then pkgs.${package}
@@ -50,7 +51,10 @@
       then pkgs.makeBinaryWrapper
       else pkgs.makeWrapper;
 
-    file = args.executable or package'.meta.mainProgram;
+    file =
+      if executable != null
+      then executable
+      else package'.meta.mainProgram;
   in
     pkgs.symlinkJoin {
       name = "${package'.pname}-wrapped";
