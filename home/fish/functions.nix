@@ -216,5 +216,10 @@
         "
       '';
     };
+
+    realwhich = {
+      description = "which + realpath";
+      body = "realpath (which $argv[1])";
+    };
   };
 }

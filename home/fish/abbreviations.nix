@@ -18,8 +18,6 @@ in {
     anime = "mpv --profile=anime";
     cht = "cht.sh";
 
-    realwhich = cursor "realpath (which %)";
-
     sc = "systemctl";
     jc = "journalctl";
     scu = "systemctl --user";
