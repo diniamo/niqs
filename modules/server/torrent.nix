@@ -13,25 +13,27 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.transmission = {
-      enable = true;
+    services = {
+      transmission = {
+        enable = true;
 
-      openRPCPort = true;
-      webHome = pkgs.flood-for-transmission;
-      credentialsFile = "/var/lib/transmission/settings.json";
-      downloadDirPermissions = "775";
+        openRPCPort = true;
+        webHome = pkgs.flood-for-transmission;
+        credentialsFile = "/var/lib/transmission/settings.json";
+        downloadDirPermissions = "775";
 
-      settings = {
-        rpc-bind-address = "0.0.0.0";
-        rpc-whitelist-enabled = false;
-        anti-brute-force-enabled = true;
-        rpc-authentication-required = true;
+        settings = {
+          rpc-bind-address = "0.0.0.0";
+          rpc-whitelist-enabled = false;
+          anti-brute-force-enabled = true;
+          rpc-authentication-required = true;
 
-        rename-partial-files = false;
-        incomplete-dir-enabled = true;
+          rename-partial-files = false;
+          incomplete-dir-enabled = true;
+        };
       };
-    };
 
-    # systemd.services.transmission.serviceConfig.StateDirectoryMode = 775;
+      flaresolverr.enable = true;
+    };
   };
 }
