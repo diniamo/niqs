@@ -23,12 +23,12 @@
       keyword render:direct_scanout true; \
       keyword input:scroll_method '''"
     ${powerprofilesctl} set performance
-    ${notify-send} -u low -a 'Gamemode' 'Optimizations activated'
+    ${notify-send} --urgency=low --app-name='Gamemode' --icon=input-gaming 'Optimizations activated'
   '';
   endScript = writeDash "gamemode-end" ''
     ${hyprctl} reload
     ${powerprofilesctl} set balanced
-    ${notify-send} -u low -a 'Gamemode' 'Optimizations deactivated'
+    ${notify-send} --urgency=low --app-name='Gamemode' --icon=system-shutdown 'Optimizations deactivated'
   '';
 
   cfg = config.custom.gaming;
