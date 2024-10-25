@@ -20,7 +20,6 @@ in {
         openRPCPort = true;
         webHome = pkgs.flood-for-transmission;
         credentialsFile = "/var/lib/transmission/settings.json";
-        downloadDirPermissions = "775";
 
         settings = {
           rpc-bind-address = "0.0.0.0";
@@ -33,7 +32,9 @@ in {
         };
       };
 
-      flaresolverr.enable = true;
+      # https://github.com/NixOS/nixpkgs/issues/332776
+      # https://github.com/FlareSolverr/FlareSolverr/issues/1318
+      # flaresolverr.enable = true;
     };
   };
 }
