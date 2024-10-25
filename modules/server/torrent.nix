@@ -32,6 +32,11 @@ in {
         };
       };
 
+      prowlarr = {
+        enable = true;
+        openFirewall = true;
+      };
+
       # https://github.com/NixOS/nixpkgs/issues/332776
       # https://github.com/FlareSolverr/FlareSolverr/issues/1318
       # flaresolverr.enable = true;
