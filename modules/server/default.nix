@@ -4,5 +4,6 @@
     ./satisfactory.nix
     ./torrent.nix
     ./media.nix
+    ./monitoring
   ];
 }

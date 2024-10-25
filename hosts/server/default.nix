@@ -8,6 +8,7 @@
   custom = {
     torrent.enable = true;
     media.enable = true;
+    monitoring.enable = true;
   };
 
   system.stateVersion = "23.11";
