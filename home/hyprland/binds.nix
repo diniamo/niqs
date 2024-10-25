@@ -121,10 +121,12 @@ in {
       "${mod}, z, exec, ${hyprlandScripts.lockCursor}"
 
       ''${mod}${secondary}, v, exec, notify-send "Playing video" "$(wl-paste)"; mpv "$(wl-paste | sed 's/&.*$//')"''
-      "${mod}, i, exec, ${scripts.openImage}"
+      "${mod}${secondary}, i, exec, ${scripts.openImage}"
       ''${mod}${secondary}, w, exec, notify-send "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
+
       "${mod}${secondary}, x, exec, ${getExe pkgs.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=auto-windows"
       "${mod}, a, exec, ${scripts.notifyInformation}"
+      "${mod}, i, exec, ${scripts.toggleInhibitSleep}"
     ];
     binde = [
       "${mod}${ctrl}, h, resizeactive, -50 0"

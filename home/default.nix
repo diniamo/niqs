@@ -53,6 +53,7 @@ in {
     ./fuzzel.nix
     # ./sway.nix
     ./difftastic.nix
+    ./hypridle.nix
   ];
 
   home = {

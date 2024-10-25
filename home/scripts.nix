@@ -38,6 +38,21 @@ in {
               notify-send --print-id --icon time "$(date +%R)" ${summary} > /tmp/information-notification-id
             fi
           '';
+
+        toggleInhibitSleep = writeDash "toggle-inhibit-sleep" ''
+          set -e
+
+          if kill "$(cat /tmp/sleep-inhibitor-pid)"; then
+            rm /tmp/sleep-inhibitor-pid
+
+            notify-send --urgency=low --icon=media-playback-start "Sleep uninhibited"
+          else
+            systemd-inhibit --what=sleep --why=Manual sleep infinity &
+            printf '%s' "$!" > /tmp/sleep-inhibitor-pid
+
+            notify-send --urgency=low --icon=media-playback-pause "Sleep inhibited"
+          fi
+        '';
       };
     };
   };
