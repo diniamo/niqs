@@ -28,7 +28,6 @@ in {
     ./zoxide.nix
     ./wlogout.nix
     ./jerry.nix
-    ./lobster.nix
     ./direnv.nix
     ./dunst.nix
     ./spotify-player.nix
