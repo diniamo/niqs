@@ -16,6 +16,7 @@ in {
     services = {
       transmission = {
         enable = true;
+        package = pkgs.transmission_4;
 
         openRPCPort = true;
         webHome = pkgs.flood-for-transmission;
@@ -27,8 +28,8 @@ in {
           anti-brute-force-enabled = true;
           rpc-authentication-required = true;
 
-          rename-partial-files = false;
-          incomplete-dir-enabled = true;
+          rename-partial-files = true;
+          incomplete-dir-enabled = false;
         };
       };
 
