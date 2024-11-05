@@ -23,7 +23,7 @@ in {
     };
 
     search = {
-      defaultSearchEngine = "Startpage";
+      defaultSearchEngine = "Searx";
       searxUrl = "https://search.notashelf.dev";
       searxQuery = "https://search.notashelf.dev/search?q={searchTerms}";
       addEngines = [
