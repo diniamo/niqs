@@ -1,18 +1,11 @@
 {
   lib,
   pkgs,
-  inputs,
   ...
 }: let
-  inherit (inputs.nvf.lib.nvim.dag) entryAfter entryBefore;
   inherit (lib.generators) mkLuaInline;
 in {
   programs.nvf.settings.vim = {
-    pluginRC.telescopeRequireActions = entryBefore ["telescope"] ''
-      local actions = require('telescope.actions')
-      local action_state = require('telescope.actions.state')
-    '';
-
     telescope = {
       enable = true;
 
@@ -21,14 +14,15 @@ in {
           layout_config.horizontal.prompt_position = "bottom";
           sorting_strategy = "descending";
           mappings.i = {
-            "<esc>" = mkLuaInline "actions.close";
-            "<C-j>" = mkLuaInline "actions.move_selection_next";
-            "<C-k>" = mkLuaInline "actions.move_selection_previous";
+            "<esc>" = mkLuaInline "require('telescope.actions').close";
+            "<C-j>" = mkLuaInline "require('telescope.actions').move_selection_next";
+            "<C-k>" = mkLuaInline "require('telescope.actions').move_selection_previous";
             # Clears the prompt
             "<C-u>" = false;
 
             "<cr>" = mkLuaInline ''
               function(prompt_bufnr)
+                local actions = require("telescope.actions")
                 actions.add_selection(prompt_bufnr)
                 actions.send_selected_to_qflist(prompt_bufnr)
                 vim.cmd("cfdo edit")
@@ -66,15 +60,21 @@ in {
       telescope-zf-native-nvim
       telescope-zoxide
     ];
-    # telescope is already required as a part of the telescope entry
-    luaConfigRC.telescopeExtensions = entryAfter ["pluginConfigs"] ''
-      telescope.load_extension('zf-native')
-      telescope.load_extension('zoxide')
-    '';
-    maps.normal."<leader>ji" = {
-      desc = "Zoxide list";
-      lua = true;
-      action = "telescope.extensions.zoxide.list";
+    lazy.plugins.telescope = {
+      after = ''
+        local telescope = require("telescope")
+        telescope.load_extension("zf-native")
+        telescope.load_extension("zoxide")
+      '';
+
+      keys = [
+        {
+          key = "<leader>ji";
+          desc = "Zoxide list";
+          lua = true;
+          action = "function() require('telescope').extensions.zoxide.list() end";
+        }
+      ];
     };
 
     binds.whichKey.register = {

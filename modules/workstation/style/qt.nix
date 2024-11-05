@@ -5,8 +5,8 @@
   };
 
   kvantumPackage = pkgs.catppuccin-kvantum.override {
-    accent = "Blue";
-    variant = "Macchiato";
+    accent = "blue";
+    variant = "macchiato";
   };
 in {
   # This is required, because the hm module is missing something
@@ -21,8 +21,8 @@ in {
     colors = "${pkgs.catppuccin-qt5ct}/share/qt5ct/colors/Catppuccin-Macchiato.conf";
     kdeglobals = "${kdePackage}/share/color-schemes/CatppuccinMacchiatoBlue.colors";
     kvantum = {
-      config = "${kvantumPackage}/share/Kvantum/Catppuccin-Macchiato-Blue/Catppuccin-Macchiato-Blue.kvconfig";
-      svg = "${kvantumPackage}/share/Kvantum/Catppuccin-Macchiato-Blue/Catppuccin-Macchiato-Blue.svg";
+      config = "${kvantumPackage}/share/Kvantum/catppuccin-macchiato-blue/catppuccin-macchiato-blue.kvconfig";
+      svg = "${kvantumPackage}/share/Kvantum/catppuccin-macchiato-blue/catppuccin-macchiato-blue.svg";
     };
   };
 }

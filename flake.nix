@@ -105,7 +105,8 @@
       inputs.naersk.follows = "naersk";
     };
     stylix = {
-      url = "github:danth/stylix";
+      # url = "github:danth/stylix";
+      url = "github:diniamo/stylix/fix-hyprland";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";

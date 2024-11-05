@@ -64,7 +64,7 @@ in {
       rounding = 0;
 
       blur.enabled = false;
-      drop_shadow = false;
+      shadow.enabled = false;
     };
     animations = {
       enabled = true;

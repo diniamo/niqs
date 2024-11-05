@@ -7,11 +7,10 @@
 
     # bash.enable = true;
     lua.enable = true;
-    # markdown.enable = true;
     nix.enable = true;
     python = {
       enable = true;
-      # nvf doesn't allow changing lsp settings currently
+      # nvf doesn't allow changing lsp settings currently,
       # so I'm forced to define the entire lsp myself, see below
       lsp.enable = false;
     };
@@ -22,6 +21,12 @@
     # clang.enable = true;
     markdown.enable = true;
     # nu.enable = true;
+    csharp.enable = true;
+    julia = {
+      enable = true;
+      # Provide it in devshells instead
+      lsp.package = null;
+    };
   };
 
   programs.nvf.modules.lspSources = {
