@@ -5,6 +5,7 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
 
+  inherit (config) services;
   cfg = config.custom.media;
 in {
   options = {
@@ -23,5 +24,10 @@ in {
         openFirewall = true;
       };
     };
+
+    users.groups.${services.transmission.group}.members = [
+      services.jellyfin.group
+      services.shokoserver.group
+    ];
   };
 }
