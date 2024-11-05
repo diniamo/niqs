@@ -12,6 +12,7 @@
       coreutils-full = coreutils-full-patched;
       sway-unwrapped = sway-unwrapped-git;
       libqalculate = libqalculate-git;
+      jellyfin = jellyfin-intro-skipper;
     };
 in {
   nixpkgs.overlays = [niqspkgs];
