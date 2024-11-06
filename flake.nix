@@ -99,11 +99,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nyaa = {
-      url = "github:Beastwick18/nyaa";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.naersk.follows = "naersk";
-    };
     stylix = {
       # url = "github:danth/stylix";
       url = "github:diniamo/stylix/fix-hyprland";

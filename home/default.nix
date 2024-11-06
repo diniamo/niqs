@@ -46,13 +46,14 @@ in {
     ./scripts.nix
     ./hyprpaper.nix
     # ./iabm.nix
-    ./nyaa.nix
+    # ./nyaa.nix
     ./satty.nix
     # ./walker.nix
     ./fuzzel.nix
     # ./sway.nix
     ./difftastic.nix
     ./hypridle.nix
+    # ./hyprlock.nix
   ];
 
   home = {
