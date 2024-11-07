@@ -19,8 +19,6 @@
       };
     };
 
-    startPlugins = [pkgs.vimPlugins.vim-startuptime];
-
     binds = {
       whichKey.enable = true;
       cheatsheet.enable = true;
