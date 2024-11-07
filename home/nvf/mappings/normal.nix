@@ -2,7 +2,7 @@
   programs.nvf.settings.vim = {
     binds.whichKey.register = {
       "<leader>h" = "+Help";
-      "<leader>z" = "+Zoxide";
+      "<leader>j" = "+Zoxide";
       "<leader>q" = "+Quit";
       "<leader>w" = "+Window";
     };
