@@ -29,7 +29,7 @@
     };
   };
 
-  programs.nvf.modules.lspSources = {
+  programs.nvf.custom.lspSources = {
     basedpyright = {
       package = pkgs.basedpyright // {meta.mainProgram = "basedpyright-langserver";};
       arguments = ["--stdio"];

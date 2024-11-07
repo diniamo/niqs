@@ -11,7 +11,7 @@
   inherit (builtins) mapAttrs;
 in {
   options = {
-    programs.nvf.modules.setupPlugins = mkOption {
+    programs.nvf.custom.setupPlugins = mkOption {
       type = attrsOf (submodule {
         options = {
           package = mkOption {
@@ -57,6 +57,6 @@ in {
           else value.luaName
         }').setup(${toLuaObject value.setupOpts})";
       })
-      config.programs.nvf.modules.setupPlugins;
+      config.programs.nvf.custom.setupPlugins;
   };
 }

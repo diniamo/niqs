@@ -27,7 +27,7 @@
     };
   };
 
-  programs.nvf.modules.setupPlugins = {
+  programs.nvf.custom.setupPlugins = {
     nvim-lastplace.package = pkgs.vimPlugins.nvim-lastplace;
     neo-zoom = {
       package = flakePkgs.niqspkgs.neozoom-lua;

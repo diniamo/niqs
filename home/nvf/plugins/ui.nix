@@ -44,7 +44,7 @@
     };
   };
 
-  programs.nvf.modules.setupPlugins = {
+  programs.nvf.custom.setupPlugins = {
     dressing = {
       package = "dressing-nvim";
       setupOpts = {

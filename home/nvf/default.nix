@@ -2,7 +2,7 @@
   imports = [
     inputs.nvf.homeManagerModules.default
 
-    ./modules
+    ./custom
     ./plugins
     ./mappings
 

@@ -10,7 +10,7 @@
   inherit (builtins) mapAttrs;
 in {
   options = {
-    programs.nvf.modules.lspSources = mkOption {
+    programs.nvf.custom.lspSources = mkOption {
       type = attrsOf (submodule {
         options = {
           package = mkOption {
@@ -59,6 +59,6 @@ in {
           },
         }
       '')
-      config.programs.nvf.modules.lspSources;
+      config.programs.nvf.custom.lspSources;
   };
 }

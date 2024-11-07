@@ -5,7 +5,7 @@
 }: let
   inherit (lib.generators) mkLuaInline;
 in {
-  programs.nvf.modules.setupPlugins.flash = {
+  programs.nvf.custom.setupPlugins.flash = {
     package = pkgs.vimPlugins.flash-nvim;
     setupOpts = {
       prompt.enabled = false;

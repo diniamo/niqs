@@ -1,5 +1,5 @@
 {flakePkgs, ...}: {
-  programs.nvf.modules.setupPlugins.direnv = {
+  programs.nvf.custom.setupPlugins.direnv = {
     package = flakePkgs.niqspkgs.direnv-nvim;
     setupOpts = {
       keybindings = {
