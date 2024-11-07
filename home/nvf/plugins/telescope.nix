@@ -56,10 +56,6 @@ in {
       };
     };
 
-    startPlugins = with pkgs.vimPlugins; [
-      telescope-zf-native-nvim
-      telescope-zoxide
-    ];
     lazy.plugins.telescope = {
       after = ''
         local telescope = require("telescope")
@@ -91,4 +87,9 @@ in {
       "<leader>j" = "+Zoxide";
     };
   };
+
+  programs.nvf.custom.sanitizedStartPlugins = with pkgs.vimPlugins; [
+    telescope-zf-native-nvim
+    telescope-zoxide
+  ];
 }
