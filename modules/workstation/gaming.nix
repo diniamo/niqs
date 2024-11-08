@@ -54,7 +54,6 @@ in {
     programs = {
       steam = {
         enable = true;
-        package = pkgs.steam-small;
 
         extraPackages = [pkgs.openssl_1_1];
         extraCompatPackages = [pkgs.proton-ge-bin];
