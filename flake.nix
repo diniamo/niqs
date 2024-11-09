@@ -48,6 +48,15 @@
       url = "github:nix-community/naersk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    gitignore.url = "github:hercules-ci/gitignore.nix";
+    pre-commit-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
+        gitignore.follows = "gitignore";
+      };
+    };
 
     # These are downloaded from caches, so overriding nixpkgs would break them
     niqspkgs = {
@@ -56,11 +65,15 @@
         systems.follows = "systems";
         flake-parts.follows = "flake-parts";
         lix.inputs.flake-compat.follows = "flake-compat";
+        lix.inputs.pre-commit-hooks.follows = "pre-commit-hooks";
       };
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.systems.follows = "systems";
+      inputs = {
+        systems.follows = "systems";
+        pre-commit-hooks.follows = "pre-commit-hooks";
+      };
     };
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
@@ -77,8 +90,10 @@
     };
     lobster = {
       url = "github:justchokingaround/lobster";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     hyprwm-contrib = {
       url = "github:hyprwm/contrib";
@@ -93,6 +108,7 @@
         flake-compat.follows = "flake-compat";
         crane.follows = "crane";
         rust-overlay.follows = "rust-overlay";
+        pre-commit-hooks-nix.inputs.gitignore.follows = "gitignore";
       };
     };
     nix-index-database = {
@@ -106,6 +122,7 @@
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
         flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
       };
     };
     schizofox = {
