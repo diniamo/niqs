@@ -6,6 +6,7 @@
       copy_command.command = "wl-copy";
       page_size_in_rows = 30;
       border_type = "Rounded";
+      cover_img_scale = 1.8;
       device = {
         volume = 100;
         device_type = "computer";
