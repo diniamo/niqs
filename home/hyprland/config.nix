@@ -53,6 +53,7 @@ in {
       exit_window_retains_fullscreen = true;
     };
     cursor = {
+      no_hardware_cursors = 0;
       allow_dumb_copy = true;
     };
     render = {
