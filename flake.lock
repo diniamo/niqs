@@ -594,11 +594,11 @@
         "pre-commit-hooks": "pre-commit-hooks_2"
       },
       "locked": {
-        "lastModified": 1730141569,
-        "narHash": "sha256-wuSAcXqMRuaBihrvzVNplSM+S8fdoKGj7ubibmiUGGA=",
+        "lastModified": 1731087338,
+        "narHash": "sha256-9J8+Pyb/WtzZ+AU5XJLvpVSILN742z37C4CrbnYXkuo=",
         "owner": "lix-project",
         "repo": "lix",
-        "rev": "9c22a4d31b18715bcca5791fcc40089d4eca35cb",
+        "rev": "116895acb1fb5b09e8c1b867f345f6c8ca09647a",
         "type": "github"
       },
       "original": {
@@ -703,11 +703,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730840767,
-        "narHash": "sha256-19CIOeVNc2mdcG+i2oCFszok7oc2oz8iziLgQf1NmMQ=",
+        "lastModified": 1731093212,
+        "narHash": "sha256-6UDNYcNvmmsq9cZQf6Vz/e3g9zRkf68+TSVCVInHDuM=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "1b86afcd7cf940fe77d8214bafef101bd73ccbd3",
+        "rev": "68841d3a4f6b111bfb372df8586f5194ff18e861",
         "type": "github"
       },
       "original": {
