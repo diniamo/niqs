@@ -9,7 +9,7 @@
 
   inputs = {
     # Using Hyprland's nixpkgs input
-    # - avoids mesa version mismatches
+    # - avoids mesa and qt version mismatches
     # - avoids a lot of duplicate packages due to different versions
     # nixpkgs.follows = "hyprland/nixpkgs";
     # nixpkgs.url = "nixpkgs/nixos-unstable";
