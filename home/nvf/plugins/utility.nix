@@ -20,7 +20,7 @@
     };
 
     binds = {
-      whichKey.enable = true;
+      whichKey.enable = false;
       cheatsheet.enable = true;
     };
   };

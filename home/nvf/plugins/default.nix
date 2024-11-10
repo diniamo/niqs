@@ -14,7 +14,7 @@
     ./file-tree.nix
     ./buffer-line.nix
     ./status-line.nix
-    ./direnv.nix
+    # ./direnv.nix
     ./treesitter.nix
     ./motion.nix
   ];
