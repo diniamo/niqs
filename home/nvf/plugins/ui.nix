@@ -31,11 +31,9 @@
     };
 
     visuals = {
-      enable = true;
-
-      indentBlankline.enable = true;
+      indent-blankline.enable = true;
       highlight-undo.enable = true;
-      nvimWebDevicons.enable = true;
+      nvim-web-devicons.enable = true;
     };
 
     maps.normal."<leader>ln" = {
