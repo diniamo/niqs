@@ -59,6 +59,7 @@ in {
     render = {
       explicit_sync = 1;
       explicit_sync_kms = 1;
+      expand_undersized_textures = false;
     };
     opengl.nvidia_anti_flicker = false;
     decoration = {
