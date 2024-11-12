@@ -19,7 +19,6 @@ in {
             "<C-k>" = mkLuaInline "require('telescope.actions').move_selection_previous";
             # Clears the prompt
             "<C-u>" = false;
-
             "<cr>" = mkLuaInline ''
               function(prompt_bufnr)
                 local actions = require("telescope.actions")
