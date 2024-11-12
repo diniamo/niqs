@@ -5,7 +5,7 @@
     enableLSP = true;
     enableTreesitter = true;
 
-    # bash.enable = true;
+    bash.enable = true;
     lua.enable = true;
     nix.enable = true;
     python = {
@@ -21,12 +21,12 @@
     # clang.enable = true;
     markdown.enable = true;
     # nu.enable = true;
-    csharp.enable = true;
-    julia = {
-      enable = true;
-      # Provide it in devshells instead
-      lsp.package = null;
-    };
+    # csharp.enable = true;
+    # julia = {
+    #   enable = true;
+    #   # Provide it in devshells instead
+    #   lsp.package = null;
+    # };
   };
 
   programs.nvf.custom.lspSources = {
