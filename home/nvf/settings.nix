@@ -28,8 +28,9 @@ in {
 
     ui.borders = {
       enable = true;
-      # Maybe try to get `none` working at some point?
       globalStyle = "rounded";
+
+      plugins.nvim-cmp.enable = false;
     };
 
     luaConfigRC = {
