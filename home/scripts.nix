@@ -42,15 +42,12 @@ in {
         toggleInhibitSleep = writeDash "toggle-inhibit-sleep" ''
           set -e
 
-          if kill "$(cat /tmp/sleep-inhibitor-pid)"; then
-            rm /tmp/sleep-inhibitor-pid
-
-            notify-send --urgency=low --icon=media-playback-start "Sleep uninhibited"
-          else
-            systemd-inhibit --what=sleep --why=Manual sleep infinity &
-            printf '%s' "$!" > /tmp/sleep-inhibitor-pid
-
+          if systemctl --user --quiet is-active hypridle.service then
+            systemctl --user --quiet stop hypridle.service
             notify-send --urgency=low --icon=media-playback-pause "Sleep inhibited"
+          else
+            systemctl --user --quiet start hypridle.service
+            notify-send --urgency=low --icon=media-playback-start "Sleep uninhibited"
           fi
         '';
       };
