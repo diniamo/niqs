@@ -8,11 +8,7 @@
         winbar.enabled = false;
         direction = "float";
         float_opts.border = config.programs.nvf.settings.vim.ui.borders.globalStyle;
-      };
-
-      lazygit = {
-        enable = true;
-        mappings.open = "<leader>gl";
+        highlights.FloatBorder.link = "FloatBorder";
       };
     };
 
