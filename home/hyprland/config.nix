@@ -8,7 +8,7 @@ in {
       "XDG_SESSION_DESKTOP, Hyprland"
 
       "GDK_BACKEND, wayland"
-      "SDL_VIDEODRIVER, wayland"
+      "SDL_VIDEODRIVER, wayland,x11,windows"
       "QT_QPA_PLATFORM, wayland;xcb"
     ];
     input = {
