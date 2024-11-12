@@ -11,7 +11,7 @@
         volume = 100;
         device_type = "computer";
         audio_cache = true;
-        normalization = true;
+        normalization = false;
       };
     };
 
