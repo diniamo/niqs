@@ -143,8 +143,8 @@
     };
     nvf = {
       # url = "github:NotAShelf/nvf";
-      url = "github:NotAShelf/nvf/v0.7";
-      # url = "path:/hdd/dev/nvf";
+      # url = "github:NotAShelf/nvf/v0.7";
+      url = "github:diniamo/nvf/custom";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";

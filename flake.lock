@@ -998,6 +998,7 @@
         "plugin-sqls-nvim": "plugin-sqls-nvim",
         "plugin-tabular": "plugin-tabular",
         "plugin-telescope": "plugin-telescope",
+        "plugin-tiny-devicons-auto-colors": "plugin-tiny-devicons-auto-colors",
         "plugin-todo-comments": "plugin-todo-comments",
         "plugin-toggleterm-nvim": "plugin-toggleterm-nvim",
         "plugin-tokyonight": "plugin-tokyonight",
@@ -1016,16 +1017,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1731189313,
-        "narHash": "sha256-KRx/yjPSluabaUFdu+zxjD7Hpxo3MiO3D9hbsbGY8Ho=",
-        "owner": "NotAShelf",
+        "lastModified": 1731449775,
+        "narHash": "sha256-u+54dDJ+zAJkVJqrbFmhSoEQter5mB4YPZMiYNGuldM=",
+        "owner": "diniamo",
         "repo": "nvf",
-        "rev": "516174e29699cf8c0fea84ca32cbe26d30248410",
+        "rev": "c1d12328188ceeed21ae1ca3aed4a6d95cc37652",
         "type": "github"
       },
       "original": {
-        "owner": "NotAShelf",
-        "ref": "v0.7",
+        "owner": "diniamo",
+        "ref": "custom",
         "repo": "nvf",
         "type": "github"
       }
@@ -2661,6 +2662,22 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope.nvim",
+        "type": "github"
+      }
+    },
+    "plugin-tiny-devicons-auto-colors": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724403745,
+        "narHash": "sha256-Ndkbvxn/x7+fxEYD7JIygqUiItuhoY+4+DaL/pJGKdc=",
+        "owner": "rachartier",
+        "repo": "tiny-devicons-auto-colors.nvim",
+        "rev": "a39fa4c92268832f6034306793b8acbfec2a7549",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rachartier",
+        "repo": "tiny-devicons-auto-colors.nvim",
         "type": "github"
       }
     },
