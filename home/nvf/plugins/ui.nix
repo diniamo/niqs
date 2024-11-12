@@ -5,7 +5,10 @@
       illuminate.enable = true;
       noice = {
         enable = true;
-        setupOpts.presets.bottom_search = false;
+        setupOpts = {
+          presets.bottom_search = false;
+          views.popupmenu.scrollbar = false;
+        };
       };
 
       breadcrumbs = {
