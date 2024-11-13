@@ -1017,16 +1017,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1731449775,
-        "narHash": "sha256-u+54dDJ+zAJkVJqrbFmhSoEQter5mB4YPZMiYNGuldM=",
-        "owner": "diniamo",
+        "lastModified": 1731519993,
+        "narHash": "sha256-pD0wsECavuLJNtkyOGsQPBPdLcSGlEV1tQdiaXSJjmY=",
+        "owner": "NotAShelf",
         "repo": "nvf",
-        "rev": "c1d12328188ceeed21ae1ca3aed4a6d95cc37652",
+        "rev": "7a5c75b8652caa4a61700b6d2dcc641fdfed8ba1",
         "type": "github"
       },
       "original": {
-        "owner": "diniamo",
-        "ref": "custom",
+        "owner": "NotAShelf",
+        "ref": "v0.7",
         "repo": "nvf",
         "type": "github"
       }

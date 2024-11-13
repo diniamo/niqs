@@ -5,7 +5,6 @@
 
       mappings.open = "<c-t>";
       setupOpts = {
-        winbar.enabled = false;
         direction = "float";
         float_opts.border = config.programs.nvf.settings.vim.ui.borders.globalStyle;
         highlights.FloatBorder.link = "FloatBorder";
