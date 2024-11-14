@@ -34,7 +34,7 @@ in {
         animations.enabled = mkForce false;
         decoration = {
           blur.enabled = mkForce false;
-          drop_shadow = mkForce false;
+          shadow.enabled = mkForce false;
         };
       };
     };
