@@ -28,10 +28,6 @@
         desc = "Keymaps";
         action = "<cmd>Telescope keymaps<cr>";
       };
-      "<leader>hc" = {
-        desc = "Open cheatsheet";
-        action = "<cmd>Cheatsheet<cr>";
-      };
       "<leader>qq" = {
         desc = "Quit";
         action = "<cmd>q<cr>";

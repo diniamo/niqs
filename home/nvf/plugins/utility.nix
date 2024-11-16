@@ -18,11 +18,6 @@
         trouble = "<leader>xt";
       };
     };
-
-    binds = {
-      whichKey.enable = false;
-      cheatsheet.enable = true;
-    };
   };
 
   programs.nvf.custom.setupPlugins = {
