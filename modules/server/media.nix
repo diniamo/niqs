@@ -19,7 +19,7 @@ in {
         openFirewall = true;
       };
 
-      shokoserver = {
+      shoko = {
         enable = true;
         openFirewall = true;
       };
@@ -27,7 +27,7 @@ in {
 
     users.groups.${services.transmission.group}.members = [
       services.jellyfin.group
-      services.shokoserver.group
+      services.shoko.group
     ];
   };
 }
