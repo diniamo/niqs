@@ -24,6 +24,7 @@
       trouble = {
         enable = true;
         mappings = {
+          workspaceDiagnostics = "<leader>xw";
           documentDiagnostics = "<leader>xd";
           lspReferences = "<leader>xr";
         };
@@ -31,6 +32,8 @@
     };
 
     binds.whichKey.register = {
+      "<leader>lw" = null;
+
       "<leader>l" = "+Lsp";
       "<leader>lg" = "+Goto";
       "<leader>lt" = "+Toggle";

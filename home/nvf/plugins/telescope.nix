@@ -64,6 +64,7 @@ in {
 
       keys = [
         {
+          mode = "n";
           key = "<leader>ji";
           desc = "Zoxide list";
           lua = true;
