@@ -104,7 +104,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
-        flake-utils.follows = "flake-utils";
         flake-compat.follows = "flake-compat";
         crane.follows = "crane";
         rust-overlay.follows = "rust-overlay";
