@@ -37,6 +37,7 @@ in {
     };
 
     security = {
+      sandbox = false;
       noSessionRestore = false;
     };
 
