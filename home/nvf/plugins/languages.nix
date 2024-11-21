@@ -27,6 +27,7 @@
     #   # Provide it in devshells instead
     #   lsp.package = null;
     # };
+    zig.enable = true;
   };
 
   programs.nvf.custom.lspSources = {
