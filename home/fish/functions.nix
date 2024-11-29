@@ -219,7 +219,7 @@
 
     realwhich = {
       description = "which + realpath";
-      body = "realpath (which $argv[1])";
+      body = "realpath (which $argv)";
     };
   };
 }
