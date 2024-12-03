@@ -2,7 +2,7 @@
   imports = [
     ./theme.nix
     ./languages.nix
-    ./debugger.nix
+    ./runner.nix
     ./completion.nix
     ./editing.nix
     ./git.nix
