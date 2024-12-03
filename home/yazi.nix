@@ -1,6 +1,11 @@
 {
   programs.yazi = {
     enable = true;
+
+    enableFishIntegration = false;
+    enableBashIntegration = false;
+    enableZshIntegration = false;
+
     settings = {
       opener = {
         reveal = [
