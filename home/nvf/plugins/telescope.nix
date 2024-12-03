@@ -65,7 +65,7 @@ in {
       keys = [
         {
           mode = "n";
-          key = "<leader>ji";
+          key = "<leader>jl";
           desc = "Zoxide list";
           lua = true;
           action = "function() require('telescope').extensions.zoxide.list() end";
