@@ -23,11 +23,17 @@ in {
         enable = true;
         openFirewall = true;
       };
+
+      sonarr = {
+        enable = true;
+        openFirewall = true;
+      };
     };
 
     users.groups.${services.transmission.group}.members = [
       services.jellyfin.group
       services.shoko.group
+      services.sonarr.group
     ];
   };
 }
