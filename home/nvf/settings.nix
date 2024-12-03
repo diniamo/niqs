@@ -18,7 +18,6 @@ in {
     useSystemClipboard = true;
     hideSearchHighlight = true;
     searchCase = "smart";
-    splitRight = true;
     spellcheck = {
       enable = true;
       languages = ["en" "hu"];
