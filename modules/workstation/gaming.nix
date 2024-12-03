@@ -20,11 +20,13 @@
       keyword decoration:drop_shadow false; \
       keyword general:allow_tearing true; \
       keyword render:direct_scanout true; \
-      keyword input:scroll_method '''"
+      keyword input:scroll_method no_scroll"
     ${powerprofilesctl} set performance
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=input-gaming 'Optimizations activated'
+    dunstctl set-paused true
   '';
   endScript = writeDash "gamemode-end" ''
+    dunstctl set-paused false
     ${hyprctl} reload
     ${powerprofilesctl} set balanced
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=system-shutdown 'Optimizations deactivated'
