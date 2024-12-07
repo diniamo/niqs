@@ -17,7 +17,7 @@
     ${hyprctl} --batch "\
       keyword animations:enabled false; \
       keyword decoration:blur:enabled false; \
-      keyword decoration:drop_shadow false; \
+      keyword decoration:shadow:enabled false; \
       keyword general:allow_tearing true; \
       keyword render:direct_scanout true; \
       keyword input:scroll_method no_scroll"
