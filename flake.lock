@@ -3022,6 +3022,7 @@
         "schizofox": "schizofox",
         "stylix": "stylix",
         "systems": "systems_2",
+        "umu-launcher": "umu-launcher",
         "wallpapers": "wallpapers",
         "wrapper-manager": "wrapper-manager"
       }
@@ -3222,6 +3223,30 @@
         "owner": "tinted-theming",
         "repo": "tinted-tmux",
         "type": "github"
+      }
+    },
+    "umu-launcher": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "packaging/nix",
+        "lastModified": 1733681789,
+        "narHash": "sha256-cwTTwiYkUdFpJFpFlnalteT0bn7s7bC3ngj2tdKWhZk=",
+        "ref": "refs/heads/main",
+        "rev": "b0c0d44e0e533b42790360d30430a69b330849d6",
+        "revCount": 867,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/Open-Wine-Components/umu-launcher/"
+      },
+      "original": {
+        "dir": "packaging/nix",
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/Open-Wine-Components/umu-launcher/"
       }
     },
     "wallpapers": {
