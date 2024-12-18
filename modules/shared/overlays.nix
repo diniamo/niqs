@@ -12,6 +12,7 @@
       coreutils-full = coreutils-full-patched;
       sway-unwrapped = sway-unwrapped-git;
       jellyfin = jellyfin-intro-skipper;
+      file-roller = file-roller-gtk3;
     };
 in {
   nixpkgs.overlays = [niqspkgs];
