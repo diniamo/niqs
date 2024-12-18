@@ -44,14 +44,15 @@
         desc = "Save and quit all";
         action = "<cmd>xa<cr>";
       };
-      "<leader>ji" = {
-        desc = "Zoxide input";
+      "<leader>jp" = {
+        desc = "Zoxide prompt";
         lua = true;
         action = ''
           function()
             local keyword = vim.fn.input("Keyword: ")
-            local directory = vim.fn.system({ "zoxide", "query", keyword }):match("(.*)[\n\r]")
+            if keyword == "" then return end
 
+            local directory = vim.fn.system({ "zoxide", "query", keyword }):match("(.*)[\n\r]")
             if directory == "zoxide: no match found" then
               vim.notify("No match found", vim.log.levels.ERROR)
             else

@@ -33,7 +33,7 @@ in {
 
       mappings = {
         buffers = "<leader>sb";
-        diagnostics = "<leader>sld";
+        diagnostics = "<leader>slD";
         findFiles = "<leader>sf";
         findProjects = "<leader>sp";
         gitBranches = "<leader>svb";
@@ -43,7 +43,7 @@ in {
         gitStatus = "<leader>svs";
         helpTags = "<leader>sh";
         liveGrep = "<leader>sg";
-        lspDefinitions = "<leader>slD";
+        lspDefinitions = "<leader>sld";
         lspDocumentSymbols = "<leader>slsb";
         lspImplementations = "<leader>sli";
         lspReferences = "<leader>slr";
@@ -65,7 +65,7 @@ in {
       keys = [
         {
           mode = "n";
-          key = "<leader>jl";
+          key = "<leader>ji";
           desc = "Zoxide list";
           lua = true;
           action = "function() require('telescope').extensions.zoxide.list() end";
