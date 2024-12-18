@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   inherit (config) values;
 in {
   imports = [./hardware.nix];
@@ -17,6 +21,8 @@ in {
       unixPath = "/torrent/complete";
     };
   };
+
+  environment.systemPackages = [pkgs.obs-studio];
 
   networking.hostName = "${values.mainUser}-PC";
 
