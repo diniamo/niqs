@@ -16,7 +16,7 @@
 
     config = {
       player_arguments = "--profile=anime";
-      provider = "yugen";
+      provider = "allanime";
       manga_opener = "swayimg";
       score_on_completion = "true";
       image_preview = "true";
