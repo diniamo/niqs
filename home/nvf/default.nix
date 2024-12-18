@@ -21,4 +21,6 @@
       ./lua/mappings.lua
     ];
   };
+
+  home.sessionVariables.MANPAGER = "nvim -c 'Man!'";
 }
