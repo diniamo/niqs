@@ -13,6 +13,8 @@
 
       format = null;
       setupOpts = {
+        completion.autocomplete = false;
+
         window = {
           completion.scrollbar = false;
           documentation.scrollbar = false;
