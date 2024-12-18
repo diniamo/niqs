@@ -67,8 +67,8 @@ in {
           mode = "n";
           key = "<leader>ji";
           desc = "Zoxide list";
-          lua = true;
           action = "function() require('telescope').extensions.zoxide.list() end";
+          lua = true;
         }
       ];
     };
