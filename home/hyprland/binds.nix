@@ -33,8 +33,8 @@ in {
       # TODO: cliphist
 
       "${mod}, d, togglespecialworkspace, terminal"
-      "${mod}, m, togglespecialworkspace, mixer_tui"
-      "${mod}${secondary}, m, togglespecialworkspace, mixer_gui"
+      "${mod}, a, togglespecialworkspace, mixer_tui"
+      "${mod}${secondary}, a, togglespecialworkspace, mixer_gui"
       "${mod}, g, togglespecialworkspace, music_gui"
       "${mod}${secondary}, g, togglespecialworkspace, music_tui"
       "${mod}, c, togglespecialworkspace, calculator_tui"
@@ -72,10 +72,18 @@ in {
       "${mod}, k, movefocus, u"
       "${mod}, l, movefocus, r"
 
-      "${mod}${shift}, h, movewindow, l"
-      "${mod}${shift}, j, movewindow, d"
-      "${mod}${shift}, k, movewindow, u"
-      "${mod}${shift}, l, movewindow, r"
+      "${mod}${shift}, h, movewindoworgroup, l"
+      "${mod}${shift}, j, movewindoworgroup, d"
+      "${mod}${shift}, k, movewindoworgroup, u"
+      "${mod}${shift}, l, movewindoworgroup, r"
+
+      "${mod}, Left, movegroupwindow, b"
+      "${mod}, Right, movegroupwindow, f"
+
+      "${mod}, u, togglegroup"
+      "${mod}${secondary}, u, lockactivegroup, toggle"
+      "${mod}, Tab, changegroupactive, f"
+      "${mod}${shift}, Tab, changegroupactive, b"
 
       "${mod}${shift}, Space, movetoworkspace, +0"
 
@@ -90,7 +98,7 @@ in {
       "${mod}, 9, workspace, 9"
       "${mod}, 0, workspace, 10"
 
-      "${mod}, Tab, workspace, previous"
+      "${mod}, BackSpace, workspace, previous"
 
       "${mod}${shift}, 1, movetoworkspacesilent, 1"
       "${mod}${shift}, 2, movetoworkspacesilent, 2"
@@ -125,7 +133,7 @@ in {
       ''${mod}${secondary}, w, exec, notify-send "Opening link" "$(wl-paste)"; firefox "$(wl-paste)"''
 
       "${mod}${secondary}, x, exec, ${getExe pkgs.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=auto-windows"
-      "${mod}, a, exec, ${scripts.notifyInformation}"
+      "${mod}, r, exec, ${scripts.notifyInformation}"
       "${mod}, i, exec, ${scripts.toggleInhibitSleep}"
     ];
     binde = [
