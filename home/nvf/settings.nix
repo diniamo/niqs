@@ -45,7 +45,6 @@ in {
         vim.g.loaded_gzip = 1
         vim.g.loaded_logiPat = 1
         vim.g.loaded_manpager_plugin = 1
-        vim.g.loaded_netrwPlugin = 1
         vim.g.loaded_rrhelper = 1
         vim.g.loaded_spellfile_plugin = 1
         vim.g.loaded_tarPlugin = 1
