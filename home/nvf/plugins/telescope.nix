@@ -65,8 +65,14 @@ in {
       keys = [
         {
           mode = "n";
+          key = "<leader>sk";
+          desc = "Keymaps [Telescope]";
+          action = "<cmd>Telescope keymaps<cr>";
+        }
+        {
+          mode = "n";
           key = "<leader>ji";
-          desc = "Zoxide list";
+          desc = "Zoxide list [Telescope]";
           action = "function() require('telescope').extensions.zoxide.list() end";
           lua = true;
         }

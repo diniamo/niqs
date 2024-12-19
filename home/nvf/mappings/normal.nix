@@ -1,9 +1,7 @@
 {
   programs.nvf.settings.vim = {
     binds.whichKey.register = {
-      "<leader>h" = "+Help";
       "<leader>j" = "+Zoxide";
-      "<leader>q" = "+Quit";
       "<leader>w" = "+Window";
     };
 
@@ -16,32 +14,8 @@
         desc = "Redraw, clear hlsearch, update diff";
         action = "<cmd>nohlsearch<bar>diffupdate<bar>normal! <C-l><cr>";
       };
-      "<leader>bD" = {
-        desc = "Delete buffer and window";
-        action = "<cmd>bd<cr>";
-      };
-      "<leader>bn" = {
-        desc = "New file";
-        action = "<cmd>enew<cr>";
-      };
-      "<leader>hk" = {
-        desc = "Keymaps";
-        action = "<cmd>Telescope keymaps<cr>";
-      };
-      "<leader>qq" = {
-        desc = "Quit";
-        action = "<cmd>q<cr>";
-      };
-      "<leader>qa" = {
-        desc = "Quit all";
-        action = "<cmd>qa<cr>";
-      };
-      "<leader>qf" = {
-        desc = "Force quit all";
-        action = "<cmd>qa!<cr>";
-      };
-      "<leader>qx" = {
-        desc = "Save and quit all";
+      "<C-q>" = {
+        desc = "Save and quit";
         action = "<cmd>xa<cr>";
       };
       "<leader>jp" = {
