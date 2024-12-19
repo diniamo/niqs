@@ -15,8 +15,20 @@
         action = "<cmd>nohlsearch<bar>diffupdate<bar>normal! <C-l><cr>";
       };
       "<C-q>" = {
-        desc = "Save and quit";
-        action = "<cmd>xa<cr>";
+        desc = "Jump to unsaved buffer or quit";
+        action = ''
+          function()
+            for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+              if vim.api.nvim_get_option_value("modified", { buf = buf }) then
+                vim.api.nvim_win_set_buf(0, buf)
+                return
+              end
+            end
+
+            vim.cmd("quitall")
+          end
+        '';
+        lua = true;
       };
       "<leader>jp" = {
         desc = "Zoxide prompt";
