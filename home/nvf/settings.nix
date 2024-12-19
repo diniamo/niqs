@@ -58,6 +58,7 @@ in {
         if vim.g.neovide then
           vim.o.guifont = "${config.stylix.fonts.monospace.name}:h${toString config.stylix.fonts.sizes.terminal}:#h-normal:#e-subpixelantialias"
           vim.g.neovide_remember_window_size = false
+          vim.g.neovide_confirm_quit = false
         end
       '';
     };
