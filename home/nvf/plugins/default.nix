@@ -18,5 +18,6 @@
     ./treesitter.nix
     ./motion.nix
     ./oil.nix
+    ./harpoon.nix
   ];
 }
