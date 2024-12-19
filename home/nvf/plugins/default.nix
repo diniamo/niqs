@@ -3,19 +3,20 @@
     ./theme.nix
     ./languages.nix
     ./runner.nix
-    ./completion.nix
+    ./cmp.nix
     ./editing.nix
     ./git.nix
     ./ui.nix
     ./lsp.nix
     ./telescope.nix
-    ./terminal.nix
+    ./toggleterm.nix
     ./utility.nix
-    ./file-tree.nix
-    ./buffer-line.nix
-    ./status-line.nix
+    # ./neotree.nix
+    # ./bufferline.nix
+    ./lualine.nix
     # ./direnv.nix
     ./treesitter.nix
     ./motion.nix
+    ./oil.nix
   ];
 }

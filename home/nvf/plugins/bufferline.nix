@@ -8,7 +8,7 @@
     nvimBufferline = {
       enable = true;
       mappings = {
-        closeCurrent = "<leader>bd";
+        closeCurrent = "<F4>";
         cycleNext = "<Tab>";
         cyclePrevious = "<S-Tab>";
         pick = "<leader>bp";
