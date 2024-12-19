@@ -72,10 +72,18 @@ in {
       "${mod}, k, movefocus, u"
       "${mod}, l, movefocus, r"
 
-      "${mod}${shift}, h, movewindow, l"
-      "${mod}${shift}, j, movewindow, d"
-      "${mod}${shift}, k, movewindow, u"
-      "${mod}${shift}, l, movewindow, r"
+      "${mod}${shift}, h, movewindoworgroup, l"
+      "${mod}${shift}, j, movewindoworgroup, d"
+      "${mod}${shift}, k, movewindoworgroup, u"
+      "${mod}${shift}, l, movewindoworgroup, r"
+
+      "${mod}, Left, movegroupwindow, b"
+      "${mod}, Right, movegroupwindow, f"
+
+      "${mod}, u, togglegroup"
+      "${mod}${secondary}, u, lockactivegroup, toggle"
+      "${mod}, Tab, changegroupactive, f"
+      "${mod}${shift}, Tab, changegroupactive, b"
 
       "${mod}${shift}, Space, movetoworkspace, +0"
 
@@ -88,9 +96,8 @@ in {
       "${mod}, 7, workspace, 7"
       "${mod}, 8, workspace, 8"
       "${mod}, 9, workspace, 9"
-      "${mod}, 0, workspace, 10"
 
-      "${mod}, Tab, workspace, previous"
+      "${mod}, 0, workspace, previous"
 
       "${mod}${shift}, 1, movetoworkspacesilent, 1"
       "${mod}${shift}, 2, movetoworkspacesilent, 2"
@@ -101,7 +108,6 @@ in {
       "${mod}${shift}, 7, movetoworkspacesilent, 7"
       "${mod}${shift}, 8, movetoworkspacesilent, 8"
       "${mod}${shift}, 9, movetoworkspacesilent, 9"
-      "${mod}${shift}, 0, movetoworkspacesilent, 10"
 
       "${mod}${shift}${secondary}, 1, movetoworkspace, 1"
       "${mod}${shift}${secondary}, 2, movetoworkspace, 2"
@@ -112,7 +118,6 @@ in {
       "${mod}${shift}${secondary}, 7, movetoworkspace, 7"
       "${mod}${shift}${secondary}, 8, movetoworkspace, 8"
       "${mod}${shift}${secondary}, 9, movetoworkspace, 9"
-      "${mod}${shift}${secondary}, 0, movetoworkspace, 10"
 
       "${mod}, t, togglefloating"
       "${mod}, p, exec, ${hyprlandScripts.pin}"

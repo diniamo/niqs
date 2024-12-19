@@ -1,7 +1,11 @@
-{osConfig, ...}: let
+{
+  osConfig,
+  config,
+  ...
+}: let
   inherit (osConfig.values) terminal;
 
-  noDecorations = "gapsin:0, gapsout:0, border:false, shadow:false, rounding:false, decorate:false";
+  noDecorations = "gapsin:0, gapsout:0, border:false, shadow:false, rounding:false";
 in {
   wayland.windowManager.hyprland.settings = {
     env = [
@@ -99,10 +103,19 @@ in {
       allow_workspace_cycles = true;
       workspace_center_on = 1;
     };
+    group = {
+      insert_after_current = false;
+      drag_into_group = 2;
+      merge_groups_on_drag = false;
+
+      groupbar = {
+        font_family = config.stylix.fonts.sansSerif.name;
+        font_size = config.stylix.fonts.sizes.desktop;
+      };
+    };
     windowrule = [
       "pin, ^(dragon)$"
       "float, ^(SVPManager)$"
-      "float, ^(org.freedesktop.impl.portal.desktop.kde)$"
       "float, ^(xdg-desktop-portal-gtk)$"
       "idleinhibit always, ^(org.qbittorrent.qBittorrent)$"
       "noanim, ^(ueberzugpp_)(.*)$"
