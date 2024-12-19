@@ -28,7 +28,6 @@ in {
           gitsigns = true,
           indent_blankline = { enabled = true },
           markdown = true,
-          neotree = true,
           noice = true,
           cmp = true,
           dap = true,
@@ -39,8 +38,7 @@ in {
           nvim_surround = true,
           treesitter = true,
           telescope = { enabled = true },
-          lsp_trouble = true,
-          which_key = true
+          lsp_trouble = true
         }
       })
 
