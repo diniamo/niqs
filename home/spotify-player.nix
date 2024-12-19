@@ -7,6 +7,9 @@
       page_size_in_rows = 30;
       border_type = "Rounded";
       cover_img_scale = 1.8;
+
+      layout.playback_window_position = "Bottom";
+
       device = {
         volume = 100;
         device_type = "computer";
