@@ -11,8 +11,9 @@
   programs.nvf.settings.vim = {
     lsp = {
       mappings = {
-        renameSymbol = "<leader>lr";
+        renameSymbol = "<leader>r";
         format = "<leader>f";
+        codeAction = "<leader>a";
       };
 
       # lightbulb.enable = true;
@@ -29,14 +30,6 @@
           lspReferences = "<leader>xr";
         };
       };
-    };
-
-    binds.whichKey.register = {
-      "<leader>lw" = null;
-
-      "<leader>l" = "+Lsp";
-      "<leader>lg" = "+Goto";
-      "<leader>lt" = "+Toggle";
     };
   };
 }

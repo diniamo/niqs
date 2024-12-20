@@ -14,19 +14,13 @@ in {
           layout_config.horizontal.prompt_position = "bottom";
           sorting_strategy = "descending";
           mappings.i = {
-            "<esc>" = mkLuaInline "require('telescope.actions').close";
+            "<Esc>" = mkLuaInline "require('telescope.actions').close";
             "<C-j>" = mkLuaInline "require('telescope.actions').move_selection_next";
             "<C-k>" = mkLuaInline "require('telescope.actions').move_selection_previous";
+            "<S-Tab>" = mkLuaInline "require('telescope.actions').move_selection_next";
+            "<Tab>" = mkLuaInline "require('telescope.actions').move_selection_previous";
             # Clears the prompt
             "<C-u>" = false;
-            "<cr>" = mkLuaInline ''
-              function(prompt_bufnr)
-                local actions = require("telescope.actions")
-                actions.add_selection(prompt_bufnr)
-                actions.send_selected_to_qflist(prompt_bufnr)
-                vim.cmd("cfdo edit")
-              end
-            '';
           };
         };
       };
@@ -77,20 +71,6 @@ in {
           lua = true;
         }
       ];
-    };
-
-    binds.whichKey.register = {
-      "<leader>f" = null;
-      "<leader>fl" = null;
-      "<leader>fm" = null;
-      "<leader>fv" = null;
-      "<leader>fvc" = null;
-
-      "<leader>s" = "+Telescope";
-      "<leader>sl" = "+Lsp";
-      "<leader>sv" = "+Git";
-      "<leader>svc" = "+Commit";
-      "<leader>j" = "+Zoxide";
     };
   };
 

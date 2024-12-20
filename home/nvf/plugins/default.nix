@@ -13,11 +13,13 @@
     ./utility.nix
     # ./neotree.nix
     # ./bufferline.nix
-    ./lualine.nix
+    # ./lualine.nix
     # ./direnv.nix
     ./treesitter.nix
-    ./motion.nix
+    # ./flash.nix
     ./oil.nix
     ./harpoon.nix
+    ./feline.nix
+    ./leap.nix
   ];
 }

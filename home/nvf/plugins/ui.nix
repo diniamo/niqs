@@ -1,64 +1,64 @@
-{flakePkgs, ...}: {
-  programs.nvf.settings.vim = {
-    notify.nvim-notify.enable = true;
-    ui = {
-      illuminate.enable = true;
-      noice = {
+{config, ...}: {
+  programs.nvf = {
+    settings.vim = {
+      notify.nvim-notify = {
         enable = true;
         setupOpts = {
-          presets.bottom_search = false;
-          views.popupmenu.scrollbar = false;
+          render = "wrapped-compact";
+          stages = "fade";
         };
       };
 
-      breadcrumbs = {
-        enable = true;
-
-        navbuddy = {
+      ui = {
+        noice = {
           enable = true;
-          setupOpts.useDefaultMappings = false;
+          setupOpts = {
+            cmdline = {
+              view = "cmdline";
+              format = {
+                cmdline.conceal = false;
+                search_down.conceal = false;
+                search_up.conceal = false;
+                filter.conceal = false;
+                lua.conceal = false;
+                help.conceal = false;
+                input.conceal = false;
+              };
+            };
+            popupmenu.backend = "cmp";
+            views.popupmenu.scrollbar = false;
+            notify.enabled = false;
+          };
         };
-      };
-
-      fastaction = {
-        enable = true;
-        setupOpts = {
-          dismiss_keys = ["q" "<esc>"];
-          keys = "abcdefghijklmnoprstuvwxyz";
-          popup = {
-            title = "Select:";
-            relative = "cursor";
+        illuminate.enable = true;
+        fastaction = {
+          enable = true;
+          setupOpts = {
+            dismiss_keys = ["q" "<esc>"];
+            keys = "abcdefghijklmnoprstuvwxyz";
+            popup = {
+              title = "Select:";
+              relative = "cursor";
+            };
           };
         };
       };
-    };
 
-    visuals = {
-      indent-blankline.enable = true;
-      highlight-undo.enable = true;
-      nvim-web-devicons.enable = true;
-    };
-
-    maps.normal."<leader>ln" = {
-      desc = "Open Navbuddy";
-      action = "<cmd>Navbuddy<cr>";
-    };
-  };
-
-  programs.nvf.custom.setupPlugins = {
-    dressing = {
-      package = "dressing-nvim";
-      setupOpts = {
-        select.enabled = false;
+      visuals = {
+        indent-blankline.enable = true;
+        highlight-undo.enable = true;
+        nvim-web-devicons.enable = true;
       };
     };
 
-    bufresize = {
-      package = flakePkgs.niqspkgs.bufresize-nvim;
-      setupOpts = {
-        register = {
-          keys = {};
-          trigger_events = ["WinResized"];
+    custom.setupPlugins = {
+      bufresize = {
+        package = config.programs.nvf.custom.sources.bufresize-nvim;
+        setupOpts = {
+          register = {
+            keys = {};
+            trigger_events = ["WinResized"];
+          };
         };
       };
     };

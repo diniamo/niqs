@@ -19,10 +19,5 @@
         toggleDeleted = "<leader>gtd";
       };
     };
-
-    binds.whichKey.register = {
-      "<leader>g" = "+Git";
-      "<leader>gt" = "+Toggle";
-    };
   };
 }

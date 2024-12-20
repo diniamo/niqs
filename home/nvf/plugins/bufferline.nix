@@ -4,9 +4,10 @@
   inputs,
   ...
 }: {
-  programs.nvf.settings.vim.tabline = {
-    nvimBufferline = {
+  programs.nvf.settings.vim = {
+    tabline.nvimBufferline = {
       enable = true;
+
       mappings = {
         closeCurrent = "<F4>";
         cycleNext = "<Tab>";
@@ -15,6 +16,7 @@
         moveNext = "<leader>b>";
         movePrevious = "<leader>b<";
       };
+
       setupOpts = {
         highlights = let
           inherit (config.lib.stylix.colors.withHashtag) base04 base05 base0D;
@@ -52,17 +54,10 @@
         };
       };
     };
-  };
 
-  programs.nvf.settings.vim = {
     maps.normal."<leader>bc" = {
       desc = "Close other buffers";
       action = "<Cmd>BufferLineCloseOthers<CR>";
-    };
-
-    binds.whichKey.register = {
-      "<leader>bm" = null;
-      "<leader>bs" = "+Sort";
     };
   };
 }

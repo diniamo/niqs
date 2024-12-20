@@ -30,10 +30,14 @@
         #   lsp.package = null;
         # };
         zig.enable = true;
+        odin.enable = true;
       };
 
       # HACK: figure out a good way to upstream this
-      debugger.nvim-dap.sources.zig-debugger = "dap.configurations.zig = dap.configurations.cpp";
+      debugger.nvim-dap.sources = {
+        zig-debugger = "dap.configurations.zig = dap.configurations.cpp";
+        odin-debugger = "dap.configurations.odin = dap.configurations.cpp";
+      };
     };
 
     custom.lspSources = {

@@ -1,6 +1,6 @@
-{flakePkgs, ...}: {
+{config, ...}: {
   programs.nvf.custom.setupPlugins.direnv = {
-    package = flakePkgs.niqspkgs.direnv-nvim;
+    package = config.programs.nvf.custom.sources.direnv-nvim;
     setupOpts = {
       keybindings = {
         allow = "<leader>ea";
@@ -9,6 +9,4 @@
       };
     };
   };
-
-  programs.nvf.settings.vim.binds.whichKey.register."<leader>e" = "+Direnv";
 }

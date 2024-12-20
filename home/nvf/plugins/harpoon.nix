@@ -12,16 +12,16 @@
 
     keys = [
       {
-        mode = "n";
-        key = "<leader>a";
         desc = "Harpoon current buffer";
+        mode = "n";
+        key = "<C-n>";
         action = "function() require('harpoon'):list():add() end";
         lua = true;
       }
       {
-        mode = "n";
-        key = "<leader>h";
         desc = "Harpoon menu";
+        mode = "n";
+        key = "<C-m>";
         action = ''
           function()
             local harpoon = require('harpoon')
@@ -32,30 +32,30 @@
       }
 
       {
+        desc = "Focus 1st Harpoon";
         mode = "n";
         key = "<C-1>";
-        desc = "Focus 1st Harpoon";
         action = "function() require('harpoon'):list():select(1) end";
         lua = true;
       }
       {
+        desc = "Focus 2st Harpoon";
         mode = "n";
         key = "<C-2>";
-        desc = "Focus 2st Harpoon";
         action = "function() require('harpoon'):list():select(2) end";
         lua = true;
       }
       {
+        desc = "Focus 3st Harpoon";
         mode = "n";
         key = "<C-3>";
-        desc = "Focus 3st Harpoon";
         action = "function() require('harpoon'):list():select(3) end";
         lua = true;
       }
       {
+        desc = "Focus 4st Harpoon";
         mode = "n";
         key = "<C-4>";
-        desc = "Focus 4st Harpoon";
         action = "function() require('harpoon'):list():select(4) end";
         lua = true;
       }

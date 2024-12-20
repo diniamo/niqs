@@ -4,9 +4,9 @@
 
     ./custom
     ./plugins
-    ./mappings
 
     ./settings.nix
+    ./options.nix
   ];
 
   programs.nvf = {

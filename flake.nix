@@ -140,8 +140,8 @@
       };
     };
     nvf = {
-      url = "github:NotAShelf/nvf";
-      # url = "github:diniamo/nvf/custom";
+      # url = "github:NotAShelf/nvf";
+      url = "github:diniamo/nvf/custom";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";

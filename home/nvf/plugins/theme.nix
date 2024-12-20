@@ -28,7 +28,7 @@ in {
           gitsigns = true,
           indent_blankline = { enabled = true },
           markdown = true,
-          noice = true,
+          notify = true,
           cmp = true,
           dap = true,
           dap_ui = true,
