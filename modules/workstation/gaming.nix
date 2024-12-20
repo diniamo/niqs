@@ -18,6 +18,7 @@
       keyword animations:enabled false; \
       keyword decoration:blur:enabled false; \
       keyword decoration:shadow:enabled false; \
+      keyword misc:vfr false; \
       keyword general:allow_tearing true; \
       keyword render:direct_scanout true; \
       keyword input:scroll_method no_scroll"
