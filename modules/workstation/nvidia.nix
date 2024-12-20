@@ -19,6 +19,8 @@ in {
 
       modesetting.enable = true;
       powerManagement.enable = true;
+
+      nvidiaSettings = false;
     };
 
     # This is required for Wayland too
