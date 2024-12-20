@@ -29,7 +29,6 @@ in {
     gtrash
     ungoogled-chromium
     yt-dlp
-    libreoffice
     libqalculate
     qalculate-qt
     pulsemixer

@@ -40,8 +40,6 @@ in {
       DISABLE_QT5_COMPAT = "0";
 
       CALIBRE_USE_DARK_PALETTE = "1";
-      # libreoffice
-      # SAL_USE_VCLPLUGIN = "qt5";
     };
   };
 }
