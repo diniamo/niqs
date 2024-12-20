@@ -37,7 +37,7 @@ in {
       "nvidia.NVreg_EnableStreamMemOPs=1"
       "nvidia.NVreg_RegistryDwords=__REGISTRYDWORDS"
     ];
-    environment.variables = {
+    environment.sessionVariables = {
       __GL_YIELD = "USLEEP";
       __GL_MaxFramesAllowed = "1";
 
