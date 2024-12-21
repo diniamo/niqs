@@ -221,5 +221,24 @@
       description = "which + realpath";
       body = "realpath (which $argv)";
     };
+
+    resolve-hash = {
+      description = "resolve missing hash in Nix derivation";
+      body = ''
+        set -f output (nix build --impure --expr "with import <nixpkgs> {}; $argv" 2>&1)
+
+        if set -f hash (string match --regex --groups-only 'got:\\s*(sha256-\\S+)' $output)
+          echo $hash
+        else
+          echo "No hash in output:" 1>&2
+          echo $output 1>&2
+        end
+      '';
+    };
+
+    resolve-clipboard-hash = {
+      description = "resolve-hash wrapper using the clipboard";
+      body = "resolve-hash (wl-paste) | wl-copy";
+    };
   };
 }
