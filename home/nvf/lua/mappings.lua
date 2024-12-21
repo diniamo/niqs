@@ -86,7 +86,7 @@ map("n", "<leader>jp", function()
   end
 end, { desc = "Zoxide prompt" })
 
-map("n", "<C-g>", function()
+map("n", "<C-c>", function()
   local path = vim.api.nvim_buf_get_name(0)
   vim.fn.setreg('+', path)
   vim.notify('Copied "' .. path .. '"')
