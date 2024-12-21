@@ -1,11 +1,16 @@
 {
   lib,
-  pkgs,
+  config,
   ...
 }: let
   inherit (lib.generators) mkLuaInline;
 in {
   programs.nvf.settings.vim = {
+    startPlugins = with config.programs.nvf.custom.sources; [
+      telescope-zf-native-nvim
+      telescope-zoxide
+    ];
+
     telescope = {
       enable = true;
 
@@ -73,9 +78,4 @@ in {
       ];
     };
   };
-
-  programs.nvf.custom.sanitizedStartPlugins = with pkgs.vimPlugins; [
-    telescope-zf-native-nvim
-    telescope-zoxide
-  ];
 }

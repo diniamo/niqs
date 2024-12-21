@@ -1,5 +1,5 @@
 {
-  pkgs,
+  config,
   lib,
   ...
 }: let
@@ -7,7 +7,7 @@
 in {
   programs.nvf.settings.vim = {
     lazy.plugins."oil.nvim" = {
-      package = pkgs.vimPlugins.oil-nvim;
+      package = config.programs.nvf.custom.sources.oil-nvim;
       setupModule = "oil";
 
       cmd = "Oil";

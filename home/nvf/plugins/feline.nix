@@ -1,12 +1,12 @@
 {
-  pkgs,
+  config,
   lib,
   ...
 }: let
   inherit (lib.generators) mkLuaInline;
 in {
   programs.nvf.settings.vim.lazy.plugins."feline.nvim" = {
-    package = pkgs.vimPlugins.feline-nvim;
+    package = config.programs.nvf.custom.sources.feline-nvim;
 
     event = "UIEnter";
 

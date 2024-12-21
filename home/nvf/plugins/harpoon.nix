@@ -1,6 +1,6 @@
-{pkgs, ...}: {
+{config, ...}: {
   programs.nvf.settings.vim.lazy.plugins.harpoon2 = {
-    package = pkgs.vimPlugins.harpoon2;
+    package = config.programs.nvf.custom.sources.harpoon2;
 
     after = ''
       require('harpoon'):setup({

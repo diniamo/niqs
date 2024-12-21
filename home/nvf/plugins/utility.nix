@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{config, ...}: {
   programs.nvf.settings.vim = {
     utility = {
       # images.image-nvim.enable = true;
@@ -17,6 +17,6 @@
   };
 
   programs.nvf.custom.setupPlugins = {
-    nvim-lastplace.package = pkgs.vimPlugins.nvim-lastplace;
+    nvim-lastplace.package = config.programs.nvf.custom.sources.nvim-lastplace;
   };
 }

@@ -1,9 +1,9 @@
-{pkgs,...}:{
+{config,...}:{
   programs.nvf.settings = {
     vim.autocomplete.nvim-cmp = {
       enable = true;
 
-      sourcePlugins = [pkgs.vimPlugins.cmp-nvim-lua] ;
+      sourcePlugins = [config.programs.nvf.custom.sources.cmp-nvim-lua];
       sources.nvim_lua = null;
 
       mappings = {
