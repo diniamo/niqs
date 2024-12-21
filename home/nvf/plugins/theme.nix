@@ -17,14 +17,14 @@ in {
 
         custom_highlights = function(colors)
           return {
-            NavicText = { fg = colors.text },
-            NavicSeparator = { fg = colors.flamingo }
+            StatusLine = { fg = colors.none, bg = colors.none },
+            StatusLineNC = { fg = colors.none, bg = colors.none }
           }
         end,
 
         default_integrations = true,
         integrations = {
-          flash = true,
+          leap = true,
           gitsigns = true,
           indent_blankline = { enabled = true },
           markdown = true,
@@ -33,7 +33,6 @@ in {
           dap = true,
           dap_ui = true,
           native_lsp = { enabled = true },
-          navic = { enabled = true },
           notify = true,
           nvim_surround = true,
           treesitter = true,

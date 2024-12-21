@@ -3,7 +3,7 @@
     terminal.toggleterm = {
       enable = true;
 
-      mappings.open = "<c-t>";
+      mappings.open = "<C-t>";
       setupOpts = {
         direction = "float";
         float_opts.border = config.programs.nvf.settings.vim.ui.borders.globalStyle;
