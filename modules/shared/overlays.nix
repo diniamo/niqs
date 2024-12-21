@@ -13,6 +13,7 @@
       sway-unwrapped = sway-unwrapped-git;
       jellyfin = jellyfin-intro-skipper;
       file-roller = file-roller-gtk3;
+      direnv = direnv-patched;
     };
 in {
   nixpkgs.overlays = [niqspkgs];
