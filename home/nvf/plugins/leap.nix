@@ -1,46 +1,50 @@
 {
-  programs.nvf = {
-    settings.vim = {
-      startPlugins = [
-        "vim-repeat"
-        "leap-nvim"
-      ];
+  inputs,
+  config,
+  ...
+}: let
+  inherit (inputs.nvf.lib.nvim.binds) mkKeymap;
+in {
+  programs.nvf.settings.vim = {
+    startPlugins = ["vim-repeat"];
 
-      keymaps = [
-        {
-          desc = "Jump forward";
-          mode = ["n" "x" "o"];
-          key = "s";
-          action = "<Plug>(leap)";
-        }
-        {
-          desc = "Jump backward";
-          mode = ["n" "x" "o"];
-          key = "S";
-          action = "<Plug>(leap-from-window)";
-        }
-        {
-          desc = "Charwise remote jump";
-          mode = ["n" "o"];
-          key = "gs";
-          action = "function() require('leap.remote').action({ input = 'v' }) end";
-          lua = true;
-        }
-        {
-          desc = "Linewise remote jump";
-          mode = ["n" "o"];
-          key = "gS";
-          action = "function() require('leap.remote').action({ input = 'V' }) end";
-          lua = true;
-        }
-        {
-          desc = "Blockwise remote jump";
-          mode = ["n" "o"];
-          key = "g<C-s>";
-          action = "function() require('leap.remote').action({ input = '<C-v>' }) end";
-          lua = true;
-        }
-      ];
+    lazy.plugins = {
+      leap-nvim = {
+        package = "leap-nvim";
+
+        keys = [
+          (mkKeymap ["n" "x" "o"] "s" "<Plug>(leap)" {desc = "Jump forward";})
+          (mkKeymap ["n" "x" "o"] "S" "<Plug>(leap-from-window)" {desc = "Jump backward";})
+          (mkKeymap ["n" "o"] "gs" "function() require('leap.remote').action({ input = 'v' }) end" {
+            desc = "Charwise remote jump";
+            lua = true;
+          })
+          (mkKeymap ["n" "o"] "gS" "function() require('leap.remote').action({ input = 'V' }) end" {
+            desc = "Linewise remote jump";
+            lua = true;
+          })
+          (mkKeymap ["n" "o"] "g<C-s>" "function() require('leap.remote').action({ input = '' }) end" {
+            desc = "Blockwise remote jump";
+            lua = true;
+          })
+        ];
+      };
+
+      "flit.nvim" = {
+        package = config.programs.nvf.custom.sources.flit-nvim;
+
+        keys = [
+          {mode = ["n" "x" "o"]; key = "f";}
+          {mode = ["n" "x" "o"]; key = "F";}
+          {mode = ["n" "x" "o"]; key = "t";}
+          {mode = ["n" "x" "o"]; key = "T";}
+        ];
+
+        setupModule = "flit";
+        setupOpts = {
+          labeled_modes = "";
+        };
+      };
     };
   };
 }
