@@ -40,22 +40,67 @@ in {
         yellow = mkLuaInline "palette.yellow";
       };
 
-      force_inactive = {};
       disable.buftypes = [
         "^nofile$"
         "^terminal$"
         "^help$"
       ];
 
+      custom_providers = {
+        padded_vi_mode = mkLuaInline ''
+          function()
+            return " " .. vi_mode.get_vim_mode() .. " "
+          end
+        '';
+
+        visual_count = mkLuaInline ''
+          function()
+            local mode = vim.fn.mode()
+            if mode == "v" then
+              local start_line = vim.fn.line("v")
+              local end_line = vim.fn.line(".")
+
+              if start_line == end_line then
+                return tostring(math.abs(vim.fn.virtcol(".") - vim.fn.virtcol("v")) + 1)
+              else
+                return tostring(math.abs(end_line - start_line) + 1)
+              end
+            elseif mode == "V" then
+              return tostring(math.abs(vim.fn.line(".") - vim.fn.line("v")) + 1)
+            elseif mode == "" then
+              return math.abs(vim.fn.virtcol(".") - vim.fn.virtcol("v")) + 1 .. "x" .. math.abs(vim.fn.line(".") - vim.fn.line("v")) + 1
+            else
+              return ""
+            end
+          end
+        '';
+
+        extended_file_info = mkLuaInline ''
+          function(component)
+            if vim.bo.filetype == "oil" then
+              local name = " Oil"
+              if vim.bo.modified then name = name .. " ●" end
+              return name
+            end
+
+            return file.file_info(component, file_info_opts)
+          end
+        '';
+
+        padded_position = mkLuaInline ''
+          function()
+            return " " .. cursor.position(nil, {}) .. " "
+          end
+        '';
+      };
+
       components.active = [
         [
           {
-            provider = mkLuaInline ''
-              function()
-                return " " .. vi_mode.get_vim_mode() .. " "
-              end
-            '';
-            update = ["ModeChanged"];
+            provider = {
+              name = "padded_vi_mode";
+              update = ["ModeChanged"];
+            };
             hl = mkLuaInline ''
               function()
                 return {
@@ -77,22 +122,25 @@ in {
             update = ["RecordingEnter" "RecordingLeave"];
             right_sep = " ";
           }
+          {
+            provider = {
+              name = "visual_count";
+              update = ["ModeChanged" "CursorMoved"];
+            };
+            hl = {
+              name = "StatusComponentVisualCount";
+              fg = "violet";
+            };
+            right_sep = " ";
+          }
         ]
 
         [
           {
-            provider = mkLuaInline ''
-              function(component, opts)
-                if vim.bo.filetype == "oil" then
-                  local name = " Oil"
-                  if vim.bo.modified then name = name .. " ●" end
-                  return name
-                end
-
-                return file.file_info(component, file_info_opts)
-              end
-            '';
-            update = ["BufEnter" "BufWritePost"];
+            provider = {
+              name = "extended_file_info";
+              update = ["BufEnter" "BufModifiedSet"];
+            };
           }
         ]
 
@@ -126,18 +174,16 @@ in {
             };
           }
           {
-            provider = mkLuaInline ''
-              function()
-                return " " .. cursor.position(nil, {}) .. " "
-              end
-            '';
+            provider = {
+              name = "padded_position";
+              update = ["CursorMoved" "CursorMovedI"];
+            };
             hl = {
               name = "StatusComponentPosition";
               fg = "bg";
               bg = "green";
               style = "bold";
             };
-            update = ["CursorMoved"];
             left_sep = " ";
           }
         ]
