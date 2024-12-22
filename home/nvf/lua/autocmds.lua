@@ -1,5 +1,7 @@
+local create_autocmd = vim.api.nvim_create_autocmd
+
 -- Check if we need to reload
-vim.api.nvim_create_autocmd("TermLeave", {
+create_autocmd("TermLeave", {
   callback = function()
     if vim.o.buftype ~= "nofile" then
       vim.cmd("checktime")
@@ -8,14 +10,14 @@ vim.api.nvim_create_autocmd("TermLeave", {
 })
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
+create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
 -- Close some filetypes with <q>
-vim.api.nvim_create_autocmd("FileType", {
+create_autocmd("FileType", {
   pattern = {
     "PlenaryTestPopup",
     "help",
@@ -39,7 +41,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Make it easier to close man-files when opened inline
-vim.api.nvim_create_autocmd("FileType", {
+create_autocmd("FileType", {
   pattern = { "man" },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
@@ -47,7 +49,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
+create_autocmd("FileType", {
   pattern = { "*.txt", "*.tex", "*.typ", "gitcommit", "markdown" },
   callback = function()
     vim.opt_local.wrap = true
@@ -56,7 +58,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Fix conceallevel for json files
-vim.api.nvim_create_autocmd("FileType", {
+create_autocmd("FileType", {
   pattern = { "json", "jsonc", "json5" },
   callback = function()
     vim.opt_local.conceallevel = 0
@@ -64,7 +66,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Change CWD to opened directory
-vim.api.nvim_create_autocmd("VimEnter", {
+create_autocmd("VimEnter", {
   callback = function(data)
     if vim.fn.isdirectory(data.file) == 1 then
       vim.cmd.cd(data.file)
