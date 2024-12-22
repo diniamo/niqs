@@ -27,15 +27,15 @@ in {
         use_default_keymaps = false;
         keymaps = mkLuaInline ''
           {
-            ["g?"] = { "actions.show_help", mode = "n" },
-            ["<CR>"] = "actions.select",
-            ["|"] = { "actions.select", opts = { vertical = true } },
-            ["_"] = { "actions.select", opts = { horizontal = true } },
-            ["<C-p>"] = "actions.preview",
+            ["<CR>"] = { "actions.select", mode = "n" },
+            ["|"] = { "actions.select", mode = "n", opts = { vertical = true } },
+            ["_"] = { "actions.select", mode = "n", opts = { horizontal = true } },
+            ["<C-p>"] = { "actions.preview", mode = "n" },
             ["<C-e>"] = { "actions.close", mode = "n" },
-            ["<F5>"] = "actions.refresh",
+            ["<F5>"] = { "actions.refresh", mode = "n" },
             ["<BS>"] = { "actions.parent", mode = "n" },
-            ["~"] = { "actions.open_cwd", mode = "n" },
+            ["gc"] = { "actions.open_cwd", mode = "n" },
+            ["gy"] = { "actions.cd", mode = "n" },
             ["gs"] = { "actions.change_sort", mode = "n" },
             ["gx"] = { "actions.open_external", mode = "n" },
             ["gh"] = { "actions.toggle_hidden", mode = "n" },
