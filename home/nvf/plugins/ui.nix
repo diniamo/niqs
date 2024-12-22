@@ -45,7 +45,12 @@
       };
 
       visuals = {
-        indent-blankline.enable = true;
+        indent-blankline = {
+          enable = true;
+          setupOpts = {
+            indent.tab_char = "│";
+          };
+        };
         highlight-undo.enable = true;
         nvim-web-devicons.enable = true;
       };
