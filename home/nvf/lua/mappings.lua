@@ -60,7 +60,7 @@ map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add commen
 
 -- Misc
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>silent w<cr><esc>", { desc = "Save file" })
-map("n", "<leader>;", "A;<esc>", { desc = "Append ; to the end of the line" })
+map("n", "<C-g>", "A;<esc>", { desc = "Append ; to the end of the line" })
 
 map("n", "<C-q>", function()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do

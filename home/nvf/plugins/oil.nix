@@ -40,6 +40,7 @@ in {
             ["gx"] = { "actions.open_external", mode = "n" },
             ["gh"] = { "actions.toggle_hidden", mode = "n" },
             ["gt"] = { "actions.toggle_trash", mode = "n" },
+            ["<C-c>"] = { "actions.yank_entry", mode = "n" }
           }
         '';
       };
