@@ -2,7 +2,7 @@
   programs.nvf = {
     settings.vim = {
       languages = {
-        enableExtraDiagnostics = true;
+        enableExtraDiagnostics = false;
         enableFormat = true;
         enableLSP = true;
         enableTreesitter = true;
