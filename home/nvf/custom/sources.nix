@@ -22,13 +22,13 @@
     };
     direnv-nvim = {
       pname = "direnv.nvim";
-      version = "2024-07-08_1";
+      version = "2024-12-22";
 
       outPath = fetchFromGitHub {
-        owner = "NotAShelf";
+        owner = "diniamo";
         repo = "direnv.nvim";
-        rev = "3e38d855c764bb1bec230130ed0e026fca54e4c8";
-        hash = "sha256-nWdAIchqGsWiF0cQ7NwePRa1fpugE8duZKqdBaisrAc=";
+        rev = "85c4fccc78b598678bd0566efc228b81a73f373a";
+        hash = "sha256-6dsdQb3FFJr/U8dOHsqJaymGaRz4SwZe6/LpPWMvUXo=";
       };
 
       passthru.vimPlugin = false;

@@ -14,7 +14,7 @@
     # ./neotree.nix
     # ./bufferline.nix
     # ./lualine.nix
-    # ./direnv.nix
+    ./direnv.nix
     ./treesitter.nix
     # ./flash.nix
     ./oil.nix

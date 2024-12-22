@@ -1,12 +1,24 @@
-{config, ...}: {
-  programs.nvf.custom.setupPlugins.direnv = {
+{
+  config,
+  inputs,
+  ...
+}: let
+  inherit (inputs.nvf.lib.nvim.binds) mkKeymap;
+in {
+  programs.nvf.settings.vim.lazy.plugins."direnv.nvim" = {
     package = config.programs.nvf.custom.sources.direnv-nvim;
+
+    event = "DeferredUIEnter";
+    cmd = "Direnv";
+    keys = [
+      (mkKeymap "n" "<leader>ea" "<cmd>Direnv allow<cr>" {desc = "Allow .envrc";})
+      (mkKeymap "n" "<leader>ed" "<cmd>Direnv deny<cr>" {desc = "Allow .envrc";})
+      (mkKeymap "n" "<leader>er" "<cmd>Direnv reload<cr>" {desc = "Allow .envrc";})
+    ];
+
+    setupModule = "direnv";
     setupOpts = {
-      keybindings = {
-        allow = "<leader>ea";
-        deny = "<leader>ed";
-        reload = "<leader>er";
-      };
+      autoload = true;
     };
   };
 }
