@@ -54,9 +54,7 @@ in {
           capabilities = capabilities,
           ${optionalString (!extra) "on_attach = default_on_attach,"}
           cmd = ${toLuaObject ([(getExe package)] ++ arguments)},
-          settings = {
-            ${server} = ${toLuaObject settings},
-          },
+          settings = ${toLuaObject settings}
         }
       '')
       config.programs.nvf.custom.lspSources;

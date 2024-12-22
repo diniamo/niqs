@@ -8,12 +8,13 @@
         enableTreesitter = true;
 
         bash.enable = true;
-        lua.enable = true;
+        lua = {
+          enable = true;
+          lsp.enable = false;
+        };
         nix.enable = true;
         python = {
           enable = true;
-          # nvf doesn't allow changing lsp settings currently,
-          # so I'm forced to define the entire lsp myself, see below
           lsp.enable = false;
         };
         rust = {
@@ -40,13 +41,23 @@
       };
     };
 
+    # nvf doesn't allow changing lsp settings currently,
+    # so I'm forced to redefined the lsps if I want to do that
     custom.lspSources = {
       basedpyright = {
         package = pkgs.basedpyright // {meta.mainProgram = "basedpyright-langserver";};
         arguments = ["--stdio"];
 
-        settings = {
+        settings.basedpyright = {
           typeCheckingMode = "standard";
+        };
+      };
+
+      lua_ls = {
+        package = pkgs.lua-language-server;
+
+        settings.Lua = {
+          diagnostics.globals = ["vim"];
         };
       };
     };
