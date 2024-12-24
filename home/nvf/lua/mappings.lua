@@ -73,6 +73,7 @@ map({ "n", "t" }, "<C-q>", function()
 
   vim.cmd("quitall")
 end, { desc = "Jump to unsaved buffer or quit" })
+map({ "n", "t" }, "<C-x>", "<cmd>xa<cr>", { desc = "Save all and quit" })
 
 map("n", "<leader>jp", function()
   local keyword = vim.fn.input("Keyword: ")
