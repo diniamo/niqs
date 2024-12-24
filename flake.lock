@@ -1048,11 +1048,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1734816771,
-        "narHash": "sha256-qXl0uQj6ImoMBYM4V8hTYsaGsPwivX8FAjoaDIdjwws=",
+        "lastModified": 1734905224,
+        "narHash": "sha256-LzabyNmtRi8bZ87Ir06xGY4aXX8flH4NzHd2SHE48Gc=",
         "owner": "diniamo",
         "repo": "nvf",
-        "rev": "6e244251bb71ecd991c1d18cc4b5997ee7da3e2c",
+        "rev": "bf8cf902613cba4bfa75d9d62d4bbc147839be91",
         "type": "github"
       },
       "original": {
