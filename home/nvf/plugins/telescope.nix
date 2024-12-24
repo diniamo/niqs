@@ -35,11 +35,11 @@ in {
         diagnostics = "<leader>slD";
         findFiles = "<leader>sf";
         findProjects = "<leader>sp";
-        gitBranches = "<leader>svb";
-        gitBufferCommits = "<leader>svcb";
-        gitCommits = "<leader>svcw";
-        gitStash = "<leader>svx";
-        gitStatus = "<leader>svs";
+        gitBranches = "<leader>sgb";
+        gitBufferCommits = "<leader>sgcb";
+        gitCommits = "<leader>sgcw";
+        gitStash = "<leader>sgx";
+        gitStatus = "<leader>sgs";
         helpTags = "<leader>sh";
         liveGrep = "<leader>sg";
         lspDefinitions = "<leader>sld";

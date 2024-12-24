@@ -14,6 +14,14 @@
         renameSymbol = "<leader>r";
         format = "<leader>f";
         codeAction = "<leader>a";
+        hover = null;
+
+        goToDeclaration = "gD";
+        goToDefinition = "gd";
+        listImplementations = "gi";
+        listReferences = "gr";
+        nextDiagnostic = "gn";
+        previousDiagnostic = "gn";
       };
 
       # lightbulb.enable = true;

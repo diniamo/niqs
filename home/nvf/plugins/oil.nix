@@ -15,7 +15,7 @@ in {
       keys = [
         {
           mode = "n";
-          key = "<C-e>";
+          key = "<C-p>";
           desc = "Toggle Oil";
           action = "<cmd>Oil<CR>";
         }
@@ -27,20 +27,20 @@ in {
         use_default_keymaps = false;
         keymaps = mkLuaInline ''
           {
+            ["<C-p>"] = { "actions.close", mode = "n" },
             ["<CR>"] = { "actions.select", mode = "n" },
+            ["<BS>"] = { "actions.parent", mode = "n" },
+            ["<C-c>"] = { "actions.yank_entry", mode = "n" },
+            ["<F5>"] = { "actions.refresh", mode = "n" },
             ["|"] = { "actions.select", mode = "n", opts = { vertical = true } },
             ["_"] = { "actions.select", mode = "n", opts = { horizontal = true } },
-            ["<C-p>"] = { "actions.preview", mode = "n" },
-            ["<C-e>"] = { "actions.close", mode = "n" },
-            ["<F5>"] = { "actions.refresh", mode = "n" },
-            ["<BS>"] = { "actions.parent", mode = "n" },
-            ["gc"] = { "actions.open_cwd", mode = "n" },
-            ["gy"] = { "actions.cd", mode = "n" },
+            ["gp"] = { "actions.preview", mode = "n" },
+            ["gr"] = { "actions.open_cwd", mode = "n" },
+            ["gc"] = { "actions.cd", mode = "n" },
             ["gs"] = { "actions.change_sort", mode = "n" },
             ["gx"] = { "actions.open_external", mode = "n" },
             ["gh"] = { "actions.toggle_hidden", mode = "n" },
-            ["gt"] = { "actions.toggle_trash", mode = "n" },
-            ["<C-c>"] = { "actions.yank_entry", mode = "n" }
+            ["gt"] = { "actions.toggle_trash", mode = "n" }
           }
         '';
       };

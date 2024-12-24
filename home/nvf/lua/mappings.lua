@@ -60,12 +60,13 @@ map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add commen
 
 -- Misc
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>silent w<cr><esc>", { desc = "Save file" })
-map("n", "<C-g>", "A;<esc>", { desc = "Append ; to the end of the line" })
+map("n", "<C-,>", "mtA;<esc>`t", { desc = "Append ; to the end of the line" })
 
-map("n", "<C-q>", function()
+map({ "n", "t" }, "<C-q>", function()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     if vim.api.nvim_get_option_value("modified", { buf = buf }) then
       vim.api.nvim_win_set_buf(0, buf)
+      vim.notify("Unsaved changes")
       return
     end
   end
