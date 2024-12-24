@@ -1048,11 +1048,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1734905224,
-        "narHash": "sha256-LzabyNmtRi8bZ87Ir06xGY4aXX8flH4NzHd2SHE48Gc=",
+        "lastModified": 1735130828,
+        "narHash": "sha256-fekz1AWmCwmnyq59S3W4MW837MFG31skVySRQrZOtr8=",
         "owner": "diniamo",
         "repo": "nvf",
-        "rev": "bf8cf902613cba4bfa75d9d62d4bbc147839be91",
+        "rev": "db4f2bae5d1653ec3853922b98e1a4c6d1d4fded",
         "type": "github"
       },
       "original": {
@@ -2635,11 +2635,11 @@
     "plugin-run-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1734816675,
-        "narHash": "sha256-Wuk5HG+vHXAbifzp5YB5V/FxBhBRNWLeypkRczpXbvQ=",
+        "lastModified": 1735130195,
+        "narHash": "sha256-OaOSYyXSNCl9kJJVKhy0L4M06CQFc0NtZ8+AIgKBPik=",
         "owner": "diniamo",
         "repo": "run.nvim",
-        "rev": "6cd971afdce6443d7a070dcc23af51da1cc932f9",
+        "rev": "5888f31c5faf4776e598c0665470f5445510c59e",
         "type": "github"
       },
       "original": {

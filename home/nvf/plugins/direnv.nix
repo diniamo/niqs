@@ -18,7 +18,7 @@ in {
 
     setupModule = "direnv";
     setupOpts = {
-      autoload = true;
+      auto_load = true;
     };
   };
 }

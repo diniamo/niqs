@@ -22,13 +22,13 @@
     };
     direnv-nvim = {
       pname = "direnv.nvim";
-      version = "2024-12-22";
+      version = "2024-12-24";
 
       outPath = fetchFromGitHub {
         owner = "diniamo";
         repo = "direnv.nvim";
-        rev = "85c4fccc78b598678bd0566efc228b81a73f373a";
-        hash = "sha256-6dsdQb3FFJr/U8dOHsqJaymGaRz4SwZe6/LpPWMvUXo=";
+        rev = "a100de8a60828888226f4f2beaf629bf06587da6";
+        hash = "sha256-eI+gnPV3ICS82+nhrbu8zyOYj2lGNPEHSql7zi5xJv0=";
       };
 
       passthru.vimPlugin = false;
@@ -142,6 +142,19 @@
         repo = "flit.nvim";
         rev = "1ef72de6a02458d31b10039372c8a15ab8989e0d";
         hash = "sha256-lLlad/kbrjwPE8ZdzebJMhA06AqpmEI+PJCWz12LYRM=";
+      };
+
+      passthru.vimPlugin = false;
+    };
+    no-neck-pain-nvim = {
+      pname = "no-neck-pain.nvim";
+      version = "2024-12-13";
+
+      outPath = fetchFromGitHub {
+        owner = "shortcuts";
+        repo = "no-neck-pain.nvim";
+        rev = "5d91f31a2d583a367df97a4654be028fbe13f2d2";
+        hash = "sha256-5vuLv3iooCz1v0/p6cHVc4k6yjwdF1nLQqs4Xc7jp4U=";
       };
 
       passthru.vimPlugin = false;
