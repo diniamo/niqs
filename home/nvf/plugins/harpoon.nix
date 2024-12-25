@@ -14,14 +14,14 @@
       {
         desc = "Harpoon current buffer";
         mode = "n";
-        key = "<C-n>";
+        key = "<C-a>";
         action = "function() require('harpoon'):list():add() end";
         lua = true;
       }
       {
         desc = "Harpoon menu";
         mode = "n";
-        key = "<C-m>";
+        key = "<leader>h";
         action = ''
           function()
             local harpoon = require('harpoon')

@@ -22,6 +22,14 @@
         "NoNeckPainScratchPad"
       ];
 
+      keys = [
+        {
+          mode = "n";
+          key = "<leader>n";
+          action = "<cmd>NoNeckPain<cr>";
+        }
+      ];
+
       setupModule = "no-neck-pain";
       setupOpts = {
         autocmds.enableOnVimEnter = true;

@@ -15,7 +15,7 @@ in {
       keys = [
         {
           mode = "n";
-          key = "<C-p>";
+          key = "<C-n>";
           desc = "Toggle Oil";
           action = "<cmd>Oil<CR>";
         }
@@ -27,14 +27,14 @@ in {
         use_default_keymaps = false;
         keymaps = mkLuaInline ''
           {
-            ["<C-p>"] = { "actions.close", mode = "n" },
+            ["<C-n>"] = { "actions.close", mode = "n" },
             ["<CR>"] = { "actions.select", mode = "n" },
             ["<BS>"] = { "actions.parent", mode = "n" },
-            ["<C-c>"] = { "actions.yank_entry", mode = "n" },
             ["<F5>"] = { "actions.refresh", mode = "n" },
+            ["<C-p>"] = { "actions.preview", mode = "n" },
+            ["<C-c>"] = { "actions.yank_entry", mode = "n" },
             ["|"] = { "actions.select", mode = "n", opts = { vertical = true } },
             ["_"] = { "actions.select", mode = "n", opts = { horizontal = true } },
-            ["gp"] = { "actions.preview", mode = "n" },
             ["gr"] = { "actions.open_cwd", mode = "n" },
             ["gc"] = { "actions.cd", mode = "n" },
             ["gs"] = { "actions.change_sort", mode = "n" },
