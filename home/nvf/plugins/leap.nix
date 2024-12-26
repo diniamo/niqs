@@ -30,7 +30,7 @@ in {
         ];
       };
 
-      "flit.nvim" = {
+      flit-nvim = {
         package = config.programs.nvf.custom.sources.flit-nvim;
 
         keys = [

@@ -7,6 +7,26 @@
     nixosConfigurations = import ./hosts {inherit lib';};
   };
 
+  nixConfig = {
+    extra-substituters = [
+      # Use this first
+      "https://cache.nixos.org?priority=10"
+      "https://cache.garnix.io"
+      "https://numtide.cachix.org"
+
+      "https://hyprland.cachix.org"
+      "https://nix-gaming.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
+
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+    ];
+  };
+
   inputs = {
     # Using Hyprland's nixpkgs input
     # - avoids mesa and qt version mismatches
@@ -21,11 +41,8 @@
       url = "github:diniamo/home-manager/custom";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    wrapper-manager = {
-      url = "github:viperML/wrapper-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
+    # Mostly transitive inputs for deduplication
     systems.url = "github:nix-systems/x86_64-linux";
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -139,6 +156,15 @@
         };
       };
     };
+    umu-launcher = {
+      url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    wallpapers = {
+      url = "github:diniamo/wallpapers";
+      flake = false;
+    };
+
     nvf = {
       # url = "github:NotAShelf/nvf";
       url = "github:diniamo/nvf/custom";
@@ -167,34 +193,53 @@
         };
       };
     };
-    umu-launcher = {
-      url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    wallpapers = {
-      url = "github:diniamo/wallpapers";
+    bufresize-nvim = {
+      url = "github:kwkarlwang/bufresize.nvim";
       flake = false;
     };
-  };
-
-  nixConfig = {
-    extra-substituters = [
-      # Use this first
-      "https://cache.nixos.org?priority=10"
-      "https://cache.garnix.io"
-      "https://numtide.cachix.org"
-
-      "https://hyprland.cachix.org"
-      "https://nix-gaming.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-      "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
-
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-    ];
+    direnv-nvim = {
+      url = "github:diniamo/direnv.nvim";
+      flake = false;
+    };
+    fastaction-nvim = {
+      url = "github:Chaitanyabsprip/fastaction.nvim";
+      flake = false;
+    };
+    harpoon = {
+      url = "github:ThePrimeagen/harpoon/harpoon2";
+      flake = false;
+    };
+    cmp-nvim-lua = {
+      url = "github:hrsh7th/cmp-nvim-lua";
+      flake = false;
+    };
+    feline-nvim = {
+      url = "github:freddiehaddad/feline.nvim";
+      flake = false;
+    };
+    oil-nvim = {
+      url = "github:stevearc/oil.nvim";
+      flake = false;
+    };
+    nvim-lastplace = {
+      url = "github:ethanholz/nvim-lastplace";
+      flake = false;
+    };
+    telescope-zf-native-nvim = {
+      url = "github:natecraddock/telescope-zf-native.nvim";
+      flake = false;
+    };
+    telescope-zoxide = {
+      url = "github:jvgrootveld/telescope-zoxide";
+      flake = false;
+    };
+    flit-nvim = {
+      url = "github:ggandor/flit.nvim";
+      flake = false;
+    };
+    no-neck-pain-nvim = {
+      url = "github:shortcuts/no-neck-pain.nvim";
+      flake = false;
+    };
   };
 }

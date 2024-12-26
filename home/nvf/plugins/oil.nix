@@ -6,7 +6,7 @@
   inherit (lib.generators) mkLuaInline;
 in {
   programs.nvf.settings.vim = {
-    lazy.plugins."oil.nvim" = {
+    lazy.plugins.oil-nvim = {
       package = config.programs.nvf.custom.sources.oil-nvim;
       setupModule = "oil";
 
@@ -50,7 +50,7 @@ in {
       vim.api.nvim_create_autocmd("VimEnter", {
         callback = function(data)
           if vim.fn.isdirectory(data.file) == 1 then
-            require("lz.n").trigger_load("oil.nvim")
+            require("lz.n").trigger_load("oil-nvim")
           end
         end
       })

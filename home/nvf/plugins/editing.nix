@@ -7,7 +7,7 @@
       useVendoredKeybindings = false;
     };
 
-    lazy.plugins."no-neck-pain.nvim" = {
+    lazy.plugins.no-neck-pain-nvim = {
       package = config.programs.nvf.custom.sources.no-neck-pain-nvim;
 
       event = "BufEnter";

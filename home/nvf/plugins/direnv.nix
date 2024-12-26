@@ -5,7 +5,7 @@
 }: let
   inherit (inputs.nvf.lib.nvim.binds) mkKeymap;
 in {
-  programs.nvf.settings.vim.lazy.plugins."direnv.nvim" = {
+  programs.nvf.settings.vim.lazy.plugins.direnv-nvim = {
     package = config.programs.nvf.custom.sources.direnv-nvim;
 
     event = "DeferredUIEnter";
