@@ -713,16 +713,15 @@
     },
     "mnw": {
       "locked": {
-        "lastModified": 1734616604,
-        "narHash": "sha256-bYl8GTSQ3fwQ8p/656wljj8S9k4v7QB2a1BPISIeB7Y=",
-        "owner": "diniamo",
+        "lastModified": 1735150973,
+        "narHash": "sha256-OJhcCAoaMMXeD6o4qI/hxBCNELJp4dN8D5LJZc8w8XA=",
+        "owner": "Gerg-L",
         "repo": "mnw",
-        "rev": "c4ff2ec8b0a3c9d8c363084a4d063219e55b6e2f",
+        "rev": "40cd0b006cc48dffd0f8698ad7f54cf1d56779a6",
         "type": "github"
       },
       "original": {
-        "owner": "diniamo",
-        "ref": "source-order",
+        "owner": "Gerg-L",
         "repo": "mnw",
         "type": "github"
       }
@@ -1177,16 +1176,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1735130828,
-        "narHash": "sha256-fekz1AWmCwmnyq59S3W4MW837MFG31skVySRQrZOtr8=",
-        "owner": "diniamo",
+        "lastModified": 1735198481,
+        "narHash": "sha256-LXAJuUvv0VhGkZfe1dknY4575i0tMMKIUOhKaj2/FuU=",
+        "owner": "NotAShelf",
         "repo": "nvf",
-        "rev": "db4f2bae5d1653ec3853922b98e1a4c6d1d4fded",
+        "rev": "b6a49b299ab64d8e94e0f23eecc5489171a659a8",
         "type": "github"
       },
       "original": {
-        "owner": "diniamo",
-        "ref": "custom",
+        "owner": "NotAShelf",
         "repo": "nvf",
         "type": "github"
       }
