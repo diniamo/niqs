@@ -53,7 +53,7 @@ in {
     hardware.xpadneo.enable = true;
     hardware.graphics.enable32Bit = true;
 
-    environment.systemPackages = [flakePkgs.umu-launcher.umu];
+    environment.systemPackages = [pkgs.umu-launcher];
 
     programs = {
       steam = {
