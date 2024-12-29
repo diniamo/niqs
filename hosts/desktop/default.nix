@@ -12,17 +12,12 @@ in {
     boot.windowsEntry = true;
     nvidia.enable = true;
     gaming.enable = true;
-    qbittorrent.convertSavePaths = {
-      enable = true;
-      btBackupPath = "/torrent/BT_backup";
-      # 8\ -(nix escaping)> 4\ -(systemd shell escaping)> 2\ (escape in sed)
-      windowsMatchPath = "E:[/\\\\\\\\]complete";
-      windowsPath = "E:/complete";
-      unixPath = "/torrent/complete";
-    };
   };
 
-  environment.systemPackages = [pkgs.obs-studio];
+  environment.systemPackages = with pkgs; [
+    obs-studio
+    qbittorrent
+  ];
 
   networking.hostName = "${values.mainUser}-PC";
 
