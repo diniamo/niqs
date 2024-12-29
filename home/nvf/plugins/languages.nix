@@ -30,13 +30,14 @@
         #   # Provide it in devshells instead
         #   lsp.package = null;
         # };
-        zig.enable = true;
+        # zig.enable = true;
         odin.enable = true;
+        # kotlin.enable = true;
       };
 
       # HACK: figure out a good way to upstream this
       debugger.nvim-dap.sources = {
-        zig-debugger = "dap.configurations.zig = dap.configurations.cpp";
+        # zig-debugger = "dap.configurations.zig = dap.configurations.cpp";
         odin-debugger = "dap.configurations.odin = dap.configurations.cpp";
       };
     };
