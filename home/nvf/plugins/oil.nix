@@ -15,7 +15,7 @@ in {
       keys = [
         {
           mode = "n";
-          key = "<C-n>";
+          key = "<C-e>";
           desc = "Toggle Oil";
           action = "<cmd>Oil<CR>";
         }

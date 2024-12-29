@@ -62,6 +62,11 @@ map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add commen
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>silent w<cr><esc>", { desc = "Save file" })
 map("n", "<C-,>", "mtA;<esc>`t", { desc = "Append ; to the end of the line" })
 
+-- Screen movement
+-- I want to use <C-e> for Oil, and <C-n/p> is useless by default anyway
+map("n", "<C-n>", "<C-e>", { desc = "Move screen down by 1 line without moving cursor" })
+map("n", "<C-p>", "<C-y>", { desc = "Move screen up by 1 line without moving cursor" })
+
 map({ "n", "t" }, "<C-q>", function()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     if vim.api.nvim_get_option_value("modified", { buf = buf }) then
