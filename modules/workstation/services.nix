@@ -55,10 +55,11 @@
     };
     power-profiles-daemon.enable = true;
 
-    printing = {
-      enable = true;
-      drivers = [pkgs.canon-cups-ufr2];
-    };
+    # printing = {
+    #   enable = true;
+    #   drivers = [pkgs.canon-cups-ufr2];
+    # };
+
     avahi = {
       enable = true;
       nssmdns4 = true;
