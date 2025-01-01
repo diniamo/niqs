@@ -2,6 +2,7 @@
   programs.nvf.settings.vim = {
     git = {
       enable = true;
+      vim-fugitive.enable = true;
 
       gitsigns.mappings = {
         stageHunk = "<leader>gs";

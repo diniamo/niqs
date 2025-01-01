@@ -6,6 +6,7 @@
 }: let
   inherit (lib) mkOption types;
   inherit (lib') mapListToAttrs;
+  inherit (builtins) path;
 
   sourceNames = [
     "bufresize-nvim"
@@ -23,14 +24,19 @@
   ];
 
   sources =
-    mapListToAttrs (name: let
-      input = inputs.${name};
+    mapListToAttrs (pname: let
+      input = inputs.${pname};
+      version = input.shortRev or input.shortDirtyRev or "dirty";
     in {
-      name = name;
+      name = pname;
       value = {
-        pname = name;
-        version = input.shortRev;
-        outPath = input.outPath;
+        # We don't inherit name directly because vim.lazy.plugins would cry
+        # version isn't needed, but inherit it anyway for the sake of corectness
+        inherit pname version;
+        outPath = path {
+          name = "${pname}-0-unstable-${version}";
+          path = input.outPath;
+        };
         passthru.vimPlugin = false;
       };
     })
