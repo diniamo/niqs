@@ -1022,11 +1022,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1735522552,
-        "narHash": "sha256-RDUx9I28x0FPZIIUlNgXq/iZjRxykebDM/XzT5+idkk=",
+        "lastModified": 1735847944,
+        "narHash": "sha256-QtruUishYg7Jfi1lN3pzhO8UilHiJRs8mLhEBD/1gnc=",
         "owner": "diniamo",
         "repo": "nixpkgs",
-        "rev": "72e03ed3f5c7a56021bffd776b23333b6c0f26e7",
+        "rev": "af6b386835e245851f89e8f216b78f1e173e5725",
         "type": "github"
       },
       "original": {
