@@ -87,7 +87,7 @@ in {
         "@hideyoutubecontrolls".install_url = mkUrl "hide-youtube-controls";
         "{762f9885-5a13-4abd-9c77-433dcd38b8fd}".install_url = mkUrl "return-youtube-dislikes";
         # "addons@wakatime.com".install_url = mkUrl "wakatimes";
-        # "{6712269b-6289-46fe-b6f3-8144f45afd/* 5e */}".install_url = mkUrl "youtube-ad-skip-mute";
+        "firefox@tampermonkey.net".install_url = mkUrl "tampermonkey";
 
         # Disable
         "{c607c8df-14a7-4f28-894f-29e8722976af}" = null; # Temporary containers
