@@ -17,6 +17,7 @@ in {
   environment.systemPackages = with pkgs; [
     obs-studio
     qbittorrent
+    anki
   ];
 
   networking.hostName = "${values.mainUser}-PC";

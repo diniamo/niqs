@@ -6,6 +6,7 @@
       interpolation = "";
       tscale = "oversample";
     };
+
     svp = {
       input-ipc-server = "/tmp/mpvsocket";
       hr-seek-framedrop = false;

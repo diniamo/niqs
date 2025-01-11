@@ -19,12 +19,13 @@
 
     o = "script-message-to uosc flash-elements timeline,top_bar";
 
-    right = "seek 5; script-binding uosc/flash-timeline";
-    left = "seek -5; script-binding uosc/flash-timeline";
-    "shift+right" = "seek 60; script-binding uosc/flash-timeline";
-    "shift+left" = "seek -60; script-binding uosc/flash-timeline";
-    up = "seek 85; script-binding uosc/flash-timeline";
-    down = "seek -85; script-binding uosc/flash-timeline";
+    h = "seek -5; script-binding uosc/flash-timeline";
+    j = "seek -85; script-binding uosc/flash-timeline";
+    k = "seek 85; script-binding uosc/flash-timeline";
+    l = "seek 5; script-binding uosc/flash-timeline";
+
+    J = "cycle sub";
+    K = "cycle sub down";
 
     m = "no-osd cycle mute; script-binding uosc/flash-volume";
     "+" = "no-osd add volume 5; script-binding uosc/flash-volume";

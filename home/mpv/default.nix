@@ -2,23 +2,7 @@
   pkgs,
   flakePkgs,
   ...
-}: let
-  scripts = with pkgs.mpvScripts;
-  with flakePkgs.niqspkgs; [
-    # Missing: clipshot, autosubsync
-    uosc
-    reload
-    thumbfast
-    mpris
-    mpv-webm
-    seekTo
-    sponsorblock-minimal
-    autoload
-
-    simple-undo
-    skip-to-silence
-  ];
-in {
+}: {
   imports = [
     ./config.nix
     ./input.nix
@@ -29,9 +13,32 @@ in {
 
   programs.mpv = {
     enable = true;
-    package = pkgs.mpv.override {
-      inherit scripts;
-      youtubeSupport = true;
+    package = pkgs.mpv-unwrapped.wrapper {
+      mpv = pkgs.mpv-unwrapped.override {
+        ffmpeg = pkgs.ffmpeg-headless;
+
+        alsaSupport = false;
+        javascriptSupport = false;
+        pulseSupport = false;
+        x11Support = false;
+      };
+
+      scripts = with pkgs.mpvScripts;
+      with flakePkgs.niqspkgs; [
+        # Missing: clipshot, autosubsync
+        uosc
+        reload
+        thumbfast
+        mpris
+        mpv-webm
+        seekTo
+        sponsorblock-minimal
+        autoload
+        mpvacious
+
+        simple-undo
+        skip-to-silence
+      ];
     };
   };
 }

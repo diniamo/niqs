@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   inherit (pkgs) anime4k;
 
-  # Use writeText instead of writeLua luacheck can't cry about the long lines
+  # Use writeText instead of writeLua, so luacheck can't cry about the long lines
   autoAnime4k = pkgs.writeText "auto-anime4k-switcher.lua" ''
     local function get_nearest(x, numbers)
       local min_index = nil
@@ -59,11 +59,6 @@ in {
     gpu-api = "auto";
     # fbo-format = "rgba16hf";
 
-    # glsl-shader = [
-    #   "${./shaders/FSRCNNX_x2_8-0-4-1_LineArt.glsl}"
-    #   "${./shaders/SSimDownscaler.glsl}"
-    #   "${./shaders/KrigBilateral.glsl}"
-    # ];
     script = autoAnime4k.outPath;
 
     scale = "ewa_lanczossharp";
