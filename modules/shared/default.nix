@@ -6,5 +6,6 @@
     ./scripts.nix
     ./nix.nix
     ./overlays.nix
+    ./documentation.nix
   ];
 }
