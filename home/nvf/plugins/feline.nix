@@ -8,7 +8,7 @@ in {
   programs.nvf.settings.vim.lazy.plugins.feline-nvim = {
     package = config.programs.nvf.custom.sources.feline-nvim;
 
-    event = "UIEnter";
+    event = "DeferredUIEnter";
 
     beforeSetup = ''
       local palette = require("catppuccin.palettes").get_palette()
