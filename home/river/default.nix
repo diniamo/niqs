@@ -5,6 +5,8 @@
     ./spawn.nix
   ];
 
+  stylix.targets.river.enable = false;
+
   home.packages = with pkgs; [
     wlr-randr
     wayshot
