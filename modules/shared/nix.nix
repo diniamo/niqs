@@ -14,15 +14,20 @@ in {
     package = pkgs.lix;
 
     settings = {
+      experimental-features = ["nix-command" "flakes"];
+      # This only sets the embedded flake registry, which we don't want
+      flake-registry = pkgs.writeText "minimal-flake-registry.json" ''
+        {
+          "version": 2,
+          "flakes": []
+        }
+      '';
+      default-flake = nixpkgs;
       accept-flake-config = true;
       warn-dirty = false;
       trusted-users = ["root" "@wheel"];
-
       auto-optimise-store = true;
       builders-use-substitutes = true;
-
-      experimental-features = ["nix-command" "flakes"];
-      default-flake = nixpkgs;
       log-lines = 30;
       http-connections = 50;
     };
