@@ -3,6 +3,8 @@
   pkgs,
   ...
 }: let
+  inherit (pkgs) fetchpatch2;
+
   inherit (config) values;
 in {
   imports = [./hardware.nix];
@@ -14,10 +16,26 @@ in {
     gaming.enable = true;
   };
 
+  hardware.opentabletdriver = {
+    enable = true;
+    package = pkgs.opentabletdriver.overrideAttrs (prev: {
+      patches = [
+        (fetchpatch2 {
+          url = "https://github.com/OpenTabletDriver/OpenTabletDriver/pull/3694.diff";
+          hash = "sha256-8czK1zUAW/UrHBOiW1eektMMsFPxAAYfl8zb36vQF5Q=";
+        })
+        (fetchpatch2 {
+          url = "https://github.com/OpenTabletDriver/OpenTabletDriver/pull/3695.diff";
+          hash = "sha256-pil3/YoetcYR6CiAq3r7VRV1POyNl/DwkEAn2Nbs8cY=";
+        })
+      ];
+    });
+  };
+
   environment.systemPackages = with pkgs; [
-    obs-studio
     qbittorrent
     anki
+    krita
   ];
 
   networking.hostName = "${values.mainUser}-PC";
