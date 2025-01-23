@@ -161,11 +161,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737572913,
-        "narHash": "sha256-wj79vW5YtXS9AIl6wK/4RC1ZToBV8rKrMgs+TjG7qb8=",
+        "lastModified": 1737655125,
+        "narHash": "sha256-myTIay9EuZ9tL+km9bSGc+29wfafcXWcHp/Wyb4ebWs=",
         "owner": "Wraient",
         "repo": "curd",
-        "rev": "fafd9eec5db76feab742324beab40cb568125aea",
+        "rev": "23040330766b4344d2606712c7b90c82009a480e",
         "type": "github"
       },
       "original": {
