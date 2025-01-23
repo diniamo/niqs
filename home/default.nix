@@ -27,7 +27,7 @@ in {
     ./yazi.nix
     ./zoxide.nix
     ./wlogout.nix
-    ./jerry.nix
+    # ./jerry.nix
     ./direnv.nix
     ./dunst.nix
     ./spotify-player.nix
@@ -54,6 +54,7 @@ in {
     ./difftastic.nix
     ./hypridle.nix
     # ./hyprlock.nix
+    ./curd.nix
   ];
 
   home = {

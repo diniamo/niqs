@@ -97,12 +97,11 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
-    jerry = {
-      url = "github:justchokingaround/jerry";
+    curd = {
+      url = "github:Wraient/curd";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
-        flake-parts.follows = "flake-parts";
       };
     };
     lobster = {

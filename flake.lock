@@ -151,6 +151,29 @@
         "type": "github"
       }
     },
+    "curd": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737572913,
+        "narHash": "sha256-wj79vW5YtXS9AIl6wK/4RC1ZToBV8rKrMgs+TjG7qb8=",
+        "owner": "Wraient",
+        "repo": "curd",
+        "rev": "fafd9eec5db76feab742324beab40cb568125aea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Wraient",
+        "repo": "curd",
+        "type": "github"
+      }
+    },
     "direnv-nvim": {
       "flake": false,
       "locked": {
@@ -627,32 +650,6 @@
       "original": {
         "owner": "hyprwm",
         "repo": "contrib",
-        "type": "github"
-      }
-    },
-    "jerry": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "systems": [
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1720406208,
-        "narHash": "sha256-4pmrsy3aBV2yEZA1pzHlG9b6nYpVybWbbpUo0Dsid20=",
-        "owner": "justchokingaround",
-        "repo": "jerry",
-        "rev": "761b7b6f19af063bc908f56842dab167b0ce0af8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "justchokingaround",
-        "repo": "jerry",
         "type": "github"
       }
     },
@@ -3245,6 +3242,7 @@
         "bufresize-nvim": "bufresize-nvim",
         "cmp-nvim-lua": "cmp-nvim-lua",
         "crane": "crane",
+        "curd": "curd",
         "direnv-nvim": "direnv-nvim",
         "fastaction-nvim": "fastaction-nvim",
         "feline-nvim": "feline-nvim",
@@ -3257,7 +3255,6 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprwm-contrib": "hyprwm-contrib",
-        "jerry": "jerry",
         "lanzaboote": "lanzaboote",
         "lobster": "lobster",
         "naersk": "naersk",
