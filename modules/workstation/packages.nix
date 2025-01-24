@@ -23,11 +23,13 @@ in {
       }
     )
 
+    (wtwitch.override { withMpv = false; })
+    chatterino2
+
     wl-clipboard
     neovide
     spotify
     gtrash
-    ungoogled-chromium
     yt-dlp
     libqalculate
     qalculate-qt
