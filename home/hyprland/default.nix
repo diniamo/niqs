@@ -13,7 +13,6 @@
 
   home.packages = with pkgs; [
     hyprpicker
-    gammastep
 
     flakePkgs.hyprwm-contrib.grimblast
   ];

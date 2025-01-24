@@ -55,6 +55,7 @@ in {
     ./hypridle.nix
     # ./hyprlock.nix
     ./curd.nix
+    ./wlsunset.nix
   ];
 
   home = {

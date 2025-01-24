@@ -11,7 +11,6 @@
     wlr-randr
     wayshot
     slurp
-    gammastep
   ];
 
   wayland.windowManager.river = {
