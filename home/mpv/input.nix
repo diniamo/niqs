@@ -6,7 +6,8 @@
     MBTN_RIGHT = "script-binding uosc/menu";
     menu = "script-binding uosc/menu";
 
-    "0" = "cycle-values playback-time 0";
+    "0" = "seek 0 absolute";
+    "$" = "seek -1 absolute";
 
     z = "script-message-to seek_to toggle-seeker";
     Z = "script-message-to seek_to paste-timestamp";
