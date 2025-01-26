@@ -57,7 +57,9 @@
       else package'.meta.mainProgram;
   in
     pkgs.symlinkJoin {
-      name = "${package'.pname}-wrapped";
+      pname = "${package'.pname}-wrapped";
+      inherit (package') version;
+
       paths = [package'];
 
       nativeBuildInputs = [wrapper];
