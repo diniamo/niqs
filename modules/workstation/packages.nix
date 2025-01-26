@@ -14,17 +14,18 @@ in {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = with pkgs; [
-    (
-      lib'.wrapProgram {
-        inherit pkgs;
-        package = "xdragon";
-        executable = "dragon";
-        wrapperArgs = ["--add-flags" "--all --and-exit"];
-      }
-    )
+    (lib'.wrapProgram {
+      inherit pkgs;
+      package = "xdragon";
+      executable = "dragon";
+      wrapperArgs = ["--add-flags" "--all --and-exit"];
+    })
 
-    (wtwitch.override { withMpv = false; })
-    chatterino2
+    (lib'.wrapProgram {
+      inherit pkgs;
+      package = "chatterino2";
+      wrapperArgs = ["--prefix" "PATH" ":" "${streamlink}/bin"];
+    })
 
     wl-clipboard
     neovide
