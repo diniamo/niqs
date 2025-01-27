@@ -1,0 +1,15 @@
+// vim:syntax=xkb
+
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+    include "hu"
+
+    include "altwin(swap_lalt_lwin)"
+    include "custom(ctrl_hyper)"
+};
+
+partial modifier_keys
+xkb_symbols "ctrl_hyper" {
+    key <LCTL> { [ Hyper_L ] };
+    modifier_map Mod3 { <LCTL> };
+};

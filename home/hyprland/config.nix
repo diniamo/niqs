@@ -16,8 +16,9 @@ in {
       "QT_QPA_PLATFORM, wayland;xcb"
     ];
     input = {
+      # Worth noting that I also use caps2esc
       kb_layout = "hu";
-      kb_options = "caps:swapescape,altwin:swap_lalt_lwin";
+      kb_options = "altwin:swap_lalt_lwin";
 
       accel_profile = "flat";
       scroll_method = "on_button_down";

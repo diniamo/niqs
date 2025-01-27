@@ -17,6 +17,7 @@ in {
     # ./river
     ./style
     ./fish
+    # ./xkb
 
     ./xdg.nix
     ./foot.nix
