@@ -1,11 +1,10 @@
 {
   config,
   lib,
-  pkgs,
   inputs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkDefault;
+  inherit (lib) mkEnableOption;
 
   cfg = config.custom.boot;
 in {
@@ -37,10 +36,6 @@ in {
         enrollKeys = false;
         pkiBundle = "/etc/secureboot";
       };
-
-      tmp.useTmpfs = mkDefault true;
-      kernelPackages = mkDefault pkgs.linuxPackages_latest;
-      kernelParams = ["quiet"];
     };
   };
 }
