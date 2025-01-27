@@ -12,6 +12,9 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    # HACK: driver doesn't compile with 6.13, and I couldn't make the fix work
+    boot.kernelPackages = pkgs.linuxPackages_6_12;
+
     hardware.nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       # HACK: disable this once Nvidia is graceful enough to work

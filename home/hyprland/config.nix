@@ -67,6 +67,7 @@ in {
     opengl.nvidia_anti_flicker = false;
     decoration = {
       rounding = 0;
+      rounding_power = 4;
 
       blur.enabled = false;
       shadow.enabled = false;
@@ -113,6 +114,7 @@ in {
         font_size = config.stylix.fonts.sizes.desktop;
       };
     };
+    ecosystem.no_donation_nag = true;
     windowrule = [
       "pin, ^(dragon)$"
       "float, ^(SVPManager)$"
