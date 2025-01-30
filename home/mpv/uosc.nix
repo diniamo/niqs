@@ -18,7 +18,7 @@
       timeline_step = 5;
       timeline_cache = true;
 
-      progress = "windowed";
+      progress = "never";
       progress_size = 2;
       progress_line_width = 20;
 
