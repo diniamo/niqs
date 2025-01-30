@@ -6,7 +6,7 @@
   username = osConfig.values.mainUser;
 in {
   imports = [
-    ./hyprland
+    # ./hyprland
     # ./anyrun
     ./mpv
     # ./lazyvim
@@ -27,7 +27,7 @@ in {
     # ./imv.nix
     ./yazi.nix
     ./zoxide.nix
-    ./wlogout.nix
+    # ./wlogout.nix
     # ./jerry.nix
     ./direnv.nix
     ./dunst.nix
@@ -45,18 +45,20 @@ in {
     ./swayimg.nix
     # ./alacritty.nix
     ./scripts.nix
-    ./hyprpaper.nix
+    # ./hyprpaper.nix
     # ./iabm.nix
     # ./nyaa.nix
     ./satty.nix
     # ./walker.nix
     ./fuzzel.nix
-    # ./sway.nix
+    ./sway.nix
     ./difftastic.nix
-    ./hypridle.nix
+    # ./hypridle.nix
     # ./hyprlock.nix
     ./curd.nix
     ./wlsunset.nix
+    ./swaylock.nix
+    ./swayidle.nix
   ];
 
   home = {

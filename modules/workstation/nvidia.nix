@@ -68,7 +68,5 @@ in {
           }) ["obsidian" "vesktop" "webcord" "spotify"]
       )
     ];
-
-    home-manager.users.${config.values.mainUser}.wayland.windowManager.hyprland.settings.cursor.use_cpu_buffer = true;
   };
 }

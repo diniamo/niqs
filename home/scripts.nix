@@ -42,11 +42,11 @@ in {
         toggleInhibitSleep = writeDash "toggle-inhibit-sleep" ''
           set -e
 
-          if systemctl --user --quiet is-active hypridle.service; then
-            systemctl --user --quiet stop hypridle.service
+          if systemctl --user --quiet is-active swayidle.service; then
+            systemctl --user --quiet stop swayidle.service
             notify-send --urgency=low --icon=media-playback-pause "Sleep inhibited"
           else
-            systemctl --user --quiet start hypridle.service
+            systemctl --user --quiet start swayidle.service
             notify-send --urgency=low --icon=media-playback-start "Sleep uninhibited"
           fi
         '';

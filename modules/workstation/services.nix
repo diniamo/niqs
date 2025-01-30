@@ -13,12 +13,6 @@
     wantedBy = ["graphical-session.target"];
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-    config.common.default = "gtk";
-  };
-
   services = {
     greetd = {
       enable = true;

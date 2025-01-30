@@ -171,11 +171,6 @@
       '';
     };
 
-    listxwl = {
-      description = "list XWayland windows in Hyprland";
-      body = "hyprctl -j clients | jaq -r '.[] | select( [ .xwayland == true ] | any ) | .title'";
-    };
-
     mkshell = {
       description = "nix shell with inputsFrom";
       body = ''

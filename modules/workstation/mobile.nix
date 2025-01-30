@@ -28,15 +28,5 @@ in {
       auto-cpufreq.enable = true;
       thermald.enable = true;
     };
-
-    home-manager.users.${config.values.mainUser} = {
-      wayland.windowManager.hyprland.settings = {
-        animations.enabled = mkForce false;
-        decoration = {
-          blur.enabled = mkForce false;
-          shadow.enabled = mkForce false;
-        };
-      };
-    };
   };
 }

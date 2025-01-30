@@ -1,5 +1,4 @@
 {
-  flakePkgs,
   config,
   pkgs,
   ...
@@ -18,9 +17,9 @@ in {
     size = 22;
   };
 
-  environment.systemPackages = [flakePkgs.niqspkgs.bibata-hyprcursor];
-  environment.sessionVariables = {
-    HYPRCURSOR_THEME = "Bibata-modern";
-    HYPRCURSOR_SIZE = cursor.size;
-  };
+  # environment.systemPackages = [flakePkgs.niqspkgs.bibata-hyprcursor];
+  # environment.sessionVariables = {
+  #   HYPRCURSOR_THEME = "Bibata-modern";
+  #   HYPRCURSOR_SIZE = cursor.size;
+  # };
 }

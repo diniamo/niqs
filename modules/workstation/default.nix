@@ -11,8 +11,9 @@
     ./system.nix
     ./services.nix
     # ./dolphin.nix
-    ./hyprland.nix
+    # ./hyprland.nix
     # ./plymouth.nix
     ./mobile.nix
+    ./sway.nix
   ];
 }

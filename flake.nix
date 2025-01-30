@@ -13,26 +13,18 @@
       "https://cache.nixos.org?priority=10"
       "https://niqspkgs.cachix.org"
       "https://numtide.cachix.org"
-
-      "https://hyprland.cachix.org"
       "https://nix-gaming.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "niqspkgs.cachix.org-1:3lcNxXkj8BLrK77NK9ZTjk0fxHuSZrr5sKE6Avjb6PI="
       "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
-
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
     ];
   };
 
   inputs = {
-    # Using Hyprland's nixpkgs input
-    # - avoids mesa and qt version mismatches
-    # - avoids a lot of duplicate packages due to different versions
-    # nixpkgs.follows = "hyprland/nixpkgs";
-    # nixpkgs.url = "nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:diniamo/nixpkgs/custom";
     # nixpkgs.url = "path:/hdd/dev/nixpkgs";
 
@@ -85,13 +77,6 @@
         lix.inputs.pre-commit-hooks.follows = "pre-commit-hooks";
       };
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs = {
-        systems.follows = "systems";
-        pre-commit-hooks.follows = "pre-commit-hooks";
-      };
-    };
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.flake-parts.follows = "flake-parts";
@@ -110,10 +95,6 @@
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
       };
-    };
-    hyprwm-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
       url = "github:nix-community/lanzaboote";

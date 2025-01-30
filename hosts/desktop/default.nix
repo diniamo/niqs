@@ -38,27 +38,38 @@ in {
   networking.hostName = "${values.mainUser}-PC";
 
   home-manager.users.${values.mainUser} = {
-    wayland.windowManager.hyprland.settings = {
-      monitor = [
-        "DP-1, 1920x1080@165, 0x0, 1, vrr, 2"
-        "DP-2, 1920x1080@60, 1920x0, 1"
-      ];
-      workspace = [
-        "1, monitor:DP-1, default:true"
-        "2, monitor:DP-1"
-        "3, monitor:DP-1"
-        "4, monitor:DP-1"
-        "5, monitor:DP-2, default:true"
-        "6, monitor:DP-1"
-        "7, monitor:DP-1"
-        "8, monitor:DP-1"
-        "9, monitor:DP-1"
-      ];
-    };
+    wayland.windowManager = {
+      river.settings.spawn = ["wlr-randr --output DP-1 --mode 1920x1080@164.917007Hz --adaptive-sync enabled"];
 
-    wayland.windowManager.river.settings = {
-      spawn = ["wlr-randr --output DP-1 --mode 1920x1080@164.917007Hz --adaptive-sync enabled"];
-      rule-add = ["-app-id vesktop output DP-2"];
+      sway = {
+        config = {
+          output = {
+            DP-1 = {
+              mode = "1920x1080@165Hz";
+              position = "0 0";
+              adaptive_sync = "on";
+              allow_tearing = "yes";
+            };
+            DP-2 = {
+              mode = "1920x1080@60Hz";
+              position = "1920 0";
+            };
+          };
+          workspaceOutputAssign = [
+            {
+              output = "DP-1";
+              workspace = "1";
+            }
+            {
+              output = "DP-2";
+              workspace = "5";
+            }
+          ];
+        };
+
+        # This doesn't work for some reason
+        extraConfig = "focus output DP-1";
+      };
     };
   };
 

@@ -2,34 +2,27 @@
   inputs,
   lib,
   config,
-  flakePkgs,
   pkgs,
   ...
 }: let
+  inherit (lib) getExe getExe';
   inherit (pkgs.writers) writeDash;
   inherit (inputs.nix-gaming.nixosModules) pipewireLowLatency platformOptimizations;
 
-  hyprctl = "${lib.getExe' flakePkgs.hyprland.default "hyprctl"} -i 0";
-  powerprofilesctl = lib.getExe pkgs.power-profiles-daemon;
-  notify-send = lib.getExe pkgs.libnotify;
+  powerprofilesctl = getExe pkgs.power-profiles-daemon;
+  notify-send = getExe pkgs.libnotify;
+  swaymsg = getExe' pkgs.sway "swaymsg";
 
   startScript = writeDash "gamemode-start" ''
-    ${hyprctl} --batch "\
-      keyword animations:enabled false; \
-      keyword decoration:blur:enabled false; \
-      keyword decoration:shadow:enabled false; \
-      keyword misc:vfr false; \
-      keyword general:allow_tearing true; \
-      keyword render:direct_scanout true; \
-      keyword input:scroll_method no_scroll"
     ${powerprofilesctl} set performance
+    ${swaymsg} 'allow_tearing yes'
+
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=input-gaming 'Optimizations activated'
-    dunstctl set-paused true
   '';
   endScript = writeDash "gamemode-end" ''
-    dunstctl set-paused false
-    ${hyprctl} reload
+    ${swaymsg} 'allow_tearing no'
     ${powerprofilesctl} set balanced
+
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=system-shutdown 'Optimizations deactivated'
   '';
 
