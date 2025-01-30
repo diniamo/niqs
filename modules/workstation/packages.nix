@@ -40,6 +40,6 @@ in {
     libnotify
     gist
     obsidian
-    vesktop
+    discord-canary
   ];
 }

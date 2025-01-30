@@ -65,7 +65,7 @@ in {
               package = prev.${name};
               wrapperArgs = ["--add-flags" "--disable-gpu-compositing"];
             };
-          }) ["obsidian" "vesktop" "webcord" "spotify"]
+          }) ["obsidian" "discord-canary" "webcord" "spotify"]
       )
     ];
   };
