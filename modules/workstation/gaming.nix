@@ -16,12 +16,14 @@
   startScript = writeDash "gamemode-start" ''
     ${powerprofilesctl} set performance
     ${swaymsg} 'allow_tearing yes'
+    ${swaymsg} 'input * scroll_method none'
 
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=input-gaming 'Optimizations activated'
   '';
   endScript = writeDash "gamemode-end" ''
-    ${swaymsg} 'allow_tearing no'
     ${powerprofilesctl} set balanced
+    ${swaymsg} 'allow_tearing no'
+    ${swaymsg} 'input * scroll_method on_button_down'
 
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=system-shutdown 'Optimizations deactivated'
   '';
