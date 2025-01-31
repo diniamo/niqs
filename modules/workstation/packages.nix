@@ -33,7 +33,6 @@ in {
     gtrash
     yt-dlp
     libqalculate
-    qalculate-qt
     pulsemixer
     pavucontrol
     eza
