@@ -8,7 +8,6 @@
 in {
   imports = [./hardware.nix];
 
-  networking.hostName = "${values.mainUser}-LAPTOP";
   custom.mobile.enable = true;
 
   environment.systemPackages = [pkgs.gmetronome];
@@ -21,13 +20,15 @@ in {
   zramSwap.enable = true;
 
   # pipewire-pulse kept getting killed by God himself, and most programs use pulseaudio anyway
-  services.pipewire.enable = lib.mkForce false;
-  hardware.pulseaudio.enable = true;
+  services = {
+    pipewire.enable = lib.mkForce false;
+    pulseaudio.enable = true;
+  };
 
   home-manager.users.${values.mainUser} = {
     programs.mpv.config.ao = "pulse";
-    programs.jerry.config.player_arguments = lib.mkForce "";
   };
 
+  networking.hostName = "${values.mainUser}-LAPTOP";
   system.stateVersion = "24.05";
 }
