@@ -105,12 +105,18 @@ in {
 
         # TODO: I want tab to wrap
         # and I want the directional binds to focus frames (meaning they shouldn't cycle tabs)
-        "Mod4+Tab" = "focus next";
-        "Mod4+Shift+Tab" = "focus prev";
+        "Mod4+Tab" = "focus next sibling";
+        "Mod4+Shift+Tab" = "focus prev sibling";
         "Mod4+h" = "focus left";
         "Mod4+j" = "focus down";
         "Mod4+k" = "focus up";
         "Mod4+l" = "focus right";
+        "Mod4+u" = "focus parent";
+
+        "Mod4+m" = "mark --toggle mark";
+        "Mod4+Control+m" = "[con_mark=\"mark\"] focus";
+        "Mod4+Shift+m" = "move window mark mark";
+        "Mod4+Mod1+m" = "swap container with mark mark";
 
         "Mod4+Shift+h" = "move left";
         "Mod4+Shift+j" = "move down";
