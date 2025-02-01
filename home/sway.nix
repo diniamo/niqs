@@ -60,9 +60,7 @@ in {
         "Mod4+Control+n" = "exec neovide /etc/nixos";
         "Mod4+w" = "exec firefox";
         "Mod4+Space" = "exec fuzzel";
-
-        # TODO: Write my own logout menu, why is there no non-gtk one?
-        "Mod4+Control+x" = "exec ${getExe pkgs.zenity} --question --text 'Do you really want to reboot to Windows?' --icon system-reboot && systemctl reboot --boot-loader-entry=auto-windows";
+        "Mod4+x" = "exec ${scripts.logoutMenu}";
 
         "Mod4+a" = "exec ${scripts.notifyInformation}";
         "Mod4+i" = "exec ${scripts.toggleInhibitSleep}";

@@ -5,7 +5,7 @@
   ...
 }: let
   inherit (lib) mkOption types optionalString;
-  inherit (pkgs.writers) writeDash;
+  inherit (pkgs.writers) writeDash writeBash;
 in {
   options = {
     scripts = mkOption {
@@ -49,6 +49,17 @@ in {
             systemctl --user --quiet start swayidle.service
             notify-send --urgency=low --icon=media-playback-start "Sleep uninhibited"
           fi
+        '';
+
+        logoutMenu = writeBash "logout-menu" ''
+          case "$(echo -en 'Suspend\0icon\x1fsleep\nWindows\0icon\x1fpreferences-system-windows\nLock\0icon\x1fsystem-lock-screen\nLogout\0icon\x1fsystem-log-out\nReboot\0icon\x1fsystem-reboot\nShutdown\0icon\x1fsystem-shutdown' | fuzzel --dmenu)" in
+            Suspend) systemctl suspend ;;
+            Windows) systemctl reboot --boot-loader-entry=auto-windows ;;
+            Lock) loginctl lock-session ;;
+            Logout) loginctl terminate-user "$USER" ;;
+            Reboot) systemctl reboot ;;
+            Shutdown) systemctl poweroff ;;
+          esac
         '';
       };
     };
