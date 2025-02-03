@@ -46,6 +46,7 @@ in {
     gst = "git status";
     grhh = "git reset --hard";
     gb = "git branch";
+    gbc = "git branch --show-current";
     gm = "git merge";
     gfa = "git fetch --all";
     gpf = "git push --force";
