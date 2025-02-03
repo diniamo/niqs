@@ -14,11 +14,6 @@
         event = "before-sleep";
         command = "pidof swaylock || swaylock -f";
       }
-      # Wakeups don't trigger the resumeCommand below for some reason
-      {
-        event = "after-resume";
-        command = "swaymsg 'output * power on'";
-      }
       {
         event = "lock";
         command = "pidof swaylock || swaylock -f";
