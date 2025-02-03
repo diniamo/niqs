@@ -35,12 +35,18 @@ in {
         enable = true;
         openFirewall = true;
       };
+
+      radarr = {
+        enable = true;
+        openFirewall = true;
+      };
     };
 
+    systemd.services.shoko.serviceConfig.SupplementaryGroups = services.transmission.group;
     users.groups.${services.transmission.group}.members = [
       services.jellyfin.group
-      services.shoko.group
       services.sonarr.group
+      services.radarr.group
     ];
   };
 }
