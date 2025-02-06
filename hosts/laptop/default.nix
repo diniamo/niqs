@@ -4,6 +4,8 @@
   pkgs,
   ...
 }: let
+  inherit (lib) mkForce;
+
   inherit (config) values;
 in {
   imports = [./hardware.nix];
@@ -26,7 +28,12 @@ in {
   };
 
   home-manager.users.${values.mainUser} = {
-    programs.mpv.config.ao = "pulse";
+    programs.mpv = {
+      config.ao = "pulse";
+      # This laptop isn't that strong, I might have to disable some other stuff as well,
+      # if it still struggles
+      profiles.anime.script = mkForce null;
+    };
   };
 
   networking.hostName = "${values.mainUser}-LAPTOP";
