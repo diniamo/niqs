@@ -70,7 +70,7 @@ in {
         "Control+Print" = "exec grim -g \"$(slurp)\" - | wl-copy";
         "Shift+Print" = "exec grim -g \"$(slurp)\" - | swayimg -";
         "Mod1+Print" = ''exec grim -g "$(swaymsg -t get_tree | jaq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"'';
-        "Mod4+s" = "exec wl-paste | satty -f -";
+        "Mod4+e" = "exec wl-paste | satty -f -";
 
         # TODO: Turn outputs off
         # https://github.com/swaywm/sway/issues/2910
@@ -92,7 +92,7 @@ in {
 
         "Mod4+q" = "kill";
         "Mod4+f" = "fullscreen";
-        "Mod4+o" = "floating toggle";
+        "Mod4+s" = "floating toggle";
         "Mod4+p" = "sticky toggle";
 
         "Mod4+d" = "split vertical";
