@@ -34,6 +34,7 @@ in {
     anki
     krita
   ];
+    discord-canary
 
   networking.hostName = "${values.mainUser}-PC";
 

@@ -42,6 +42,5 @@ in {
     libnotify
     gist
     obsidian
-    discord-canary
   ];
 }

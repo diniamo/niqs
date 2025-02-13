@@ -32,7 +32,7 @@ in {
       config.ao = "pulse";
       # This laptop isn't that strong, I might have to disable some other stuff as well,
       # if it still struggles
-      profiles.anime.script = mkForce null;
+      profiles.anime.script = mkForce "";
     };
   };
 
