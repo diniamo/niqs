@@ -35,35 +35,26 @@
     };
 
   wrapProgram = {
-    pkgs,
     package,
     executable ? null,
-    binaryWrapper ? true,
+    wrapper,
     wrapperArgs,
+    symlinkJoin
   }: let
-    package' =
-      if builtins.isString package
-      then pkgs.${package}
-      else package;
-
-    wrapper =
-      if binaryWrapper
-      then pkgs.makeBinaryWrapper
-      else pkgs.makeWrapper;
-
     file =
       if executable != null
       then executable
-      else package'.meta.mainProgram;
+      else package.meta.mainProgram;
   in
-    pkgs.symlinkJoin {
-      pname = "${package'.pname}-wrapped";
-      inherit (package') version;
+    symlinkJoin {
+      pname = "${package.pname}-wrapped";
+      inherit (package) version;
 
-      paths = [package'];
-
+      paths = [package];
       nativeBuildInputs = [wrapper];
       postBuild = "wrapProgram $out/bin/${file} ${lib.escapeShellArgs wrapperArgs}";
+
+      inherit (package.meta) mainProgram;
     };
 
   # Helpers

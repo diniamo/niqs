@@ -52,18 +52,30 @@ in {
     environment.systemPackages = [pkgs.nvtopPackages.nvidia];
 
     nixpkgs.config.cudaSupport = true;
-    nixpkgs.overlays = [
-      (
-        final: prev:
-          lib'.mapListToAttrs (name: {
-            inherit name;
-            value = lib'.wrapProgram {
-              pkgs = final;
-              package = prev.${name};
-              wrapperArgs = ["--add-flags" "--disable-gpu-compositing"];
-            };
-          }) ["obsidian" "discord-canary" "webcord" "spotify"]
-      )
-    ];
+    nixpkgs.overlays = [(
+      final: prev: let
+        inherit (lib') wrapProgram;
+        inherit (final) symlinkJoin;
+        wrapper = final.makeBinaryWrapper;
+        wrapperArgs = ["--add-flags" "--disable-gpu-compositing"];
+      in {
+        obsidian = wrapProgram {
+          package = prev.obsidian;
+          inherit symlinkJoin wrapper wrapperArgs;
+        };
+        
+        spotify = wrapProgram {
+          package = prev.spotify;
+          inherit symlinkJoin wrapper wrapperArgs;
+        };
+
+        discord-canary = wrapProgram {
+          package = prev.discord-canary.override {
+            withOpenASAR = true;
+          };
+          inherit symlinkJoin wrapper wrapperArgs;
+        };
+      }
+    )];
   };
 }
