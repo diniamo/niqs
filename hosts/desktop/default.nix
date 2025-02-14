@@ -33,47 +33,42 @@ in {
     qbittorrent
     anki
     krita
-  ];
     discord-canary
+  ];
 
-  networking.hostName = "${values.mainUser}-PC";
-
-  home-manager.users.${values.mainUser} = {
-    wayland.windowManager = {
-      river.settings.spawn = ["wlr-randr --output DP-1 --mode 1920x1080@164.917007Hz --adaptive-sync enabled"];
-
-      sway = {
-        config = {
-          output = {
-            DP-1 = {
-              mode = "1920x1080@165Hz";
-              position = "0 0";
-              adaptive_sync = "on";
-              allow_tearing = "yes";
-            };
-            DP-2 = {
-              mode = "1920x1080@60Hz";
-              position = "1920 0";
-            };
+  home-manager.users.${values.mainUser}.wayland.windowManager = {
+    sway = {
+      config = {
+        output = {
+          DP-1 = {
+            mode = "1920x1080@165Hz";
+            position = "0 0";
+            adaptive_sync = "on";
+            allow_tearing = "yes";
           };
-          workspaceOutputAssign = [
-            {
-              output = "DP-1";
-              workspace = "1";
-            }
-            {
-              output = "DP-2";
-              workspace = "5";
-            }
-          ];
+          DP-2 = {
+            mode = "1920x1080@60Hz";
+            position = "1920 0";
+          };
         };
-
-        # This doesn't work for some reason
-        extraConfig = "focus output DP-1";
+        workspaceOutputAssign = [
+          {
+            output = "DP-1";
+            workspace = "1";
+          }
+          {
+            output = "DP-2";
+            workspace = "5";
+          }
+        ];
       };
+
+      # This doesn't work for some reason
+      extraConfig = "focus output DP-1";
     };
   };
 
+  networking.hostName = "${values.mainUser}-PC";
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }
