@@ -136,8 +136,18 @@
         };
       };
     };
+    
     wallpapers = {
       url = "github:diniamo/wallpapers";
+      flake = false;
+    };
+
+    tree-sitter-odin = {
+      url = "github:tree-sitter-grammars/tree-sitter-odin";
+      flake = false;
+    };
+    odin-ts-mode = {
+      url = "github:Sampie159/odin-ts-mode";
       flake = false;
     };
 

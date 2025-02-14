@@ -940,6 +940,22 @@
         "type": "github"
       }
     },
+    "odin-ts-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724182060,
+        "narHash": "sha256-eItt50n/gBg97tL1MtIxgbms1Z12h8m7X5wYzJKoSyE=",
+        "owner": "Sampie159",
+        "repo": "odin-ts-mode",
+        "rev": "1237bc341c6244e158be6c2c15414def6a24634d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Sampie159",
+        "repo": "odin-ts-mode",
+        "type": "github"
+      }
+    },
     "oil-nvim": {
       "flake": false,
       "locked": {
@@ -2970,6 +2986,7 @@
         "no-neck-pain-nvim": "no-neck-pain-nvim",
         "nvf": "nvf",
         "nvim-lastplace": "nvim-lastplace",
+        "odin-ts-mode": "odin-ts-mode",
         "oil-nvim": "oil-nvim",
         "pre-commit-hooks": "pre-commit-hooks",
         "rust-overlay": "rust-overlay",
@@ -2978,6 +2995,7 @@
         "systems": "systems_2",
         "telescope-zf-native-nvim": "telescope-zf-native-nvim",
         "telescope-zoxide": "telescope-zoxide",
+        "tree-sitter-odin": "tree-sitter-odin",
         "wallpapers": "wallpapers"
       }
     },
@@ -3208,6 +3226,22 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "tinted-tmux",
+        "type": "github"
+      }
+    },
+    "tree-sitter-odin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736705685,
+        "narHash": "sha256-aPeaGERAP1Fav2QAjZy1zXciCuUTQYrsqXaSQsYG0oU=",
+        "owner": "tree-sitter-grammars",
+        "repo": "tree-sitter-odin",
+        "rev": "d2ca8efb4487e156a60d5bd6db2598b872629403",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tree-sitter-grammars",
+        "repo": "tree-sitter-odin",
         "type": "github"
       }
     },

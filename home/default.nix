@@ -18,6 +18,7 @@ in {
     ./style
     ./fish
     # ./xkb
+    ./emacs
 
     ./xdg.nix
     ./foot.nix
