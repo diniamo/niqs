@@ -28,6 +28,7 @@
     avy
     editorconfig
     no-littering
+    magit
 
     ripgrep
     projectile
