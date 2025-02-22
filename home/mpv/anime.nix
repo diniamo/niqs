@@ -51,7 +51,6 @@ in {
     profile = [
       "best"
       "gpu-hq"
-      "svp"
     ];
 
     sub-visibility = true;
