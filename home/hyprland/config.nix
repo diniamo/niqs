@@ -118,7 +118,6 @@ in {
     ecosystem.no_donation_nag = true;
     windowrule = [
       "pin, ^(dragon)$"
-      "float, ^(SVPManager)$"
       "float, ^(xdg-desktop-portal-gtk)$"
       "idleinhibit always, ^(org.qbittorrent.qBittorrent)$"
       "noanim, ^(ueberzugpp_)(.*)$"
