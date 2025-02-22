@@ -58,6 +58,8 @@ in {
         "Mod4+Return" = "exec foot";
         "Mod4+n" = "exec neovide";
         "Mod4+Control+n" = "exec neovide /etc/nixos";
+        "Mod4+e" = "exec emacs";
+        "Mod4+Control+e" = "exec emacs /etc/nixos";
         "Mod4+w" = "exec firefox";
         "Mod4+Space" = "exec fuzzel";
         "Mod4+x" = "exec ${scripts.logoutMenu}";
@@ -70,7 +72,7 @@ in {
         "Control+Print" = "exec grim -g \"$(slurp)\" - | wl-copy";
         "Shift+Print" = "exec grim -g \"$(slurp)\" - | swayimg -";
         "Mod1+Print" = ''exec grim -g "$(swaymsg -t get_tree | jaq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"'';
-        "Mod4+e" = "exec wl-paste | satty -f -";
+        "Mod4+o" = "exec wl-paste | satty -f -";
 
         # TODO: Turn outputs off
         # https://github.com/swaywm/sway/issues/2910
