@@ -6,11 +6,18 @@
     meta.homepage = "https://github.com/amaanq/tree-sitter-odin";
   };
 
-  overrides = final: _: {
+  overrides = final: prev: {
     odin-ts-mode = final.melpaBuild {
       pname = "odin-ts-mode";
       version = inputs.odin-ts-mode.lastModifiedDate;
       src = inputs.odin-ts-mode.outPath;
+    };
+
+    dumb-jump = prev.dumb-jump.overrideAttrs {
+      patches = [(pkgs.fetchpatch2 {
+        url = "https://patch-diff.githubusercontent.com/raw/jacktasia/dumb-jump/pull/460.patch";
+        hash = "sha256-GoulXU4TA/kNUAlBAwie9WmrbtXplctuGHCiHMyrgN4=";
+      })];
     };
   };
 
@@ -29,6 +36,11 @@
     editorconfig
     no-littering
     magit
+    dumb-jump
+    expand-region
+    move-text
+    embrace
+    multiple-cursors
 
     ripgrep
     projectile
