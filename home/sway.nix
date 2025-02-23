@@ -35,6 +35,7 @@ in {
       floating = {
         modifier = "Mod4";
         border = 1;
+        titlebar = false;
       };
       window = {
         border = 1;
@@ -42,6 +43,12 @@ in {
           {
             criteria.shell = "xwayland";
             command = "title_format \"<i>%title</i>\"";
+          }
+          # I couldn't find a better way to make this work.
+          # Setting default_floating_border isn't sufficient for some reason.
+          {
+            criteria.floating = true;
+            command = "border pixel 1";
           }
         ];
       };
