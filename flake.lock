@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "artcnn": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739957534,
+        "narHash": "sha256-D1FVz4v5RUgNqnmmgjQ7DDQyZZFFVHQsBNyXJ4Sft7s=",
+        "owner": "Artoriuz",
+        "repo": "ArtCNN",
+        "rev": "c554b9eb8422ead585e4f56e2fe8dfedff51d962",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Artoriuz",
+        "repo": "ArtCNN",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -2962,6 +2978,7 @@
     },
     "root": {
       "inputs": {
+        "artcnn": "artcnn",
         "bufresize-nvim": "bufresize-nvim",
         "cmp-nvim-lua": "cmp-nvim-lua",
         "crane": "crane",

@@ -141,6 +141,10 @@
       url = "github:diniamo/wallpapers";
       flake = false;
     };
+    artcnn = {
+      url = "github:Artoriuz/ArtCNN";
+      flake = false;
+    };
 
     tree-sitter-odin = {
       url = "github:tree-sitter-grammars/tree-sitter-odin";
