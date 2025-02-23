@@ -7,12 +7,13 @@
   settings = {
     AddMissingOptions = false;
 
+    MpvArgs = ["--profile=anime"];
+    MenuOrder = "CONTINUE_LAST,CURRENT,UPDATE,UNTRACKED,ALL";
     NextEpisodePrompt = true;
+    SkipOp = false;
     SkipRecap = false;
     SaveMpvSpeed = false;
     DiscordPresence = false;
-    AlternateScreen = false;
-    MpvArgs = ["--profile=anime"];
   };
 in {
   home.packages = [package];
