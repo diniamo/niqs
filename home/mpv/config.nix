@@ -18,7 +18,7 @@
       no-sub-visibility = "";
     };
 
-    defaultProfiles = ["best"];
+    defaultProfiles = ["high-quality"];
 
     scriptOpts = {
       skiptosilence = {

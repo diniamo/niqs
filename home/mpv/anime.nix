@@ -48,17 +48,13 @@
   '';
 in {
   programs.mpv.profiles.anime = {
-    profile = [
-      "best"
-      "gpu-hq"
-    ];
-
     sub-visibility = true;
 
     gpu-api = "auto";
     # fbo-format = "rgba16hf";
 
     script = autoAnime4k.outPath;
+    profile = "high-quality";
 
     scale = "ewa_lanczossharp";
     dscale = "mitchell";

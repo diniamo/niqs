@@ -6,7 +6,6 @@
   imports = [
     ./config.nix
     ./input.nix
-    ./profiles.nix
     ./uosc.nix
     ./anime.nix
   ];
@@ -30,7 +29,6 @@
         reload
         thumbfast
         mpris
-        mpv-webm
         seekTo
         sponsorblock-minimal
         autoload
