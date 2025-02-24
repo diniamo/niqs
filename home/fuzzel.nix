@@ -12,6 +12,7 @@ in {
     settings = {
       main = {
         font = mkForce "${config.stylix.fonts.sansSerif.name}:size=20";
+        dpi-aware = false;
         icon-theme = config.stylix.icons.name;
         prompt = "'   '";
         match-counter = true;
