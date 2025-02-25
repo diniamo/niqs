@@ -51,6 +51,7 @@
       tree-sitter-odin
       tree-sitter-julia
       tree-sitter-nu
+      tree-sitter-c
     ]))
     nix-ts-mode
     odin-ts-mode
