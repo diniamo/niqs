@@ -34,6 +34,8 @@ in {
       # if it still struggles
       profiles.anime.script = mkForce "";
     };
+
+    wayland.windowManager.sway.config.input."1267:12722:ELAN0647:00_04F3:31B2_Touchpad".natural_scroll = "enabled";
   };
 
   networking.hostName = "${values.mainUser}-LAPTOP";
