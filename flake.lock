@@ -959,11 +959,11 @@
     "odin-ts-mode": {
       "flake": false,
       "locked": {
-        "lastModified": 1724182060,
-        "narHash": "sha256-eItt50n/gBg97tL1MtIxgbms1Z12h8m7X5wYzJKoSyE=",
+        "lastModified": 1740521536,
+        "narHash": "sha256-GpZ8NTmaRa4qoc/7WZYafL5VN+1iZg8rAA/RUiqyux8=",
         "owner": "Sampie159",
         "repo": "odin-ts-mode",
-        "rev": "1237bc341c6244e158be6c2c15414def6a24634d",
+        "rev": "88801d942e15168902b9fd67d5c1960f3c0098fc",
         "type": "github"
       },
       "original": {
