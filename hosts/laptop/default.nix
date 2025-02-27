@@ -21,18 +21,13 @@ in {
 
   zramSwap.enable = true;
 
-  # pipewire-pulse kept getting killed by God himself, and most programs use pulseaudio anyway
-  services = {
-    pipewire.enable = lib.mkForce false;
-    pulseaudio.enable = true;
-  };
-
   home-manager.users.${values.mainUser} = {
     programs.mpv = {
-      config.ao = "pulse";
-      # This laptop isn't that strong, I might have to disable some other stuff as well,
-      # if it still struggles
-      profiles.anime.script = mkForce "";
+      # Disable all the high quality stuff for performance/battery life
+      defaultProfiles = mkForce [];
+      profiles.anime = mkForce {
+        sub-visibility = true;
+      };
     };
 
     wayland.windowManager.sway.config.input."1267:12722:ELAN0647:00_04F3:31B2_Touchpad".natural_scroll = "enabled";
