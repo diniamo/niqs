@@ -52,6 +52,9 @@
       tree-sitter-julia
       tree-sitter-nu
       tree-sitter-c
+      tree-sitter-rust
+      tree-sitter-go
+      tree-sitter-gomod
     ]))
     nix-ts-mode
     odin-ts-mode
