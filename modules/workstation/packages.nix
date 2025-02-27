@@ -34,7 +34,6 @@ in {
     neovide
     spotify
     gtrash
-    yt-dlp
     libqalculate
     pulsemixer
     pavucontrol
@@ -42,5 +41,6 @@ in {
     libnotify
     gist
     obsidian
+    video-trimmer
   ];
 }
