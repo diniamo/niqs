@@ -136,6 +136,9 @@
     },
     "curd": {
       "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -144,11 +147,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740332221,
-        "narHash": "sha256-AiWTiTZ4Wwquh4m9h51A9+7Xe0NHlLLy36L5LT2ODJU=",
+        "lastModified": 1740647665,
+        "narHash": "sha256-B/5zXXrQLKSDUBWYXiHc2yU6ICIHYL1xMb0kK84Svjw=",
         "owner": "Wraient",
         "repo": "curd",
-        "rev": "77b283275ff3b60cc743025df379397f939f731e",
+        "rev": "cc9e685546abc9d8a37be77c56b4a5610e32de09",
         "type": "github"
       },
       "original": {
