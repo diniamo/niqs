@@ -87,7 +87,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
-        flake-parts.follows = "flake-parts";
       };
     };
     lobster = {
