@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  pkgs,
   ...
 }: let
   inherit (config.lib.stylix) colors;
@@ -12,6 +13,7 @@ in {
 
   programs.schizofox = {
     enable = true;
+    package = pkgs.firefox-esr-128-unwrapped;
 
     theme = {
       colors = {
