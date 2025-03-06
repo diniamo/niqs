@@ -441,11 +441,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731141898,
-        "narHash": "sha256-oXkPKPzxWpvgyP9tt5+oxZXBNueqQXG7HvFMh+S+pzk=",
+        "lastModified": 1741189331,
+        "narHash": "sha256-dViaxbbDAQBmnDbOAjBgMGF8htJMUNosnfDmsxuDEoM=",
         "owner": "lix-project",
         "repo": "lix",
-        "rev": "d0e096981025a43cfff02001110da2139561c729",
+        "rev": "0bb0f43aae2d370a5f905ffc7803db7bf8b29195",
         "type": "github"
       },
       "original": {
@@ -550,11 +550,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737917309,
-        "narHash": "sha256-DXeAFsSkhqyvMcVSELs2Q/l2CVvAJl8i9Cl4aon/fbg=",
+        "lastModified": 1741205144,
+        "narHash": "sha256-FRhXRezUi72yyk1LReW+Jxo5lv9QPBlQvNzBkZ12p7c=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "83b1b58be186b970602a84ab2a5ffc14bf23f06d",
+        "rev": "ccdf73c8e68fb09e9708b1ec34345a36dffb3eb5",
         "type": "github"
       },
       "original": {
