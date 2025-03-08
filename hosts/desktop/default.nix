@@ -43,7 +43,6 @@ in {
           DP-1 = {
             mode = "1920x1080@165Hz";
             position = "0 0";
-            adaptive_sync = "on";
             allow_tearing = "yes";
           };
           DP-2 = {
