@@ -41,12 +41,14 @@
     move-text
     embrace
     multiple-cursors
+    org-roam
+    org-roam-timestamps
+    org-roam-ui
 
     ripgrep
     projectile
 
     (treesit-grammars.with-grammars (grammars: with grammars; [
-      # tree-sitter-elisp
       tree-sitter-nix
       tree-sitter-odin
       tree-sitter-julia
