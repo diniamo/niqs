@@ -3,6 +3,7 @@
   lib,
   config,
   pkgs,
+  flakePkgs,
   ...
 }: let
   inherit (lib) getExe getExe';
@@ -17,6 +18,7 @@
     ${powerprofilesctl} set performance
     ${swaymsg} 'allow_tearing yes'
     ${swaymsg} 'input * scroll_method none'
+    ${getExe flakePkgs.wayhibitor.default} & echo "$!" > /tmp/game-mode-wayhibitor-pid
 
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=input-gaming 'Optimizations activated'
   '';
@@ -24,6 +26,7 @@
     ${powerprofilesctl} set balanced
     ${swaymsg} 'allow_tearing no'
     ${swaymsg} 'input * scroll_method on_button_down'
+    kill "$(cat /tmp/game-mode-wayhibitor-pid)"
 
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=system-shutdown 'Optimizations deactivated'
   '';

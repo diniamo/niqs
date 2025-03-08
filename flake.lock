@@ -3013,7 +3013,8 @@
         "telescope-zf-native-nvim": "telescope-zf-native-nvim",
         "telescope-zoxide": "telescope-zoxide",
         "tree-sitter-odin": "tree-sitter-odin",
-        "wallpapers": "wallpapers"
+        "wallpapers": "wallpapers",
+        "wayhibitor": "wayhibitor"
       }
     },
     "rust-overlay": {
@@ -3275,6 +3276,29 @@
       "original": {
         "owner": "diniamo",
         "repo": "wallpapers",
+        "type": "github"
+      }
+    },
+    "wayhibitor": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741463568,
+        "narHash": "sha256-zC1oQISJSAbdEWPkUWy6muA0a/NoZON0WvjHiJ+aZ+g=",
+        "owner": "diniamo",
+        "repo": "wayhibitor",
+        "rev": "cb9030ef708cfce40ffb44ee3033ef9575a86912",
+        "type": "github"
+      },
+      "original": {
+        "owner": "diniamo",
+        "repo": "wayhibitor",
         "type": "github"
       }
     }

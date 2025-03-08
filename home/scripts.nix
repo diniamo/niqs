@@ -1,10 +1,11 @@
 {
   lib,
   pkgs,
+  flakePkgs,
   osConfig,
   ...
 }: let
-  inherit (lib) mkOption types optionalString;
+  inherit (lib) mkOption types optionalString getExe;
   inherit (pkgs.writers) writeDash writeBash;
 in {
   options = {
@@ -40,14 +41,14 @@ in {
           '';
 
         toggleInhibitSleep = writeDash "toggle-inhibit-sleep" ''
-          set -e
-
-          if systemctl --user --quiet is-active swayidle.service; then
-            systemctl --user --quiet stop swayidle.service
-            notify-send --urgency=low --icon=media-playback-pause "Sleep inhibited"
-          else
-            systemctl --user --quiet start swayidle.service
+          if pid="$(cat /tmp/toggle-inhibit-sleep-pid 2> /dev/null)"; then
+            kill "$pid"
+            rm /tmp/toggle-inhibit-sleep-pid
             notify-send --urgency=low --icon=media-playback-start "Sleep uninhibited"
+          else
+            ${getExe flakePkgs.wayhibitor.default} &
+            echo "$!" > /tmp/toggle-inhibit-sleep-pid
+            notify-send --urgency=low --icon=media-playback-pause "Sleep inhibited"
           fi
         '';
 

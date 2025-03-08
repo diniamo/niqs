@@ -136,6 +136,13 @@
         };
       };
     };
+    wayhibitor = {
+      url = "github:diniamo/wayhibitor";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
     
     wallpapers = {
       url = "github:diniamo/wallpapers";
