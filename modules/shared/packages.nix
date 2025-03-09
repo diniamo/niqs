@@ -19,7 +19,7 @@
       jaq
       wget
       nix-tree
-      (flakePkgs.niqspkgs.rebuild.override {nix = nix;})
+      flakePkgs.niqspkgs.rebuild
     ];
   };
 }
