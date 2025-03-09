@@ -11,8 +11,6 @@
   nixpkgsPath = nixpkgs.outPath;
 in {
   nix = {
-    package = pkgs.lix;
-
     settings = {
       experimental-features = ["nix-command" "flakes"];
       # This only sets the embedded flake registry, which we don't want

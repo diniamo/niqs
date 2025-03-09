@@ -1,5 +1,6 @@
 {
   pkgs,
+  flakePkgs,
   lib,
   ...
 }: {
@@ -17,9 +18,8 @@
       duf
       jaq
       wget
-      nh
       nix-tree
-      nix-inspect
+      (flakePkgs.niqspkgs.rebuild.override {nix = nix;})
     ];
   };
 }

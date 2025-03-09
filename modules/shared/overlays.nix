@@ -2,10 +2,9 @@
   niqspkgs = _: _:
     with flakePkgs.niqspkgs; {
       swayimg = swayimg-git;
-      lix = lix-patched;
+      nix = lix-patched;
       comma = comma-patched;
       nix-output-monitor = nom-patched;
-      nh = nh-patched;
       fish = fish-patched;
       coreutils-full = coreutils-full-patched;
       file-roller = file-roller-gtk3;
