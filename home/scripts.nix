@@ -53,13 +53,13 @@ in {
         '';
 
         logoutMenu = writeBash "logout-menu" ''
-          case "$(echo -en 'Suspend\0icon\x1fsleep\nWindows\0icon\x1fpreferences-system-windows\nLock\0icon\x1fsystem-lock-screen\nLogout\0icon\x1fsystem-log-out\nReboot\0icon\x1fsystem-reboot\nShutdown\0icon\x1fsystem-shutdown' | fuzzel --dmenu)" in
+          case "$(echo -en 'Suspend\0icon\x1fsleep\nShutdown\0icon\x1fsystem-shutdown\nReboot\0icon\x1fsystem-reboot\nWindows\0icon\x1fpreferences-system-windows\nLock\0icon\x1fsystem-lock-screen\nLogout\0icon\x1fsystem-log-out' | fuzzel --dmenu)" in
             Suspend) systemctl suspend ;;
+            Shutdown) systemctl poweroff ;;
+            Reboot) systemctl reboot ;;
             Windows) systemctl reboot --boot-loader-entry=auto-windows ;;
             Lock) loginctl lock-session ;;
             Logout) loginctl terminate-user "$USER" ;;
-            Reboot) systemctl reboot ;;
-            Shutdown) systemctl poweroff ;;
           esac
         '';
       };
