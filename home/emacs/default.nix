@@ -31,7 +31,6 @@
   packages = epkgs: with epkgs; [
     catppuccin-theme
     doom-modeline
-    direnv
     avy
     editorconfig
     no-littering
@@ -41,6 +40,9 @@
     move-text
     embrace
     multiple-cursors
+    olivetti
+    envrc
+    
     org-roam
     org-roam-timestamps
     org-roam-ui
