@@ -51,6 +51,7 @@ in {
             command = "border pixel 1";
           }
         ];
+        titlebar = false;
       };
       focus = {
         mouseWarping = "container";
