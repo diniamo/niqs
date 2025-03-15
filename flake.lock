@@ -3289,11 +3289,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741463568,
-        "narHash": "sha256-zC1oQISJSAbdEWPkUWy6muA0a/NoZON0WvjHiJ+aZ+g=",
+        "lastModified": 1741467199,
+        "narHash": "sha256-BtYx/TzCryrSnNDtUbOX4Tag0m9nhT0cHtBBGDASMRs=",
         "owner": "diniamo",
         "repo": "wayhibitor",
-        "rev": "cb9030ef708cfce40ffb44ee3033ef9575a86912",
+        "rev": "82d7fdc5bff76c44c3792b3fb95d39117d3076fe",
         "type": "github"
       },
       "original": {
