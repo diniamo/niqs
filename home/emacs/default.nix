@@ -1,4 +1,4 @@
-{inputs, pkgs, ...}: let
+{inputs, pkgs, lib, ...}: let
   tree-sitter-odin = pkgs.tree-sitter.buildGrammar {
     language = "tree-sitter-odin";
     version = "0-unstable-${inputs.tree-sitter-odin.shortRev}";
@@ -66,7 +66,15 @@
     nushell-ts-mode
   ];
 
-  finalPackage = (emacs.pkgs.overrideScope overrides).withPackages packages;
+  finalPackage = ((emacs.pkgs.overrideScope overrides).withPackages packages).overrideAttrs (prev: {
+    buildCommand = prev.buildCommand + ''
+      for file in $out/bin/emacs*; do
+        wrapProgram $file \
+          --set DICPATH ${lib.makeSearchPath "share/hunspell" (with pkgs.hunspellDicts; [en-us hu-hu])} \
+          --prefix PATH : ${lib.makeBinPath (with pkgs; [perl hunspell])}
+      done
+    '';
+  });
 in {
   home.packages = [finalPackage];
 }
