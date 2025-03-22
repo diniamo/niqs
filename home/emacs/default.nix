@@ -38,10 +38,10 @@
     dumb-jump
     expand-region
     move-text
-    embrace
     multiple-cursors
     olivetti
     envrc
+    surround
     
     org-roam
     org-roam-timestamps
