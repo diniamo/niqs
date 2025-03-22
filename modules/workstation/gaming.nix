@@ -85,5 +85,13 @@ in {
         };
       };
     };
+
+    # The start script relies on SWAYSOCK and WAYLAND_DISPLAY,
+    # which are imported when the graphical session starts
+    systemd.user.services.gamemoded = {
+      wantedBy = lib.mkForce [];
+      partOf = ["graphical-session.target"];
+      after = ["graphical-session.target"];
+    };
   };
 }

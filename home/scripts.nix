@@ -41,8 +41,7 @@ in {
           '';
 
         toggleInhibitSleep = writeDash "toggle-inhibit-sleep" ''
-          if pid="$(cat /tmp/toggle-inhibit-sleep-pid 2> /dev/null)"; then
-            kill "$pid"
+          if kill "$(cat /tmp/toggle-inhibit-sleep-pid 2> /dev/null)"; then
             rm /tmp/toggle-inhibit-sleep-pid
             notify-send --urgency=low --icon=media-playback-start "Sleep uninhibited"
           else
