@@ -6,7 +6,8 @@
   flakePkgs,
   ...
 }: let
-  inherit (lib) getExe getExe';
+  inherit (lib) getExe getExe' mkForce mkEnableOption mkOption;
+  inherit (lib.types) lines;
   inherit (pkgs.writers) writeDash;
   inherit (inputs.nix-gaming.nixosModules) pipewireLowLatency platformOptimizations;
 
@@ -19,6 +20,7 @@
     ${swaymsg} 'allow_tearing yes'
     ${swaymsg} 'input * scroll_method none'
     ${getExe pkgs.daemonize} -p /tmp/game-mode-wayhibitor-pid ${getExe flakePkgs.wayhibitor.default}
+    ${cfg.extraStartCommands}
 
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=input-gaming 'Optimizations activated'
   '';
@@ -27,6 +29,7 @@
     ${swaymsg} 'allow_tearing no'
     ${swaymsg} 'input * scroll_method on_button_down'
     ${pkgs.util-linux}/bin/kill "$(${getExe' pkgs.coreutils "cat"} /tmp/game-mode-wayhibitor-pid)"
+    ${cfg.extraEndCommands}
 
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=system-shutdown 'Optimizations deactivated'
   '';
@@ -39,7 +42,21 @@ in {
   ];
 
   options = {
-    custom.gaming.enable = lib.mkEnableOption "Enable the gaming module";
+    custom.gaming = {
+      enable = mkEnableOption "Enable the gaming module";
+
+      extraStartCommands = mkOption {
+        description = "Extra commands to run in the start script of gamemode.";
+        type = lines;
+        default = "";
+      };
+
+      extraEndCommands = mkOption {
+        description = "Extra commands to run in the end script of gamemode.";
+        type = lines;
+        default = "";
+      };
+    };
   };
 
   config = lib.mkIf cfg.enable {

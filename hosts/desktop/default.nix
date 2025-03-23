@@ -11,7 +11,12 @@ in {
     boot.secure = true;
     boot.windowsEntry = true;
     nvidia.enable = true;
-    gaming.enable = true;
+    
+    gaming = {
+      enable = true;
+      extraStartCommands = "swaymsg output DP-1 adadptive_sync on";
+      extraEndCommands = "swaymsg output DP-1 adadptive_sync off";
+    };
   };
 
   hardware.opentabletdriver = {
