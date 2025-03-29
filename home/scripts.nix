@@ -41,12 +41,11 @@ in {
           '';
 
         toggleInhibitSleep = writeDash "toggle-inhibit-sleep" ''
-          if kill "$(cat /tmp/toggle-inhibit-sleep-pid 2> /dev/null)"; then
+          if kill "$(cat /tmp/toggle-inhibit-sleep-pid 2>/dev/null)" 2>/dev/null; then
             rm /tmp/toggle-inhibit-sleep-pid
             notify-send --urgency=low --icon=media-playback-start "Sleep uninhibited"
           else
-            ${getExe flakePkgs.wayhibitor.default} &
-            echo "$!" > /tmp/toggle-inhibit-sleep-pid
+            ${getExe pkgs.daemonize} -p /tmp/toggle-inhibit-sleep-pid ${getExe flakePkgs.wayhibitor.default} &
             notify-send --urgency=low --icon=media-playback-pause "Sleep inhibited"
           fi
         '';

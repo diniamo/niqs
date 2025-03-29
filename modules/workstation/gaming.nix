@@ -28,7 +28,7 @@
     ${powerprofilesctl} set balanced
     ${swaymsg} 'allow_tearing no'
     ${swaymsg} 'input * scroll_method on_button_down'
-    ${pkgs.util-linux}/bin/kill "$(${getExe' pkgs.coreutils "cat"} /tmp/game-mode-wayhibitor-pid)"
+    ${getExe' pkgs.util-linux "kill"} "$(${getExe' pkgs.coreutils "cat"} /tmp/game-mode-wayhibitor-pid)"
     ${cfg.extraEndCommands}
 
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=system-shutdown 'Optimizations deactivated'
