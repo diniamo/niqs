@@ -1,33 +1,4 @@
 {inputs, pkgs, lib, flakePkgs, ...}: let
-  tree-sitter-odin = pkgs.tree-sitter.buildGrammar {
-    language = "tree-sitter-odin";
-    version = "0-unstable-${inputs.tree-sitter-odin.shortRev}";
-    src = inputs.tree-sitter-odin.outPath;
-    meta.homepage = "https://github.com/amaanq/tree-sitter-odin";
-  };
-
-  overrides = final: prev: {
-    odin-ts-mode = final.melpaBuild {
-      pname = "odin-ts-mode";
-      version = inputs.odin-ts-mode.lastModifiedDate;
-      src = inputs.odin-ts-mode.outPath;
-    };
-
-    dumb-jump = prev.dumb-jump.overrideAttrs {
-      patches = [(pkgs.fetchpatch2 {
-        url = "https://patch-diff.githubusercontent.com/raw/jacktasia/dumb-jump/pull/460.patch";
-        hash = "sha256-GoulXU4TA/kNUAlBAwie9WmrbtXplctuGHCiHMyrgN4=";
-      })];
-    };
-  };
-
-  emacs = pkgs.emacs30.override {
-    withNativeCompilation = true;
-    withJansson = true;
-    withPgtk = true;
-    withMailutils = false;
-  };
-
   packages = epkgs: with epkgs; [
     catppuccin-theme
     doom-modeline
@@ -67,24 +38,56 @@
     julia-ts-mode
     nushell-ts-mode
   ];
-
-  hunspellDicts = with pkgs.hunspellDicts; [en-us hu-hu];
-
+  
   extraPath = with pkgs; [
     perl # For magit
     hunspell
     
     flakePkgs.niqspkgs.my-cookies # For leetcode
   ];
+  
+  hunspellDicts = with pkgs.hunspellDicts; [en-us hu-hu];
 
+  tree-sitter-odin = pkgs.tree-sitter.buildGrammar {
+    language = "tree-sitter-odin";
+    version = "0-unstable-${inputs.tree-sitter-odin.shortRev}";
+    src = inputs.tree-sitter-odin.outPath;
+    meta.homepage = "https://github.com/amaanq/tree-sitter-odin";
+  };
+
+  overrides = final: prev: {
+    odin-ts-mode = final.melpaBuild {
+      pname = "odin-ts-mode";
+      version = inputs.odin-ts-mode.lastModifiedDate;
+      src = inputs.odin-ts-mode.outPath;
+    };
+
+    dumb-jump = prev.dumb-jump.overrideAttrs {
+      patches = [(pkgs.fetchpatch2 {
+        url = "https://patch-diff.githubusercontent.com/raw/jacktasia/dumb-jump/pull/460.patch";
+        hash = "sha256-GoulXU4TA/kNUAlBAwie9WmrbtXplctuGHCiHMyrgN4=";
+      })];
+    };
+  };
+
+  emacs = pkgs.emacs30.override {
+    withNativeCompilation = true;
+    withJansson = true;
+    withPgtk = true;
+    withMailutils = false;
+  };
+
+  makeWrapperArgs = [
+    "--set" "DICPATH" (lib.makeSearchPath "share/hunspell" hunspellDicts)
+    "--prefix" "PATH" ":" (lib.makeBinPath extraPath)
+  ];
+  
   finalPackage = ((emacs.pkgs.overrideScope overrides).withPackages packages).overrideAttrs (prev: {
-    buildCommand = prev.buildCommand + ''
-      for file in $out/bin/emacs*; do
-        wrapProgram $file \
-          --set DICPATH ${lib.makeSearchPath "share/hunspell" hunspellDicts} \
-          --prefix PATH : ${lib.makeBinPath extraPath}
-      done
-    '';
+    buildCommand =
+      builtins.replaceStrings
+        ["wrapProgramBinary $out/bin/$progname"]
+        ["wrapProgramBinary $out/bin/$progname ${lib.escapeShellArgs makeWrapperArgs}"]
+        prev.buildCommand;
   });
 in {
   home.packages = [finalPackage];
