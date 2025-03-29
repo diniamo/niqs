@@ -1,4 +1,4 @@
-{inputs, pkgs, lib, ...}: let
+{inputs, pkgs, lib, flakePkgs, ...}: let
   tree-sitter-odin = pkgs.tree-sitter.buildGrammar {
     language = "tree-sitter-odin";
     version = "0-unstable-${inputs.tree-sitter-odin.shortRev}";
@@ -42,7 +42,9 @@
     olivetti
     envrc
     surround
-    
+    leetcode
+
+    org-autolist
     org-roam
     org-roam-timestamps
     org-roam-ui
@@ -66,12 +68,21 @@
     nushell-ts-mode
   ];
 
+  hunspellDicts = with pkgs.hunspellDicts; [en-us hu-hu];
+
+  extraPath = with pkgs; [
+    perl # For magit
+    hunspell
+    
+    flakePkgs.niqspkgs.my-cookies # For leetcode
+  ];
+
   finalPackage = ((emacs.pkgs.overrideScope overrides).withPackages packages).overrideAttrs (prev: {
     buildCommand = prev.buildCommand + ''
       for file in $out/bin/emacs*; do
         wrapProgram $file \
-          --set DICPATH ${lib.makeSearchPath "share/hunspell" (with pkgs.hunspellDicts; [en-us hu-hu])} \
-          --prefix PATH : ${lib.makeBinPath (with pkgs; [perl hunspell])}
+          --set DICPATH ${lib.makeSearchPath "share/hunspell" hunspellDicts} \
+          --prefix PATH : ${lib.makeBinPath extraPath}
       done
     '';
   });
