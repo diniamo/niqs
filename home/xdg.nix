@@ -36,6 +36,7 @@
 
     "x-scheme-handler/spotify" = ["spotify.desktop"];
     "x-scheme-handler/discord" = ["discord-canary.desktop"];
+    "x-scheme-handler/steam" = ["steam.desktop"];
   };
   globAssociations = {
     "audio/*" = mediaPlayer;
