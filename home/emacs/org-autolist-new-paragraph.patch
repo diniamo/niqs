@@ -1,0 +1,15 @@
+diff --git a/org-autolist.el b/org-autolist.el
+index d4c88fd..fb042f5 100644
+--- a/org-autolist.el
++++ b/org-autolist.el
+@@ -135,8 +135,8 @@ automatically insert new list items.
+             (<= (point) (org-autolist-beginning-of-item-after-bullet)))
+         (condition-case nil
+           (call-interactively 'org-outdent-item)
+-          ('error (delete-region (line-beginning-position)
+-                    (line-end-position))))
++          ('error (delete-region (line-beginning-position) (line-end-position))
++                  (electric-indent-just-newline nil)))
+ 
+         ;; Now we can insert a new list item. The logic here is a little tricky
+         ;; depending on the type of list we're dealing with.
