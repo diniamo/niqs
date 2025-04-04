@@ -57,9 +57,10 @@ in {
     # ./hypridle.nix
     # ./hyprlock.nix
     ./curd.nix
-    ./wlsunset.nix
+    # ./wlsunset.nix
     ./swaylock.nix
     ./swayidle.nix
+    ./gammastep.nix
   ];
 
   home = {
