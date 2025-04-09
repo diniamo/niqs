@@ -14,14 +14,15 @@
     envrc
     surround
     leetcode
+    ripgrep
+    company
+    flycheck
+    yasnippet
 
     org-autolist
     org-roam
     org-roam-timestamps
     org-roam-ui
-
-    ripgrep
-    projectile
 
     (treesit-grammars.with-grammars (grammars: with grammars; [
       tree-sitter-nix
@@ -37,12 +38,6 @@
     odin-ts-mode
     julia-ts-mode
     nushell-ts-mode
-
-    lsp-mode
-    company
-    # lsp-ui
-    flycheck
-    yasnippet
   ];
   
   extraPath = with pkgs; [
@@ -78,10 +73,6 @@
     org-autolist = prev.org-autolist.overrideAttrs {
       patches = [./org-autolist-new-paragraph.patch];
     };
-
-    lsp-mode = prev.lsp-mode.overrideAttrs {
-      env.LSP_USE_PLISTS = true;
-    };
   };
 
   emacs = pkgs.emacs30.override {
@@ -92,7 +83,6 @@
   };
 
   makeWrapperArgs = [
-    "--set" "LSP_USE_PLISTS" "true"
     "--set" "DICPATH" (lib.makeSearchPath "share/hunspell" hunspellDicts)
     "--prefix" "PATH" ":" (lib.makeBinPath extraPath)
   ];
