@@ -12,6 +12,11 @@ in {
 
   custom.mobile.enable = true;
 
+  services = {
+    pipewire.enable = mkForce false;
+    pulseaudio.enable = true;
+  };
+
   environment.systemPackages = [pkgs.gmetronome];
 
   hardware = {
@@ -28,6 +33,7 @@ in {
       profiles.anime = mkForce {
         sub-visibility = true;
       };
+      config.ao = "pulse";
     };
 
     wayland.windowManager.sway.config.input."1267:12722:ELAN0647:00_04F3:31B2_Touchpad".natural_scroll = "enabled";
