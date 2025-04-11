@@ -15,9 +15,14 @@
     surround
     leetcode
     ripgrep
-    company
     flycheck
     yasnippet
+    
+    vertico
+    orderless
+    
+    corfu
+    nerd-icons-corfu
 
     org-autolist
     org-roam
