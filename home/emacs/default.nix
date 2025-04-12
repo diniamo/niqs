@@ -33,7 +33,6 @@
       tree-sitter-nix
       tree-sitter-odin
       tree-sitter-julia
-      tree-sitter-nu
       tree-sitter-c
       tree-sitter-rust
       tree-sitter-go

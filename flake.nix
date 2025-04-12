@@ -143,7 +143,14 @@
         systems.follows = "systems";
       };
     };
-    
+    rebuild = {
+      url = "github:diniamo/rebuild";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
+
     wallpapers = {
       url = "github:diniamo/wallpapers";
       flake = false;

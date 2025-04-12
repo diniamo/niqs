@@ -550,11 +550,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743236178,
-        "narHash": "sha256-6jDzBx8SvIZwzXT1QMI+z4T7yli5c/aYnQSuwCG5sX4=",
+        "lastModified": 1744471596,
+        "narHash": "sha256-aVCFYxTTIIKNwBBRvgY0wulcV5x8xZBI2MGOe7/E78Q=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "cf5557dcbe71de9a54d2506a6305c400b65b6660",
+        "rev": "85ad63c124d93024f4f281e5b72e86feaa560cb4",
         "type": "github"
       },
       "original": {
@@ -742,11 +742,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1738259958,
-        "narHash": "sha256-tHmmYRo8rfQd6//8W428DjKNM2eDBniYKu60iXr6hg4=",
+        "lastModified": 1744313367,
+        "narHash": "sha256-nTd7jFC9zzo9xKQv1rufMoX4vZA2A/9mzOoUBtmwKas=",
         "owner": "diniamo",
         "repo": "nixpkgs",
-        "rev": "640065eb0bc41efc5c69b2de44cbafced49d50f2",
+        "rev": "50d3bf323a087c23d81503ea9bd1986ef83e2ee8",
         "type": "github"
       },
       "original": {
@@ -2950,6 +2950,29 @@
         "type": "github"
       }
     },
+    "rebuild": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744473855,
+        "narHash": "sha256-u8INTOspMnEo6PKg0SHd0mas5Rr2cgHW/ZUYlcJg1qE=",
+        "owner": "diniamo",
+        "repo": "rebuild",
+        "rev": "08e5d00be4a2814a6adfaa652541547a17f36ae2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "diniamo",
+        "repo": "rebuild",
+        "type": "github"
+      }
+    },
     "rnix-lsp": {
       "inputs": {
         "naersk": [
@@ -3006,6 +3029,7 @@
         "odin-ts-mode": "odin-ts-mode",
         "oil-nvim": "oil-nvim",
         "pre-commit-hooks": "pre-commit-hooks",
+        "rebuild": "rebuild",
         "rust-overlay": "rust-overlay",
         "schizofox": "schizofox",
         "stylix": "stylix",
