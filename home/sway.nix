@@ -32,6 +32,7 @@ in {
         tap = "disabled";
       };
 
+      bars = [];
       floating = {
         modifier = "Mod4";
         border = 1;
@@ -58,7 +59,10 @@ in {
         newWindow = "focus";
       };
       gaps.smartBorders = "on";
-      startup = [{command = "firefox";}];
+      startup = [
+        {command = "yambar";}
+        {command = "firefox";}
+      ];
       # Merging the attributes would not override the default I think?
       modes = {};
 

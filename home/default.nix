@@ -61,6 +61,7 @@ in {
     ./swaylock.nix
     ./swayidle.nix
     ./gammastep.nix
+    ./yambar.nix
   ];
 
   home = {
