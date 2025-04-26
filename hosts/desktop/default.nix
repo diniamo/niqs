@@ -61,8 +61,36 @@ in {
             workspace = "1";
           }
           {
+            output = "DP-1";
+            workspace = "2";
+          }
+          {
+            output = "DP-1";
+            workspace = "3";
+          }
+          {
+            output = "DP-1";
+            workspace = "4";
+          }
+          {
             output = "DP-2";
             workspace = "5";
+          }
+          {
+            output = "DP-1";
+            workspace = "6";
+          }
+          {
+            output = "DP-1";
+            workspace = "7";
+          }
+          {
+            output = "DP-1";
+            workspace = "8";
+          }
+          {
+            output = "DP-1";
+            workspace = "9";
           }
         ];
       };
