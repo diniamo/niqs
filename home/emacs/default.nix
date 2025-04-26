@@ -17,6 +17,7 @@
     ripgrep
     flycheck
     yasnippet
+    dape
     
     vertico
     orderless
@@ -34,7 +35,7 @@
       tree-sitter-odin
       tree-sitter-julia
       tree-sitter-c
-      tree-sitter-rust
+      tree-sitter-cpp
       tree-sitter-go
       tree-sitter-gomod
     ]))
