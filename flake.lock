@@ -144,11 +144,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740928950,
-        "narHash": "sha256-6EyDbzr2mbRuF6DXfcwOEcUDeIBlg1leICiHNHR/CVE=",
+        "lastModified": 1744903352,
+        "narHash": "sha256-nxWkiFccqbFkvh4wemMUKyYqufNs3LT8DSL/yqfBQys=",
         "owner": "Wraient",
         "repo": "curd",
-        "rev": "80a1c429c8d36c36d0f4e4f9c3d43aa07c397509",
+        "rev": "4d9874c1c462be98d472240213c02408d67c93a0",
         "type": "github"
       },
       "original": {
@@ -742,11 +742,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1744313367,
-        "narHash": "sha256-nTd7jFC9zzo9xKQv1rufMoX4vZA2A/9mzOoUBtmwKas=",
+        "lastModified": 1745227213,
+        "narHash": "sha256-DNukCh9GFCb7oNsGZYI1qEJJKgwOB3mewyaVw+XBvbo=",
         "owner": "diniamo",
         "repo": "nixpkgs",
-        "rev": "50d3bf323a087c23d81503ea9bd1986ef83e2ee8",
+        "rev": "3c8249d82739a128a8606e510452e91ddad738fd",
         "type": "github"
       },
       "original": {
