@@ -13,7 +13,14 @@ in {
   custom.mobile.enable = true;
 
   services = {
-    pipewire.enable = mkForce false;
+    pipewire = {
+      enable = mkForce false;
+      wireplumber.enable = mkForce false;
+      pulse.enable = mkForce false;
+      alsa.enable = mkForce false;
+      jack.enable = mkForce false;
+    };
+    
     pulseaudio.enable = true;
   };
 
