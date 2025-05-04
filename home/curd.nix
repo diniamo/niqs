@@ -11,6 +11,7 @@
     MenuOrder = "CONTINUE_LAST,CURRENT,UPDATE,UNTRACKED,ALL";
     NextEpisodePrompt = true;
     SkipOp = false;
+    SkipEd = false;
     SkipRecap = false;
     SaveMpvSpeed = false;
     DiscordPresence = false;
