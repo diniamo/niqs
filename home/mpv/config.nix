@@ -1,4 +1,6 @@
-{
+{config, ...}: let
+  font = config.stylix.fonts.sansSerif.name;
+in {
   programs.mpv = {
     config = {
       fullscreen = true;
@@ -6,6 +8,8 @@
       save-position-on-quit = "";
       watch-later-options-remove = "vf,af";
       no-window-dragging = "";
+      osc = false;
+      osd-font = font;
       osd-duration = 3000;
       osd-status-msg = "Frame: \${estimated-frame-number} / \${estimated-frame-count}";
       audio-device = "pipewire";
@@ -22,12 +26,23 @@
     defaultProfiles = ["high-quality"];
 
     scriptOpts = {
+      modernx = {
+        inherit font;
+        keep_on_pause = true;
+        window_title = false;
+        window_controls = false;
+        show_on_pause = false;
+        volume_control_type = "logarithmic";
+        info_button = true;
+        ontop_button = false;
+        download_path = "/tmp";
+        hover_effect = "size";
+      };
+
       skiptosilence = {
         duration = 0.5;
         mutewhileskipping = true;
       };
-
-      autoload.same_type = true;
     };
   };
 }

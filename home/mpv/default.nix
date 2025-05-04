@@ -6,7 +6,6 @@
   imports = [
     ./config.nix
     ./input.nix
-    ./uosc.nix
     ./anime.nix
   ];
 
@@ -18,22 +17,18 @@
 
         alsaSupport = false;
         javascriptSupport = false;
-        pulseSupport = false;
+        pulseSupport = true; # For laptop, cba modularizing
         x11Support = false;
       };
 
-      scripts = with pkgs.mpvScripts;
-      with flakePkgs.niqspkgs; [
-        # Missing: clipshot, autosubsync
-        uosc
-        reload
+      scripts = with pkgs.mpvScripts; with flakePkgs.niqspkgs; [
+        modernx-zydezu
         thumbfast
+        
+        reload
         mpris
         seekTo
         sponsorblock-minimal
-        autoload
-        mpvacious
-
         simple-undo
         skip-to-silence
       ];
