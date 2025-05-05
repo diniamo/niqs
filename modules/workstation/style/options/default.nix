@@ -2,7 +2,6 @@
   imports = [
     ./fonts.nix
     ./icons.nix
-    ./qt.nix
   ];
 in {
   inherit imports;

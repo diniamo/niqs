@@ -1,10 +1,11 @@
 {pkgs, ...}: {
   programs.nvf = {
     settings.vim = {
+      lsp.enable = true;
+      
       languages = {
         enableExtraDiagnostics = false;
         enableFormat = true;
-        enableLSP = true;
         enableTreesitter = true;
 
         bash.enable = true;

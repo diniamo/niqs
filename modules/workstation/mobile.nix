@@ -17,7 +17,7 @@ in {
     };
 
     services = {
-      # For remote rebuilding, mobile devices are usually weak
+      # For remote rebuilding, since mobile devices are usually weak
       openssh = {
         enable = true;
         startWhenNeeded = true;

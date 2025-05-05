@@ -16,7 +16,6 @@
     };
 
     viewer = {
-      # TODO: enable this once performance is better
       antialiasing = true;
       fixed = false;
       transparency = colors.base02;

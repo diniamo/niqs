@@ -30,7 +30,7 @@
 
     home-manager = {
       # url = "github:nix-community/home-manager";
-      url = "github:diniamo/home-manager/custom";
+      url = "github:diniamo/home-manager/fish-copy-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -143,13 +143,6 @@
         systems.follows = "systems";
       };
     };
-    rebuild = {
-      url = "github:diniamo/rebuild";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
 
     wallpapers = {
       url = "github:diniamo/wallpapers";
@@ -177,7 +170,7 @@
         systems.follows = "systems";
         flake-utils.follows = "flake-utils";
         flake-parts.follows = "flake-parts";
-
+        
         zig.inputs = {
           flake-utils.follows = "flake-utils";
           flake-compat.follows = "flake-compat";

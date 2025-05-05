@@ -67,14 +67,7 @@
       version = inputs.odin-ts-mode.lastModifiedDate;
       src = inputs.odin-ts-mode.outPath;
     };
-
-    dumb-jump = prev.dumb-jump.overrideAttrs {
-      patches = [(pkgs.fetchpatch2 {
-        url = "https://patch-diff.githubusercontent.com/raw/jacktasia/dumb-jump/pull/460.patch";
-        hash = "sha256-GoulXU4TA/kNUAlBAwie9WmrbtXplctuGHCiHMyrgN4=";
-      })];
-    };
-
+    
     org-autolist = prev.org-autolist.overrideAttrs {
       patches = [./org-autolist-new-paragraph.patch];
     };

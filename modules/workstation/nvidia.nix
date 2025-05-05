@@ -14,7 +14,7 @@ in {
   config = lib.mkIf cfg.enable {
     hardware.nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
-      # HACK: disable this once Nvidia is graceful enough to work
+      # 16 series cards do not support the open driver
       open = false;
 
       modesetting.enable = true;

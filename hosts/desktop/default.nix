@@ -19,20 +19,7 @@ in {
     };
   };
 
-  hardware.opentabletdriver = {
-    enable = true;
-    package = pkgs.opentabletdriver.overrideAttrs {
-      src = pkgs.fetchFromGitHub {
-        owner = "OpenTabletDriver";
-        repo = "OpenTabletDriver";
-        rev = "9130e9b8df17616f9d138128098c42d4b62ba1a3";
-        hash = "sha256-UX5qp9bwWvu/wmgdq8ruNWKTtK0/ekW9DcT2+R6MV5I=";
-      };
-
-      # A test fails for some reason, and I failed to disable just that one
-      doCheck = false;
-    };
-  };
+  hardware.opentabletdriver.enable = true;
 
   environment.systemPackages = with pkgs; [
     qbittorrent

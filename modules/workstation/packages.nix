@@ -14,18 +14,17 @@ in {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = with pkgs; let
-    inherit (lib') wrapProgram;
-    wrapper = makeBinaryWrapper;
+    wrapProgram = args: lib'.wrapProgram ({
+      inherit symlinkJoin;
+      wrapper = makeBinaryWrapper;
+    } // args);
   in [
     (wrapProgram {
-      inherit symlinkJoin wrapper;
       package = xdragon;
-      executable = "dragon";
       wrapperArgs = ["--add-flags" "--all --and-exit"];
     })
 
     (wrapProgram {
-      inherit symlinkJoin wrapper;
       package = chatterino2;
       wrapperArgs = ["--prefix" "PATH" ":" "${streamlink}/bin"];
     })

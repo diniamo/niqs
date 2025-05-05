@@ -17,10 +17,7 @@ in {
         name = "${tide.pname}-patched-${tide.version}";
         path = pkgs.applyPatches {
           inherit (tide) src;
-          patches = [
-            ./patches/tide-no-newline-bind.patch
-            ./patches/tide-nix3-shell.patch
-          ];
+          patches = [./tide-no-newline-bind.patch];
         };
       })
 

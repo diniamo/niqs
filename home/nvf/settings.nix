@@ -14,7 +14,6 @@ in {
     withRuby = false;
 
     enableLuaLoader = true;
-    enableEditorconfig = true;
     useSystemClipboard = true;
     hideSearchHighlight = true;
     searchCase = "smart";

@@ -20,9 +20,7 @@
       wget
       nix-tree
 
-      (flakePkgs.rebuild.default.override {
-        nix-output-monitor = nix-output-monitor;
-      })
+      flakePkgs.niqspkgs.rebuild-patched
     ];
   };
 }
