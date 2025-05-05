@@ -30,7 +30,7 @@
 
     home-manager = {
       # url = "github:nix-community/home-manager";
-      url = "github:diniamo/home-manager/fish-copy-plugins";
+      url = "github:diniamo/home-manager/custom";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

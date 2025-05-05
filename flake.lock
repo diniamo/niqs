@@ -465,16 +465,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1746444911,
-        "narHash": "sha256-bshxz1dtBXB+4+keSsGIuQRm6bU2qK8tnrksQ4YFgf8=",
+        "lastModified": 1746455780,
+        "narHash": "sha256-7rRiX2ckZG5BrhmJ8bbFz1bXwksaHOZembzADo+CxQg=",
         "owner": "diniamo",
         "repo": "home-manager",
-        "rev": "b579c01fbb6323cb4c74495aa548ca2bf8817ff7",
+        "rev": "59a11190f755c3f4c4177a0da160f7a3343ab57b",
         "type": "github"
       },
       "original": {
         "owner": "diniamo",
-        "ref": "fish-copy-plugins",
+        "ref": "custom",
         "repo": "home-manager",
         "type": "github"
       }
