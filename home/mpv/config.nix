@@ -28,7 +28,6 @@ in {
     scriptOpts = {
       modernx = {
         inherit font;
-        keep_on_pause = true;
         window_title = false;
         window_controls = false;
         show_on_pause = false;

@@ -8,8 +8,8 @@
     "0" = "seek 0 absolute";
     "$" = "seek -1 absolute";
 
-    z = "script-message-to seek_to toggle-seeker";
-    Z = "script-message-to seek_to paste-timestamp";
+    z = "script-binding toggle-seeker";
+    Z = "script-binding paste-timestamp";
     y = "add sub-delay -0.1";
     Y = "add sub-delay +0.1";
 
@@ -17,16 +17,21 @@
     U = "script-binding undoCaps";
     TAB = "script-binding skip-to-silence";
 
-    o = "script-binding modernx/show_osc";
+    o = "script-binding show_osc";
 
     J = "cycle sub";
     K = "cycle sub down";
 
-    "+" = "add volume 5";
-    "-" = "add volume -5";
-    "ö" = "add volume 5";
-    "9" = "add volume -5";
-    WHEEL_UP = "add volume 2";
-    WHEEL_DOWN = "add volume -2";
+    RIGHT = "no-osd seek 5; script-binding show_osc";
+    LEFT = "no-osd seek -5; script-binding show_osc";
+    UP = "no-osd seek 85; script-binding show_osc";
+    DOWN = "no-osd seek -85; script-binding show_osc";
+
+    "+" = "no-osd add volume 5; script-binding show_osc";
+    "-" = "no-osd add volume -5; script-binding show_osc";
+    "ö" = "no-osd add volume 5; script-binding show_osc";
+    "9" = "no-osd add volume -5; script-binding show_osc";
+    WHEEL_UP = "no-osd add volume 2; script-binding show_osc";
+    WHEEL_DOWN = "no-osd add volume -2; script-binding show_osc";
   };
 }
