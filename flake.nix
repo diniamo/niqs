@@ -110,6 +110,8 @@
         home-manager.follows = "home-manager";
         flake-compat.follows = "flake-compat";
         flake-utils.follows = "flake-utils";
+        git-hooks.follows = "pre-commit-hooks";
+        nur.inputs.flake-parts.follows = "flake-parts";
       };
     };
     schizofox = {
