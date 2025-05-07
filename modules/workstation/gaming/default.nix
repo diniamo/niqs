@@ -9,7 +9,6 @@
   inherit (lib) getExe getExe' mkForce mkEnableOption mkOption;
   inherit (lib.types) lines;
   inherit (pkgs.writers) writeDash;
-  inherit (inputs.nix-gaming.nixosModules) pipewireLowLatency platformOptimizations;
 
   powerprofilesctl = getExe pkgs.power-profiles-daemon;
   notify-send = getExe pkgs.libnotify;
@@ -37,8 +36,8 @@
   cfg = config.custom.gaming;
 in {
   imports = [
-    pipewireLowLatency
-    platformOptimizations
+    ./pipewire-low-latency.nix
+    ./platform-optimizations.nix
   ];
 
   options = {
@@ -62,7 +61,6 @@ in {
   config = lib.mkIf cfg.enable {
     nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
 
-    services.pipewire.lowLatency.enable = true;
     services.pipewire.alsa.support32Bit = true;
     security.rtkit.enable = true;
     hardware.xpadneo.enable = true;
@@ -73,18 +71,11 @@ in {
     programs = {
       steam = {
         enable = true;
+        protontricks.enable = true;
 
         extraPackages = [pkgs.openssl_1_1];
         extraCompatPackages = [pkgs.proton-ge-bin];
-
-        platformOptimizations.enable = true;
-        protontricks.enable = true;
       };
-
-      # gamescope = {
-      #   enable = true;
-      #   capSysNice = true;
-      # };
 
       gamemode = {
         enable = true;

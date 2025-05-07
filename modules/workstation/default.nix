@@ -1,11 +1,11 @@
 {
   imports = [
     ./style
+    ./gaming
 
     ./values.nix
     ./packages.nix
     ./home-manager.nix
-    ./gaming.nix
     ./nvidia.nix
     ./thunar.nix
     ./system.nix

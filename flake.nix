@@ -12,14 +12,10 @@
       # Use this first
       "https://cache.nixos.org?priority=10"
       "https://niqspkgs.cachix.org"
-      "https://numtide.cachix.org"
-      "https://nix-gaming.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "niqspkgs.cachix.org-1:3lcNxXkj8BLrK77NK9ZTjk0fxHuSZrr5sKE6Avjb6PI="
-      "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
-      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
     ];
   };
 
@@ -76,10 +72,6 @@
         lix.inputs.flake-compat.follows = "flake-compat";
         lix.inputs.pre-commit-hooks.follows = "pre-commit-hooks";
       };
-    };
-    nix-gaming = {
-      url = "github:fufexan/nix-gaming";
-      inputs.flake-parts.follows = "flake-parts";
     };
 
     curd = {
