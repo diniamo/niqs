@@ -31,6 +31,7 @@
         sponsorblock-minimal
         simple-undo
         skip-to-silence
+        m-x
       ];
     };
   };

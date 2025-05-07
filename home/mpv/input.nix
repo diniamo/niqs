@@ -1,12 +1,15 @@
 {
   programs.mpv.bindings = {
     MBTN_LEFT = "cycle pause";
-    # TODO: mpv menu
-    # MBTN_RIGHT = "script-binding uosc/menu";
-    # menu = "script-binding uosc/menu";
 
-    "0" = "seek 0 absolute";
-    "$" = "seek -1 absolute";
+    MBTN_RIGHT = "script-binding select/menu";
+    menu = "script-binding select/menu";
+    "`" = "script-binding commands/open";
+    "/" = "script-binding commands/open";
+    "Alt+x" = "script-binding M-x";
+
+    "0" = "no-osd seek 0 absolute; script-binding show_osc";
+    "$" = "set pause yes; no-osd seek -1 absolute; script-binding show_osc";
 
     z = "script-binding toggle-seeker";
     Z = "script-binding paste-timestamp";
@@ -18,9 +21,6 @@
     TAB = "script-binding skip-to-silence";
 
     o = "script-binding show_osc";
-
-    J = "cycle sub";
-    K = "cycle sub down";
 
     RIGHT = "no-osd seek 5; script-binding show_osc";
     LEFT = "no-osd seek -5; script-binding show_osc";
