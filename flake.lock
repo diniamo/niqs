@@ -248,33 +248,6 @@
         "type": "github"
       }
     },
-    "hercules-ci-effects": {
-      "inputs": {
-        "flake-parts": [
-          "schizofox",
-          "nixpak",
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "schizofox",
-          "nixpak",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1719226092,
-        "narHash": "sha256-YNkUMcCUCpnULp40g+svYsaH1RbSEj6s4WdZY/SHe38=",
-        "owner": "hercules-ci",
-        "repo": "hercules-ci-effects",
-        "rev": "11e4b8dc112e2f485d7c97e1cee77f9958f498f5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "hercules-ci-effects",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -414,11 +387,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746476241,
-        "narHash": "sha256-NaqE482yJxou/hjBO51A0RlCCLCy9dNBHouUMguwpVw=",
+        "lastModified": 1746701705,
+        "narHash": "sha256-aMGt9fJL+9UuRllv0dmZOjywV1gh7U3kxrZcsDClOag=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "c99e7ba1358d467156c56c34d4fcb6a98f279e33",
+        "rev": "611d540e8c33f4039458f38c7428042dd84dad0a",
         "type": "github"
       },
       "original": {
@@ -460,32 +433,6 @@
       "original": {
         "owner": "nlewo",
         "repo": "nix2container",
-        "type": "github"
-      }
-    },
-    "nixpak": {
-      "inputs": {
-        "flake-parts": [
-          "schizofox",
-          "flake-parts"
-        ],
-        "hercules-ci-effects": "hercules-ci-effects",
-        "nixpkgs": [
-          "schizofox",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1723083542,
-        "narHash": "sha256-Nkbb3j+P0zMqvZUlV6WbT5erHasZ14NW0TJS3Bb9dVY=",
-        "owner": "nixpak",
-        "repo": "nixpak",
-        "rev": "d36970c58794c90401617accae0eb48868e335e6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixpak",
-        "repo": "nixpak",
         "type": "github"
       }
     },
@@ -692,11 +639,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744541846,
-        "narHash": "sha256-Ul8WIW00B2PN7V7FVvOZ2NVJfPIVRUVijoDw7PN6kms=",
+        "lastModified": 1746701061,
+        "narHash": "sha256-BQnuHDl94Vy8oVMm+pdo+47sNfcVHEC9fSsbmVxgwQw=",
         "owner": "diniamo",
         "repo": "rebuild",
-        "rev": "2761b0a24a883127264734c48ccc79d29fc68ec3",
+        "rev": "fffa8dad8d9c5e9f3c84becf776e9654627e6a3b",
         "type": "github"
       },
       "original": {
@@ -724,7 +671,6 @@
         "odin-ts-mode": "odin-ts-mode",
         "pre-commit-hooks": "pre-commit-hooks",
         "rust-overlay": "rust-overlay",
-        "schizofox": "schizofox",
         "stylix": "stylix",
         "systems": "systems_2",
         "tree-sitter-odin": "tree-sitter-odin",
@@ -749,66 +695,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "schizofox": {
-      "inputs": {
-        "flake-compat": [
-          "flake-compat"
-        ],
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "home-manager": [
-          "home-manager"
-        ],
-        "nixpak": "nixpak",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "searx-randomizer": "searx-randomizer",
-        "systems": [
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1730097974,
-        "narHash": "sha256-IA3w1sgSDC+Y5v6UcclWFk3WVrz1YesxH/TN5g1joaY=",
-        "owner": "schizofox",
-        "repo": "schizofox",
-        "rev": "5e29ad08854513d19acbdb7e54906f3ca85c81e7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "schizofox",
-        "repo": "schizofox",
-        "type": "github"
-      }
-    },
-    "searx-randomizer": {
-      "inputs": {
-        "crane": [
-          "crane"
-        ],
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1704412376,
-        "narHash": "sha256-Ap/AudJxCYBDWYy0lyqP0/FZYJCibL7jKkoj6hp1WS0=",
-        "owner": "schizofox",
-        "repo": "searx-randomizer",
-        "rev": "c36a473732ba6b4f6024ac1c181631cf4d542b17",
-        "type": "github"
-      },
-      "original": {
-        "owner": "schizofox",
-        "repo": "searx-randomizer",
         "type": "github"
       }
     },

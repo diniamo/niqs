@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  browser = ["Schizofox.desktop"];
+  browser = ["librewolf.desktop"];
   documentViewer = ["org.pwmt.zathura.desktop"];
   fileManager = ["thunar.desktop"];
   archiver = ["org.gnome.FileRoller.desktop"];

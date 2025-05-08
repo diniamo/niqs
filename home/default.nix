@@ -20,7 +20,7 @@ in {
 
     ./xdg.nix
     ./foot.nix
-    ./schizofox.nix
+    # ./schizofox.nix
     ./git.nix
     # ./ncspot.nix
     # ./imv.nix

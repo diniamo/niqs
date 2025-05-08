@@ -114,22 +114,6 @@
         nur.inputs.flake-parts.follows = "flake-parts";
       };
     };
-    schizofox = {
-      url = "github:schizofox/schizofox";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-        home-manager.follows = "home-manager";
-        flake-compat.follows = "flake-compat";
-        flake-parts.follows = "flake-parts";
-
-        searx-randomizer.inputs = {
-          crane.follows = "crane";
-          flake-parts.follows = "flake-parts";
-          nixpkgs.follows = "nixpkgs";
-        };
-      };
-    };
     wayhibitor = {
       url = "github:diniamo/wayhibitor";
       inputs = {

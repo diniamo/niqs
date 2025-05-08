@@ -16,5 +16,6 @@
     ./mobile.nix
     ./sway.nix
     ./less.nix
+    ./librewolf.nix
   ];
 }

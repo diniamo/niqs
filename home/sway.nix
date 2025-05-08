@@ -61,7 +61,7 @@ in {
       gaps.smartBorders = "on";
       startup = [
         {command = "yambar";}
-        {command = "firefox";}
+        {command = "librewolf";}
       ];
       # Merging the attributes would not override the default I think?
       modes = {};
@@ -72,7 +72,7 @@ in {
         "Mod4+Control+n" = "exec neovide /etc/nixos";
         "Mod4+e" = "exec emacs";
         "Mod4+Control+e" = "exec emacs /etc/nixos";
-        "Mod4+w" = "exec firefox";
+        "Mod4+w" = "exec librewolf";
         "Mod4+Space" = "exec fuzzel";
         "Mod4+x" = "exec ${scripts.logoutMenu}";
 
@@ -89,7 +89,7 @@ in {
         # TODO: Turn outputs off
         # https://github.com/swaywm/sway/issues/2910
         # "XF86Explorer" = "exec ";
-        "XF86HomePage" = "exec firefox";
+        "XF86HomePage" = "exec librewolf";
         "XF86Calculator" = "exec foot qalc";
         "XF86Tools" = "exec spotify";
 
