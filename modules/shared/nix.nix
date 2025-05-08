@@ -8,7 +8,7 @@
 in {
   nix = {
     settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = ["nix-command" "flakes" "pipe-operator"];
       # This only sets the embedded flake registry, which we don't want
       flake-registry = pkgs.writeText "minimal-flake-registry.json" ''
         {
