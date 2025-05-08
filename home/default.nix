@@ -62,6 +62,7 @@ in {
     ./swayidle.nix
     ./gammastep.nix
     ./yambar.nix
+    ./jujutsu.nix
   ];
 
   home = {
