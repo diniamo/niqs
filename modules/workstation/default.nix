@@ -15,5 +15,6 @@
     # ./plymouth.nix
     ./mobile.nix
     ./sway.nix
+    ./less.nix
   ];
 }

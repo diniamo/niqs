@@ -8,7 +8,7 @@
   documentViewer = ["org.pwmt.zathura.desktop"];
   fileManager = ["thunar.desktop"];
   archiver = ["org.gnome.FileRoller.desktop"];
-  editor = ["neovide.desktop"];
+  editor = ["emacs.desktop"];
   imageViewer = ["swayimg.desktop"];
   mediaPlayer = ["mpv.desktop"];
 

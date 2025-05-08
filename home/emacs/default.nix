@@ -93,5 +93,8 @@
         prev.buildCommand;
   });
 in {
-  home.packages = [finalPackage];
+  home = {
+    packages = [finalPackage];
+    sessionVariables.EDITOR = "emacs -nw";
+  };
 }

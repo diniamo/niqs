@@ -9,8 +9,6 @@
       enable = true;
       # Same here
       generateCaches = false;
-      # I use Neovim instead
-      mandoc.enable = false;
     };
   };
 }

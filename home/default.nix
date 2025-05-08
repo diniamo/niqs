@@ -9,10 +9,8 @@ in {
     # ./hyprland
     # ./anyrun
     ./mpv
-    # ./lazyvim
     # ./zsh
     # ./delta
-    ./nvf
     # ./starship
     # ./river
     ./style
@@ -39,7 +37,6 @@ in {
     ./mangohud.nix
     ./lazygit.nix
     ./nix-index.nix
-    ./less.nix
     ./btop.nix
     ./bat.nix
     ./zathura.nix

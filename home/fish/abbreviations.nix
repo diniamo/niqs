@@ -12,12 +12,10 @@ in {
     };
 
     shellAbbrs = {
-      v = "nvim";
-      nv = "neovide --fork";
+      e = "emacs -nw";
       hash = "sha256sum";
       copy = "wl-copy";
       paste = "wl-paste";
-      mp = "mkdir -p";
       page = "$PAGER";
       open = "xdg-open";
       size = "du -sh";

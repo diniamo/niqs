@@ -1,25 +1,18 @@
 {
+  # ctrl-r is bound to that by default, but this is a massive Nix moment.
+  # I disabled the fish integration in the home-manager module, but the installed package
+  # comes with a share/fish directory with the integration files also present there.
+  # This ends up being loaded by the shell. The other 2 binds (ctrl-t, alt-c)
+  # might be useful though, so I'll keep those.
   programs.fish.functions.fish_user_key_bindings = ''
-    fish_default_key_bindings -M insert
-    fish_vi_key_bindings --no-erase
-    set -g fish_key_bindings fish_vi_key_bindings
+    bind ctrl-shift-backspace kill-whole-line
+    bind ctrl-alt-_ redo
 
-    bind -M insert ctrl-u kill-whole-line
+    bind ctrl-r history-pager
+    bind alt-n history-prefix-search-forward
+    bind alt-p history-prefix-search-backward
 
-    bind -M insert ctrl-backspace backward-kill-word
-    bind -M insert ctrl-delete kill-word
-
-    bind -M default ctrl-space accept-autosuggestion and execute
-    bind -M insert ctrl-space accept-autosuggestion and execute
-
-    bind -M insert down history-search-forward
-    bind -M insert up history-search-backward
-    bind -M insert ctrl-j history-prefix-search-forward
-    bind -M insert ctrl-k history-prefix-search-backward
-    bind -M insert alt-j history-token-search-forward
-    bind -M insert alt-k history-token-search-backward
-
-    bind -M insert tab 'if commandline -P; commandline -f complete; else; commandline -f complete-and-search; end'
-    bind -M insert shift-tab complete-and-search
+    bind ctrl-space accept-autosuggestion and execute
+    bind tab 'if commandline -P; commandline -f complete; else; commandline -f complete-and-search; end'
   '';
 }

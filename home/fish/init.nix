@@ -26,9 +26,7 @@
         --prompt_spacing=Sparse \
         --icons='Many icons' \
         --transient=Yes
-
       set -U tide_time_format %R
-
       tide reload
 
       set -U sponge_regex_patterns '\\/nix\\/store\\/\\S+'

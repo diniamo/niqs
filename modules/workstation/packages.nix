@@ -30,7 +30,6 @@ in {
     })
 
     wl-clipboard
-    neovide
     spotify
     gtrash
     libqalculate

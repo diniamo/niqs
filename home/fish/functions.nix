@@ -79,7 +79,7 @@
     };
 
     # Relies on `con` and `dec`
-    sv = {
+    se = {
       description = "edit files that aren't writable";
       body = ''
         for file in $argv
@@ -90,12 +90,9 @@
         $EDITOR -- $argv
         dec $cond
       '';
-      # Fish gets signal completions for sv from somewhere else
-      # (I don't have an sv command)
-      completion = "complete --command sv --erase";
     };
 
-    xv = {
+    xe = {
       description = "make file executable and edit it";
       body = ''
         for file in $argv
@@ -212,8 +209,7 @@
       description = "prints the tree of a package, extra arguments are appended to eza";
       wraps = "pkgpath";
       body = ''
-        set -f path (pkgpath $argv[1] $argv[2..])
-        $status && eza --tree --icons --group-directories-first $path
+        set -f path (pkgpath $argv[1] $argv[2..]) && eza --tree --icons --group-directories-first $path
       '';
     };
 
