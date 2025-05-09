@@ -387,11 +387,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746701705,
-        "narHash": "sha256-aMGt9fJL+9UuRllv0dmZOjywV1gh7U3kxrZcsDClOag=",
+        "lastModified": 1746774702,
+        "narHash": "sha256-Dh0aSRgu9c4ZR26utt0HqKehA+zo1JT7uIvbGzjgrAM=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "611d540e8c33f4039458f38c7428042dd84dad0a",
+        "rev": "74f7f33517e98ce07f0a2f518fa3ef7566ff699f",
         "type": "github"
       },
       "original": {
@@ -639,11 +639,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746701061,
-        "narHash": "sha256-BQnuHDl94Vy8oVMm+pdo+47sNfcVHEC9fSsbmVxgwQw=",
+        "lastModified": 1746774671,
+        "narHash": "sha256-btVUJvYuRFljM1OWtO69rX6M6QAPed5dwg1E1onEXE4=",
         "owner": "diniamo",
         "repo": "rebuild",
-        "rev": "fffa8dad8d9c5e9f3c84becf776e9654627e6a3b",
+        "rev": "fc2803f2fad3be5086eb36322e7d99028b92c84a",
         "type": "github"
       },
       "original": {
