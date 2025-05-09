@@ -25,17 +25,21 @@
 
   extensions = {
     "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}" = "auto-tab-discard";
-    "{446900e4-71c2-419f-a6a7-df9c091e268b}" = "bitwarden-password-manager";
     "{c84d89d9-a826-4015-957b-affebd9eb603}" = "mal-sync";
     "{036a55b4-5e72-4d05-a06c-cba2dfcc134a}" = "traduzir-paginas-web";
-    "{96ef5869-e3ba-4d21-b86e-21b163096400}" = "font-fingerprint-defender";
     # "{e90f5de4-8510-4515-9f67-3b6654e1e8c2}" = "dictionary-anywhere";
     "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = "return-youtube-dislikes";
-    "addon@darkreader.org" = "darkreader";
     "sponsorBlocker@ajay.app" = "sponsorblock";
-    "idcac-pub@guus.ninja" = "istilldontcareaboutcookies";
     "@hideyoutubecontrolls" = "hide-youtube-controls";
     # "firefox@tampermonkey.net" = "tampermonkey";
+  };
+  # Enable in private browsing as well
+  privateExtensions = {
+    "{446900e4-71c2-419f-a6a7-df9c091e268b}" = "bitwarden-password-manager";
+    "{96ef5869-e3ba-4d21-b86e-21b163096400}" = "font-fingerprint-defender";
+    "uBlock0@raymondhill.net" = "ublock-origin";
+    "addon@darkreader.org" = "darkreader";
+    "idcac-pub@guus.ninja" = "istilldontcareaboutcookies";
     "skipredirect@sblask" = "skip-redirect";
   };
 
@@ -52,16 +56,14 @@
       ];
       Default = "SearXNG";
     };
-    ExtensionSettings = {
-      # https://bugzilla.mozilla.org/show_bug.cgi?id=1778559
-      # "*" = {
-      #   blocked_install_message = "Extensions must be installed declaratively";
-      #   installation_mode = "blocked";
-      # };
-    } // mapAttrs (_: storeId: {
-      installation_mode = "force_installed";
+    ExtensionSettings = mapAttrs (_: storeId: {
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/${storeId}/latest.xpi";
-    }) extensions;
+      installation_mode = "force_installed";
+    }) extensions // mapAttrs (_: storeId: {
+      install_url = "https://addons.mozilla.org/firefox/downloads/latest/${storeId}/latest.xpi";
+      installation_mode = "force_installed";
+      private_browsing = true;
+    }) privateExtensions;
   };
   # This is needed since the LibreWolf policies would always override the ones passed to extraPolicies (see nixpkgs Firefox wrapper)
   policiesFiles = [(pkgs.writeText "policy-overrides.json" (toJSON {inherit policies;}))];
