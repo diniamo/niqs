@@ -387,11 +387,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746774702,
-        "narHash": "sha256-Dh0aSRgu9c4ZR26utt0HqKehA+zo1JT7uIvbGzjgrAM=",
+        "lastModified": 1747117702,
+        "narHash": "sha256-DeFQJZzcwczh+H7G2/omZ/Iw5Ez0Je/pSSyqrXYrHT0=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "74f7f33517e98ce07f0a2f518fa3ef7566ff699f",
+        "rev": "fb714255c371e394e865eeec424f865c49dfca55",
         "type": "github"
       },
       "original": {
