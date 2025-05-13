@@ -4,18 +4,13 @@
 
     envVariables.LESS = "--quit-if-one-screen --use-color --RAW-CONTROL-CHARS";
     commands = {
-      "^P" = "up";
-      "^N" = "down";
-      "^F" = "right";
-      "^B" = "left";
+      "^P" = "back-line";
+      "^N" = "forw-line";
+      "^F" = "right-scroll";
+      "^B" = "left-scroll";
 
-      "\\eb" = "word-left";
-      "\\eB" = "word-left"; 
-      "\\ef" = "word-right";
-      "\\eF" = "word-right";
-
-      "^A" = "home";
-      "^E" = "end";
+      "^A" = "goto-line";
+      "^E" = "goto-end";
     };
   };
 }
