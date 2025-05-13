@@ -24,11 +24,6 @@ in {
       wrapperArgs = ["--add-flags" "--all --and-exit"];
     })
 
-    (wrapProgram {
-      package = chatterino2;
-      wrapperArgs = ["--prefix" "PATH" ":" "${streamlink}/bin"];
-    })
-
     wl-clipboard
     spotify
     gtrash
