@@ -18,7 +18,7 @@
     ${powerprofilesctl} set performance
     ${swaymsg} 'allow_tearing yes'
     ${swaymsg} 'input * scroll_method none'
-    ${getExe pkgs.daemonize} -p /tmp/game-mode-wayhibitor-pid ${getExe flakePkgs.wayhibitor.default}
+    ${getExe pkgs.daemonize} -p /tmp/game-mode-wayhibitor-pid ${getExe flakePkgs.niqspkgs.wayhibitor}
     ${cfg.extraStartCommands}
 
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=input-gaming 'Optimizations activated'

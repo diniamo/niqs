@@ -45,7 +45,7 @@ in {
             rm /tmp/toggle-inhibit-sleep-pid
             notify-send --urgency=low --icon=media-playback-start "Sleep uninhibited"
           else
-            ${getExe pkgs.daemonize} -p /tmp/toggle-inhibit-sleep-pid ${getExe flakePkgs.wayhibitor.default} &
+            ${getExe pkgs.daemonize} -p /tmp/toggle-inhibit-sleep-pid ${getExe flakePkgs.niqspkgs.wayhibitor} &
             notify-send --urgency=low --icon=media-playback-pause "Sleep inhibited"
           fi
         '';

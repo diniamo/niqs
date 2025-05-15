@@ -29,6 +29,17 @@
       url = "github:diniamo/home-manager/custom";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+        flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
+        git-hooks.follows = "pre-commit-hooks";
+        nur.inputs.flake-parts.follows = "flake-parts";
+      };
+    };
 
     # Mostly transitive inputs for deduplication
     systems.url = "github:nix-systems/x86_64-linux";
@@ -74,20 +85,6 @@
       };
     };
 
-    curd = {
-      url = "github:Wraient/curd";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
-    lobster = {
-      url = "github:justchokingaround/lobster";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs = {
@@ -103,24 +100,7 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix = {
-      url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-        flake-compat.follows = "flake-compat";
-        flake-utils.follows = "flake-utils";
-        git-hooks.follows = "pre-commit-hooks";
-        nur.inputs.flake-parts.follows = "flake-parts";
-      };
-    };
-    wayhibitor = {
-      url = "github:diniamo/wayhibitor";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
+    superfreq.follows = "niqspkgs/superfreq";
 
     wallpapers = {
       url = "github:diniamo/wallpapers";

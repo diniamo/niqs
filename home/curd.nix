@@ -2,7 +2,7 @@
   inherit (builtins) isList concatStringsSep;
   inherit (lib.generators) toKeyValue mkKeyValueDefault mkValueStringDefault;
 
-  package = flakePkgs.curd.default.override { withMpv = false; };
+  package = flakePkgs.niqspkgs.curd.override { withMpv = false; };
 
   settings = {
     AddMissingOptions = false;
