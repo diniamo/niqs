@@ -120,10 +120,9 @@
 
     ".." = {
       description = "go up n directories";
-      argumentNames = "count";
       body = ''
-        if set -q count
-          cd (string repeat -Nn $count ../)
+        if set -q argv[1]
+          cd (string repeat -Nn $argv[1] ../)
         else
           cd ..
         end
@@ -256,7 +255,7 @@
             case -w --with
               set -f list with
             case '*'
-              set -fa $list $arg
+              set -fa $list "($arg)"
           end
         end
         flush_with
