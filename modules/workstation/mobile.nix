@@ -2,11 +2,18 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }: let
   inherit (lib) mkEnableOption mkForce mkIf;
 in {
-  options.custom.mobile.enable = mkEnableOption "configuration for mobile devices";
+  imports = [
+    inputs.superfreq.nixosModules.default
+  ];
+
+  options = {
+    custom.mobile.enable = mkEnableOption "configuration for mobile devices";
+  };
 
   config = mkIf config.custom.mobile.enable {
     environment.systemPackages = [pkgs.brightnessctl];
@@ -25,7 +32,7 @@ in {
       };
 
       power-profiles-daemon.enable = lib.mkForce false;
-      auto-cpufreq.enable = true;
+      superfreq.enable = true;
       thermald.enable = true;
     };
   };
