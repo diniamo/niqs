@@ -20,7 +20,7 @@
       wget
       nix-tree
 
-      flakePkgs.niqspkgs.rebuild-patched
+      flakePkgs.niqspkgs.nq-patched
     ];
   };
 }

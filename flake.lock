@@ -361,7 +361,7 @@
         ],
         "lix": "lix",
         "nixpkgs": "nixpkgs_2",
-        "rebuild": "rebuild",
+        "nq": "nq",
         "superfreq": "superfreq",
         "systems": [
           "systems"
@@ -369,11 +369,11 @@
         "wayhibitor": "wayhibitor"
       },
       "locked": {
-        "lastModified": 1747343760,
-        "narHash": "sha256-BdbreVhoUNIgvL3TVZSRC1i3WhlIqF6VQti6NA7k7bM=",
+        "lastModified": 1747480183,
+        "narHash": "sha256-n/0qfZHZ4MBMb+O58yCeY1grJ/OPJ8bjM9Y28fDayjc=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "d7ea08ed0260a32023accf8ac278e134455db959",
+        "rev": "9a3edea9171db64d5db70d779e49ea75cb272633",
         "type": "github"
       },
       "original": {
@@ -512,6 +512,31 @@
         "type": "github"
       }
     },
+    "nq": {
+      "inputs": {
+        "nixpkgs": [
+          "niqspkgs",
+          "nixpkgs"
+        ],
+        "systems": [
+          "niqspkgs",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1747480022,
+        "narHash": "sha256-dkxpXSbzWQNmro3+xqZdUfD1/qqokGUxhRA84NFnwow=",
+        "owner": "diniamo",
+        "repo": "nq",
+        "rev": "6ece26c091cfdcfd474c601df182212557576ad2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "diniamo",
+        "repo": "nq",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": [
@@ -606,31 +631,6 @@
       "original": {
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "type": "github"
-      }
-    },
-    "rebuild": {
-      "inputs": {
-        "nixpkgs": [
-          "niqspkgs",
-          "nixpkgs"
-        ],
-        "systems": [
-          "niqspkgs",
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1747343636,
-        "narHash": "sha256-V81sBmTR1rt9qFI85SoVj22yBI7Q+Kd+7Wy744gENBw=",
-        "owner": "diniamo",
-        "repo": "rebuild",
-        "rev": "d52e53cdcaf3e6a98a08ee6ff4a9a0289dacc55a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "diniamo",
-        "repo": "rebuild",
         "type": "github"
       }
     },

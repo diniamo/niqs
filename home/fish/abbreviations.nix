@@ -30,15 +30,12 @@ in {
 
       # nix
       n = "nix";
-      # TODO: get rid of nh here as well
-      clean = ", nh clean all";
       shell = "nix shell";
       dev = "nix develop --command fish";
       run = "nix run";
       build = "nix build";
       flake = "nix flake";
       repl = "nix repl --expr 'import <nixpkgs> {}'";
-      osrepl = cursor "nixos-rebuild --flake /etc/nixos#% repl";
       system-size = "nix path-info -Sh /run/current-system";
       
       unfree = cursor "NIXPKGS_ALLOW_UNFREE=1 % --impure";
