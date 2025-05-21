@@ -115,6 +115,7 @@
         command yazi $argv --cwd-file=$tmp
         set -f dir (cat $tmp)
         [ -n $dir -a $dir != $PWD ] && cd $dir
+        rm $tmp
       '';
     };
 
@@ -162,28 +163,6 @@
           echo "$file doesn't exist or cannot be read"
           return 1
         end
-      '';
-    };
-
-    notify = {
-      description = "show notification after executing a command";
-      body = ''
-        $argv
-        notify-send -i dialog-information -t 0 Shell "$argv[1] exited with code $status"
-      '';
-      completion = ''
-        function _notify
-          set -f process (commandline --cut-at-cursor --current-process --tokens-expanded)
-          set -f token (commandline --cut-at-cursor --current-token)
-
-          if [ (count $process) = 1 ]
-            complete --do-complete $token
-          else
-            complete --do-complete "$process[2..] $token"
-          end
-        end
-
-        complete --command notify --no-files --arguments '(_notify)'
       '';
     };
 
@@ -310,15 +289,11 @@
       body = "realpath (which $argv)";
     };
 
-    resolve-hash = {
+    _extract_nix_hash = {
       description = "resolve missing hash in Nix derivation";
+      argumentNames = "output";
       body = ''
-        if set -f output (nix build --impure --expr "with import <nixpkgs> {}; $argv" 2>&1)
-          set_color green; echo -n '> '; set_color normal; echo "The derivation already builds\n$output"
-          return 1
-        end
-
-        if set -f hash (string match --regex --groups-only -- 'got:\\s*(sha256-\\S+)' $output)
+        if set -f hash (string match --regex --groups-only -- 'got:\\s*(?:\\[35;1m)?(sha256-[^\\s]+)' $output)
           echo -n $hash
         else
           echo "No hash in output:" 1>&2
@@ -326,13 +301,44 @@
           return 1
         end
       '';
-      completion = "complete --command resolve-hash --no-files";
     };
 
-    resolve-clipboard-hash = {
-      description = "resolve-hash wrapper using the clipboard";
-      body = "resolve-hash (wl-paste) | wl-copy";
-      completion = "complete --command resolve-clipboard-hash --no-files";
+    _complete_command_offset = {
+      description = "completion function for completing commands normally with the first token ignored";
+      body = ''
+        set -f process (commandline --cut-at-cursor --current-process --tokens-expanded)
+        set -f token (commandline --cut-at-cursor --current-token)
+
+        if [ (count $process) = 1 ]
+          complete --do-complete $token
+        else
+          complete --do-complete "$process[2..] $token"
+        end        
+      '';
+    };
+
+    nix-hash = {
+      description = "extract required hash from a failing Nix build command";
+      body = ''
+        set -f output (script --quiet --command "$argv" /dev/null &| tee /dev/stderr | string split0)
+        if set -f hash (_extract_nix_hash $output)
+          echo "\nCopying $hash"
+          echo -n $hash | wl-copy
+        else
+          set_color --bold red; echo "No hash in output"; set_color normal
+          return 1
+        end
+      '';
+      completion = "complete --command nix-hash --no-files --arguments '(_complete_command_offset)'";
+    };
+    
+    notify = {
+      description = "show notification after executing a command";
+      body = ''
+        $argv
+        notify-send -i dialog-information -t 0 Shell "$argv[1] exited with code $status"
+      '';
+      completion = "complete --command notify --no-files --arguments '(_complete_command_offset)'";
     };
   };
 }
