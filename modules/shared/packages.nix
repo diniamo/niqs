@@ -17,6 +17,7 @@
       jaq
       wget
       nix-tree
+      sd
 
       flakePkgs.niqspkgs.nq-patched
     ];
