@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   documentation = {
     # I always just use my browser
     doc.enable = false;
@@ -11,4 +11,9 @@
       generateCaches = false;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    man-pages
+    man-pages-posix
+  ];
 }
