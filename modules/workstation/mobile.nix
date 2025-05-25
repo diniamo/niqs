@@ -31,7 +31,7 @@ in {
         settings.PermitRootLogin = "yes";
       };
 
-      power-profiles-daemon.enable = lib.mkForce false;
+      power-profiles-daemon.enable = mkForce false;
       superfreq.enable = true;
       thermald.enable = true;
     };
