@@ -10,10 +10,6 @@ in {
   wayland.windowManager.hyprland.settings = {
     env = [
       "XDG_SESSION_DESKTOP, Hyprland"
-
-      "GDK_BACKEND, wayland"
-      "SDL_VIDEODRIVER, wayland,x11,windows"
-      "QT_QPA_PLATFORM, wayland;xcb"
     ];
     input = {
       # Worth noting that I also use caps2esc

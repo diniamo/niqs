@@ -17,5 +17,6 @@
     ./sway.nix
     ./less.nix
     ./librewolf.nix
+    ./wayland.nix
   ];
 }
