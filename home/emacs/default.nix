@@ -95,6 +95,6 @@
 in {
   home = {
     packages = [finalPackage];
-    sessionVariables.EDITOR = "emacs -nw";
+    sessionVariables.EDITOR = pkgs.writers.writeDash "emacs-terminal.sh" "emacs -nw \"$@\"";
   };
 }
