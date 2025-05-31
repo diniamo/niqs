@@ -54,27 +54,15 @@ in {
     nixpkgs.config.cudaSupport = true;
     nixpkgs.overlays = [(
       final: prev: let
-        inherit (lib') wrapProgram;
-        inherit (final) symlinkJoin;
-        wrapper = final.makeBinaryWrapper;
-        wrapperArgs = ["--add-flags" "--disable-gpu-compositing"];
+        wrapChromium = lib'.wrapProgram {
+          inherit (final) symlinkJoin;
+          wrapper = final.makeBinaryWrapper;
+          wrapperArgs = ["--add-flags" "--disable-gpu-compositing"];
+        };
       in {
-        obsidian = wrapProgram {
-          package = prev.obsidian;
-          inherit symlinkJoin wrapper wrapperArgs;
-        };
-        
-        spotify = wrapProgram {
-          package = prev.spotify;
-          inherit symlinkJoin wrapper wrapperArgs;
-        };
-
-        discord-canary = wrapProgram {
-          package = prev.discord-canary.override {
-            withOpenASAR = true;
-          };
-          inherit symlinkJoin wrapper wrapperArgs;
-        };
+        obsidian = wrapChromium prev.obsidian;
+        spotify = wrapChromium prev.spotify;
+        discord-canary = wrapChromium (prev.discord-canary.override { withOpenASAR = true; });
       }
     )];
   };

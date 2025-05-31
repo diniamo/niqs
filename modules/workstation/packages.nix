@@ -30,10 +30,7 @@ in {
         wrapper = makeBinaryWrapper;
       } // args);
     in [
-      (wrapProgram {
-        package = xdragon;
-        wrapperArgs = ["--add-flags" "--all --and-exit"];
-      })
+      (wrapProgram { wrapperArgs = ["--add-flags" "--all --and-exit"]; } xdragon)
 
       wl-clipboard
       spotify

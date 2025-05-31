@@ -35,12 +35,11 @@
     };
 
   wrapProgram = {
-    package,
     executable ? null,
     wrapper,
     wrapperArgs,
     symlinkJoin
-  }: let
+  }: package: let
     file =
       if executable != null
       then executable
