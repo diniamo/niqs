@@ -25,11 +25,10 @@ in {
     qbittorrent
     anki
     krita
-    discord-canary
   ];
 
-  home-manager.users.${values.mainUser}.wayland.windowManager = {
-    sway = {
+  home-manager.users.${values.mainUser} = {
+    wayland.windowManager.sway = {
       config = {
         output = {
           DP-1 = {

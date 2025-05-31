@@ -62,7 +62,6 @@ in {
       in {
         obsidian = wrapChromium prev.obsidian;
         spotify = wrapChromium prev.spotify;
-        discord-canary = wrapChromium (prev.discord-canary.override { withOpenASAR = true; });
       }
     )];
   };

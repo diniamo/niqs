@@ -60,6 +60,7 @@ in {
     ./gammastep.nix
     ./yambar.nix
     ./jujutsu.nix
+    # ./discord.nix
   ];
 
   home = {

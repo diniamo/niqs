@@ -86,10 +86,12 @@
   ];
   
   finalPackage = ((emacs.pkgs.overrideScope overrides).withPackages packages).overrideAttrs (prev: {
+    # There is no better way to override this
+    # Avoids double wrapping
     buildCommand =
-      builtins.replaceStrings
-        ["wrapProgramBinary $out/bin/$progname"]
-        ["wrapProgramBinary $out/bin/$progname ${lib.escapeShellArgs makeWrapperArgs}"]
+      lib.replaceString
+        "wrapProgramBinary $out/bin/$progname"
+        "wrapProgramBinary $out/bin/$progname ${lib.escapeShellArgs makeWrapperArgs}"
         prev.buildCommand;
   });
 in {
