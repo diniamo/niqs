@@ -35,9 +35,8 @@
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
         flake-compat.follows = "flake-compat";
-        flake-utils.follows = "flake-utils";
         git-hooks.follows = "pre-commit-hooks";
-        nur.inputs.flake-parts.follows = "flake-parts";
+        flake-parts.follows = "flake-parts";
       };
     };
 
@@ -51,10 +50,6 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-    crane = {
-      url = "github:ipetkov/crane";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
@@ -74,7 +69,8 @@
       };
     };
 
-    # These are downloaded from caches, so overriding nixpkgs would break them
+    # Nixpkgs isn't overridden here for correctness, but the base commit is the same,
+    # so there won't be any duplicate packages.
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
       inputs = {
@@ -91,7 +87,6 @@
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
         flake-compat.follows = "flake-compat";
-        crane.follows = "crane";
         rust-overlay.follows = "rust-overlay";
         pre-commit-hooks-nix.inputs.gitignore.follows = "gitignore";
       };
