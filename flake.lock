@@ -362,11 +362,11 @@
         "wayhibitor": "wayhibitor"
       },
       "locked": {
-        "lastModified": 1748702203,
-        "narHash": "sha256-gtNL7aBqUa73e0b5BKVPu4pTJTTf98Ut4vWi213BBMc=",
+        "lastModified": 1748721840,
+        "narHash": "sha256-rhxh/B/hCQptjmp4OqtwvVt79tb3miTMzxHwS2+SKEw=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "8c04338a80d9dd9fe51be3dd69ed914096ec226a",
+        "rev": "7e36443398bee000ae59aa9e7596b41a3ce23788",
         "type": "github"
       },
       "original": {
@@ -459,11 +459,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1748700441,
-        "narHash": "sha256-dfvwDxycnDo5mKO8V8vzJ9lmX6VK6vdGobACJaabucU=",
+        "lastModified": 1748716545,
+        "narHash": "sha256-vqC1s6TtCK8bBsrTi0CrpEof6zsAPN1Ozth9vsB0kqM=",
         "owner": "diniamo",
         "repo": "nixpkgs",
-        "rev": "8a068c222b713ec3d07d628f955ec9a237659206",
+        "rev": "cb83889aa213ddec3e24f9659cc12345778ea0d7",
         "type": "github"
       },
       "original": {
