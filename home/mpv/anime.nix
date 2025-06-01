@@ -6,7 +6,6 @@
   programs.mpv.profiles.anime = {
     sub-visibility = true;
 
-
     profile = "high-quality";
     vo = "gpu-next";
     gpu-api = "vulkan";

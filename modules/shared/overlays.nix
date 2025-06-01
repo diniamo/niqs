@@ -7,7 +7,7 @@
       nix-output-monitor = nom-patched;
       fish = fish-patched;
       file-roller = file-roller-gtk3;
-      sway-unwrapped = sway-unwrapped-git;
+      sway-unwrapped = sway-unwrapped-patched;
     };
 in {
   nixpkgs.overlays = [niqspkgs];
