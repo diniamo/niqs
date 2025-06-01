@@ -9,13 +9,14 @@
 
   nixConfig = {
     extra-substituters = [
-      # Use this first
-      "https://cache.nixos.org?priority=10"
-      "https://niqspkgs.cachix.org"
+      # Lower priorities are tried first
+      # The default priority (NixOS cache) is 40
+      "https://niqspkgs.cachix.org?priority=41"
+      "https://nix-community.cachix.org?priority=42"
     ];
     extra-trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "niqspkgs.cachix.org-1:3lcNxXkj8BLrK77NK9ZTjk0fxHuSZrr5sKE6Avjb6PI="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
 
