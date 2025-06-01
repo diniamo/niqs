@@ -289,6 +289,26 @@
       body = "realpath (which $argv)";
     };
 
+    nix-has = {
+      description = "Check whether a store contains a specific store path";
+      argumentNames = "store path";
+      body = ''
+        if nix path-info --store $store $path &>/dev/null
+          set_color green; echo 'Path exists in store'; set_color normal
+        else
+          set_color red; echo 'Path does not exist in store'; set_color normal
+        end
+      '';
+      completion = ''
+        function _nix_has
+          set -f process (commandline --cut-at-cursor --current-process --tokens-expanded)
+          [ (count $process) = 2 ] && string collect -- /nix/store/*
+        end
+
+        complete --command nix-has --no-files --arguments '(_nix_has)'
+      '';
+    };
+
     _extract_nix_hash = {
       description = "resolve missing hash in Nix derivation";
       argumentNames = "output";
