@@ -70,15 +70,21 @@
       };
     };
 
-    # Nixpkgs isn't overridden here for correctness, but the base commit is the same,
-    # so there won't be any duplicate packages.
+    # Nixpkgs isn't overridden here for correctness, but I keep the base commit
+    # the same, so there won't be any duplicate packages.
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
       inputs = {
         systems.follows = "systems";
         flake-parts.follows = "flake-parts";
-        lix.inputs.flake-compat.follows = "flake-compat";
-        lix.inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+        lix.inputs = {
+          flake-compat.follows = "flake-compat";
+          pre-commit-hooks.follows = "pre-commit-hooks";
+        };
+        wiremix.inputs = {
+          rust-overlay.follows = "rust-overlay";
+          flake-utils.follows = "flake-utils";
+        };
       };
     };
 

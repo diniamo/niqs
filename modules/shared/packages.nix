@@ -13,7 +13,7 @@
       ripgrep
       fd
       cht-sh
-      duf
+      dfrs
       jaq
       wget
       nix-tree

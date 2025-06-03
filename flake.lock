@@ -194,6 +194,27 @@
         "type": "github"
       }
     },
+    "flint": {
+      "inputs": {
+        "nixpkgs": [
+          "niqspkgs",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1739362011,
+        "narHash": "sha256-16LoFQCSesNILpDLnhsk6IDWB9MkbhPN0emq29/B9Vw=",
+        "owner": "NotAShelf",
+        "repo": "flint",
+        "rev": "6da53afec5296fc20551a833db46348420b64713",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NotAShelf",
+        "repo": "flint",
+        "type": "github"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -352,6 +373,7 @@
         "flake-parts": [
           "flake-parts"
         ],
+        "flint": "flint",
         "lix": "lix",
         "nixpkgs": "nixpkgs_2",
         "nq": "nq",
@@ -359,14 +381,15 @@
         "systems": [
           "systems"
         ],
-        "wayhibitor": "wayhibitor"
+        "wayhibitor": "wayhibitor",
+        "wiremix": "wiremix"
       },
       "locked": {
-        "lastModified": 1748751733,
-        "narHash": "sha256-ldH/LBItdDjEiL2dqf89a6PGqIzUr2nk7D+rd/eQ0NQ=",
+        "lastModified": 1748929979,
+        "narHash": "sha256-qimznGGzPYjDRszVHP4SjUVnWOb/40ijGi7JabaIFqI=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "5b9933d39b6bfe7503b9088ef9b4a983e5208e3b",
+        "rev": "4e2477588ef0a4a99733db7402d523f16f04a474",
         "type": "github"
       },
       "original": {
@@ -485,11 +508,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748669852,
-        "narHash": "sha256-H50PnRTxyPQdY5HcolWSj5xLwIXBeY0WwXqbRpOPhq0=",
+        "lastModified": 1748805432,
+        "narHash": "sha256-uUHxkxz7H1EnBF7KT2x+3MHUwzS0JP6RnioZofK5JwM=",
         "owner": "diniamo",
         "repo": "nq",
-        "rev": "5bd83e4fe0e180e84d86a3260d6c981245c6f4a7",
+        "rev": "0ad4bbb75abc554b9d7af96e7ad2d48bc78ec44c",
         "type": "github"
       },
       "original": {
@@ -893,6 +916,33 @@
       "original": {
         "owner": "diniamo",
         "repo": "wayhibitor",
+        "type": "github"
+      }
+    },
+    "wiremix": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "niqspkgs",
+          "nixpkgs"
+        ],
+        "rust-overlay": [
+          "rust-overlay"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748575990,
+        "narHash": "sha256-Uv8YLiFpHdv58pG7AzxsnZK14m273w8lXbR3hSEzN3U=",
+        "owner": "tsowell",
+        "repo": "wiremix",
+        "rev": "1aef7d8d57f2ed9b684060dad4365906154d3f15",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tsowell",
+        "repo": "wiremix",
         "type": "github"
       }
     }

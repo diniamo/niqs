@@ -2,6 +2,7 @@
   pkgs,
   lib',
   config,
+  flakePkgs,
   ...
 }: let
   inherit (config.values) mainUser;
@@ -29,20 +30,21 @@ in {
         inherit symlinkJoin;
         wrapper = makeBinaryWrapper;
       } // args);
-    in [
+    in with flakePkgs.niqspkgs; [
       (wrapProgram { wrapperArgs = ["--add-flags" "--all --and-exit"]; } xdragon)
 
       wl-clipboard
       spotify
       gtrash
       libqalculate
-      pulsemixer
-      pavucontrol
+      wiremix
+      pwvucontrol
       eza
       libnotify
       gist
       obsidian
       video-trimmer
+      flint
     ];
   };
 }
