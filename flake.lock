@@ -123,6 +123,31 @@
         "type": "github"
       }
     },
+    "dsync": {
+      "inputs": {
+        "nixpkgs": [
+          "niqspkgs",
+          "nixpkgs"
+        ],
+        "systems": [
+          "niqspkgs",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748959026,
+        "narHash": "sha256-qwKejZAI/sBoey9O0Hoo57F/LdXm8UOHMJO515Rt66k=",
+        "owner": "diniamo",
+        "repo": "dsync",
+        "rev": "845d5d5ab545f257dbd5bf784f18c57b86db5e77",
+        "type": "github"
+      },
+      "original": {
+        "owner": "diniamo",
+        "repo": "dsync",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -370,6 +395,7 @@
     "niqspkgs": {
       "inputs": {
         "curd": "curd",
+        "dsync": "dsync",
         "flake-parts": [
           "flake-parts"
         ],
@@ -385,11 +411,11 @@
         "wiremix": "wiremix"
       },
       "locked": {
-        "lastModified": 1748929979,
-        "narHash": "sha256-qimznGGzPYjDRszVHP4SjUVnWOb/40ijGi7JabaIFqI=",
+        "lastModified": 1748959791,
+        "narHash": "sha256-P/e2HJ+kmr9sOE8x8Uv9B5EsYS83IGAkgy3RtZvbkRk=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "4e2477588ef0a4a99733db7402d523f16f04a474",
+        "rev": "2581ea09b56f49a7a643a7be82df6155b106dedd",
         "type": "github"
       },
       "original": {

@@ -45,6 +45,7 @@ in {
       obsidian
       video-trimmer
       flint
+      dsync
     ];
   };
 }
