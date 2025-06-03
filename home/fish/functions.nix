@@ -343,7 +343,7 @@
         set -f output (script --quiet --command "$argv" /dev/null &| tee /dev/stderr | string split0)
         echo
         if set -f hash (_extract_nix_hash $output)
-          rg --type nix 'hash\s*=\s*""' --json | jaq --raw-output 'select(.type == "match") | "\(.data.path.text)	\(.data.line_number)"' | while read --delimiter '	' -l path line
+          rg --type nix '[hH]ash\s*=\s*""' --json | jaq --raw-output 'select(.type == "match") | "\(.data.path.text)	\(.data.line_number)"' | while read --delimiter '	' -l path line
             set -fa paths $path
             set -fa lines $line
           end
@@ -368,7 +368,7 @@
             end
 
             echo -n 'Replacing empty hash in '; set_color --bold; echo $paths; set_color normal
-            sed -i $lines"s|\(hash[[:space:]]*=[[:space:]]*\"\)|\1$hash|" $paths
+            sed -i $lines"s|\([hH]ash[[:space:]]*=[[:space:]]*\"\)|\1$hash|" $paths
           else
             set_color yellow; echo 'Failed to find location, falling back to copy'; set_color normal
             echo "Copying $hash"
