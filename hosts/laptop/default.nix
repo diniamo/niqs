@@ -12,18 +12,6 @@ in {
 
   custom.mobile.enable = true;
 
-  services = {
-    pipewire = {
-      enable = mkForce false;
-      wireplumber.enable = mkForce false;
-      pulse.enable = mkForce false;
-      alsa.enable = mkForce false;
-      jack.enable = mkForce false;
-    };
-    
-    pulseaudio.enable = true;
-  };
-
   environment.systemPackages = [pkgs.gmetronome];
 
   hardware = {
@@ -35,12 +23,11 @@ in {
 
   home-manager.users.${values.mainUser} = {
     programs.mpv = {
-      # Disable all the high quality stuff for performance/battery life
+      # Disable all the high quality stuff for battery life
       defaultProfiles = mkForce [];
       profiles.anime = mkForce {
         sub-visibility = true;
       };
-      config.ao = "pulse";
     };
 
     wayland.windowManager.sway.config.input."1267:12722:ELAN0647:00_04F3:31B2_Touchpad".natural_scroll = "enabled";
