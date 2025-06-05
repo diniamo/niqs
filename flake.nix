@@ -56,10 +56,7 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    naersk = {
-      url = "github:nix-community/naersk";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    crane.url = "github:ipetkov/crane";
     gitignore.url = "github:hercules-ci/gitignore.nix";
     pre-commit-hooks = {
       url = "github:cachix/git-hooks.nix";
@@ -85,6 +82,7 @@
           rust-overlay.follows = "rust-overlay";
           flake-utils.follows = "flake-utils";
         };
+        nq.inputs.dix.inputs.crane.follows = "crane";
       };
     };
 
@@ -95,6 +93,7 @@
         flake-parts.follows = "flake-parts";
         flake-compat.follows = "flake-compat";
         rust-overlay.follows = "rust-overlay";
+        crane.follows = "crane";
         pre-commit-hooks-nix.inputs.gitignore.follows = "gitignore";
       };
     };
