@@ -457,19 +457,19 @@
         "lix": "lix",
         "nixpkgs": "nixpkgs_2",
         "nq": "nq",
-        "superfreq": "superfreq",
         "systems": [
           "systems"
         ],
+        "watt": "watt",
         "wayhibitor": "wayhibitor",
         "wiremix": "wiremix"
       },
       "locked": {
-        "lastModified": 1749187200,
-        "narHash": "sha256-C6KeracpPfZCGe4D1B9AIVv/p8Uy07TYKfsiUoqNsT4=",
+        "lastModified": 1749215778,
+        "narHash": "sha256-1KLwsBdkhlTcu00pDkhDRA6Shqg0m4l7o5hDXxuRdwc=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "cccf2a5fba743eedfbf17e38b658fc4246639c23",
+        "rev": "9b7b73530c22b3df3ccf68b017e092da9e525b10",
         "type": "github"
       },
       "original": {
@@ -719,13 +719,13 @@
         "pre-commit-hooks": "pre-commit-hooks",
         "rust-overlay": "rust-overlay",
         "stylix": "stylix",
-        "superfreq": [
-          "niqspkgs",
-          "superfreq"
-        ],
         "systems": "systems_2",
         "tree-sitter-odin": "tree-sitter-odin",
-        "wallpapers": "wallpapers"
+        "wallpapers": "wallpapers",
+        "watt": [
+          "niqspkgs",
+          "watt"
+        ]
       }
     },
     "rust-analyzer-src": {
@@ -807,27 +807,6 @@
       "original": {
         "owner": "danth",
         "repo": "stylix",
-        "type": "github"
-      }
-    },
-    "superfreq": {
-      "inputs": {
-        "nixpkgs": [
-          "niqspkgs",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1747831988,
-        "narHash": "sha256-EViwQ/HHq15+8x6n6lnt0FsKmHotSJP/c5Mh2bB7+OA=",
-        "owner": "NotAShelf",
-        "repo": "superfreq",
-        "rev": "017793288a2b75fbb548f878c730bdb6288d7e46",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NotAShelf",
-        "repo": "superfreq",
         "type": "github"
       }
     },
@@ -993,6 +972,27 @@
       "original": {
         "owner": "diniamo",
         "repo": "wallpapers",
+        "type": "github"
+      }
+    },
+    "watt": {
+      "inputs": {
+        "nixpkgs": [
+          "niqspkgs",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1749215741,
+        "narHash": "sha256-ALqLhQXEd42kiZ0LLVY7woT1pmXyDcNGMZO4KhdWDq4=",
+        "owner": "NotAShelf",
+        "repo": "watt",
+        "rev": "d33659209ebf17af0173663a7b548e91feea7b9d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NotAShelf",
+        "repo": "watt",
         "type": "github"
       }
     },

@@ -8,7 +8,7 @@
   inherit (lib) mkEnableOption mkForce mkIf;
 in {
   imports = [
-    inputs.superfreq.nixosModules.default
+    inputs.watt.nixosModules.default
   ];
 
   options = {
@@ -32,7 +32,7 @@ in {
       };
 
       power-profiles-daemon.enable = mkForce false;
-      superfreq.enable = true;
+      watt.enable = true;
       thermald.enable = true;
     };
   };

@@ -101,7 +101,7 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    superfreq.follows = "niqspkgs/superfreq";
+    watt.follows = "niqspkgs/watt";
 
     wallpapers = {
       url = "github:diniamo/wallpapers";
