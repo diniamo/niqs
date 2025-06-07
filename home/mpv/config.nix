@@ -20,7 +20,7 @@ in {
 
       alang = "ja,de,en,hu";
       slang = "de,en,hu";
-      no-sub-visibility = "";
+      sub-visibility = "no";
     };
 
     defaultProfiles = ["high-quality"];
