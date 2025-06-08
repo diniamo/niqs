@@ -22,7 +22,7 @@
         default-command = "status";
         diff-editor = ":builtin";
         diff.tool = ["difft" "--color=always" "$left" "$right"];
-        merge-editor = ["emacs" "--eval" "(ediff-merge-files-with-ancestor \"$left\" \"$right\" \"$base\" nil \"$output\")"];
+        merge-editor = ["emacs" "--no-window-system" "--eval" "(ediff-merge-files-with-ancestor \"$left\" \"$right\" \"$base\" nil \"$output\")"];
       };
 
       git = {
