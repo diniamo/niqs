@@ -19,7 +19,7 @@
       marker = base0E;
       prompt = base0D;
       spinner = base0C;
-      pointer = base08;
+      pointer = base15;
       header = base09;
     };
     defaultOptions = [
