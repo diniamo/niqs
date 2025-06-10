@@ -38,11 +38,13 @@
       tree-sitter-cpp
       tree-sitter-go
       tree-sitter-gomod
+      tree-sitter-graphql
     ]))
     nix-ts-mode
     odin-ts-mode
     julia-ts-mode
     nushell-ts-mode
+    graphql-ts-mode
   ];
   
   extraPath = with pkgs; [
