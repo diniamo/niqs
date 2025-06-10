@@ -52,17 +52,12 @@ in {
     environment.systemPackages = [pkgs.nvtopPackages.nvidia];
 
     nixpkgs.config.cudaSupport = true;
-    nixpkgs.overlays = [(
-      final: prev: let
-        wrapChromium = lib'.wrapProgram {
-          inherit (final) symlinkJoin;
-          wrapper = final.makeBinaryWrapper;
-          wrapperArgs = ["--add-flags" "--disable-gpu-compositing"];
-        };
-      in {
-        obsidian = wrapChromium prev.obsidian;
-        spotify = wrapChromium prev.spotify;
-      }
-    )];
+    nixpkgs.overlays = [(final: prev: {
+      spotify = lib'.wrapProgram {
+        inherit (final) symlinkJoin;
+        wrapper = final.makeBinaryWrapper;
+        wrapperArgs = ["--add-flags" "--disable-gpu-compositing"];
+      } prev.spotify;
+    })];
   };
 }

@@ -42,7 +42,6 @@ in {
       eza
       libnotify
       gist
-      obsidian
       video-trimmer
       flint
       dsync
