@@ -4,9 +4,12 @@
     settings = {
       aliases = {
         tug = ["bookmark" "move" "--from" "closest_bookmark(@-)" "--to" "@-"];
+        init = ["git" "init"];
         push = ["git" "push"];
+        pull = ["git" "fetch"];
         lift = ["squash" "--from" "@-" "--to" "@"];
         raise = ["new" "--insert-before" "@" "--no-edit"];
+        mark = ["bookmark" "create" "--revision" "@-"];
       };
 
       revset-aliases = {
