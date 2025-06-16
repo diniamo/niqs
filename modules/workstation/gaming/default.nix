@@ -66,7 +66,10 @@ in {
     hardware.xpadneo.enable = true;
     hardware.graphics.enable32Bit = true;
 
-    environment.systemPackages = [pkgs.umu-launcher];
+    environment = {
+      systemPackages = [pkgs.umu-launcher];
+      sessionVariables.PROTON_ENABLE_WAYLAND = 1;
+    };
 
     programs = {
       steam = {
