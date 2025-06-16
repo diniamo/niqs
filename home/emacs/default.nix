@@ -16,8 +16,11 @@
     leetcode
     ripgrep
     flycheck
-    yasnippet
     dape
+    
+    yasnippet
+    yasnippet-capf
+    yasnippet-snippets
     
     vertico
     orderless
