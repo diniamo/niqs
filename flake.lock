@@ -443,11 +443,11 @@
         "wiremix": "wiremix"
       },
       "locked": {
-        "lastModified": 1750075149,
-        "narHash": "sha256-XrYjHwUD+VVHN7bYH3KvWUsxaEjI2XLQT8venHGWxhk=",
+        "lastModified": 1750187020,
+        "narHash": "sha256-FpJtlJ9SEZy8mxGZZG89rqf7MDdGfWhzY3IRGINTnr4=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "db41f2e36150740b27549bf1c2606edcb0ce06d6",
+        "rev": "9882beefd64755f378f9546d1e3ab813f6f1af6a",
         "type": "github"
       },
       "original": {
