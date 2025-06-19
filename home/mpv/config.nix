@@ -12,7 +12,7 @@ in {
       audio-device = "pipewire";
       volume-max = 100;
       
-      save-position-on-quit = "";
+      save-position-on-quit = true;
       watch-later-options-remove = "vf,af";
       
       osc = false;
@@ -25,7 +25,7 @@ in {
 
       alang = "ja,de,en,hu";
       slang = "de,en,hu";
-      sub-visibility = "no";
+      sub-visibility = false;
     };
 
     defaultProfiles = ["high-quality"];

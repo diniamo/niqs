@@ -1,25 +1,23 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{ lib, ... }: let
+  inherit (lib) mkOption;
+  inherit (lib.types) bool;
+in {
   imports = [
-    inputs.stylix.nixosModules.stylix
-
-    ./options
-
-    ./cursor.nix
+    ./qt
+    
+    ./matugen.nix
     ./fonts.nix
-    ./icons.nix
+    ./cursor.nix
+    ./icon-theme.nix
+    ./settings.nix
   ];
 
-  config = {
-    stylix = {
-      enable = true;
-
-      base16Scheme = pkgs.base16-schemes + /share/themes/catppuccin-macchiato.yaml;
-      polarity = "dark";
-      image = inputs.wallpapers + /miles.png;
+  options = {
+    custom.style = {
+      dark = mkOption {
+        type = bool;
+        description = "Whether the theme is dark.";
+      };
     };
   };
 }

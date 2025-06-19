@@ -12,7 +12,7 @@ in {
 
   custom.mobile.enable = true;
 
-  environment.systemPackages = [pkgs.gmetronome];
+  user.packages = [pkgs.gmetronome];
 
   hardware = {
     graphics.extraPackages = with pkgs; [intel-vaapi-driver intel-media-driver];

@@ -2,10 +2,9 @@
   imports = [
     ./monitoring
     
-    ./services.nix
+    ./ssh.nix
     ./satisfactory.nix
     ./torrent.nix
     ./media.nix
-    ./system.nix
   ];
 }

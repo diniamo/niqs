@@ -42,7 +42,7 @@
       ]
       ++ lib.optional osConfig.custom.mobile.enable {
         timeout = 240;
-        command = "brightnessctl get > /tmp/brightness; brightnessctl set 5%";
+        command = "brightnessctl get >/tmp/brightness; brightnessctl set 5%";
         resumeCommand = "brightnessctl set \"$(cat /tmp/brightness || echo -n 32%)\"";
       };
   };

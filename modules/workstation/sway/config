@@ -1,0 +1,151 @@
+font pango:@font@ @fontSize@
+floating_modifier Mod4
+hide_edge_borders none
+mouse_warping container
+
+default_border pixel 1
+default_floating_border pixel 1
+
+workspace_layout default
+workspace_auto_back_and_forth no
+workspace "1" output "DP-1"
+workspace "2" output "DP-1"
+workspace "3" output "DP-1"
+workspace "4" output "DP-1"
+workspace "5" output "DP-2"
+workspace "6" output "DP-1"
+workspace "7" output "DP-1"
+workspace "8" output "DP-1"
+workspace "9" output "DP-1"
+
+focus_wrapping no
+focus_follows_mouse yes
+focus_on_window_activation focus
+
+smart_borders on
+for_window [shell="xwayland"] title_format "<i>%title</i>"
+for_window [floating] border pixel 1
+
+client.focused @colorsFocused@
+client.focused_inactive @colorsFocusedInactive@
+client.unfocused @colorsUnfocused@
+client.urgent @colorsUrgent@
+client.placeholder @colorsPlaceholder@
+client.background @colorsBackground@
+
+input "*" {
+  accel_profile flat
+  scroll_factor 0.8
+  scroll_method on_button_down
+  tap disabled
+  xkb_layout hu
+  xkb_options altwin:swap_lalt_lwin
+}
+
+output "*" {
+  bg @background@ fill
+}
+
+output "DP-1" {
+  allow_tearing yes
+  mode 1920x1080@165Hz
+  position 0 0
+}
+
+output "DP-2" {
+  mode 1920x1080@60Hz
+  position 1920 0
+}
+
+seat "*" {
+  xcursor_theme @cursorTheme@ @cursorSize@
+}
+
+bindsym Mod4+Space exec @fuzzel@
+bindsym Mod4+Return exec @foot@
+bindsym Mod4+e exec @emacs@
+bindsym Mod4+w exec @librewolf@
+
+bindsym Mod4+a exec @notifyTime@
+bindsym Mod4+i exec @toggleInhibitSleep@
+bindsym Mod4+x exec @logoutMenu@
+
+bindsym Control+Print exec @grim@ -g "$(slurp)" - | @wl-copy@
+bindsym Mod1+Print exec @grim@ -g "$(@swaymsg@ -t get_tree | @jaq@ -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
+bindsym Print exec @grim@ -o "$(@swaymsg@ -t get_outputs | jaq -r '.[] | select(.focused) | .name')" - | @wl-copy@
+bindsym Shift+Print exec @grim@ -g "$(slurp)" /tmp/screenshot.png && @imv@ /tmp/screenshot.png
+bindsym Mod4+o exec @wl-paste@ | @satty@ -f -
+bindsym Mod4+c exec hyprpicker --autocopy
+
+bindsym XF86AudioNext exec @playerctl@ next
+bindsym XF86AudioPrev exec @playerctl@ previous
+bindsym XF86AudioPlay exec @playerctl@ play-pause
+bindsym XF86AudioStop exec @playerctl@ position 0
+bindsym XF86AudioLowerVolume exec @wpctl@ set-volume @DEFAULT_AUDIO_SINK@ 0.05-
+bindsym XF86AudioRaiseVolume exec @wpctl@ set-volume @DEFAULT_AUDIO_SINK@ 0.05+
+bindsym XF86AudioMute exec @wpctl@ set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+bindsym XF86Tools exec @spotify@
+bindsym XF86Calculator exec @foot@ @qalc@
+bindsym XF86HomePage exec @librewolf@
+bindsym XF86MonBrightnessDown exec @brightnessctl@ set 2%- -n
+bindsym XF86MonBrightnessUp exec @brightnessctl@ set 2%+
+
+bindsym Mod4+f fullscreen
+bindsym Mod4+q kill
+bindsym Mod4+p sticky toggle
+bindsym Mod4+s floating toggle
+
+bindsym Mod4+0 workspace back_and_forth
+bindsym Mod4+1 workspace 1
+bindsym Mod4+2 workspace 2
+bindsym Mod4+3 workspace 3
+bindsym Mod4+4 workspace 4
+bindsym Mod4+5 workspace 5
+bindsym Mod4+6 workspace 6
+bindsym Mod4+7 workspace 7
+bindsym Mod4+8 workspace 8
+bindsym Mod4+9 workspace 9
+
+bindsym Mod4+Shift+1 move workspace 1
+bindsym Mod4+Shift+2 move workspace 2
+bindsym Mod4+Shift+3 move workspace 3
+bindsym Mod4+Shift+4 move workspace 4
+bindsym Mod4+Shift+5 move workspace 5
+bindsym Mod4+Shift+6 move workspace 6
+bindsym Mod4+Shift+7 move workspace 7
+bindsym Mod4+Shift+8 move workspace 8
+bindsym Mod4+Shift+9 move workspace 9
+
+bindsym Mod4+d split vertical
+bindsym Mod4+r split horizontal
+bindsym Mod4+t layout tabbed
+bindsym Mod4+Control+d layout splitv
+bindsym Mod4+Control+r layout splith
+
+bindsym Mod4+h focus left
+bindsym Mod4+j focus down
+bindsym Mod4+k focus up
+bindsym Mod4+l focus right
+bindsym Mod4+u focus parent
+bindsym Mod4+Tab focus next sibling
+bindsym Mod4+Shift+Tab focus prev sibling
+
+bindsym Mod4+Control+h resize shrink width 50 px
+bindsym Mod4+Control+j resize grow height 50 px
+bindsym Mod4+Control+k resize shrink height 50 px
+bindsym Mod4+Control+l resize grow width 50 px
+
+bindsym Mod4+Shift+h move left
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
+bindsym Mod4+Shift+m move window mark mark
+
+bindsym Mod4+m mark --toggle mark
+bindsym Mod4+Control+m [con_mark="mark"] focus
+bindsym Mod4+Mod1+m swap container with mark mark
+
+
+focus output DP-1
+exec @librewolf@

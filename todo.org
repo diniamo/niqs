@@ -1,0 +1,20 @@
+* DONE home-manager -> nix-home
+CLOSED: [2025-06-21 Sat 20:29]
+* TODO stylix -> matugen
+** TODO gtk
+** DONE qt
+CLOSED: [2025-06-21 Sat 22:39]
+** other apps
+** DONE fonts
+CLOSED: [2025-06-21 Sat 21:36]
+** DONE cursor theme
+CLOSED: [2025-06-21 Sat 21:42]
+** DONE icon theme
+CLOSED: [2025-06-21 Sat 22:01]
+* TODO wayhibitor -> systemd-inhibit
+** TODO add note and archive on github
+** TODO remove from niqspkgs: wayhibitor
+* TODO run deadnix, statix
+* TODO mpv simple-undo check for built-in command
+* TODO figure out imv config
+* TODO fix random issues

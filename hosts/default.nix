@@ -1,5 +1,5 @@
-{lib'}: let
-  inherit (lib') mkNixosSystem;
+lib': let
+  inherit (lib') nixosSystem';
 
   modulePath = ../modules;
 
@@ -7,7 +7,7 @@
   workstation = modulePath + /workstation;
   server = modulePath + /server;
 in {
-  desktop = mkNixosSystem {
+  desktop = nixosSystem' {
     system = "x86_64-linux";
     modules = [
       ./desktop
@@ -16,7 +16,7 @@ in {
     ];
   };
 
-  server = mkNixosSystem {
+  server = nixosSystem' {
     system = "x86_64-linux";
     modules = [
       ./server
@@ -25,7 +25,7 @@ in {
     ];
   };
 
-  laptop = mkNixosSystem {
+  laptop = nixosSystem' {
     system = "x86_64-linux";
     modules = [
       ./laptop

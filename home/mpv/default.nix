@@ -17,7 +17,7 @@
 
         alsaSupport = false;
         javascriptSupport = false;
-        pulseSupport = true; # For laptop, cba modularizing
+        pulseSupport = false;
         x11Support = false;
       };
 

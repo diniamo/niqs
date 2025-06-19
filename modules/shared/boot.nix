@@ -11,10 +11,7 @@ in {
   imports = [inputs.lanzaboote.nixosModules.lanzaboote];
 
   options = {
-    custom.boot = {
-      secure = mkEnableOption "secure boot";
-      windowsEntry = mkEnableOption "a windows entry in the boot menu";
-    };
+    custom.boot.secure = mkEnableOption "secure boot";
   };
 
   config = {

@@ -2,14 +2,11 @@
   config,
   pkgs,
   ...
-}: let
-  inherit (config) values;
-in {
-  imports = [./hardware.nix];
+}: {
+  imports = [ ./hardware.nix ];
 
   custom = {
     boot.secure = true;
-    boot.windowsEntry = true;
     nvidia.enable = true;
     
     gaming = {
@@ -21,7 +18,7 @@ in {
 
   hardware.opentabletdriver.enable = true;
 
-  environment.systemPackages = with pkgs; [
+  user.packages = with pkgs; [
     qbittorrent
     anki
     krita

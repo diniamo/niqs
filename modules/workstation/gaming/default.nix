@@ -6,7 +6,7 @@
   flakePkgs,
   ...
 }: let
-  inherit (lib) getExe getExe' mkForce mkEnableOption mkOption;
+  inherit (lib) getExe getExe' mkForce mkEnableOption mkOption mkIf;
   inherit (lib.types) lines;
   inherit (pkgs.writers) writeDash;
 
@@ -58,8 +58,10 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
+
+    custom.mangohud.enable = true;
 
     services.pipewire.alsa.support32Bit = true;
     security.rtkit.enable = true;
@@ -100,7 +102,7 @@ in {
     # The start script relies on SWAYSOCK and WAYLAND_DISPLAY,
     # which are imported when the graphical session starts
     systemd.user.services.gamemoded = {
-      wantedBy = lib.mkForce [];
+      wantedBy = mkForce [];
       partOf = ["graphical-session.target"];
       after = ["graphical-session.target"];
     };

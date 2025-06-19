@@ -7,16 +7,14 @@
 }: let
   inherit (lib) mkEnableOption mkForce mkIf;
 in {
-  imports = [
-    inputs.watt.nixosModules.default
-  ];
+  imports = [ inputs.watt.nixosModules.default ];
 
   options = {
     custom.mobile.enable = mkEnableOption "configuration for mobile devices";
   };
 
   config = mkIf config.custom.mobile.enable {
-    environment.systemPackages = [pkgs.brightnessctl];
+    environment.systemPackages = [ pkgs.brightnessctl ];
 
     networking.networkmanager = {
       enable = true;
@@ -35,5 +33,11 @@ in {
       watt.enable = true;
       thermald.enable = true;
     };
+
+    custom.swayidle.timeouts = [{
+      timeout = 240;
+      command = "brightnessctl get >/tmp/brightness; brightnessctl set 5%";
+      resumeCommand = "brightnessctl set \"$(cat /tmp/brightness || echo -n 32%)\"";
+    }];
   };
 }

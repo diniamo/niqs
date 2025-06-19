@@ -1,22 +1,38 @@
 {
   imports = [
-    ./style
     ./gaming
+    ./librewolf
+    ./mpv
+    ./fish
+    ./emacs
+    ./dunst
+    ./spotify-player
+    ./fzf
+    ./mangohud
+    ./btop
+    ./imv
+    ./satty
+    ./fuzzel
+    ./sway
+    ./jujutsu
+    ./swaylock
+    ./swayidle
+    ./gammastep
+    ./style
 
-    ./values.nix
+    ./user.nix
     ./packages.nix
-    ./home-manager.nix
     ./nvidia.nix
     ./thunar.nix
-    ./system.nix
     ./services.nix
-    # ./dolphin.nix
-    # ./hyprland.nix
-    # ./plymouth.nix
     ./mobile.nix
-    ./sway.nix
     ./less.nix
-    ./librewolf.nix
-    ./wayland.nix
+    ./xdg.nix
+    ./foot.nix
+    ./zoxide.nix
+    ./direnv.nix
+    ./nix-index.nix
+    ./bat.nix
+    ./zathura.nix
   ];
 }
