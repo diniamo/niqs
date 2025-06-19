@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{ config, lib, ... }: let
   inherit (lib) mkEnableOption mkIf;
 
   inherit (config) services;

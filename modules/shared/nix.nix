@@ -1,14 +1,9 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{ inputs, pkgs, ... }: let
   inherit (inputs) nixpkgs;
-  nixpkgsPath = nixpkgs.outPath;
 in {
   nix = {
     settings = {
-      experimental-features = ["nix-command" "flakes" "pipe-operator"];
+      experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
       # This only sets the embedded flake registry, which we don't want
       flake-registry = pkgs.writeText "minimal-flake-registry.json" ''
         {
@@ -19,24 +14,23 @@ in {
       default-flake = nixpkgs;
       accept-flake-config = true;
       warn-dirty = false;
-      trusted-users = ["root" "@wheel"];
+      trusted-users = [ "root" "@wheel" ];
       auto-optimise-store = true;
       builders-use-substitutes = true;
-      log-lines = 30;
+      log-lines = 25;
       http-connections = 50;
+      allow-import-from-derivation = false;
     };
 
     registry = {
       nixpkgs.flake = nixpkgs;
       n.flake = nixpkgs;
-      default.flake = nixpkgs;
     };
 
     channel.enable = false;
     nixPath = [
-      "nixpkgs=${nixpkgsPath}"
-      "n=${nixpkgsPath}"
-      "default=${nixpkgsPath}"
+      "nixpkgs=${nixpkgs}"
+      "n=${nixpkgs}"
     ];
   };
 }

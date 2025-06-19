@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [
@@ -11,5 +11,5 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
-  environment.systemPackages = [pkgs.file-roller];
+  environment.systemPackages = [ pkgs.file-roller ];
 }

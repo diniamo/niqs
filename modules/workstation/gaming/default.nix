@@ -1,12 +1,5 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  flakePkgs,
-  ...
-}: let
-  inherit (lib) getExe getExe' mkForce mkEnableOption mkOption;
+{ lib, config, pkgs, ... }: let
+  inherit (lib) getExe getExe' mkForce mkEnableOption mkOption mkIf;
   inherit (lib.types) lines;
   inherit (pkgs.writers) writeDash;
 
@@ -18,7 +11,9 @@
     ${powerprofilesctl} set performance
     ${swaymsg} 'allow_tearing yes'
     ${swaymsg} 'input * scroll_method none'
-    ${getExe pkgs.daemonize} -p /tmp/game-mode-wayhibitor-pid ${getExe flakePkgs.niqspkgs.wayhibitor}
+    ${getExe pkgs.daemonize} \
+      -p /tmp/gamemode-inhibitor-pid \
+      ${getExe' pkgs.systemd "systemd-inhibit"} --what=idle --who=Gamemode --why='Game open' ${getExe' pkgs.coreutils "sleep"} infinity
     ${cfg.extraStartCommands}
 
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=input-gaming 'Optimizations activated'
@@ -27,7 +22,7 @@
     ${powerprofilesctl} set balanced
     ${swaymsg} 'allow_tearing no'
     ${swaymsg} 'input * scroll_method on_button_down'
-    ${getExe' pkgs.util-linux "kill"} "$(${getExe' pkgs.coreutils "cat"} /tmp/game-mode-wayhibitor-pid)"
+    ${getExe' pkgs.util-linux "kill"} "$(${getExe' pkgs.coreutils "cat"} /tmp/gamemode-inhibitor-pid)"
     ${cfg.extraEndCommands}
 
     ${notify-send} --urgency=low --app-name='Gamemode' --icon=system-shutdown 'Optimizations deactivated'
@@ -58,8 +53,10 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
+  config = mkIf cfg.enable {
+    nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
+
+    custom.mangohud.enable = true;
 
     services.pipewire.alsa.support32Bit = true;
     security.rtkit.enable = true;
@@ -67,7 +64,7 @@ in {
     hardware.graphics.enable32Bit = true;
 
     environment = {
-      systemPackages = [pkgs.umu-launcher];
+      systemPackages = [ pkgs.umu-launcher ];
       sessionVariables.PROTON_ENABLE_WAYLAND = 1;
     };
 
@@ -76,8 +73,8 @@ in {
         enable = true;
         protontricks.enable = true;
 
-        extraPackages = [pkgs.openssl_1_1];
-        extraCompatPackages = [pkgs.proton-ge-bin];
+        extraPackages = [ pkgs.openssl_1_1 ];
+        extraCompatPackages = [ pkgs.proton-ge-bin ];
       };
 
       gamemode = {
@@ -100,9 +97,9 @@ in {
     # The start script relies on SWAYSOCK and WAYLAND_DISPLAY,
     # which are imported when the graphical session starts
     systemd.user.services.gamemoded = {
-      wantedBy = lib.mkForce [];
-      partOf = ["graphical-session.target"];
-      after = ["graphical-session.target"];
+      wantedBy = mkForce [];
+      partOf = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
     };
   };
 }

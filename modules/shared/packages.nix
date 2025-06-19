@@ -1,12 +1,9 @@
-{
-  pkgs,
-  flakePkgs,
-  lib,
-  ...
-}: {
+{ pkgs, flakePkgs, lib, ... }: let
+  inherit (lib) mkForce getExe;
+in {
   environment = {
-    defaultPackages = lib.mkForce [];
-    binsh = lib.getExe pkgs.dash;
+    defaultPackages = mkForce [];
+    binsh = getExe pkgs.dash;
 
     systemPackages = with pkgs; [
       htop

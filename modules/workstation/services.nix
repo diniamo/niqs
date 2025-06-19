@@ -1,16 +1,11 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
+{ pkgs, lib, config, ... }: {
   systemd.user.services.polkit-authentication-agent = {
     description = "PolicyKit Authentication Agent";
     serviceConfig = {
       Type = "simple";
       ExecStart = "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit";
     };
-    wantedBy = ["graphical-session.target"];
+    wantedBy = [ "graphical-session.target" ];
   };
 
   services = {
@@ -51,7 +46,7 @@
 
     # printing = {
     #   enable = true;
-    #   drivers = [pkgs.canon-cups-ufr2];
+    #   drivers = [ pkgs.canon-cups-ufr2 ];
     # };
     #
     # avahi = {
@@ -64,7 +59,7 @@
 
     interception-tools = {
       enable = true;
-      plugins = [pkgs.interception-tools-plugins.caps2esc];
+      plugins = [ pkgs.interception-tools-plugins.caps2esc ];
     };
   };
 

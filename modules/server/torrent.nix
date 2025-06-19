@@ -1,9 +1,4 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}: let
+{ lib, config, pkgs, ... }: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.custom.torrent;

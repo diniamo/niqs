@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: let
+{ lib, config, ... }: let
   inherit (lib) mkIf;
 
   inherit (config.services.prometheus) exporters;
@@ -16,7 +12,7 @@ in {
         node = {
           enable = true;
           port = 9101;
-          enabledCollectors = ["systemd"];
+          enabledCollectors = [ "systemd" ];
         };
 
         smartctl = {
@@ -28,11 +24,11 @@ in {
       scrapeConfigs = [
         {
           job_name = "node";
-          static_configs = [{targets = ["localhost:${toString exporters.node.port}"];}];
+          static_configs = [{ targets = [ "localhost:${toString exporters.node.port}" ]; }];
         }
         {
           job_name = "smartctl";
-          static_configs = [{targets = ["localhost:${toString exporters.smartctl.port}"];}];
+          static_configs = [{ targets = [ "localhost:${toString exporters.smartctl.port}" ]; }];
         }
       ];
     };

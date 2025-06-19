@@ -1,10 +1,6 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}: let
-  inherit (lib) mkOption types getExe;
+{ lib, config, pkgs, ... }: let
+  inherit (lib) mkEnableOption mkOption mkIf getExe optionalString;
+  inherit (lib.types) bool;
 
   patchelf = getExe pkgs.patchelf;
   interpreter = "${pkgs.glibc}/lib/ld-linux-x86-64.so.2";
@@ -14,17 +10,17 @@
 in {
   options = {
     services.satisfactory = {
-      enable = lib.mkEnableOption "Satisfactory dedicated server";
+      enable = mkEnableOption "Satisfactory dedicated server";
 
       experimental = mkOption {
         description = "Whether to use the experimental branch";
-        type = types.bool;
+        type = bool;
         default = false;
       };
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     # Needed since Satisfactory stores save files in home
     users.users.satisfactory = {
       home = path;
@@ -35,8 +31,8 @@ in {
     users.groups.satisfactory = {};
 
     networking.firewall = {
-      allowedTCPPorts = [7777];
-      allowedUDPPorts = [7777];
+      allowedTCPPorts = [ 7777 ];
+      allowedUDPPorts = [ 7777 ];
     };
 
     systemd.services.satisfactory = {
@@ -47,7 +43,7 @@ in {
           +force_install_dir ${path}/SatisfactoryDedicatedServer \
           +login anonymous \
           +app_update 1690800 \
-          ${lib.optionalString cfg.experimental "-beta experimental"} \
+          ${optionalString cfg.experimental "-beta experimental"} \
           validate \
           +quit
 

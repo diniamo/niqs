@@ -1,25 +1,41 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  inherit (config.stylix) cursor;
+{ lib, config, ... }: let
+  inherit (lib) mkOption;
+  inherit (lib.types) str int package;
+
+  cfg = config.custom.style.cursor;
 in {
-  stylix.cursor = {
-    package = pkgs.bibata-cursors.overrideAttrs {
-      buildPhase = ''
-        runHook preBuild
-        ctgen configs/normal/x.build.toml -s ${toString cursor.size} -p x11 -d "$bitmaps/${cursor.name}" -n '${cursor.name}' -c '${cursor.name} variant'
-        runHook postBuild
-      '';
+  options = {
+    custom.style.cursor = {
+      name = mkOption {
+        type = str;
+        description = "The name of the cursor theme.";
+      };
+
+      size = mkOption {
+        type = int;
+        description = "The size of the cursor.";
+      };
+      sizeString = mkOption {
+        type = str;
+        default = toString cfg.size;
+        readOnly = true;
+        description = "The size of the cursor as a string.";
+      };
+
+      package = mkOption {
+        type = package;
+        description = "The package providing the cursor theme.";
+      };
     };
-    name = "Bibata-Modern-Classic";
-    size = 22;
   };
 
-  # environment.systemPackages = [flakePkgs.niqspkgs.bibata-hyprcursor];
-  # environment.sessionVariables = {
-  #   HYPRCURSOR_THEME = "Bibata-modern";
-  #   HYPRCURSOR_SIZE = cursor.size;
-  # };
+  config = {
+    environment = {
+      systemPackages = [ cfg.package ];
+      sessionVariables = {
+        XCURSOR_THEME = cfg.name;
+        XCURSOR_SIZE = cfg.sizeString;
+      };
+    };
+  };
 }

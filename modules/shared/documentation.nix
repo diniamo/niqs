@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   documentation = {
     # I always just use my browser
     doc.enable = false;

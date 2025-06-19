@@ -1,31 +1,51 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
-  inherit (config.stylix) fonts;
+{ lib, config, ... }: let
+  inherit (lib) mkOption;
+  inherit (lib.types) submodule str package int;
+
+  fontModule = mkOption {
+    type = submodule ({ config, ... }: {
+      options = {
+        name = mkOption {
+          type = str;
+          description = "The name of the font.";
+        };
+
+        size = mkOption {
+          type = int;
+          description = "The standard size to use for the font.";
+        };
+        sizeString = mkOption {
+          type = str;
+          default = toString config.size;
+          readOnly = true;
+          description = "The standard size as a string.";
+        };
+    
+        package = mkOption {
+          type = package;
+          description = "The package providing the font.";
+        };
+      };
+    });
+  };
+
+  cfg = config.custom.style.fonts;
 in {
-  stylix.fonts = {
-    sansSerif = {
-      package = pkgs.inter;
-      name = "Inter";
-      path = "${fonts.sansSerif.package}/share/fonts/truetype/Inter.ttc";
+  options = {
+    custom.style.fonts = {
+      regular = fontModule;
+      monospace = fontModule;
     };
+  };
 
-    # Inter superiority
-    serif = fonts.sansSerif;
-
-    # This is the default but specify anyway
-    emoji = {
-      package = pkgs.noto-fonts-emoji;
-      name = "Noto Color Emoji";
-      path = "${fonts.emoji.package}/share/fonts/noto/NotoColorEmoji.ttf";
-    };
-
-    monospace = {
-      package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "JetBrainsMono Nerd Font Mono";
-      path = "${fonts.monospace.package}/share/fonts/truetype/NerdFonts/JetBrainsMonoNerdFontMono-Regular.ttf";
+  config = {
+    fonts = {
+      packages = [
+        cfg.regular.package
+        cfg.monospace.package
+      ];
+    
+      fontconfig.subpixel.rgba = "rgb";
     };
   };
 }

@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}: let
+{ lib, pkgs, config, ... }: let
   inherit (lib) mkIf singleton;
   inherit (pkgs) linkFarm fetchurl;
 

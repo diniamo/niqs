@@ -3,8 +3,8 @@ root = true
 [*]
 indent_style = space
 
-[*.{nix,lua}]
+[*.nix]
 indent_size = 2
 
-[*.{,z}sh]
+[*.{,fi}sh]
 indent_size = 4

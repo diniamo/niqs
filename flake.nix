@@ -2,9 +2,9 @@
   description = "My NixOS flake configuration";
 
   outputs = inputs: let
-    lib' = import ./lib {inherit inputs lib';};
+    lib' = import ./lib { inherit inputs lib'; };
   in {
-    nixosConfigurations = import ./hosts {inherit lib';};
+    nixosConfigurations = import ./hosts lib';
   };
 
   nixConfig = {
@@ -12,7 +12,7 @@
       # Lower priorities are tried first
       # The default priority (NixOS cache) is 40
       "https://niqspkgs.cachix.org?priority=41"
-      "https://nix-community.cachix.org?priority=42"
+      "https://nix-community.cachix.org?priority=42" # CUDA
     ];
     extra-trusted-public-keys = [
       "niqspkgs.cachix.org-1:3lcNxXkj8BLrK77NK9ZTjk0fxHuSZrr5sKE6Avjb6PI="
@@ -25,19 +25,11 @@
     nixpkgs.url = "github:diniamo/nixpkgs/custom";
     # nixpkgs.url = "path:/hdd/dev/nixpkgs";
 
-    home-manager = {
-      # url = "github:nix-community/home-manager";
-      url = "github:diniamo/home-manager/custom";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    stylix = {
-      url = "github:danth/stylix";
+    nix-home = {
+      url = "github:diniamo/nix-home";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-        flake-compat.follows = "flake-compat";
-        git-hooks.follows = "pre-commit-hooks";
-        flake-parts.follows = "flake-parts";
+        systems.follows = "systems";
       };
     };
 
@@ -73,10 +65,7 @@
       inputs = {
         systems.follows = "systems";
         flake-parts.follows = "flake-parts";
-        lix.inputs = {
-          flake-compat.follows = "flake-compat";
-          pre-commit-hooks.follows = "pre-commit-hooks";
-        };
+        dnix.inputs.git-hooks-nix.inputs.flake-compat.follows = "flake-compat";
       };
     };
 

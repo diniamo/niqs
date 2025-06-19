@@ -1,0 +1,19 @@
+[global]
+frame_color = "{{colors.primary.default.hex}}"
+highlight = "{{colors.primary.default.hex}}"
+separator_color= "{{colors.outline.default.hex}}"
+
+[urgency_low]
+background = "{{colors.surface.default.hex}}"
+foreground = "{{colors.on_surface.default.hex}}"
+highlight = "{{colors.primary_container.default.hex}}"
+
+[urgency_normal]
+background = "{{colors.surface.default.hex}}"
+foreground = "{{colors.on_surface.default.hex}}"
+highlight = "{{colors.primary_container.default.hex}}"
+
+[urgency_critical]
+background = "{{colors.surface.default.hex}}"
+foreground = "{{colors.on_surface.default.hex}}"
+highlight = "{{colors.error.default.hex}}"

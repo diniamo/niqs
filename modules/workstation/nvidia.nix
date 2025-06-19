@@ -1,17 +1,14 @@
-{
-  config,
-  lib,
-  pkgs,
-  lib',
-  ...
-}: let
+{ config, lib, pkgs, lib', ... }: let
+  inherit (lib) mkEnableOption mkIf;
+  inherit (lib') wrapProgram;
+
   cfg = config.custom.nvidia;
 in {
   options = {
-    custom.nvidia.enable = lib.mkEnableOption "Enable the Nvidia module";
+    custom.nvidia.enable = mkEnableOption "Enable the Nvidia module";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     hardware.nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       # 16 series cards do not support the open driver
@@ -24,7 +21,7 @@ in {
     };
 
     # This is required for Wayland too
-    services.xserver.videoDrivers = ["nvidia"];
+    services.xserver.videoDrivers = [ "nvidia" ];
 
     # Optimizations taken from https://github.com/ventureoo/nvidia-tweaks
     services.udev.extraRules = ''
@@ -37,27 +34,30 @@ in {
       "nvidia.NVreg_EnableStreamMemOPs=1"
       "nvidia.NVreg_RegistryDwords=__REGISTRYDWORDS"
     ];
-    environment.sessionVariables = {
-      __GL_YIELD = "USLEEP";
-      __GL_MaxFramesAllowed = "1";
+    environment = {
+      sessionVariables = {
+        __GL_YIELD = "USLEEP";
+        __GL_MaxFramesAllowed = "1";
 
-      GBM_BACKEND = "nvidia-drm";
-      LIBVA_DRIVER_NAME = "nvidia";
-      NVD_BACKEND = "direct";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      __GL_VRR_ALLOWED = "1";
-      __GL_GSYNC_ALLOWED = "1";
+        GBM_BACKEND = "nvidia-drm";
+        LIBVA_DRIVER_NAME = "nvidia";
+        NVD_BACKEND = "direct";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+        __GL_VRR_ALLOWED = "1";
+        __GL_GSYNC_ALLOWED = "1";
+      };
+
+      systemPackages = [ pkgs.nvtopPackages.nvidia ];
     };
 
-    environment.systemPackages = [pkgs.nvtopPackages.nvidia];
+    programs.sway.extraOptions = [ "--unsupported-gpu" ];
 
     nixpkgs.config.cudaSupport = true;
     nixpkgs.overlays = [(final: prev: {
-      spotify = lib'.wrapProgram {
-        inherit (final) symlinkJoin;
-        wrapper = final.makeBinaryWrapper;
-        wrapperArgs = ["--add-flags" "--disable-gpu-compositing"];
-      } prev.spotify;
+      spotify = wrapProgram pkgs {
+        package = prev.spotify;
+        args = [ "--add-flags" "--disable-gpu-compositing" ];
+      };
     })];
   };
 }

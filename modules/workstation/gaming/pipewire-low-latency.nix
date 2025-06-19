@@ -1,14 +1,7 @@
 # Credit: https://github.com/fufexan/nix-gaming/blob/master/modules/pipewireLowLatency.nix
 # MIT license
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
-  inherit (lib.modules) mkIf;
-  inherit (lib.options) mkOption mkEnableOption;
-  inherit (lib.types) int;
+{ config, pkgs, lib, ... }: let
+  inherit (lib) mkIf;
   inherit (lib.generators) toLua;
   
   quantum = 64;
@@ -23,7 +16,7 @@ in mkIf config.custom.gaming.enable {
           modules = [
             {
               name = "libpipewire-module-rtkit";
-              flags = ["ifexists" "nofail"];
+              flags = [ "ifexists" "nofail" ];
               args = {
                 nice.level = -15;
                 rt = {
@@ -36,7 +29,7 @@ in mkIf config.custom.gaming.enable {
             {
               name = "libpipewire-module-protocol-pulse";
               args = {
-                server.address = ["unix:native"];
+                server.address = [ "unix:native" ];
                 pulse.min = {
                   req = qr;
                   quantum = qr;
@@ -59,7 +52,7 @@ in mkIf config.custom.gaming.enable {
         matches = toLua {
           multiline = false;
           indent = false;
-        } [[["node.name" "matches" "alsa_output.*"]]];
+        } [[[ "node.name" "matches" "alsa_output.*" ]]];
 
         apply_properties = toLua {} {
           "audio.format" = "S32LE";
