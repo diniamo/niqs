@@ -3,10 +3,10 @@
     enable = true;
 
     colors = {
-      bg = "black";
-      "bg+" = "black";
-      fg = "white";
-      "fg+" = "bright-white";
+      bg = "-1";
+      "bg+" = "-1";
+      fg = "-1";
+      "fg+" = "-1:bold";
       hl = "green";
       "hl+" = "green";
       info = "yellow";
@@ -19,7 +19,7 @@
         
     flags = [
       "--border=rounded"
-      "--pointer='>'"
+      "--pointer=>"
       "--bind=ctrl-s:toggle"
     ];
   };

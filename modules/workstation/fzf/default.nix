@@ -1,14 +1,13 @@
 { lib, lib', pkgs, config, ... }: let
-  inherit (lib) mkEnableOption mkPackageOption mkOption mkIf;
+  inherit (lib) mkEnableOption mkPackageOption mkOption mkIf escapeShellArgs;
   inherit (lib.types) package listOf str attrsOf;
   inherit (lib') toFzfColorFlagValue;
   inherit (pkgs) makeBinaryWrapper;
-  inherit (builtins) concatStringsSep;
 
   cfg = config.custom.fzf;
 
   colorsRendered = toFzfColorFlagValue cfg.colors;
-  flagsRendered = concatStringsSep " " cfg.flags;
+  flagsRendered = escapeShellArgs cfg.flags;
 in {
   imports = [ ./settings.nix ];
 
@@ -50,7 +49,7 @@ in {
               installManPage man/man1/fzf.1 man/man1/fzf-tmux.1
 
               wrapProgram $out/bin/fzf \
-                --set FZF_DEFAULT_OPTS '${flagsRendered}'
+                --set FZF_DEFAULT_OPTS "${flagsRendered}"
             '';
           })
         else cfg.package;
