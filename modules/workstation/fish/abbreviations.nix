@@ -5,7 +5,6 @@
       hash = "sha256sum";
       copy = "wl-copy";
       paste = "wl-paste";
-      page = "$PAGER";
       open = "xdg-open";
       size = "du -sh";
       "-" = "cd -";

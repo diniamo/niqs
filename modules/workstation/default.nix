@@ -31,7 +31,7 @@
     ./thunar.nix
     ./services.nix
     ./mobile.nix
-    ./less.nix
+    ./moar.nix
     ./zoxide.nix
     ./direnv.nix
     ./nix-index.nix
