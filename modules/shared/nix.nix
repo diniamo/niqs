@@ -14,7 +14,7 @@ in {
       default-flake = nixpkgs;
       accept-flake-config = true;
       warn-dirty = false;
-      trusted-users = [ "root" "@wheel" ];
+      trusted-users = [ "@wheel" ];
       auto-optimise-store = true;
       builders-use-substitutes = true;
       log-lines = 25;
