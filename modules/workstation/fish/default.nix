@@ -19,6 +19,7 @@ in {
   programs.fish = {
     enable = true;
     useBabelfish = true;
+    extraCompletionPackages = config.user.packages;
   };
 
   user = {
