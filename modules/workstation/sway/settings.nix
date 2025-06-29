@@ -9,7 +9,7 @@
   librewolf = getExe custom.librewolf.finalPackage;
   grim = getExe pkgs.grim;
   slurp = getExe pkgs.slurp;
-  jaq = getExe pkgs.jaq;
+  jq = getExe pkgs.jq;
   swaymsg = getExe' config.programs.sway.package "swaymsg";
   wl-copy = getExe' pkgs.wl-clipboard "wl-copy";
   playerctl = getExe pkgs.playerctl;
@@ -69,8 +69,8 @@ in {
       bindsym Mod4+x exec ${scripts.logoutMenu}
 
       bindsym Control+Print exec ${grim} -g "$(${slurp})" - | ${wl-copy}
-      bindsym Mod1+Print exec ${grim} -g "$(${swaymsg} -t get_tree | ${jaq} -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
-      bindsym Print exec ${grim} -o "$(${swaymsg} -t get_outputs | ${jaq} -r '.[] | select(.focused) | .name')" - | ${wl-copy}
+      bindsym Mod1+Print exec ${grim} -g "$(${swaymsg} -t get_tree | ${jq} -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
+      bindsym Print exec ${grim} -o "$(${swaymsg} -t get_outputs | ${jq} -r '.[] | select(.focused) | .name')" - | ${wl-copy}
       bindsym Shift+Print exec ${grim} -g "$(${slurp})" - | ${getExe custom.swayimg.package} -
       bindsym Mod4+o exec ${getExe' pkgs.wl-clipboard "wl-paste"} | ${getExe custom.satty.finalPackage} -f -
       bindsym Mod4+c exec ${getExe pkgs.hyprpicker} --autocopy

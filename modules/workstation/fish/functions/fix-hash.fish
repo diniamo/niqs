@@ -2,7 +2,7 @@ function fix-hash --description 'extract required hash from a failing Nix comman
     set -f output (script --quiet --command "$argv" /dev/null &| tee /dev/stderr | string split0)
     echo
     if set -f hash (_extract_nix_hash $output)
-        rg --type nix '[hH]ash\s*=\s*""' --json | jaq --raw-output 'select(.type == "match") | "\(.data.path.text)	\(.data.line_number)"' | while read --delimiter '	' -l path line
+        rg --type nix '[hH]ash\s*=\s*""' --json | jq --raw-output 'select(.type == "match") | "\(.data.path.text)	\(.data.line_number)"' | while read --delimiter '	' -l path line
             set -fa paths $path
             set -fa lines $line
         end

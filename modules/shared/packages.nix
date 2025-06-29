@@ -13,7 +13,7 @@ in {
       ripgrep
       fd
       cht-sh
-      jaq
+      jq
       wget
       nix-tree
       sd
