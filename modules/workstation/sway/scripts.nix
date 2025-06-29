@@ -3,15 +3,18 @@
   inherit (pkgs) coreutils;
   inherit (pkgs.writers) writeDash writeBash;
 
+  inherit (config) custom;
+
   notify-send = getExe pkgs.libnotify;
   cat = getExe' coreutils "cat";
   date = getExe' coreutils "date";
   systemctl = getExe' pkgs.systemd "systemctl";
   loginctl = getExe' pkgs.systemd "loginctl";
+  swaymsg = getExe' config.programs.sway.package "swaymsg";
 in {
   notifyInformation = let
-    summary = optionalString config.custom.mobile.enable "\"$(${cat} /sys/class/power_supply/BAT0/capacity)% - $(${cat} /sys/class/power_supply/BAT0/status)\"";
-  in writeDash "notify-information" ''
+    summary = optionalString custom.mobile.enable "\"$(${cat} /sys/class/power_supply/BAT0/capacity)% - $(${cat} /sys/class/power_supply/BAT0/status)\"";
+  in writeDash "notify-information.sh" ''
     if [ -f /tmp/information-notification-id ]; then
       ${notify-send} --replace-id $(${cat} /tmp/information-notification-id) --icon time "$(${date} +%R)" ${summary}
     else
@@ -19,7 +22,7 @@ in {
     fi
   '';
 
-  toggleInhibitor = writeDash "toggle-inhibitor" ''
+  toggleInhibitor = writeDash "toggle-inhibitor.sh" ''
     if kill $(${cat} /tmp/manual-inhibitor-pid 2>/dev/null) 2>/dev/null; then
       rm /tmp/manual-inhibitor-pid
       ${notify-send} --urgency=low --icon=media-playback-start 'Idle uninhibited'
@@ -31,7 +34,7 @@ in {
     fi
   '';
 
-  logoutMenu = writeBash "logout-menu" ''
+  logoutMenu = writeBash "logout-menu.sh" ''
     case "$(echo -en 'Suspend\0icon\x1fsleep\nShutdown\0icon\x1fsystem-shutdown\nReboot\0icon\x1fsystem-reboot\nWindows\0icon\x1fpreferences-system-windows\nLock\0icon\x1fsystem-lock-screen\nLogout\0icon\x1fsystem-log-out' | fuzzel --dmenu)" in
       Suspend) ${systemctl} suspend ;;
       Shutdown) ${systemctl} poweroff ;;

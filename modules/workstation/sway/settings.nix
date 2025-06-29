@@ -59,12 +59,15 @@ in {
         xcursor_theme ${style.cursor.name} ${style.cursor.sizeString}
       }
 
+      for_window [app_id="scratchpad"] move scratchpad; fullscreen; scratchpad show
+      bindsym Mod4+c exec ${swaymsg} scratchpad show || ${foot} --app-id=scratchpad
+      
       bindsym Mod4+Space exec ${getExe custom.fuzzel.finalPackage}
       bindsym Mod4+Return exec ${foot}
       bindsym Mod4+e exec ${getExe custom.emacs.finalPackage}
       bindsym Mod4+w exec ${librewolf}
 
-      bindsym Mod4+a exec ${scripts.notifyInformation}
+      bindsym Mod4+g exec ${scripts.notifyInformation}
       bindsym Mod4+i exec ${scripts.toggleInhibitor}
       bindsym Mod4+x exec ${scripts.logoutMenu}
 
@@ -73,7 +76,7 @@ in {
       bindsym Print exec ${grim} -o "$(${swaymsg} -t get_outputs | ${jq} -r '.[] | select(.focused) | .name')" - | ${wl-copy}
       bindsym Shift+Print exec ${grim} -g "$(${slurp})" - | ${getExe custom.swayimg.package} -
       bindsym Mod4+o exec ${getExe' pkgs.wl-clipboard "wl-paste"} | ${getExe custom.satty.finalPackage} -f -
-      bindsym Mod4+c exec ${getExe pkgs.hyprpicker} --autocopy
+      bindsym Mod4+p exec ${getExe pkgs.hyprpicker} --autocopy
 
       bindsym XF86AudioNext exec ${playerctl} next
       bindsym XF86AudioPrev exec ${playerctl} previous
@@ -89,8 +92,8 @@ in {
 
       bindsym Mod4+f fullscreen
       bindsym Mod4+q kill
-      bindsym Mod4+p sticky toggle
-      bindsym Mod4+s floating toggle
+      bindsym Mod4+a floating toggle
+      bindsym Mod4+s sticky toggle
 
       bindsym Mod4+0 workspace back_and_forth
       bindsym Mod4+1 workspace 1
