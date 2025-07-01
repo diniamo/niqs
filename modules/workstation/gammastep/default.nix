@@ -30,8 +30,13 @@ in {
       after = [ "graphical-session.target" ];
       wantedBy = [ "graphical-session.target" ];
       partOf = [ "graphical-session.target" ];
-      serviceConfig.ExecStart = getExe cfg.package
-        + optionalString (cfg.settings != null) " -c ${settingsFile}";
+      serviceConfig = {
+        ExecStart = getExe cfg.package
+          + optionalString (cfg.settings != null) " -c ${settingsFile}";
+        # May crash when the Wayland session exits,
+        # but we want to start it with the next session anyway.
+        Restart = "always";
+      };
     };
   };
 }
