@@ -249,11 +249,11 @@
         "wiremix": "wiremix"
       },
       "locked": {
-        "lastModified": 1751188785,
-        "narHash": "sha256-1xreJd2UvUl9ei5XKTJYAHqgPMVP0ythTP0B6jJ9S7A=",
+        "lastModified": 1751340392,
+        "narHash": "sha256-DaC8gNAn/xsj7J59L4V3L+31qYd3u9IIyh7q2ZwfIms=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "72a3fe30b929af82e3dabc9f86d1f5321c910620",
+        "rev": "2c570a37d95b1b989fca041d496d2fc05f963b49",
         "type": "github"
       },
       "original": {
