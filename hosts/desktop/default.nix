@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: let
+  inherit (lib) getExe';
+
+  swaymsg = getExe' config.programs.sway.package "swaymsg";
+in {
   imports = [ ./hardware.nix ];
 
   custom = {
@@ -7,8 +11,8 @@
     
     gaming = {
       enable = true;
-      extraStartCommands = "swaymsg output DP-1 adadptive_sync on";
-      extraEndCommands = "swaymsg output DP-1 adadptive_sync off";
+      extraStartCommands = "${swaymsg} output DP-1 adadptive_sync on";
+      extraEndCommands = "${swaymsg} output DP-1 adadptive_sync off";
     };
   };
 

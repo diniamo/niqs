@@ -5,7 +5,7 @@
 
   powerprofilesctl = getExe pkgs.power-profiles-daemon;
   notify-send = getExe pkgs.libnotify;
-  swaymsg = getExe' pkgs.sway "swaymsg";
+  swaymsg = getExe' config.programs.sway.package "swaymsg";
 
   startScript = writeDash "gamemode-start" ''
     ${powerprofilesctl} set performance
@@ -98,8 +98,8 @@ in {
     # which are imported when the graphical session starts
     systemd.user.services.gamemoded = {
       wantedBy = mkForce [];
-      partOf = [ "graphical-session.target" ];
       after = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
     };
   };
 }
