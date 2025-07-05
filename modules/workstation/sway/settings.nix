@@ -27,6 +27,7 @@ in {
 
       default_border pixel 1
       default_floating_border pixel 1
+      smart_borders on
 
       workspace_layout default
       workspace_auto_back_and_forth no
@@ -35,9 +36,10 @@ in {
       focus_follows_mouse yes
       focus_on_window_activation focus
 
-      smart_borders on
       for_window [shell="xwayland"] title_format "<i>%title</i>"
       for_window [floating] border pixel 1
+      for_window [app_id="thunar" title="File Operation Progress"] floating enable
+      for_window [app_id="thunar" title="Confirm to Replace files"] floating enable
 
       include ${style.matugen.templates.sway-colors.output}
 
