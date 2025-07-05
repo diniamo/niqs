@@ -30,7 +30,6 @@
 
   org-autolist
   org-roam
-  org-roam-timestamps
 
   (treesit-grammars.with-grammars (grammars: with grammars; [
     tree-sitter-nix
