@@ -1,14 +1,15 @@
 { lib, ... }: let
   inherit (lib) mkForce hasPrefix genAttrs mapAttrsToList mergeAttrsList;
+  inherit (lib.generators) toINI;
   inherit (builtins) filter;
 
-  browser = [ "librewolf.desktop" ];
-  documentViewer = [ "org.pwmt.zathura.desktop" ];
-  fileManager = [ "thunar.desktop" ];
-  archiver = [ "org.gnome.FileRoller.desktop" ];
-  editor = [ "emacs.desktop" ];
-  imageViewer = [ "swayimg.desktop" ];
-  mediaPlayer = [ "mpv.desktop" ];
+  browser = "librewolf.desktop";
+  documentViewer = "org.pwmt.zathura.desktop";
+  fileManager = "thunar.desktop";
+  archiver = "org.gnome.FileRoller.desktop";
+  editor = "emacs.desktop";
+  imageViewer = "swayimg.desktop";
+  mediaPlayer = "mpv.desktop";
 
   associations = {
     "text/html" = browser;
@@ -32,8 +33,8 @@
 
     "image/gif" = mediaPlayer;
 
-    "x-scheme-handler/spotify" = [ "spotify.desktop" ];
-    "x-scheme-handler/steam" = [ "steam.desktop" ];
+    "x-scheme-handler/spotify" = "spotify.desktop";
+    "x-scheme-handler/steam" = "steam.desktop";
   };
 
   groups = {
@@ -46,10 +47,17 @@
   mimeTypes = import ./mime-types.nix;
   withPrefix = prefix: filter (type: hasPrefix prefix type) mimeTypes;
   expanded = mergeAttrsList (mapAttrsToList (group: assocation: genAttrs (withPrefix group) (_: assocation)) groups);
+
+  mimeapps = toINI {} { "Default Applications" = expanded // associations; };
 in {
   xdg = {
     mime.defaultApplications = expanded // associations;
     menus.enable = mkForce false;
     autostart.enable = mkForce false;
+  };
+
+  home.files.".config/mimeapps.list" = {
+    name = "mimeapps.list";
+    text = mimeapps;
   };
 }
