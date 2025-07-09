@@ -10,7 +10,10 @@ in {
         font = "${font.name}:size=${font.sizeString}";
         selection-target = "clipboard";
         pad = "10x10 center";
+        resize-by-cells = false;
+        resize-keep-grid = false;
       };
+      bell.system = false;
       scrollback.lines = 10000;
       tweak.font-monospace-warn = false;
       cursor.style = "beam";
