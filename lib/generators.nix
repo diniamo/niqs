@@ -1,7 +1,8 @@
 { lib, lib', ... }: let
   inherit (lib) mapAttrsToList concatMapAttrsStringSep;
-  inherit (lib') attrsToLines toYesNoKV;
-  inherit (builtins) isBool isList isString concatStringsSep concatLists;
+  inherit (lib.types) attrsOf oneOf str bool int path float;
+  inherit (lib') attrsToLines iniAtom iniSection toYesNoKV;
+  inherit (builtins) isBool isString concatStringsSep concatLists;
 
   yesNoValue = value:
     if isBool value then
@@ -11,6 +12,9 @@
   concatColon = concatStringsSep ",";
 in {
   attrsToLines = concatMapAttrsStringSep "\n";
+  iniAtom = oneOf [ str path bool int float ];
+  iniSection = attrsOf iniAtom;
+  iniType = attrsOf iniSection;
   
   toYesNoKV = attrsToLines (name: value: if value == null then "" else "${name}=${yesNoValue value}");
   toYesNoINI = attrsToLines (profile: config: "[${profile}]\n${toYesNoKV config}");
@@ -32,9 +36,7 @@ in {
   toMangohudConf = attrsToLines (name: value:
     if isBool value then
       if value then name else "${name}=0"
-    else if isList value then
-      "${name}=${concatColon (map toString value)}"
-    else "${name}=${value}"
+    else "${name}=${toString value}"
   );
 
   toBtopConf = let

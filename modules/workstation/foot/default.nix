@@ -1,13 +1,12 @@
-{ lib, pkgs, config, ... }: let
+{ lib, lib', pkgs, config, ... }: let
   inherit (lib) mkEnableOption mkPackageOption mkOption mkIf;
   inherit (lib.types) package;
-  inherit (pkgs) symlinkJoin makeBinaryWrapper;
-
-  iniFormat = pkgs.formats.ini {};
+  inherit (lib') iniType toYesNoINI;
+  inherit (pkgs) writeText symlinkJoin makeBinaryWrapper;
 
   cfg = config.custom.foot;
 
-  settingsFile = iniFormat.generate "foot.ini" cfg.settings;
+  settingsFile = writeText "foot.ini" (toYesNoINI cfg.settings);
   wrapped = symlinkJoin {
     pname = "${cfg.package.pname}-wrapped";
     inherit (cfg.package) version meta;
@@ -35,7 +34,7 @@ in {
       };
 
       settings = mkOption {
-        type = iniFormat.type;
+        type = iniType;
         default = {};
         description = "Configuration passed using the `--config` flag.";
       };

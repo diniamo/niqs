@@ -1,7 +1,7 @@
 { lib, lib', pkgs, config, ... }: let
   inherit (lib) mkEnableOption mkPackageOption mkOption mkIf;
-  inherit (lib.types) attrsOf oneOf str bool int package nullOr path;
-  inherit (lib') toBtopConf;
+  inherit (lib.types) nullOr path;
+  inherit (lib') iniSection toBtopConf;
 
   cfg = config.custom.btop;
 in {
@@ -13,7 +13,7 @@ in {
       package = mkPackageOption pkgs "btop" {};
       
       settings = mkOption {
-        type = attrsOf (oneOf [ str bool int ]);
+        type = iniSection;
         default = {};
         description = "Configuration written to `.config/btop/btop.conf`.";
       };

@@ -1,7 +1,8 @@
-{ lib, config, ... }: let
+{ lib, lib', config, ... }: let
   inherit (lib) mkOption mkIf;
-  inherit (lib.types) attrsOf oneOf str bool int float path nullOr;
+  inherit (lib.types) nullOr path;
   inherit (lib.generators) toINI;
+  inherit (lib') iniSection;
 
   cfg = config.custom.style.gtk;
 
@@ -15,7 +16,7 @@ in {
   options = {
     custom.style.gtk = {
       settings = mkOption {
-        type = attrsOf (oneOf [ str bool int float ]);
+        type = iniSection;
         default = {};
         description = "Settings to write to `.config/gtk-{3,4}.0/settings.ini`.";
       };

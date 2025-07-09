@@ -1,7 +1,6 @@
 { lib, lib', pkgs, config, ... }: let
   inherit (lib) mkEnableOption mkPackageOption mkOption mkIf;
-  inherit (lib.types) attrsOf oneOf bool int float str path listOf either;
-  inherit (lib') toMangohudConf;
+  inherit (lib') iniSection toMangohudConf;
   inherit (pkgs.writers) writeText;
 
   cfg = config.custom.mangohud;
@@ -16,7 +15,7 @@ in {
       package = mkPackageOption pkgs "mangohud" {};
 
       settings = mkOption {
-        type = attrsOf (oneOf [ bool int float str path (listOf (either int str)) ]);
+        type = iniSection;
         default = {};
         description = "Configuration added to the MANGOHUD_CONFIG environment variable.";
       };

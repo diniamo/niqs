@@ -12,9 +12,9 @@ in {
         pad = "10x10 center";
       };
       scrollback.lines = 10000;
-      tweak.font-monospace-warn = "no";
+      tweak.font-monospace-warn = false;
       cursor.style = "beam";
-      mouse.hide-when-typing = "yes";
+      mouse.hide-when-typing = true;
     };
   };
 }

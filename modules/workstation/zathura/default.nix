@@ -1,7 +1,7 @@
 { lib, lib', pkgs, config, ... }: let
   inherit (lib) mkEnableOption mkPackageOption mkOption mkIf concatMapStringsSep replaceString;
-  inherit (lib.types) attrsOf oneOf int float str bool listOf package path;
-  inherit (lib') attrsToLines;
+  inherit (lib.types) listOf attrsOf package path str;
+  inherit (lib') iniSection attrsToLines;
   inherit (builtins) isString;
   inherit (pkgs) writeTextFile;
 
@@ -38,7 +38,7 @@ in {
       };
 
       set = mkOption {
-        type = attrsOf (oneOf [ int float str bool ]);
+        type = iniSection;
         default = {};
         description = "`set` commands.";
       };

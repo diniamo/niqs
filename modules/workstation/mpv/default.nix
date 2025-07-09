@@ -1,11 +1,10 @@
 { pkgs, lib, lib', config, ... }: let
   inherit (lib) mkEnableOption mkPackageOption mkOption types mkIf optional optionals;
-  inherit (lib.types) attrsOf nullOr oneOf str int bool float listOf either package;
-  inherit (lib') toYesNoKV toYesNoINI toSpaceKV toMpvScriptOpts;
+  inherit (lib.types) attrsOf nullOr listOf package str;
+  inherit (lib') iniAtom toYesNoKV toYesNoINI toSpaceKV toMpvScriptOpts;
   inherit (pkgs) writeText;
 
-  atom = oneOf [ str int bool float ];
-  settingsType = attrsOf (nullOr atom);
+  settingsType = attrsOf (nullOr iniAtom);
 
   cfg = config.custom.mpv;
 

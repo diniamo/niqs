@@ -1,7 +1,7 @@
 { lib, pkgs, config, lib', ... }: let
   inherit (lib) mkEnableOption mkPackageOption mkOption types mkIf getExe concatMapStringsSep;
-  inherit (lib.types) attrsOf oneOf str bool int listOf path;
-  inherit (lib') toYesNoINI;
+  inherit (lib.types) listOf path;
+  inherit (lib') iniType toYesNoINI;
   inherit (pkgs.writers) writeText;
 
   cfg = config.custom.dunst;
@@ -22,7 +22,7 @@ in {
         description = "Configuration files passed using the `-config` flag.";
       };
       settings = mkOption {
-        type = attrsOf (attrsOf (oneOf [ str bool int (listOf str) ]));
+        type = iniType;
         default = {};
         description = "Configuration added to {option}`custom.dunst.configFiles`.";
       };

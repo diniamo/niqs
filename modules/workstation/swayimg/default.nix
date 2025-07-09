@@ -1,7 +1,7 @@
 { lib, lib', pkgs, config, ... }: let
   inherit (lib) mkEnableOption mkPackageOption mkOption mkIf concatMapStringsSep;
-  inherit (lib.types) package listOf path attrsOf oneOf str int bool;
-  inherit (lib') toYesNoINI;
+  inherit (lib.types) package listOf path;
+  inherit (lib') iniType toYesNoINI;
   inherit (pkgs) symlinkJoin makeBinaryWrapper writeText;
 
   cfg = config.custom.swayimg;
@@ -43,7 +43,7 @@ in {
         description = "Configuration ";
       };
       settings = mkOption {
-        type = attrsOf (attrsOf (oneOf [ str int bool ]));
+        type = iniType;
         default = {};
         description = "Configuration passed using the `--config-file` flag.";
       };

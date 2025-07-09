@@ -1,7 +1,7 @@
 { lib, lib', pkgs, config, ... }: let
   inherit (lib) mkEnableOption mkPackageOption mkOption mkIf;
-  inherit (lib.types) package listOf path attrsOf oneOf str int bool;
-  inherit (lib') toFlagKV;
+  inherit (lib.types) package listOf path;
+  inherit (lib') iniSection toFlagKV;
   inherit (pkgs) runCommandLocal symlinkJoin makeBinaryWrapper;
 
   cfg = config.custom.swaylock;
@@ -48,7 +48,7 @@ in {
         description = "List of files to append to the config file.";
       };
       settings = mkOption {
-        type = attrsOf (oneOf [ str int bool ]);
+        type = iniSection;
         default = {};
         description = "Configuration passed using the `--config` flag.";
       };
