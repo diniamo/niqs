@@ -19,6 +19,7 @@ in {
       builders-use-substitutes = true;
       log-lines = 25;
       http-connections = 50;
+      download-buffer-size = 134217728;
       allow-import-from-derivation = false;
     };
 
