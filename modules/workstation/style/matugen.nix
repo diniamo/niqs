@@ -6,7 +6,7 @@
   cfg = config.custom.style.matugen;
   
   themes = pkgs.runCommandLocal "matugen-themes" {} ''
-    configFile=$(mktemp)
+    configFile="$(mktemp)"
     cat > $configFile <<EOF
     [config.custom_colors]
     ${attrsToLines (color: value: "${color} = '${value}'") cfg.colors}

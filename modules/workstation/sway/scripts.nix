@@ -10,20 +10,19 @@
   date = getExe' coreutils "date";
   systemctl = getExe' pkgs.systemd "systemctl";
   loginctl = getExe' pkgs.systemd "loginctl";
-  swaymsg = getExe' config.programs.sway.package "swaymsg";
 in {
   notifyInformation = let
     summary = optionalString custom.mobile.enable "\"$(${cat} /sys/class/power_supply/BAT0/capacity)% - $(${cat} /sys/class/power_supply/BAT0/status)\"";
   in writeDash "notify-information.sh" ''
     if [ -f /tmp/information-notification-id ]; then
-      ${notify-send} --replace-id $(${cat} /tmp/information-notification-id) --icon time "$(${date} +%R)" ${summary}
+      ${notify-send} --replace-id "$(${cat} /tmp/information-notification-id)" --icon time "$(${date} +%R)" ${summary}
     else
       ${notify-send} --print-id --icon time "$(${date} +%R)" ${summary} > /tmp/information-notification-id
     fi
   '';
 
   toggleInhibitor = writeDash "toggle-inhibitor.sh" ''
-    if kill $(${cat} /tmp/manual-inhibitor-pid 2>/dev/null) 2>/dev/null; then
+    if kill "$(${cat} /tmp/manual-inhibitor-pid 2>/dev/null)" 2>/dev/null; then
       rm /tmp/manual-inhibitor-pid
       ${notify-send} --urgency=low --icon=media-playback-start 'Idle uninhibited'
     else
