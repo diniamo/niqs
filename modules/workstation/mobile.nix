@@ -42,6 +42,14 @@ in {
         command = "${brightnessctl} get >/tmp/brightness; ${brightnessctl} set 5%";
         resume = "${brightnessctl} set \"$(${getExe' coreutils "cat"} /tmp/brightness || ${getExe' coreutils "echo"} -n 32%)\"";
       }];
+
+      mpv = {
+        # Disable all the high quality stuff for battery life
+        settings.profile = mkForce null;
+        profiles.anime = mkForce {
+          sub-visibility = true;
+        };
+      };
     };
   };
 }
