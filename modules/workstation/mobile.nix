@@ -40,7 +40,7 @@ in {
       swayidle.timeouts = [{
         time = 240;
         command = "${brightnessctl} get >/tmp/brightness; ${brightnessctl} set 5%";
-        resume = "${brightnessctl} set \"$(${getExe' coreutils "cat"} /tmp/brightness || ${getExe' coreutils "echo"} -n 32%)\"";
+        resume = "${brightnessctl} set \"$(${getExe' coreutils "cat"} /tmp/brightness || ${getExe' coreutils "echo"} -n 35%)\"";
       }];
 
       mpv = {
