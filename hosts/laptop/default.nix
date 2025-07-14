@@ -20,8 +20,6 @@ in {
     '';
   };
 
-  user.packages = [ pkgs.gmetronome ];
-
   networking.hostName = "${config.user.name}-LAPTOP";
   system.stateVersion = "24.05";
 }
