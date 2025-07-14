@@ -249,11 +249,11 @@
         "wiremix": "wiremix"
       },
       "locked": {
-        "lastModified": 1751340392,
-        "narHash": "sha256-DaC8gNAn/xsj7J59L4V3L+31qYd3u9IIyh7q2ZwfIms=",
+        "lastModified": 1752516553,
+        "narHash": "sha256-8YCKbTFdDnGH+5WNFT0rZCF6r5NnmbXZ/pl3Q1JOYRQ=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "2c570a37d95b1b989fca041d496d2fc05f963b49",
+        "rev": "388bed784f1b3cde5b861c9d0084e55839fea0a5",
         "type": "github"
       },
       "original": {
@@ -368,11 +368,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1750075097,
-        "narHash": "sha256-GkBLrI7FGV0B9L5N+1lzsc1u9xZGO89w8hXtWItfTU0=",
+        "lastModified": 1752516444,
+        "narHash": "sha256-ORMt0AxzmAtT3jYLfDrapuFjQxookDNqnn0mnyOghJo=",
         "owner": "diniamo",
         "repo": "nq",
-        "rev": "7e7f73f1d6279d7506b6094dfd11561f898f56ca",
+        "rev": "459ca15468b0e58d67963941204c0b15cdbf68ec",
         "type": "github"
       },
       "original": {
