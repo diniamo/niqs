@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }: let
-  inherit (lib) mkForce;
-in {
+{ config, pkgs, ... }: {
   imports = [ ./hardware.nix ];
 
   hardware = {
