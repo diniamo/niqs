@@ -9,23 +9,6 @@
   cfg = config.custom.jujutsu;
 
   settingsFile = tomlFormat.generate "jj-config.toml" cfg.settings;
-
-  gitWrapped = symlinkJoin {
-    pname = "git-wrapped";
-    inherit (git) version meta;
-
-    paths = [ git ];
-
-    nativeBuildInputs = [ makeBinaryWrapper ];
-    postBuild = ''
-      wrapProgram $out/bin/git \
-        ${optionalString (cfg.settings ? user.name) "--add-flags '-c user.name=\"${cfg.settings.user.name}\"'"} \
-        ${optionalString (cfg.settings ? user.email) "--add-flags '-c user.email=\"${cfg.settings.user.email}\"'"}
-    '';
-  };
-  gitFinal =
-    if cfg.settings ? user.name || cfg.settings ? user.email then gitWrapped
-    else git;
 in {
   imports = [ ./settings.nix ];
 
@@ -43,8 +26,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    custom.jujutsu.settings.git.executable-path = getExe gitFinal;
-
     user.packages = [ cfg.package ];
 
     home.files.".config/jj/config.toml" = mkIf (cfg.settings != {}) {

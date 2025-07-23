@@ -27,7 +27,7 @@ in {
       ui = {
         default-command = "status";
         diff-editor = ":builtin";
-        diff.tool = [ (getExe pkgs.difftastic) "--color=always" "$left" "$right" ];
+        diff-formatter = [ (getExe pkgs.difftastic) "--color=always" "$left" "$right" ];
         merge-editor = [ (getExe config.custom.emacs.finalPackage) "--eval" "(ediff-merge-files-with-ancestor \"$left\" \"$right\" \"$base\" nil \"$output\")" ];
       };
 

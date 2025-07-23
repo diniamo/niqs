@@ -46,11 +46,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1749987708,
-        "narHash": "sha256-CCHWxQjronLhyt5MB2bb2vgmOgvjYaIr2HNbmUmT+gw=",
+        "lastModified": 1752617148,
+        "narHash": "sha256-cSmxpzj5bNcMgfxJQiYwcwKjCrsTHxY+loRi+pzpFd4=",
         "owner": "bloxx12",
         "repo": "dix",
-        "rev": "a98f3cac20b2716d56114f85f97cf5e904c037d2",
+        "rev": "bd3dc008bb38e5bb294068add3289678916d93af",
         "type": "github"
       },
       "original": {
@@ -249,11 +249,11 @@
         "wiremix": "wiremix"
       },
       "locked": {
-        "lastModified": 1752516553,
-        "narHash": "sha256-8YCKbTFdDnGH+5WNFT0rZCF6r5NnmbXZ/pl3Q1JOYRQ=",
+        "lastModified": 1753303696,
+        "narHash": "sha256-g8Es6d6HIGlu7e9HU+IiSeGiLrS1UBjPTeNLIr8i1q0=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "388bed784f1b3cde5b861c9d0084e55839fea0a5",
+        "rev": "e6740ca546ffde3eb1e8eca7521662a1b7177597",
         "type": "github"
       },
       "original": {
@@ -321,11 +321,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1749285348,
-        "narHash": "sha256-frdhQvPbmDYaScPFiCnfdh3B/Vh81Uuoo0w5TkWmmjU=",
+        "lastModified": 1752950548,
+        "narHash": "sha256-NS6BLD0lxOrnCiEOcvQCDVPXafX1/ek1dfJHX1nUIzc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+        "rev": "c87b95e25065c028d31a94f06a62927d18763fdf",
         "type": "github"
       },
       "original": {
@@ -337,11 +337,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1751186798,
-        "narHash": "sha256-3s3DOAcj3p96MaxtHzt2QfRq0mohdrJHQstXFS7PXlc=",
+        "lastModified": 1753349683,
+        "narHash": "sha256-SbMNEsQdxfoNZ0bUfqmxDGJxPQxERRXtzRgJVyB+WvQ=",
         "owner": "diniamo",
         "repo": "nixpkgs",
-        "rev": "1b03df0af951b2ddb9bce89c937d27f36727720f",
+        "rev": "ad6424fab50222f44922242d9a1470b21ce2f55b",
         "type": "github"
       },
       "original": {
@@ -368,11 +368,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1752516444,
-        "narHash": "sha256-ORMt0AxzmAtT3jYLfDrapuFjQxookDNqnn0mnyOghJo=",
+        "lastModified": 1752856188,
+        "narHash": "sha256-xkn5KqAm7E7A7e5pvVdROLUH1/f8g3f9HkNTd5qeMFM=",
         "owner": "diniamo",
         "repo": "nq",
-        "rev": "459ca15468b0e58d67963941204c0b15cdbf68ec",
+        "rev": "ddf892572d61d886214ddca27312be759d9c699b",
         "type": "github"
       },
       "original": {

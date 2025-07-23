@@ -23,8 +23,6 @@
       private_browsing = true;
     }) extensionsPrivate;
   };
-  # This is needed since the LibreWolf policies would always override the ones passed to extraPolicies (see nixpkgs Firefox wrapper)
-  policiesFiles = [ (pkgs.writeText "policy-overrides.json" (toJSON {inherit policies;})) ];
 
   extraMakeWrapperArgs = [
     # For libva
@@ -52,7 +50,7 @@ in {
 
   config = {
     custom.librewolf.finalPackage = (package.override {
-      extraPoliciesFiles = package.unwrapped.extraPoliciesFiles ++ policiesFiles;
+      extraPolicies = policies;
       extraPrefs = jsPrefs;
     }).overrideAttrs (prev: {
       makeWrapperArgs = prev.makeWrapperArgs ++ extraMakeWrapperArgs;

@@ -35,5 +35,6 @@
     ./zoxide.nix
     ./direnv.nix
     ./nix-index.nix
+    ./git.nix
   ];
 }
