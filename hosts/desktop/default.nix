@@ -14,6 +14,12 @@ in {
       extraStartCommands = "${swaymsg} output DP-1 adadptive_sync on";
       extraEndCommands = "${swaymsg} output DP-1 adadptive_sync off";
     };
+
+    mpv.profiles.anime = {
+      # 15-15 GiB
+      demuxer-max-bytes = 16106127360;
+      demuxer-max-back-bytes = 16106127360;
+    };
   };
 
   hardware.opentabletdriver.enable = true;

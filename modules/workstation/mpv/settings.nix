@@ -40,9 +40,9 @@
     };
 
     profiles.anime = {
+      profile = "high-quality";
       sub-visibility = true;
 
-      profile = "high-quality";
       vo = "gpu-next";
       gpu-api = "vulkan";
 
