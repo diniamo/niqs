@@ -14,6 +14,7 @@
   # Don't clear cookies and history
   "privacy.clearOnShutdown_v2.cache" = false;
   "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+  "privacy.sanitize.sanitizeOnShutdown" = false;
   # Everything is saved anyway, not a huge deal if I misclick
   "browser.warnOnQuit" = false;
   "browser.warnOnQuitShortcut" = false;
