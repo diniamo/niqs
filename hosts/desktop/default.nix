@@ -25,7 +25,7 @@ in {
   hardware.opentabletdriver.enable = true;
 
   user.packages = with pkgs; [
-    qbittorrent
+    transmission_4-gtk
     anki
     krita
   ];
