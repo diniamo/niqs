@@ -38,8 +38,9 @@ in {
 
       for_window [shell="xwayland"] title_format "<i>%title</i>"
       for_window [floating] border pixel 1
-      for_window [app_id="thunar" title="File Operation Progress"] floating enable
-      for_window [app_id="thunar" title="Confirm to Replace files"] floating enable
+      for_window [app_id="thunar" title="^File Operation Progress$"] floating enable
+      for_window [app_id="thunar" title="^Confirm to Replace files$"] floating enable
+      for_window [app_id="thunar" title="^Rename.*$"] floating enable
 
       include ${style.matugen.templates.sway-colors.output}
 
