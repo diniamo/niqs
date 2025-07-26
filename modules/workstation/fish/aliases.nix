@@ -1,6 +1,6 @@
 {
   programs.fish.shellAliases = {
-    rm = "gtrash put";
+    tm = "gtrash put";
     cat = "bat --style=plain";
 
     ls = "eza --git --icons --group-directories-first";
