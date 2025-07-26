@@ -1,11 +1,15 @@
-{ config, lib, ... }: let
+{ config, lib, pkgs, ... }: let
   cfg = config.custom.style;
   inherit (cfg.matugen) templates;
 
+  gtkTheme = if cfg.dark then "adw-gtk3-dark" else "adw-gtk3";
   regularFont = "${cfg.fonts.regular.name} ${cfg.fonts.regular.sizeString}";
-
-  gtkTheme = "adw-gtk3";
 in {
+  environment = {
+    systemPackages = [ pkgs.adw-gtk3 ];
+    sessionVariables.GTK_THEME = gtkTheme;
+  };
+
   custom.style = {
     matugen.templates = {
       gtk3-colors.input = ./gtk3-colors.css;
@@ -27,8 +31,6 @@ in {
     };
   };
   
-  environment.sessionVariables.GTK_THEME = gtkTheme;
-
   programs.dconf = {
     enable = true;
 
