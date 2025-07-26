@@ -17,4 +17,8 @@
   # Everything is saved anyway, not a huge deal if I misclick
   "browser.warnOnQuit" = false;
   "browser.warnOnQuitShortcut" = false;
+  # Don't suggest engines in the search bar
+  "browser.urlbar.suggest.engines" = false;
+  # Don't focus the 3 dots when tabbing through search bar suggestions
+  "browser.urlbar.resultMenu.keyboardAccessible" = false;
 }
