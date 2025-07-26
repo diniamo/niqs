@@ -102,7 +102,7 @@ in {
       partOf = [ "graphical-session.target" ];
     };
     
-    home.files."Games/proton" = {
+    home.files."games/proton" = {
       name = "games-proton";
       text = toString pkgs.proton-ge-bin.steamcompattool;
     };

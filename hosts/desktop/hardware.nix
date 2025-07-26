@@ -19,7 +19,7 @@ in {
       device = "/dev/disk/by-uuid/5a6043ab-f673-4390-98b9-0aadabf1b1b5";
       fsType = "ext4";
     };
-    "/home/diniamo/Mount/hdd" = {
+    "/home/diniamo/mount/hdd" = {
       device = "/dev/disk/by-uuid/afe93474-13ab-4cef-9fe4-7158f735f0fa";
       fsType = "ext4";
     };
