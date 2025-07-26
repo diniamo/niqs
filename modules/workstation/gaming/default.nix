@@ -101,5 +101,10 @@ in {
       after = [ "graphical-session.target" ];
       partOf = [ "graphical-session.target" ];
     };
+    
+    home.files."Games/proton" = {
+      name = "games-proton";
+      text = toString pkgs.proton-ge-bin.steamcompattool;
+    };
   };
 }
