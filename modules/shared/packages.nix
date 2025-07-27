@@ -21,4 +21,13 @@ in {
       flakePkgs.niqspkgs.nq-patched
     ];
   };
+
+  nixpkgs.overlays = [(final: prev: let
+    inherit (final) emptyDirectory;
+  in {
+    nixos-rebuild-ng = emptyDirectory // {
+      override = _: emptyDirectory;
+      overrideAttrs = _: emptyDirectory;
+    };
+  })];
 }
