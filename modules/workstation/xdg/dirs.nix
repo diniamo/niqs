@@ -10,5 +10,8 @@ in {
     XDG_PUBLICSHARE_DIR = "${home}/public";
     XDG_TEMPLATES_DIR = "${home}/templates";
     XDG_VIDEOS_DIR = "${home}/videos";
+
+    GOPATH = "${home}/.local/share/go";
+    CUDA_CACHE_PATH = "${home}/.cache/nv";
   };
 }
