@@ -6,5 +6,5 @@
   "sponsorBlocker@ajay.app" = "sponsorblock";
   "@hideyoutubecontrolls" = "hide-youtube-controls";
   # "firefox@tampermonkey.net" = "tampermonkey";
-  "myallychou@gmail.com" = "youtube-recommended-videos";
+  "{c607c8df-14a7-4f28-894f-29e8722976af}" = "temporary-containers";
 }
