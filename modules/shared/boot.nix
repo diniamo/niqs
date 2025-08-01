@@ -24,10 +24,7 @@ in {
 
       lanzaboote = {
         enable = cfg.secure;
-        # That --yes-this-might-brick-my-machine flag is scary
-        # do it manually with the --microsoft flag (not only when dual booting windows)
-        enrollKeys = false;
-        pkiBundle = "/etc/secureboot";
+        pkiBundle = "/var/lib/sbctl";
       };
     };
   };
