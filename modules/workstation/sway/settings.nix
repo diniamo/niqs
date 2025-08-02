@@ -3,7 +3,7 @@
 
   inherit (config) custom;
   inherit (custom) style;
-  
+
   scripts = import ./scripts.nix { inherit pkgs flakePkgs lib config; };
   foot = getExe custom.foot.finalPackage;
   librewolf = getExe custom.librewolf.finalPackage;
@@ -38,9 +38,9 @@ in {
 
       for_window [shell="xwayland"] title_format "<i>%title</i>"
       for_window [floating] border pixel 1
-      for_window [app_id="thunar" title="^File Operation Progress$"] floating enable
-      for_window [app_id="thunar" title="^Confirm to Replace files$"] floating enable
-      for_window [app_id="thunar" title="^Rename.*$"] floating enable
+      for_window [app_id="Thunar" title="^File Operation Progress$"] floating enable
+      for_window [app_id="Thunar" title="^Confirm to Replace files$"] floating enable
+      for_window [app_id="Thunar" title="^Rename.*$"] floating enable
 
       include ${style.matugen.templates.sway-colors.output}
 
@@ -64,7 +64,7 @@ in {
 
       for_window [app_id="scratchpad"] move scratchpad; fullscreen; scratchpad show
       bindsym Mod4+c exec ${swaymsg} scratchpad show || ${foot} --app-id=scratchpad
-      
+
       bindsym Mod4+Space exec ${getExe custom.fuzzel.finalPackage}
       bindsym Mod4+Return exec ${foot}
       bindsym Mod4+e exec ${getExe custom.emacs.finalPackage}
