@@ -4,14 +4,14 @@
   inherit (pkgs.writers) writeDash;
 
   packages = import ./packages.nix { inherit (flakePkgs.niqspkgs) tree-sitter-odin; };
-  
+
   extraPath = with pkgs; [
     perl # For magit
     hunspell
-    
+
     flakePkgs.niqspkgs.my-cookies # For leetcode
   ];
-  
+
   hunspellDicts = with pkgs.hunspellDicts; [ en-us hu-hu ];
 
   overrides = final: prev: {
@@ -20,7 +20,7 @@
       version = inputs.odin-ts-mode.lastModifiedDate;
       src = inputs.odin-ts-mode.outPath;
     };
-    
+
     org-autolist = prev.org-autolist.overrideAttrs {
       patches = [ ./org-autolist-new-paragraph.patch ];
     };
@@ -37,7 +37,7 @@
     "--set" "DICPATH" (makeSearchPath "share/hunspell" hunspellDicts)
     "--prefix" "PATH" ":" (makeBinPath extraPath)
   ];
-  
+
   cfg = config.custom.emacs;
 in {
   options = {
@@ -57,8 +57,12 @@ in {
         "wrapProgramBinary $out/bin/$progname ${escapeShellArgs makeWrapperArgs}"
         prev.buildCommand;
     });
-    
+
     user.packages = [ cfg.finalPackage ];
+    home.files = {
+      ".config/emacs/init.el".source = ./init.el;
+      ".config/emacs/early-init.el".source = ./early-init.el;
+    };
     environment.sessionVariables.EDITOR = writeDash "emacs-nw.sh" "${getExe cfg.finalPackage} -nw \"$@\"";
   };
 }
