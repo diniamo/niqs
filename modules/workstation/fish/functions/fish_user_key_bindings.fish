@@ -1,6 +1,7 @@
 function fish_user_key_bindings
     bind ctrl-shift-backspace kill-whole-line
     bind ctrl-alt-_ redo
+    bind ctrl-z fg
 
     bind alt-n history-prefix-search-forward
     bind alt-p history-prefix-search-backward
