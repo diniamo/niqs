@@ -150,8 +150,8 @@ in {
 
       exec ${librewolf}
 
-      exec ${getExe' pkgs.dbus "dbus-update-activation-environment"} --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-      exec ${systemctl} --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+      exec ${getExe' pkgs.dbus "dbus-update-activation-environment"} --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP PATH
+      exec ${systemctl} --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP PATH
       exec ${systemctl} --user start sway-session.target
       exec ${swaymsg} --type subscribe '["shutdown"]' && systemctl --user stop sway-session.target
     '';
