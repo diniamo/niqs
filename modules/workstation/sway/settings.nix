@@ -64,7 +64,7 @@ in {
       }
 
       for_window [app_id="scratchpad"] move scratchpad; fullscreen; scratchpad show
-      bindsym Mod4+c exec ${swaymsg} scratchpad show || ${foot} --app-id=scratchpad
+      bindsym Mod4+n exec ${swaymsg} scratchpad show || ${foot} --app-id=scratchpad
 
       bindsym Mod4+Space exec ${getExe custom.fuzzel.finalPackage}
       bindsym Mod4+Return exec ${foot}
@@ -73,13 +73,14 @@ in {
       bindsym Mod4+g exec ${scripts.notifyInformation}
       bindsym Mod4+i exec ${scripts.toggleInhibitor}
       bindsym Mod4+x exec ${scripts.logoutMenu}
+      bindsym Mod4+s exec ${scripts.windowPicker}
 
       bindsym Control+Print exec ${grim} -g "$(${slurp})" - | ${wl-copy}
       bindsym Mod1+Print exec ${grim} -g "$(${swaymsg} -t get_tree | ${jq} -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
       bindsym Print exec ${grim} -o "$(${swaymsg} -t get_outputs | ${jq} -r '.[] | select(.focused) | .name')" - | ${wl-copy}
       bindsym Shift+Print exec ${grim} -g "$(${slurp})" - | ${getExe custom.swayimg.finalPackage} -
       bindsym Mod4+e exec ${getExe' pkgs.wl-clipboard "wl-paste"} | ${getExe custom.satty.finalPackage} -f -
-      bindsym Mod4+p exec ${getExe pkgs.hyprpicker} --autocopy
+      bindsym Mod4+c exec ${getExe pkgs.hyprpicker} --autocopy
 
       bindsym XF86AudioNext exec ${playerctl} next
       bindsym XF86AudioPrev exec ${playerctl} previous
@@ -96,7 +97,7 @@ in {
       bindsym Mod4+f fullscreen
       bindsym Mod4+q kill
       bindsym Mod4+a floating toggle
-      bindsym Mod4+s sticky toggle
+      bindsym Mod4+p sticky toggle
 
       bindsym Mod4+0 workspace back_and_forth
       bindsym Mod4+1 workspace 1

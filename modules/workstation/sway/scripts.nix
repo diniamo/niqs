@@ -43,4 +43,11 @@ in {
       Logout) ${loginctl} terminate-user "$USER" ;;
     esac
   '';
+
+  windowPicker = writeDash "pick-window.sh" ''
+    id="$(swaymsg --type get_tree |
+      jq --raw-output '.nodes[1:][].nodes[] | (.nodes + .floating_nodes)[] | recurse(.nodes[]) | select(.app_id and .name) | "\(.app_id) - \(.name)\t\(.id)"' |
+      fuzzel --dmenu --with-nth 1 --accept-nth 2)"
+    swaymsg "[con_id=$id] focus"
+  '';
 }
