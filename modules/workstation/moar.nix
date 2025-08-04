@@ -8,6 +8,7 @@
     "--no-linenumbers"
     "--statusbar=bold"
     "--style=catppuccin-macchiato"
+    "--quit-if-one-screen"
   ];
 
   wrapped = symlinkJoin {
