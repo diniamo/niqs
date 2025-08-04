@@ -36,6 +36,10 @@ in {
         )
       '';
 
+      revsets = {
+        log = "..";
+      };
+
       ui = {
         default-command = "status";
         diff-editor = ":builtin";
