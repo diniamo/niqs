@@ -1,14 +1,13 @@
 { pkgs, lib, config, ... }: {
   systemd.user.services.polkit-authentication-agent = {
     description = "PolicyKit Authentication Agent";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit";
-    };
+    serviceConfig.ExecStart = "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit";
     wantedBy = [ "graphical-session.target" ];
   };
 
   services = {
+    gnome.gnome-keyring.enable = true;
+
     greetd = {
       enable = true;
       restart = true;
