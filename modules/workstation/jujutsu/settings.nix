@@ -3,8 +3,13 @@
 in {
   custom.jujutsu = {
     enable = true;
-    
+
     settings = {
+      user = {
+        name = "diniamo";
+        email = "diniamo53@gmail.com";
+      };
+
       aliases = {
         tug = [ "bookmark" "move" "--from" "closest_bookmark(@-)" "--to" "@-" ];
         init = [ "git" "init" ];
@@ -19,24 +24,6 @@ in {
         "closest_bookmark(to)" = "heads(::to & bookmarks())";
       };
 
-      user = {
-        name = "diniamo";
-        email = "diniamo53@gmail.com";
-      };
-
-      ui = {
-        default-command = "status";
-        diff-editor = ":builtin";
-        diff-formatter = [ (getExe pkgs.difftastic) "--color=always" "$left" "$right" ];
-        merge-editor = [ (getExe config.custom.emacs.finalPackage) "--eval" "(ediff-merge-files-with-ancestor \"$left\" \"$right\" \"$base\" nil \"$output\")" ];
-      };
-
-      git = {
-        fetch = [ "upstream" "origin" ];
-        push = "origin";
-        push-new-bookmarks = true;
-      };
-
       templates.draft_commit_description = ''
         concat(
           coalesce(description, "\n"),
@@ -48,6 +35,19 @@ in {
           diff.git()
         )
       '';
+
+      ui = {
+        default-command = "status";
+        diff-editor = ":builtin";
+        diff-formatter = [ (getExe pkgs.difftastic) "--color=always" "$left" "$right" ];
+        merge-editor = [ (getExe pkgs.meld) "$left" "$base" "$right" "-o" "$output" ];
+      };
+
+      git = {
+        fetch = [ "upstream" "origin" ];
+        push = "origin";
+        push-new-bookmarks = true;
+      };
     };
   };
 }

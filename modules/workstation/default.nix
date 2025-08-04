@@ -6,7 +6,6 @@
     ./librewolf
     ./mpv
     ./fish
-    ./emacs
     ./dunst
     ./spotify-player
     ./fzf
@@ -24,6 +23,7 @@
     ./bat
     ./zathura
     ./foot
+    ./helix
 
     ./user.nix
     ./packages.nix

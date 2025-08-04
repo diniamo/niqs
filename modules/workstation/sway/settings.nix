@@ -36,11 +36,12 @@ in {
       focus_follows_mouse yes
       focus_on_window_activation focus
 
-      for_window [shell="xwayland"] title_format "<i>%title</i>"
+      for_window [shell="^xwayland$"] title_format "<i>%title</i>"
       for_window [floating] border pixel 1
-      for_window [app_id="Thunar" title="^File Operation Progress$"] floating enable
-      for_window [app_id="Thunar" title="^Confirm to Replace files$"] floating enable
-      for_window [app_id="Thunar" title="^Rename.*$"] floating enable
+      for_window [app_id="^Thunar$" title="^File Operation Progress$"] floating enable
+      for_window [app_id="^Thunar$" title="^Confirm to Replace files$"] floating enable
+      for_window [app_id="^Thunar$" title="^Rename.*$"] floating enable
+      for_window [app_id="^org\.gnome\.Meld$" title="^Meld$"] fullscreen enable
 
       include ${style.matugen.templates.sway-colors.output}
 
@@ -67,7 +68,6 @@ in {
 
       bindsym Mod4+Space exec ${getExe custom.fuzzel.finalPackage}
       bindsym Mod4+Return exec ${foot}
-      bindsym Mod4+e exec ${getExe custom.emacs.finalPackage}
       bindsym Mod4+w exec ${librewolf}
 
       bindsym Mod4+g exec ${scripts.notifyInformation}
@@ -78,7 +78,7 @@ in {
       bindsym Mod1+Print exec ${grim} -g "$(${swaymsg} -t get_tree | ${jq} -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
       bindsym Print exec ${grim} -o "$(${swaymsg} -t get_outputs | ${jq} -r '.[] | select(.focused) | .name')" - | ${wl-copy}
       bindsym Shift+Print exec ${grim} -g "$(${slurp})" - | ${getExe custom.swayimg.finalPackage} -
-      bindsym Mod4+o exec ${getExe' pkgs.wl-clipboard "wl-paste"} | ${getExe custom.satty.finalPackage} -f -
+      bindsym Mod4+e exec ${getExe' pkgs.wl-clipboard "wl-paste"} | ${getExe custom.satty.finalPackage} -f -
       bindsym Mod4+p exec ${getExe pkgs.hyprpicker} --autocopy
 
       bindsym XF86AudioNext exec ${playerctl} next

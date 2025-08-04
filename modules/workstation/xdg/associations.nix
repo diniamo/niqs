@@ -7,7 +7,7 @@
   documentViewer = "org.pwmt.zathura.desktop";
   fileManager = "thunar.desktop";
   archiver = "org.gnome.FileRoller.desktop";
-  editor = "emacs.desktop";
+  editor = "Helix.desktop";
   imageViewer = "swayimg.desktop";
   mediaPlayer = "mpv.desktop";
 

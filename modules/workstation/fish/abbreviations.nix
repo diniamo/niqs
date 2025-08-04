@@ -1,7 +1,6 @@
 {
   programs.fish = {
     shellAbbrs = {
-      e = "emacs -nw";
       hash = "sha256sum";
       copy = "wl-copy";
       paste = "wl-paste";

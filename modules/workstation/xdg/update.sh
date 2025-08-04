@@ -8,4 +8,4 @@ echo '[' > mime-types.nix
 sed "$out/share/mime/types" \
     -e 's/^/  "/' \
     -e 's/$/"/' >> mime-types.nix
-echo -n ']' >> mime-types.nix
+echo ']' >> mime-types.nix
