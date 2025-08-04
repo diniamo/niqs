@@ -18,6 +18,7 @@ in {
       auto-optimise-store = true;
       builders-use-substitutes = true;
       log-lines = 25;
+      print-build-logs = true;
       http-connections = 50;
       download-buffer-size = 134217728;
       allow-import-from-derivation = false;
