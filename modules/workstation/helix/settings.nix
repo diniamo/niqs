@@ -44,6 +44,7 @@
         "C-p" = "move_visual_line_up";
         "C-f" = "move_char_right";
         "C-space" = "completion";
+        "C-backspace" = "delete_word_backward";
       };
     };
 
