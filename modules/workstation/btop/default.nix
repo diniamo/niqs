@@ -11,7 +11,7 @@ in {
     custom.btop = {
       enable = mkEnableOption "btop";
       package = mkPackageOption pkgs "btop" {};
-      
+
       settings = mkOption {
         type = iniSection;
         default = {};
@@ -32,9 +32,9 @@ in {
     custom.btop.settings.color_theme = mkIf (cfg.theme != null) "nix";
 
     home.files = {
-      ".config/btop/btop.conf" = {
+      ".config/btop/btop.conf" = mkIf (cfg.settings != {}) {
         name = "btop.conf";
-        text = mkIf (cfg.settings != {}) (toBtopConf cfg.settings);
+        text = toBtopConf cfg.settings;
       };
       ".config/btop/themes/nix.theme" = mkIf (cfg.theme != null) {
         source = cfg.theme;
