@@ -23,6 +23,7 @@
     ./zathura
     ./foot
     ./helix
+    ./git
 
     ./user.nix
     ./packages.nix
@@ -34,6 +35,5 @@
     ./zoxide.nix
     ./direnv.nix
     ./nix-index.nix
-    ./git.nix
   ];
 }
