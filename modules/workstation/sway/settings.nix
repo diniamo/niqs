@@ -78,7 +78,7 @@ in {
       bindsym Control+Print exec ${grim} -g "$(${slurp})" - | ${wl-copy}
       bindsym Mod1+Print exec ${grim} -g "$(${swaymsg} -t get_tree | ${jq} -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
       bindsym Print exec ${grim} -o "$(${swaymsg} -t get_outputs | ${jq} -r '.[] | select(.focused) | .name')" - | ${wl-copy}
-      bindsym Shift+Print exec ${grim} -g "$(${slurp})" - | ${getExe custom.swayimg.finalPackage} -
+      bindsym Shift+Print exec ${grim} -g "$(${slurp})" - | ${getExe custom.imv.finalPackage} -
       bindsym Mod4+e exec ${getExe' pkgs.wl-clipboard "wl-paste"} | ${getExe custom.satty.finalPackage} -f -
       bindsym Mod4+c exec ${getExe pkgs.hyprpicker} --autocopy
 

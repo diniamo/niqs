@@ -1,33 +1,36 @@
-{ config, ... }: let
+{ lib, config, pkgs, ... }: let
+  inherit (lib) getExe;
+
   font = config.custom.style.fonts.regular;
 in {
-  custom.imv = {
-    enable = true;
+  custom = {
+    style.matugen.templates.imv-colors.input = ./colors;
 
-    settings = {
-      options = {
-        background = colors.base00;
-        overlay = false;
-        overlay_font = "${font.name}:${font.sizeString}";
-        overlay_text_color = colors.base05;
-        overlay_background_color = colors.base00;
-        overlay_position_bottom = true;
+    imv = {
+      enable = true;
+
+      includes = [ (config.custom.style.matugen.templates.imv-colors.output) ];
+      settings = {
+        options = {
+          overlay_font = "${font.name}:${font.sizeString}";
+        };
+
+        binds = {
+          n = "next";
+          p = "prev";
+          ge = "goto -1";
+
+          i = "overlay";
+          c = "center; reset";
+
+          "<greater>" = "rotate by 90";
+          "<less>" = "rotate by -90";
+          "<BackSpace>" = "rotate to 0";
+
+          d = "exec ${getExe pkgs.dragon-drop} \"$imv_current_file\"";
+          "<Delete>" = "exec ${getExe pkgs.gtrash} put \"$imv_current_file\"; close";
+        };
       };
-
-      # binds = {
-      #   r = "rotate by 90";
-      #   "<Shift+R>" = "rotate by -90";
-      #   "<Ctrl+R>" = "rotate to 0";
-
-      #   x = "close";
-
-      #   d = "exec gtrash put \"$imv_current_file\"; close";
-      #   "<Shift+D>" = "exec rm \"$imv_current_file\"; close";
-      #   "<Delete>" = "exec rm \"$imv_current_file\"; close";
-
-      #   i = "overlay";
-      #   n = "center; reset";
-      # };
     };
   };
 }

@@ -8,7 +8,7 @@
   fileManager = "thunar.desktop";
   archiver = "org.gnome.FileRoller.desktop";
   editor = "Helix.desktop";
-  imageViewer = "swayimg.desktop";
+  imageViewer = "imv.desktop";
   mediaPlayer = "mpv.desktop";
 
   associations = {

@@ -11,8 +11,7 @@
     ./fzf
     ./mangohud
     ./btop
-    # ./imv
-    ./swayimg
+    ./imv
     ./satty
     ./fuzzel
     ./sway

@@ -1,7 +1,6 @@
 { flakePkgs, ... }: let
   niqspkgs = _: _:
     with flakePkgs.niqspkgs; {
-      swayimg = swayimg-git;
       nix = nix-patched;
       comma = comma-patched;
       nix-output-monitor = nom-patched;
@@ -9,6 +8,7 @@
       sway-unwrapped = sway-unwrapped-git;
       bat = bat-patched;
       zoxide = zoxide-patched;
+      imv = imv-diniamo;
     };
 in {
   nixpkgs.overlays = [ niqspkgs ];

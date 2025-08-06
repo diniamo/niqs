@@ -1,16 +1,20 @@
-{ lib, pkgs, config, ... }: let
-  inherit (lib) mkEnableOption mkPackageOption mkOption mkIf;
-  inherit (lib.types) package;
+{ lib, lib', pkgs, config, ... }: let
+  inherit (lib) mkEnableOption mkPackageOption mkOption mkIf concatMapStringsSep;
+  inherit (lib.types) package listOf path;
+  inherit (lib') iniType toYesNoINI;
   inherit (pkgs) symlinkJoin makeBinaryWrapper;
-
-  iniFormat = pkgs.formats.ini {};
+  inherit (pkgs.writers) writeText;
 
   cfg = config.custom.imv;
 
-  settingsFile = iniFormat.generate "imv_config" cfg.settings;
+  settingsFile = writeText "imv-config" ''
+    ${concatMapStringsSep "\n" (include: "include='${include}'") cfg.includes}
+    ${toYesNoINI cfg.settings}
+  '';
+
   wrapped = symlinkJoin {
     pname = "${cfg.package.pname}-wrapped";
-    inherit (cfg.package) version meta;
+    inherit (cfg.package) version man meta;
 
     paths = [ cfg.package ];
 
@@ -26,7 +30,7 @@ in {
   options = {
     custom.imv = {
       enable = mkEnableOption "imv";
-      
+
       package = mkPackageOption pkgs "imv" {};
       finalPackage = mkOption {
         type = package;
@@ -34,8 +38,13 @@ in {
         description = "The wrapped imv package.";
       };
 
+      includes = mkOption {
+        type = listOf path;
+        default = [];
+        description = "Additional configuration files to load.";
+      };
       settings = mkOption {
-        type = iniFormat.type;
+        type = iniType;
         default = {};
         description = "Configuration passed using the imv_config environment variable.";
       };
