@@ -15,6 +15,7 @@
   playerctl = getExe pkgs.playerctl;
   wpctl = getExe' pkgs.wireplumber "wpctl";
   systemctl = getExe' config.systemd.package "systemctl";
+  swtchr = getExe flakePkgs.niqspkgs.swtchr;
 in {
   custom = {
     style.matugen.templates.sway-colors.input = ./colors;
@@ -63,9 +64,6 @@ in {
         xcursor_theme ${style.cursor.name} ${style.cursor.sizeString}
       }
 
-      for_window [app_id="scratchpad"] move scratchpad; fullscreen; scratchpad show
-      bindsym Mod4+n exec ${swaymsg} scratchpad show || ${foot} --app-id=scratchpad
-
       bindsym Mod4+Space exec ${getExe custom.fuzzel.finalPackage}
       bindsym Mod4+Return exec ${foot}
       bindsym Mod4+w exec ${librewolf}
@@ -73,7 +71,11 @@ in {
       bindsym Mod4+g exec ${scripts.notifyInformation}
       bindsym Mod4+i exec ${scripts.toggleInhibitor}
       bindsym Mod4+x exec ${scripts.logoutMenu}
-      bindsym Mod4+s exec ${scripts.windowPicker}
+
+      exec ${getExe' flakePkgs.niqspkgs.swtchr "swtchrd"}
+      mode swtchr bindsym Escape mode default
+      bindsym Mod4+Tab mode swtchr; exec ${swtchr}
+      bindsym Mod4+Shift+Tab mode swtchr; exec ${swtchr}
 
       bindsym Control+Print exec ${grim} -g "$(${slurp})" - | ${wl-copy}
       bindsym Mod1+Print exec ${grim} -g "$(${swaymsg} -t get_tree | ${jq} -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
@@ -97,7 +99,7 @@ in {
       bindsym Mod4+f fullscreen
       bindsym Mod4+q kill
       bindsym Mod4+a floating toggle
-      bindsym Mod4+p sticky toggle
+      bindsym Mod4+s sticky toggle
 
       bindsym Mod4+0 workspace back_and_forth
       bindsym Mod4+1 workspace 1
@@ -131,8 +133,8 @@ in {
       bindsym Mod4+k focus up
       bindsym Mod4+l focus right
       bindsym Mod4+u focus parent
-      bindsym Mod4+Tab focus next sibling
-      bindsym Mod4+Shift+Tab focus prev sibling
+      bindsym Mod4+n focus next sibling
+      bindsym Mod4+p focus prev sibling
 
       bindsym Mod4+Control+h resize shrink width 50 px
       bindsym Mod4+Control+j resize grow height 50 px
