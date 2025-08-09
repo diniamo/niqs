@@ -27,7 +27,7 @@ in {
           "<less>" = "rotate by -90";
           "<BackSpace>" = "rotate to 0";
 
-          d = "exec ${getExe pkgs.dragon-drop} \"$imv_current_file\"";
+          d = "exec ${getExe pkgs.dragon-drop} --and-exit \"$imv_current_file\"";
           "<Delete>" = "exec ${getExe pkgs.gtrash} put \"$imv_current_file\"; close";
         };
       };
