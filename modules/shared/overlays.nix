@@ -9,6 +9,7 @@
       bat = bat-patched;
       zoxide = zoxide-patched;
       imv = imv-diniamo;
+      direnv = direnv-patched;
     };
 in {
   nixpkgs.overlays = [ niqspkgs ];
