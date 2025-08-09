@@ -1,23 +1,20 @@
 { lib, lib', ... }: let
   inherit (lib) mapAttrsToList concatMapAttrsStringSep;
   inherit (lib.types) attrsOf oneOf str bool int path float;
-  inherit (lib') attrsToLines iniAtom iniSection toYesNoKV;
+  inherit (lib') attrsToLines iniAtom iniSection toKV toINI;
   inherit (builtins) isBool isString concatStringsSep concatLists;
 
-  yesNoValue = value:
-    if isBool value then
-      if value then "yes" else "no"
-    else toString value;
-  
+  yesNoBool = bool: if bool then "yes" else "no";
+
   concatColon = concatStringsSep ",";
 in {
   attrsToLines = concatMapAttrsStringSep "\n";
   iniAtom = oneOf [ str path bool int float ];
   iniSection = attrsOf iniAtom;
   iniType = attrsOf iniSection;
-  
-  toYesNoKV = attrsToLines (name: value: if value == null then "" else "${name}=${yesNoValue value}");
-  toYesNoINI = attrsToLines (profile: config: "[${profile}]\n${toYesNoKV config}");
+
+  toKV = boolValue: attrsToLines (name: value: if value == null then "" else "${name}=${if isBool value then boolValue value else toString value}");
+  toYesNoKV = toKV yesNoBool;
   toSpaceKV = attrsToLines (name: command: "${name} ${command}");
   toFlagKV = attrsToLines (flag: value:
     if isBool value then
@@ -25,12 +22,15 @@ in {
     else "${flag}=${toString value}"
   );
 
+  toINI = boolValue: attrsToLines (section: values: "[${section}]\n${toKV boolValue values}");
+  toYesNoINI = toINI yesNoBool;
+
   toMpvScriptOpts = scriptOpts: let
     opts = concatLists (mapAttrsToList (namespace: opts:
-      mapAttrsToList (name: value: "${namespace}-${name}=${yesNoValue value}") opts
+      mapAttrsToList (name: value: "${namespace}-${name}=${if isBool value then yesNoBool value else toString value}") opts
     ) scriptOpts);
   in concatColon opts;
-  
+
   toFzfColorFlagValue = colors: concatColon (mapAttrsToList (name: value: "${name}:${value}") colors);
 
   toMangohudConf = attrsToLines (name: value:

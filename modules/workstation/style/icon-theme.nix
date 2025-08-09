@@ -1,6 +1,6 @@
 { lib, config, ... }: let
   inherit (lib) mkOption;
-  inherit (lib.types) str package;
+  inherit (lib.types) str package listOf;
 
   cfg = config.custom.style.iconTheme;
 in {
@@ -14,6 +14,11 @@ in {
       package = mkOption {
         type = package;
         description = "The package providing the icon theme.";
+      };
+
+      path = mkOption {
+        type = listOf str;
+        description = "The directory paths to search for icons.";
       };
     };
   };

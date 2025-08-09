@@ -10,6 +10,7 @@
       zoxide = zoxide-patched;
       imv = imv-diniamo;
       direnv = direnv-patched;
+      mako = mako-patched;
     };
 in {
   nixpkgs.overlays = [ niqspkgs ];

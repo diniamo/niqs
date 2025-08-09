@@ -1,0 +1,13 @@
+background-color={{colors.surface.default.hex}}
+text-color={{colors.on_surface.default.hex}}
+border-color={{colors.primary.default.hex}}
+progress-color={{colors.tertiary.default.hex}}
+
+[actionable]
+background-color={{colors.surface_bright.default.hex}}
+
+[urgency=low]
+border-color={{colors.secondary.default.hex}}
+
+[urgency=critical]
+border-color={{colors.error.default.hex}}

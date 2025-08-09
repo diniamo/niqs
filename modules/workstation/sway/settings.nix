@@ -16,6 +16,8 @@
   wpctl = getExe' pkgs.wireplumber "wpctl";
   systemctl = getExe' config.systemd.package "systemctl";
   swtchr = getExe flakePkgs.niqspkgs.swtchr;
+  fuzzel = getExe custom.fuzzel.finalPackage;
+  makoctl = getExe' custom.mako.package "makoctl";
 in {
   custom = {
     style.matugen.templates.sway-colors.input = ./colors;
@@ -64,13 +66,16 @@ in {
         xcursor_theme ${style.cursor.name} ${style.cursor.sizeString}
       }
 
-      bindsym Mod4+Space exec ${getExe custom.fuzzel.finalPackage}
+      bindsym Mod4+Space exec ${fuzzel}
       bindsym Mod4+Return exec ${foot}
       bindsym Mod4+w exec ${librewolf}
 
       bindsym Mod4+g exec ${scripts.notifyInformation}
       bindsym Mod4+i exec ${scripts.toggleInhibitor}
       bindsym Mod4+x exec ${scripts.logoutMenu}
+
+      bindsym Mod4+BackSpace exec ${makoctl} dismiss
+      bindsym Mod4+o exec ${makoctl} menu -- ${fuzzel} --dmenu --placeholder 'Select action'
 
       exec ${getExe' flakePkgs.niqspkgs.swtchr "swtchrd"}
       mode swtchr bindsym Escape mode default

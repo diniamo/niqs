@@ -6,7 +6,7 @@
     ./librewolf
     ./mpv
     ./fish
-    ./dunst
+    ./mako
     ./spotify-player
     ./fzf
     ./mangohud

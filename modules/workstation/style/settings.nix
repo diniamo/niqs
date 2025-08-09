@@ -1,10 +1,12 @@
 { pkgs, inputs, config, ... }: let
-  inherit (config.custom.style) dark wallpaper cursor;
+  inherit (config.custom.style) dark wallpaper cursor iconTheme;
+
+  papirus = pkgs.papirus-icon-theme;
 in {
   custom.style = {
     dark = true;
     wallpaper = "${inputs.wallpapers}/miles.png";
-    
+
     fonts = {
       regular = {
         name = "Inter";
@@ -33,9 +35,14 @@ in {
 
     iconTheme = {
       name = "Papirus-${if dark then "Dark" else "Light"}";
-      package = pkgs.papirus-icon-theme;
+      package = papirus;
+      path = [
+        "${papirus}/share/icons/${iconTheme.name}"
+        "${papirus}/share/icons/${if dark then "breeze-dark" else "breeze"}"
+        "${papirus}/share/icons/hicolor"
+      ];
     };
-    
+
     matugen = {
       image = wallpaper;
       mode = if dark then "dark" else "light";
