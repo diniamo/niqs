@@ -16,7 +16,7 @@ in {
       };
     };
   };
-  
+
   config = {
     programs.sway = {
       enable = true;
@@ -30,6 +30,7 @@ in {
     };
 
     environment.sessionVariables = {
+      WLR_RENDERER = "vulkan";
       SDL_VIDEODRIVER = "wayland,x11,windows";
       QT_QPA_PLATFORM = "wayland;xcb";
       GDK_BACKEND = "wayland";
