@@ -16,7 +16,7 @@
       ${getExe' pkgs.systemd "systemd-inhibit"} --what=idle --who=Gamemode --why='Game open' ${getExe' pkgs.coreutils "sleep"} infinity
     ${cfg.extraStartCommands}
 
-    ${notify-send} --urgency=low --app-name='Gamemode' --icon=input-gaming 'Optimizations activated'
+    ${notify-send} --urgency low --app-name Gamemode --icon input-gaming --expire-time 1000 'Optimizations activated'
   '';
   endScript = writeDash "gamemode-end" ''
     ${powerprofilesctl} set balanced
@@ -25,7 +25,7 @@
     ${getExe' pkgs.util-linux "kill"} "$(${getExe' pkgs.coreutils "cat"} /tmp/gamemode-inhibitor-pid)"
     ${cfg.extraEndCommands}
 
-    ${notify-send} --urgency=low --app-name='Gamemode' --icon=system-shutdown 'Optimizations deactivated'
+    ${notify-send} --urgency low --app-name Gamemode --icon system-shutdown --expire-time 1000 'Optimizations deactivated'
   '';
 
   cfg = config.custom.gaming;
@@ -101,7 +101,7 @@ in {
       after = [ "graphical-session.target" ];
       partOf = [ "graphical-session.target" ];
     };
-    
+
     home.files."games/proton" = {
       name = "games-proton";
       text = toString pkgs.proton-ge-bin.steamcompattool;
