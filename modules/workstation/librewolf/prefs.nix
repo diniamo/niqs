@@ -22,4 +22,6 @@
   "browser.urlbar.suggest.engines" = false;
   # Don't focus the 3 dots when tabbing through search bar suggestions
   "browser.urlbar.resultMenu.keyboardAccessible" = false;
+  # Don't offer to translate every single website
+  "browser.translations.automaticallyPopup" = false;
 }
