@@ -8,7 +8,7 @@ in {
   custom = {
     boot.secure = true;
     nvidia.enable = true;
-    
+
     gaming = {
       enable = true;
       extraStartCommands = "${swaymsg} output DP-1 adadptive_sync on";
@@ -54,12 +54,11 @@ in {
 
     focus output DP-1
   '';
-  
+
   networking = {
     hostName = "${config.user.name}-PC";
-    firewall.allowedTCPPorts = [ 5300 5301 ];
+    firewall.allowedTCPPorts = [ 5300 ];
   };
-  
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+
   system.stateVersion = "23.11";
 }
