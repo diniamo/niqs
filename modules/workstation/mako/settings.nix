@@ -23,6 +23,7 @@ in {
         max-icon-size = 32;
         border-radius = 10;
         markup = false;
+        layer = "overlay";
       };
     };
   };
