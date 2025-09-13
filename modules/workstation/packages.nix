@@ -1,14 +1,11 @@
-{ pkgs, lib', flakePkgs, ... }: let
-  inherit (lib') wrapProgram;
-in {
+{ pkgs, flakePkgs, ... }: {
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # For electron apps
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   user.packages = with pkgs; with flakePkgs.niqspkgs; [
-    (wrapProgram pkgs { package = xdragon; args = [ "--add-flags" "--all --and-exit" ]; })
-
+    xdragon
     wl-clipboard
     spotify
     gtrash

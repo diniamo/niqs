@@ -9,6 +9,7 @@
       "-" = "cd -";
       anime = "mpv --profile=anime";
       cht = "cht.sh";
+      drop = "dragon-drop -a -x";
 
       sc = "systemctl";
       jc = "journalctl";
