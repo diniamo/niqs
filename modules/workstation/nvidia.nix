@@ -11,12 +11,9 @@ in {
   config = mkIf cfg.enable {
     hardware.nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
-      # 16 series cards do not support the open driver
-      open = false;
+      open = true;
 
-      modesetting.enable = true;
       powerManagement.enable = true;
-
       nvidiaSettings = false;
     };
 
