@@ -337,11 +337,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1753349683,
-        "narHash": "sha256-SbMNEsQdxfoNZ0bUfqmxDGJxPQxERRXtzRgJVyB+WvQ=",
+        "lastModified": 1758220257,
+        "narHash": "sha256-SQIea3FyJ7VonR3lXtFvh2tq+HeutDQX5r2i7iq+De4=",
         "owner": "diniamo",
         "repo": "nixpkgs",
-        "rev": "ad6424fab50222f44922242d9a1470b21ce2f55b",
+        "rev": "307f7fb9797d91c9424f93cd2ce8228913e8e1e8",
         "type": "github"
       },
       "original": {
