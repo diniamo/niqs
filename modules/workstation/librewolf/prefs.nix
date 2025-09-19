@@ -24,4 +24,6 @@
   "browser.urlbar.resultMenu.keyboardAccessible" = false;
   # Don't offer to translate every single website
   "browser.translations.automaticallyPopup" = false;
+  # Devtools on the bottom is annoying, put it on the right
+  "devtools.toolbox.host" = "right";
 }
