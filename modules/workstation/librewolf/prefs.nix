@@ -1,8 +1,6 @@
 {
   # Make ctrl-tab cycle recents
   "browser.ctrlTab.sortByRecentlyUsed" = true;
-  # This makes websites prefer dark theme (in theory)
-  "layout.css.prefers-color-scheme.content-override" = 0;
   # Use xdg-desktop-portal for file pickers
   "widget.use-xdg-desktop-portal.file-picker" = 1;
   # Restore previous session
@@ -26,4 +24,8 @@
   "browser.translations.automaticallyPopup" = false;
   # Devtools on the bottom is annoying, put it on the right
   "devtools.toolbox.host" = "right";
+  # Download to tmp
+  "browser.download.dir" = "/tmp/downloads";
+  "browser.download.useDownloadDir" = true;
+  "browser.download.start_downloads_in_tmp_dir" = false;
 }
