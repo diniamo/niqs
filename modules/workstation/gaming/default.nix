@@ -64,9 +64,13 @@ in {
     hardware.graphics.enable32Bit = true;
 
     environment = {
-      systemPackages = [ pkgs.umu-launcher ];
+      # Using the "free" version doesn't add Steam to the fhsenv.
+      # I can still use the installed version, which is what I want, because it has wrapper options set.
+      systemPackages = [ pkgs.lutris-free ];
       sessionVariables.PROTON_ENABLE_WAYLAND = 1;
     };
+
+    home.files.".local/share/lutris/runners/proton/GE-Proton".source = pkgs.proton-ge-bin.steamcompattool;
 
     programs = {
       steam = {
@@ -100,11 +104,6 @@ in {
       wantedBy = mkForce [];
       after = [ "graphical-session.target" ];
       partOf = [ "graphical-session.target" ];
-    };
-
-    home.files."games/proton" = {
-      name = "games-proton";
-      text = toString pkgs.proton-ge-bin.steamcompattool;
     };
   };
 }
