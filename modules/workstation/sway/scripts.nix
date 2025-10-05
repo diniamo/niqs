@@ -13,7 +13,7 @@
 in {
   notifyInformation = let
     summary = optionalString custom.mobile.enable "\"$(${cat} /sys/class/power_supply/BAT0/capacity)% - $(${cat} /sys/class/power_supply/BAT0/status)\"";
-    common = "--expire-time 1000 --icon time --print-id \"$(${date} +%R)\" ${summary} > /tmp/information-notification-id";
+    common = "--expire-time 2000 --icon time --print-id \"$(${date} +%R)\" ${summary} > /tmp/information-notification-id";
   in writeDash "notify-information.sh" ''
     if [ -f /tmp/information-notification-id ]; then
       ${notify-send} --replace-id "$(${cat} /tmp/information-notification-id)" ${common}

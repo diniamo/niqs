@@ -24,6 +24,7 @@ in {
         border-radius = 10;
         markup = false;
         layer = "overlay";
+        default-timeout = 3000;
       };
     };
   };
