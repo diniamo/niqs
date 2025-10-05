@@ -27,7 +27,6 @@
 
     ./user.nix
     ./packages.nix
-    ./nvidia.nix
     ./thunar.nix
     ./services.nix
     ./mobile.nix
@@ -35,5 +34,6 @@
     ./zoxide.nix
     ./direnv.nix
     ./nix-index.nix
+    ./amdgpu.nix
   ];
 }

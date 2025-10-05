@@ -7,7 +7,7 @@ in {
 
   custom = {
     boot.secure = true;
-    nvidia.enable = true;
+    amdgpu.enable = true;
 
     gaming = {
       enable = true;

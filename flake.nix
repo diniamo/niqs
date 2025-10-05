@@ -8,16 +8,8 @@
   };
 
   nixConfig = {
-    extra-substituters = [
-      # Lower priorities are tried first
-      # The default priority (NixOS cache) is 40
-      "https://niqspkgs.cachix.org?priority=41"
-      "https://nix-community.cachix.org?priority=42" # CUDA
-    ];
-    extra-trusted-public-keys = [
-      "niqspkgs.cachix.org-1:3lcNxXkj8BLrK77NK9ZTjk0fxHuSZrr5sKE6Avjb6PI="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
+    extra-substituters = [ "https://niqspkgs.cachix.org?priority=41" ];
+    extra-trusted-public-keys = [ "niqspkgs.cachix.org-1:3lcNxXkj8BLrK77NK9ZTjk0fxHuSZrr5sKE6Avjb6PI=" ];
   };
 
   inputs = {

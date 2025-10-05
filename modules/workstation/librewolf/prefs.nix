@@ -28,4 +28,10 @@
   "browser.download.dir" = "/tmp/downloads";
   "browser.download.useDownloadDir" = true;
   "browser.download.start_downloads_in_tmp_dir" = false;
+  # Use the GPU, that's what it's there for
+  "gfx.webrender.all" = true;
+  "layers.gpu-process.enabled" = true;
+  "dom.webgpu.enabled" = true;
+  "media.gpu-process-decoder" = true;
+  "widget.dmabuf.force-enabled" = true;
 }
