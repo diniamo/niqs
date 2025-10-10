@@ -1,32 +1,24 @@
-set default-bg              "{{colors.on_primary.default.rgba | set_alpha: 1.0}}"
-set default-fg              "{{colors.primary.default.hex}}"
+set default-bg              "{{colors.surface.default.hex}}"
+set default-fg              "{{colors.on_surface.default.hex}}"
 
-set statusbar-bg            "{{colors.on_primary.default.hex}}"
-set statusbar-fg            "{{colors.primary.default.hex}}"
+set statusbar-bg            "{{colors.surface_container_low.default.hex}}"
+set statusbar-fg            "{{colors.on_surface.default.hex}}"
 
-set inputbar-bg             "{{colors.on_primary.default.hex}}"
-set inputbar-fg             "{{colors.primary.default.hex}}"
+set inputbar-bg             "{{colors.surface_container.default.hex}}"
+set inputbar-fg             "{{colors.on_surface.default.hex}}"
+set completion-bg           "{{colors.surface_container.default.hex}}"
+set completion-fg           "{{colors.on_surface.default.hex}}"
+set completion-group-bg     "{{colors.surface_container_lowest.default.hex}}"
+set completion-group-fg     "{{colors.on_surface.default.hex}}"
+set completion-highlight-bg "{{colors.on_surface.default.hex}}"
+set completion-highlight-fg "{{colors.surface_container.default.hex}}"
 
-set notification-error-bg   "{{colors.on_error.default.hex}}"
-set notification-error-fg   "{{colors.error.default.hex}}"
+set notification-bg         "{{colors.surface_container.default.hex}}"
+set notification-fg         "{{colors.on_surface.default.hex}}"
+set notification-error-bg   "{{colors.error.default.hex}}"
+set notification-error-fg   "{{colors.on_error.default.hex}}"
+set notification-warning-bg "{{colors.yellow.default.hex}}"
+set notification-warning-fg "{{colors.on_surface.default.hex}}"
 
-set notification-warning-bg "{{colors.primary_fixed.default.hex}}"
-set notification-warning-fg "{{colors.error_container.default.hex}}"
-
-set highlight-color         "{{colors.primary_fixed.default.hex}}"
-set highlight-active-color  "{{colors.primary_fixed_dim.default.hex}}"
-
-set completion-highlight-fg "{{colors.on_primary.default.hex}}"
-set completion-highlight-bg "{{colors.primary.default.hex}}"
-
-set completion-bg           "{{colors.on_primary.default.hex}}"
-set completion-fg           "{{colors.primary.default.hex}}"
-
-set notification-bg         "{{colors.on_primary.default.hex}}"
-set notification-fg         "{{colors.primary.default.hex}}"
-
-set recolor                 "true"
-set recolor-lightcolor      "{{colors.on_primary.default.rgba | set_alpha: 1.0}}"
-set recolor-darkcolor       "{{colors.primary.default.hex}}"
-set recolor-reverse-video   "true"
-set recolor-keephue         "true"
+set highlight-color         "{{colors.tertiary.default.rgba | set_alpha: 0.375}}"
+set highlight-active-color  "{{colors.primary.default.rgba | set_alpha: 0.375}}"

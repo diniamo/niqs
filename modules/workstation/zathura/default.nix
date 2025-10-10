@@ -2,15 +2,21 @@
   inherit (lib) mkEnableOption mkPackageOption mkOption mkIf concatMapStringsSep replaceString;
   inherit (lib.types) listOf attrsOf package path str;
   inherit (lib') iniSection attrsToLines;
-  inherit (builtins) isString;
+  inherit (builtins) isBool isString;
   inherit (pkgs) writeTextFile;
 
   cfg = config.custom.zathura;
 
+  toValue = value:
+    if isBool value then
+      if value then "true" else "false"
+    else if isString value then "\"${value}\""
+    else toString value;
+
   configDirectory = writeTextFile {
     name = "zathura-config";
     text = ''
-      ${attrsToLines (name: value: "set ${name} ${if isString value then "\"${value}\"" else toString value}") cfg.set}
+      ${attrsToLines (name: value: "set ${name} ${toValue value}") cfg.set}
       ${concatMapStringsSep "\n" (file: "include ${file}") cfg.include}
       ${attrsToLines (key: function: "map ${key} ${function}") cfg.map}
       ${concatMapStringsSep "\n" (key: "unmap ${key}") cfg.unmap}
@@ -29,7 +35,7 @@ in {
   options = {
     custom.zathura = {
       enable = mkEnableOption "zathura";
-      
+
       package = mkPackageOption pkgs "zathura" {};
       finalPackage = mkOption {
         type = package;

@@ -6,11 +6,16 @@
       enable = true;
 
       include = [ config.custom.style.matugen.templates.zathura-colors.output ];
+
+      set = {
+        vertical-center = true;
+      };
+
       map = {
         h = "feedkeys '<C-Left>'";
         j = "feedkeys '<C-Down>'";
         k = "feedkeys '<C-Up>'";
-        l = "feedkeys '<C-Right>'";  
+        l = "feedkeys '<C-Right>'";
       };
     };
   };
