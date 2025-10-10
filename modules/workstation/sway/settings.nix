@@ -15,7 +15,6 @@
   playerctl = getExe pkgs.playerctl;
   wpctl = getExe' pkgs.wireplumber "wpctl";
   systemctl = getExe' config.systemd.package "systemctl";
-  swtchr = getExe flakePkgs.niqspkgs.swtchr;
   fuzzel = getExe custom.fuzzel.finalPackage;
   makoctl = getExe' custom.mako.package "makoctl";
 in {
@@ -77,11 +76,6 @@ in {
 
       bindsym Mod4+BackSpace exec ${makoctl} dismiss
       bindsym Mod4+o exec ${makoctl} menu -- ${fuzzel} --dmenu --placeholder 'Select action'
-
-      exec ${getExe' flakePkgs.niqspkgs.swtchr "swtchrd"}
-      mode swtchr bindsym Escape mode default
-      bindsym Mod4+Tab mode swtchr; exec ${swtchr}
-      bindsym Mod4+Shift+Tab mode swtchr; exec ${swtchr}
 
       bindsym Control+Print exec ${grim} -g "$(${slurp})" - | ${wl-copy}
       bindsym Mod1+Print exec ${grim} -g "$(${swaymsg} -t get_tree | ${jq} -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
