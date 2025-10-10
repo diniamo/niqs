@@ -19,7 +19,6 @@
     ./swaylock
     ./swayidle
     ./gammastep
-    ./bat
     ./zathura
     ./foot
     ./helix
