@@ -4,7 +4,7 @@
   inherit (lib') attrsToLines;
 
   cfg = config.custom.style.matugen;
-  
+
   themes = pkgs.runCommandLocal "matugen-themes" {} ''
     configFile="$(mktemp)"
     cat > $configFile <<EOF

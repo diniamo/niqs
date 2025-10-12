@@ -51,11 +51,14 @@ in {
 
       colors = {
         red = "#ed8796";
+        pink = "#f5bde6";
+        magenta = "#f5bde6";
+        blue = "#8aadf4";
+        teal = "#8bd5ca";
         green = "#a6da95";
         yellow = "#eed49f";
-        blue = "#8aadf4";
-        magenta = "#f5bde6";
-        cyan = "#8bd5ca";
+        orange = "#f5a97f";
+        slate = "#6f8396";
       };
     };
   };

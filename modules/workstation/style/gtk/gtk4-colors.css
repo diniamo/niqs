@@ -52,15 +52,15 @@
 @define-color destructive_color {{colors.error.default.hex}};
 
 :root {
-    --accent-blue: #3584e4;
-    --accent-teal: #2190a4;
-    --accent-green: #3a944a;
-    --accent-yellow: #c88800;
-    --accent-orange: #ed5b00;
-    --accent-red: #e62d42;
-    --accent-pink: #d56199;
-    --accent-purple: #9141ac;
-    --accent-slate: #6f8396;
+    --accent-blue: {{colors.blue.default.hex}};
+    --accent-teal: {{colors.teal.default.hex}};
+    --accent-green: {{colors.green.default.hex}};
+    --accent-yellow: {{colors.yellow.default.hex}};
+    --accent-orange: {{colors.orange.default.hex}};
+    --accent-red: {{colors.red.default.hex}};
+    --accent-pink: {{colors.pink.default.hex}};
+    --accent-purple: {{colors.magenta.default.hex}};
+    --accent-slate: {{colors.slate.default.hex}};
 
     --accent-bg-color: @accent_bg_color;
     --accent-fg-color: @accent_fg_color;
