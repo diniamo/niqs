@@ -9,10 +9,7 @@ in {
     nixpkgs.config.rocmSupport = true;
 
     environment = {
-      systemPackages = with pkgs; [
-        lact
-        amdgpu_top
-      ];
+      systemPackages = [ pkgs.nvtopPackages.amd ];
 
       sessionVariables.LIBVA_DRIVER_NAME = "radeonsi";
     };
