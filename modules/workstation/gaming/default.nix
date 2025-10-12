@@ -64,9 +64,16 @@ in {
     hardware.graphics.enable32Bit = true;
 
     environment = {
-      # Using the "free" version doesn't add Steam to the fhsenv.
-      # I can still use the installed version, which is what I want, because it has wrapper options set.
-      systemPackages = [ pkgs.lutris-free ];
+      systemPackages = [(pkgs.lutris.override {
+        # I can still use the Steam from my environment, which is what I want, since it has wrapper options set.
+        steamSupport = false;
+        # For winetricks/zenity
+        extraLibraries = pkgs: with pkgs; [
+          gtk4
+          libadwaita
+       ];
+      })];
+
       sessionVariables.PROTON_ENABLE_WAYLAND = 1;
     };
 
