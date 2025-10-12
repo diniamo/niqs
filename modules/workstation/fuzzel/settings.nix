@@ -9,20 +9,21 @@ in {
 
     fuzzel = {
       enable = true;
-    
+
       settings = {
         main = {
           include = style.matugen.templates.fuzzel-colors.output;
           font = "${style.fonts.regular.name}:size=20";
           icon-theme = style.iconTheme.name;
-          
+
           dpi-aware = false;
           prompt = "'   '";
           match-counter = true;
           lines = 8;
           line-height = 50;
           inner-pad = 5;
-          horizontal-pad = 13;
+          horizontal-pad = 10;
+          width = 45;
           show-actions = true;
           terminal = getExe custom.foot.finalPackage;
         };

@@ -54,8 +54,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
-
     custom.mangohud.enable = true;
 
     services.pipewire.alsa.support32Bit = true;
@@ -84,7 +82,6 @@ in {
         enable = true;
         protontricks.enable = true;
 
-        extraPackages = [ pkgs.openssl_1_1 ];
         extraCompatPackages = [ pkgs.proton-ge-bin ];
       };
 
