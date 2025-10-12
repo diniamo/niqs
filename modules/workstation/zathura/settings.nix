@@ -9,6 +9,7 @@
 
       set = {
         vertical-center = true;
+        selection-clipboard = "clipboard";
       };
 
       map = {
