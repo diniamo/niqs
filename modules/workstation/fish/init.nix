@@ -1,9 +1,19 @@
-{
-  # -U is slightly faster
-  programs.fish.interactiveShellInit = ''
-    if not set -q fish_configured
-      set -U fish_greeting
+{ lib, config, ... }: let
+  inherit (lib) mkOption types;
+in {
+  options = {
+    custom.fish = {
+      initOnce = mkOption {
+        type = types.lines;
+        default = "set -U fish_greeting";
+        description = "Commands to run on the first initialization (useful for `set -U`)";
+      };
+    };
+  };
 
+  config = {
+    # -U is slightly faster
+    custom.fish.initOnce = ''
       set -U fish_color_command green
       set -U fish_color_param white
       set -U fish_color_end blue
@@ -26,8 +36,13 @@
       tide reload
 
       set -U sponge_regex_patterns '\\/nix\\/store\\/\\S+'
+    '';
 
-      set -U fish_configured
-    end
-  '';
+    programs.fish.interactiveShellInit = ''
+      if not set -q fish_configured
+        ${config.custom.fish.initOnce}
+        set -U fish_configured
+      end
+    '';
+  };
 }

@@ -23,6 +23,7 @@
     ./foot
     ./helix
     ./git
+    ./yazi
 
     ./user.nix
     ./packages.nix

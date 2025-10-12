@@ -14,13 +14,7 @@ in {
   options = {
     custom.fzf = {
       enable = mkEnableOption "fzf";
-      
       package = mkPackageOption pkgs "fzf" {};
-      finalPackage = mkOption {
-        type = package;
-        readOnly = true;
-        description = "The wrapped fzf package.";
-      };
 
       flags = mkOption {
         type = listOf str;
@@ -36,25 +30,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    custom.fzf = {
-      flags = mkIf (cfg.colors != {}) [ "--color=${colorsRendered}" ];
-
-      finalPackage =
-        if cfg.flags != [] then
-          cfg.package.overrideAttrs (prev: {
-            nativeBuildInputs = prev.nativeBuildInputs ++ [ makeBinaryWrapper ];
-            
-            postPatch = "";
-            postInstall = ''
-              installManPage man/man1/fzf.1 man/man1/fzf-tmux.1
-
-              wrapProgram $out/bin/fzf \
-                --set FZF_DEFAULT_OPTS "${flagsRendered}"
-            '';
-          })
-        else cfg.package;
+    custom = {
+      fzf.flags = mkIf (cfg.colors != {}) [ "--color=${colorsRendered}" ];
+      fish.initOnce = "set -Ux FZF_DEFAULT_OPTS \"${flagsRendered}\"";
     };
-    
-    user.packages = [ cfg.finalPackage ];
+
+    user.packages = [ cfg.package ];
   };
 }
