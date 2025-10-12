@@ -20,5 +20,8 @@
     dsync
     file
     git
+    ffmpeg
+    imagemagick
+    fractal
   ];
 }

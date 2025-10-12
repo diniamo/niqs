@@ -6,14 +6,12 @@ in {
     binsh = getExe pkgs.dash;
 
     systemPackages = with pkgs; [
-      htop
       ripgrep
       fd
       cht-sh
       jq
       wget
       nix-tree
-      sd
       duf
 
       flakePkgs.niqspkgs.nq-patched
