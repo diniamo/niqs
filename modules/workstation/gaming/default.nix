@@ -6,6 +6,7 @@
   powerprofilesctl = getExe pkgs.power-profiles-daemon;
   notify-send = getExe pkgs.libnotify;
   swaymsg = getExe' config.programs.sway.package "swaymsg";
+  bluetoothctl = getExe' pkgs.bluez "bluetoothctl";
 
   startScript = writeDash "gamemode-start" ''
     ${powerprofilesctl} set performance
@@ -14,6 +15,7 @@
     ${getExe pkgs.daemonize} \
       -p /tmp/gamemode-inhibitor-pid \
       ${getExe' pkgs.systemd "systemd-inhibit"} --what=idle --who=Gamemode --why='Game open' ${getExe' pkgs.coreutils "sleep"} infinity
+    ${bluetoothctl} power on
     ${cfg.extraStartCommands}
 
     ${notify-send} --urgency low --app-name Gamemode --icon input-gaming --expire-time 1000 'Optimizations activated'
@@ -23,6 +25,7 @@
     ${swaymsg} 'allow_tearing no'
     ${swaymsg} 'input * scroll_method on_button_down'
     ${getExe' pkgs.util-linux "kill"} "$(${getExe' pkgs.coreutils "cat"} /tmp/gamemode-inhibitor-pid)"
+    ${bluetoothctl} power off
     ${cfg.extraEndCommands}
 
     ${notify-send} --urgency low --app-name Gamemode --icon system-shutdown --expire-time 1000 'Optimizations deactivated'
