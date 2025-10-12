@@ -1,4 +1,6 @@
-{
+config: let
+  inherit (config.custom.style) fonts;
+in {
   # Make ctrl-tab cycle recents
   "browser.ctrlTab.sortByRecentlyUsed" = true;
   # Use xdg-desktop-portal for file pickers
@@ -34,4 +36,12 @@
   "dom.webgpu.enabled" = true;
   "media.gpu-process-decoder" = true;
   "widget.dmabuf.force-enabled" = true;
+  # Don't show about:config warning
+  "browser.aboutConfig.showWarning" = false;
+
+  # Theming
+  "widget.gtk.libadwaita-colors.enabled" = false;
+  "font.name.monospace.x-western" = fonts.monospace.name;
+  "font.name.sans-serif.x-western" = fonts.regular.name;
+  "font.name.serif.x-western" = fonts.regular.name;
 }

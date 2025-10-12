@@ -1,15 +1,15 @@
 { pkgs, lib, lib', config, ... }: let
   inherit (lib') attrsToLines;
   inherit (builtins) mapAttrs toJSON isBool isInt isString;
-  
-  prefs = import ./prefs.nix;
+
+  prefs = import ./prefs.nix config;
 
   extensions = import ./extensions.nix;
   extensionsPrivate = import ./extensions-private.nix;
 
   searchEngines = import ./search-engines.nix;
-  
-  policies = {
+
+  extraPolicies = {
     SearchEngines = {
       Add = searchEngines;
       Default = "SearXNG";
@@ -34,7 +34,7 @@
     then pref
     else toString pref
   );
-  jsPrefs = attrsToLines (name: value: "lockPref(\"${name}\", ${prefValue value});") prefs;
+  extraPrefs = attrsToLines (name: value: "lockPref(\"${name}\", ${prefValue value});") prefs;
 
   package = pkgs.librewolf;
 
@@ -50,12 +50,11 @@ in {
 
   config = {
     custom.librewolf.finalPackage = (package.override {
-      extraPolicies = policies;
-      extraPrefs = jsPrefs;
+      inherit extraPolicies extraPrefs;
     }).overrideAttrs (prev: {
       makeWrapperArgs = prev.makeWrapperArgs ++ extraMakeWrapperArgs;
     });
-    
+
     user.packages = [ cfg.finalPackage ];
   };
 }
