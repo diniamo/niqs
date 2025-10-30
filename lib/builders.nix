@@ -20,18 +20,4 @@ in {
       };
     }] ++ args.modules or [];
   };
-
-  wrapProgram = pkgs: {
-    package,
-    executable ? package.meta.mainProgram,
-    args
-  }: pkgs.symlinkJoin {
-    pname = "${package.pname}-wrapped";
-    inherit (package) version meta;
-
-    paths = [ package ];
-    
-    nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
-    postBuild = "wrapProgram $out/bin/${executable} ${escapeShellArgs args}";
-  };
 }
