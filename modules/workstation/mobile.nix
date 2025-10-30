@@ -28,7 +28,16 @@ in {
 
       power-profiles-daemon.enable = mkForce false;
       watt.enable = true;
+      upower.enable = true;
       thermald.enable = true;
+    };
+
+    systemd.user.services.poweralertd = {
+      description = "Power Alert Daemon";
+      serviceConfig.ExecStart = getExe pkgs.poweralertd;
+      requires = [ "mako.service" ];
+      wantedBy = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
     };
 
     custom = {
