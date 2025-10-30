@@ -30,6 +30,9 @@ in {
   "browser.download.dir" = "/tmp/downloads";
   "browser.download.useDownloadDir" = true;
   "browser.download.start_downloads_in_tmp_dir" = false;
+  # Make Desmos work
+  "webgl.disabled" = false;
+  "privacy.resistFingerprinting.exemptedDomains" = "www.desmos.com,kagi.com";
   # Use the GPU, that's what it's there for
   "gfx.webrender.all" = true;
   "layers.gpu-process.enabled" = true;
