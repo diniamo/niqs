@@ -51,6 +51,8 @@ in {
         fetch = [ "upstream" "origin" ];
         push = "origin";
         push-new-bookmarks = true;
+        colocate = false;
+        executable-path = getExe config.custom.git.package;
       };
     };
   };
