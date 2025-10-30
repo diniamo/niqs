@@ -25,30 +25,46 @@
         };
       };
 
-      keys.normal = {
-        "C-s" = ":write!";
-        "C-p" = "save_selection";
-        "C-q" = ":quit-all";
-        "C-x" = ":write-quit-all";
-        "C-," = "decrement";
-        "C-." = "increment";
+      keys = {
+        normal = {
+          "C-s" = ":write!";
+          "C-q" = ":quit-all";
+          "C-x" = ":write-quit-all";
+          "C-g" = "save_selection";
 
-        space.l = {
-          c = ":lsp-workspace-command";
-          r = ":lsp-restart";
-          s = ":lsp-stop";
+          "C-a" = "no_op";
+          "C-," = "decrement";
+          "C-." = "increment";
+
+          space.l = {
+            c = ":lsp-workspace-command";
+            r = ":lsp-restart";
+            s = ":lsp-stop";
+          };
         };
-      };
 
-      keys.insert = {
-        "C-b" = "move_char_left";
-        "C-n" = "move_visual_line_down";
-        "C-p" = "move_visual_line_up";
-        "C-f" = "move_char_right";
-        "A-b" = [ "move_prev_word_start" "collapse_selection" ];
-        "A-f" = [ "move_next_word_end" "move_char_right" ];
-        "C-space" = "completion";
-        "C-backspace" = "delete_word_backward";
+        select = {
+          "C-s" = ":write!";
+          "C-q" = ":quit-all";
+          "C-x" = ":write-quit-all";
+          "C-g" = "save_selection";
+        };
+
+        insert = {
+          "C-s" = ":write!";
+          "C-q" = ":quit-all";
+          "C-x" = ":write-quit-all";
+          "C-g" = "save_selection";
+
+          "C-b" = "move_char_left";
+          "C-n" = "move_visual_line_down";
+          "C-p" = "move_visual_line_up";
+          "C-f" = "move_char_right";
+          "A-b" = [ "move_prev_word_start" "collapse_selection" ];
+          "A-f" = [ "move_next_word_end" "move_char_right" ];
+          "C-space" = "completion";
+          "C-backspace" = "delete_word_backward";
+        };
       };
     };
 

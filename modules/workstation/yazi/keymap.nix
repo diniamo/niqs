@@ -22,7 +22,7 @@
 
       { on = [ "c" "p" ]; run = "plugin chmod"; desc = "Chmod selected files"; }
       { on = "f"; run = "plugin jump-to-char"; desc = "Jump to files that start with the character typed after f"; }
-      { on = [ "c" "m" ]; run = "plugin mount"; desc = "Mount manager"; }
+      { on = "M"; run = "plugin mount"; desc = "Mount manager"; }
       { on = "<Enter>"; run = "plugin smart-enter"; desc = "Enter the directory, or open the file"; }
       { on = "p"; run = "plugin smart-paste"; desc = "Paste into hovered or current directory"; }
       { on = "<C-y>"; run = "plugin wl-clipboard"; desc = "Copy to system clipboard"; }
