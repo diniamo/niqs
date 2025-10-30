@@ -11,11 +11,10 @@
     gtrash
     libqalculate
     wiremix
-    pwvucontrol
     eza
     libnotify
     gist
-    video-trimmer
+    footage
     flint
     dsync
     file
