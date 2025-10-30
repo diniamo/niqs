@@ -31,7 +31,6 @@
       abbr --add --set-cursor -- insecure 'NIXPKGS_ALLOW_INSECURE=1 % --impure'
       abbr --add --set-cursor -- broken 'NIXPKGS_ALLOW_BROKEN=1 % --impure'
 
-      abbr --add jj-clone --regex '.+\.git' --function _jj_clone_cd
       abbr --add command --regex '\\\\.*' --function _prepend_command
       abbr --add !! --position anywhere --function _last_history_entry
     '';
