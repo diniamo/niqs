@@ -1,7 +1,7 @@
-{ pkgs, config, inputs, ... }: {
+{ pkgs, config, inputs, lib, ... }: {
   custom.mpv = {
     enable = true;
-    
+
     package = pkgs.mpv-unwrapped.override {
       ffmpeg = pkgs.ffmpeg-headless;
 
@@ -13,30 +13,30 @@
 
     settings = {
       profile = "high-quality";
-   
+
       cache = true;
 
       fullscreen = true;
       keepaspect-window = false;
       window-dragging = false;
-      
+
       audio-device = "pipewire";
       volume-max = 100;
-      
+
       save-position-on-quit = true;
       watch-later-options-remove = "vf,af";
-      
+
       osc = false;
       osd-font = config.custom.style.fonts.regular.name;
       osd-duration = 3000;
       osd-status-msg = "Frame: \${estimated-frame-number} / \${estimated-frame-count}";
 
       ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
-      ytdl-raw-options = "format-sort=\"proto:m3u8\",mark-watched=,cookies-from-browser=\"firefox\",user-agent=\"Mozilla/5.0\"";
+      ytdl-raw-options = "cookies-from-browser=\"firefox:${config.home.directory}/.librewolf\",mark-watched=";
 
       alang = "ja,de,en,hu";
       slang = "de,en,hu";
-      sub-visibility = false;    
+      sub-visibility = false;
     };
 
     profiles.anime = {
