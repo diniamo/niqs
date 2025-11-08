@@ -15,7 +15,6 @@
     ./satty
     ./fuzzel
     ./sway
-    ./jujutsu
     ./swaylock
     ./swayidle
     ./gammastep
@@ -35,5 +34,6 @@
     ./direnv.nix
     ./nix-index.nix
     ./amdgpu.nix
+    ./lazygit.nix
   ];
 }

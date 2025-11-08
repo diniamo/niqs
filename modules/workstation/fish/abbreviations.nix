@@ -24,6 +24,26 @@
       flake = "nix flake";
       repl = "nix repl --expr 'import <nixpkgs> {}'";
       system-size = "nix path-info -Sh /run/current-system";
+
+      g = "git";
+      lg = "lazygit";
+      ga = "git add";
+      gc = "git commit";
+      gd = "git diff";
+      gl = "git log";
+      gst = "git status";
+      grhh = "git reset --hard";
+      gb = "git branch";
+      gbc = "git branch --show-current";
+      gs = "git switch";
+      gsc = "git switch --create";
+      gm = "git merge";
+      gco = "git checkout";
+      gf = "git fetch";
+      gfa = "git fetch --all";
+      gp = "git pull";
+      gP = "git push";
+      gpf = "git push --force-with-lease";
     };
 
     interactiveShellInit = ''

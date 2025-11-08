@@ -43,7 +43,6 @@ in {
       for_window [app_id="^Thunar$" title="^File Operation Progress$"] floating enable
       for_window [app_id="^Thunar$" title="^Confirm to Replace files$"] floating enable
       for_window [app_id="^Thunar$" title="^Rename.*$"] floating enable
-      for_window [app_id="^org\.gnome\.Meld$" title="^Meld$"] fullscreen enable
       for_window [app_id="^dragon-drop$"] sticky enable
 
       include ${style.matugen.templates.sway-colors.output}
