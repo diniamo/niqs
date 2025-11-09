@@ -24,7 +24,12 @@ in {
         border-radius = 10;
         markup = false;
         layer = "overlay";
-        default-timeout = 3000;
+        default-timeout = 5000;
+      };
+
+      criteria = {
+        "urgency=low".default-timeout = 3000;
+        "urgency=critical".default-timeout = 0;
       };
     };
   };

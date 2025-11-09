@@ -1,12 +1,16 @@
 { lib, pkgs, config, lib', ... }: let
   inherit (lib) mkEnableOption mkPackageOption mkOption types mkIf getExe concatMapStringsSep;
   inherit (lib.types) listOf path;
-  inherit (lib') iniSection toKV;
+  inherit (lib') iniSection toKV toINI;
   inherit (pkgs.writers) writeText;
 
   cfg = config.custom.mako;
 
-  settingsText = toKV (bool: if bool then "1" else "0") cfg.settings;
+  intBool = bool: if bool then "1" else "0";
+  settingsText = ''
+    ${toKV intBool cfg.settings}
+    ${toINI intBool cfg.criteria}
+  '';
   settingsFile = writeText "mako-config" settingsText;
 in {
   imports = [ ./settings.nix ];
@@ -19,7 +23,12 @@ in {
       settings = mkOption {
         type = iniSection;
         default = {};
-        description = "Configuration passed using the `--config` flag.";
+        description = "Configuration options.";
+      };
+      criteria = mkOption {
+        type = types.attrsOf iniSection;
+        default = {};
+        description = "Criteria specific configuration options.";
       };
     };
   };
