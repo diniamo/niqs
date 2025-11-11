@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, lib, ... }: {
+{ pkgs, config, inputs, ... }: {
   custom.mpv = {
     enable = true;
 

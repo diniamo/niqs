@@ -1,9 +1,8 @@
 { lib, lib', pkgs, config, ... }: let
-  inherit (lib) mkEnableOption mkPackageOption mkOption mkIf optionalString getExe;
-  inherit (lib.types) attrsOf package nullOr lines;
+  inherit (lib) mkEnableOption mkPackageOption mkOption mkIf;
+  inherit (lib.types) nullOr lines;
   inherit (lib.generators) toGitINI;
   inherit (lib') iniType;
-  inherit (pkgs) symlinkJoin makeBinaryWrapper git;
 
   cfg = config.custom.git;
 in {

@@ -1,8 +1,7 @@
 { lib, lib', pkgs, config, ... }: let
   inherit (lib) mkEnableOption mkPackageOption mkOption mkIf escapeShellArgs;
-  inherit (lib.types) package listOf str attrsOf;
+  inherit (lib.types) listOf str attrsOf;
   inherit (lib') toFzfColorFlagValue;
-  inherit (pkgs) makeBinaryWrapper;
 
   cfg = config.custom.fzf;
 

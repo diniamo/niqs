@@ -1,5 +1,5 @@
 { pkgs, lib, lib', config, ... }: let
-  inherit (lib) mkEnableOption mkPackageOption mkOption types mkIf optional optionalAttrs optionalString;
+  inherit (lib) mkEnableOption mkPackageOption mkOption mkIf optional optionalAttrs optionalString;
   inherit (lib.types) attrsOf nullOr listOf package str;
   inherit (lib') iniAtom toYesNoKV toYesNoINI toSpaceKV toMpvScriptOpts;
   inherit (pkgs) runCommandLocal;
@@ -38,7 +38,7 @@ in {
   options = {
     custom.mpv = {
       enable = mkEnableOption "mpv";
-      
+
       package = mkPackageOption pkgs "mpv-unwrapped" {};
       finalPackage = mkOption {
         type = package;
@@ -56,7 +56,7 @@ in {
         default = {};
         description = "Script options.";
       };
-        
+
       settings = mkOption {
         type = settingsType;
         default = {};
@@ -67,7 +67,7 @@ in {
         default = {};
         description = "Profiles to define.";
       };
-      
+
       inputSettings = mkOption {
         type = attrsOf str;
         default = {};

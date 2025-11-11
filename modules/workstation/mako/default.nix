@@ -1,6 +1,5 @@
 { lib, pkgs, config, lib', ... }: let
-  inherit (lib) mkEnableOption mkPackageOption mkOption types mkIf getExe concatMapStringsSep;
-  inherit (lib.types) listOf path;
+  inherit (lib) mkEnableOption mkPackageOption mkOption types mkIf getExe;
   inherit (lib') iniSection toKV toINI;
   inherit (pkgs.writers) writeText;
 

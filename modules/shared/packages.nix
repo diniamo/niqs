@@ -18,7 +18,7 @@ in {
     ];
   };
 
-  nixpkgs.overlays = [(final: prev: let
+  nixpkgs.overlays = [(final: _: let
     inherit (final) emptyDirectory;
   in {
     nixos-rebuild-ng = emptyDirectory // {

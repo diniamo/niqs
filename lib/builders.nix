@@ -1,5 +1,5 @@
 { lib, lib', inputs, ... }: let
-  inherit (lib) nixosSystem escapeShellArgs;
+  inherit (lib) nixosSystem;
   inherit (builtins) mapAttrs;
 in {
   nixosSystem' = { system, ... }@args: nixosSystem {
