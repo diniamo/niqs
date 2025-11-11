@@ -1,9 +1,6 @@
 { pkgs, flakePkgs, ... }: {
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  # For electron apps
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
   user.packages = with pkgs; with flakePkgs.niqspkgs; [
     xdragon
     wl-clipboard

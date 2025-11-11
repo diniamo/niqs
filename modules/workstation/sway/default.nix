@@ -24,17 +24,8 @@ in {
       wrapperFeatures.base = false;
     };
 
-    xdg.portal = {
-      config.sway."org.freedesktop.impl.portal.Screenshot.PickColor" = getExe pkgs.hyprpicker;
-      wlr.settings.screencast.max_fps = 60;
-    };
-
-    environment.sessionVariables = {
-      WLR_RENDERER = "vulkan";
-      SDL_VIDEODRIVER = "wayland,x11,windows";
-      QT_QPA_PLATFORM = "wayland;xcb";
-      GDK_BACKEND = "wayland";
-    };
+    xdg.portal.config.sway."org.freedesktop.impl.portal.Screenshot.PickColor" = getExe pkgs.hyprpicker;
+    environment.sessionVariables.WLR_RENDERER = "vulkan";
 
     home.files.".config/sway/config" = mkIf (settings != "") {
       name = "sway-config";

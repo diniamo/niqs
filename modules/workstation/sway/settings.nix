@@ -56,10 +56,8 @@ in {
         xkb_options altwin:swap_lalt_lwin
       }
 
-      swaybg_command ${getExe pkgs.swaybg}
-      output "*" {
-        bg ${style.wallpaper} fill
-      }
+      swaybg_command -
+      swaynag_command -
 
       seat "*" {
         xcursor_theme ${style.cursor.name} ${style.cursor.sizeString}

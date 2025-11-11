@@ -23,6 +23,7 @@
     ./helix
     ./git
     ./yazi
+    ./swaybg
 
     ./user.nix
     ./packages.nix
@@ -35,5 +36,6 @@
     ./nix-index.nix
     ./amdgpu.nix
     ./lazygit.nix
+    ./wayland.nix
   ];
 }
