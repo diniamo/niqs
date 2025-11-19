@@ -1,6 +1,6 @@
 { pkgs, lib, ... }: let
   inherit (lib) mkForce getExe;
-  inherit (pkgs) moar symlinkJoin makeBinaryWrapper;
+  inherit (pkgs) moor symlinkJoin makeBinaryWrapper;
   inherit (builtins) concatStringsSep;
 
   flags = [
@@ -12,15 +12,15 @@
   ];
 
   wrapped = symlinkJoin {
-    pname = "moar-wrapped";
-    inherit (moar) version meta;
+    pname = "moor-wrapped";
+    inherit (moor) version meta;
 
-    paths = [ moar ];
+    paths = [ moor ];
 
     nativeBuildInputs = [ makeBinaryWrapper ];
     postBuild = ''
-      wrapProgram $out/bin/moar \
-        --set MOAR '${concatStringsSep " " flags}'
+      wrapProgram $out/bin/moor \
+        --set MOOR '${concatStringsSep " " flags}'
     '';
   };
 in {

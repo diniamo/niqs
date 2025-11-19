@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }: let
   inherit (lib) optionalString getExe getExe';
-  inherit (pkgs) coreutils;
+  inherit (pkgs) coreutils systemd;
   inherit (pkgs.writers) writeDash writeBash;
 
   inherit (config) custom;
@@ -8,8 +8,8 @@
   notify-send = getExe pkgs.libnotify;
   cat = getExe' coreutils "cat";
   date = getExe' coreutils "date";
-  systemctl = getExe' pkgs.systemd "systemctl";
-  loginctl = getExe' pkgs.systemd "loginctl";
+  systemctl = getExe' systemd "systemctl";
+  loginctl = getExe' systemd "loginctl";
 in {
   notifyInformation = let
     summary = optionalString custom.mobile.enable "\"$(${cat} /sys/class/power_supply/BAT0/capacity)% - $(${cat} /sys/class/power_supply/BAT0/status)\"";
@@ -29,7 +29,7 @@ in {
     else
       ${getExe pkgs.daemonize} \
         -p /tmp/manual-inhibitor-pid \
-        ${getExe' pkgs.systemd "systemd-inhibit"} --what idle --who "$USER" --why Manual ${getExe' coreutils "sleep"} infinity
+        ${getExe' systemd "systemd-inhibit"} --what idle --who "$USER" --why Manual ${getExe' coreutils "sleep"} infinity
       ${notify-send} --urgency low --icon media-playback-pause --expire-time 1000 'Idle inhibited'
     fi
   '';

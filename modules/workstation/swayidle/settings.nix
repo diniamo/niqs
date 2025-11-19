@@ -4,7 +4,6 @@
   pidof = getExe' pkgs.procps "pidof";
   swaylock = getExe config.custom.swaylock.finalPackage;
   loginctl = getExe' config.systemd.package "loginctl";
-  swaymsg = getExe' config.programs.sway.package "swaymsg";
   systemctl = getExe' config.systemd.package "systemctl";
 in {
   custom.swayidle = {
@@ -35,11 +34,6 @@ in {
       }
       {
         time = 330;
-        command = "${swaymsg} 'output * power off'";
-        resume = "${swaymsg} 'output * power on'";
-      }
-      {
-        time = 600;
         command = "${systemctl} suspend";
       }
     ];

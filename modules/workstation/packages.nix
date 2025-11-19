@@ -1,8 +1,8 @@
 { pkgs, flakePkgs, ... }: {
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  user.packages = with pkgs; with flakePkgs.niqspkgs; [
-    xdragon
+  user.packages = (with pkgs; [
+    dragon-drop
     wl-clipboard
     spotify
     gtrash
@@ -12,12 +12,14 @@
     libnotify
     gist
     footage
-    flint
-    dsync
     file
     git
     ffmpeg
     imagemagick
     fractal
-  ];
+  ]) ++ (with flakePkgs.niqspkgs; [
+    flint
+    dsync
+    helium
+  ]);
 }

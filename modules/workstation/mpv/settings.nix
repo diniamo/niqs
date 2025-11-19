@@ -32,7 +32,7 @@
       osd-status-msg = "Frame: \${estimated-frame-number} / \${estimated-frame-count}";
 
       ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
-      ytdl-raw-options = "cookies-from-browser=\"firefox:${config.home.directory}/.librewolf\",mark-watched=";
+      ytdl-raw-options = "cookies-from-browser=\"chromium:${config.home.directory}/.config/net.imput.helium/Default\",mark-watched=";
 
       alang = "ja,de,en,hu";
       slang = "de,en,hu";

@@ -1,5 +1,5 @@
 { lib, config, ... }: let
-  inherit (lib) mkOption;
+  inherit (lib) mkOption mkForce;
   inherit (lib.types) submodule str package int;
 
   fontModule = mkOption {
@@ -20,7 +20,7 @@
           readOnly = true;
           description = "The standard size as a string.";
         };
-    
+
         package = mkOption {
           type = package;
           description = "The package providing the font.";
@@ -35,6 +35,7 @@ in {
     custom.style.fonts = {
       regular = fontModule;
       monospace = fontModule;
+      emoji = fontModule;
     };
   };
 
@@ -43,9 +44,19 @@ in {
       packages = [
         cfg.regular.package
         cfg.monospace.package
+        cfg.emoji.package
       ];
-    
-      fontconfig.subpixel.rgba = "rgb";
+
+      fontconfig = {
+        defaultFonts = {
+          sansSerif = mkForce [ cfg.regular.name ];
+          serif = mkForce [ cfg.regular.name ];
+          monospace = mkForce [ cfg.monospace.name ];
+          emoji = mkForce [ cfg.emoji.name ];
+        };
+
+        subpixel.rgba = "rgb";
+      };
     };
   };
 }

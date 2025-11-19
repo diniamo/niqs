@@ -1,5 +1,5 @@
 {
-  programs.yazi.settings.theme = {
+  custom.yazi.settings.theme = {
     mgr = {
       preview_hovered = { bold = true; };
       find_keyword = { fg = "green"; bold = true; };

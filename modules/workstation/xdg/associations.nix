@@ -3,9 +3,9 @@
   inherit (lib.generators) toINI;
   inherit (builtins) filter;
 
-  browser = "librewolf.desktop";
+  browser = "helium.desktop";
   documentViewer = "org.pwmt.zathura.desktop";
-  fileManager = "thunar.desktop";
+  fileManager = "yazi.desktop";
   archiver = "org.gnome.FileRoller.desktop";
   editor = "Helix.desktop";
   imageViewer = "imv.desktop";

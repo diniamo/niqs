@@ -1,44 +1,43 @@
-{ pkgs, ... }: {
+{ pkgs, lib, config, ... }: let
+  inherit (lib) mkEnableOption mkPackageOption mkOption types;
+
+  cfg = config.custom.yazi;
+in {
   imports = [
     ./settings.nix
     ./keymap.nix
     ./theme.nix
   ];
 
-  services.udisks2.enable = true;
+  options = {
+    custom.yazi = {
+      enable = mkEnableOption "yazi";
 
-  programs.yazi = {
-    enable = true;
-    package = pkgs.yazi.override {
-      extraPackages = with pkgs; [
-        mediainfo
-        util-linux
-        udisks
-        wl-clipboard
-        gtrash
-        dragon-drop
-      ];
+      package = mkPackageOption pkgs "yazi" {};
+      finalPackage = mkOption {
+        type = types.package;
+        readOnly = true;
+        description = "The wrapped Yazi package.";
+      };
+
+      plugins = mkOption {
+        type = types.attrsOf (types.either types.package types.path);
+        default = {};
+        description = "The plugins to install";
+      };
+      settings = mkOption {
+        type = (pkgs.formats.toml {}).type;
+        default = {};
+        description = "Settings written to yazi.toml.";
+      };
+    };
+  };
+
+  config = {
+    custom.yazi.finalPackage = cfg.package.override {
+      inherit (cfg) plugins settings;
     };
 
-    plugins = {
-      inherit (pkgs.yaziPlugins)
-        chmod
-        jump-to-char
-        mediainfo
-        # mount
-        smart-enter
-        smart-paste
-        toggle-pane
-        wl-clipboard;
-
-      mount = (pkgs.yaziPlugins.mount.overrideAttrs {
-        src = pkgs.fetchFromGitHub {
-          owner = "diniamo";
-          repo = "yazi-plugins";
-          rev = "mount-more-keys";
-          hash = "sha256-YM53SsE10wtMqI1JGa4CqZbAgr7h62MZ5skEdAavOVA=";
-        };
-      });
-    };
+    user.packages = [ cfg.finalPackage ];
   };
 }

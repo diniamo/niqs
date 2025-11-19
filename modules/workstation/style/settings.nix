@@ -13,11 +13,15 @@ in {
         size = 12;
         package = pkgs.inter;
       };
-
       monospace = {
         name = "JetBrainsMono Nerd Font Mono";
         size = 12;
         package = pkgs.nerd-fonts.jetbrains-mono;
+      };
+      emoji = {
+        name = "Noto Color Emoji";
+        size = 12;
+        package = pkgs.noto-fonts-color-emoji;
       };
     };
 

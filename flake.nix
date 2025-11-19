@@ -15,7 +15,6 @@
   inputs = {
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:diniamo/nixpkgs/custom";
-    # nixpkgs.url = "path:/hdd/dev/nixpkgs";
 
     nix-home = {
       url = "github:diniamo/nix-home";
@@ -65,10 +64,8 @@
       url = "github:nix-community/lanzaboote";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        flake-compat.follows = "flake-compat";
         rust-overlay.follows = "rust-overlay";
-        pre-commit-hooks-nix.inputs.gitignore.follows = "gitignore";
+        pre-commit.follows = "pre-commit-hooks";
       };
     };
     nix-index-database = {
@@ -85,13 +82,8 @@
       url = "github:Artoriuz/ArtCNN";
       flake = false;
     };
-
-    tree-sitter-odin = {
-      url = "github:tree-sitter-grammars/tree-sitter-odin";
-      flake = false;
-    };
-    odin-ts-mode = {
-      url = "github:Sampie159/odin-ts-mode";
+    dwl = {
+      url = "github:diniamo/dwl";
       flake = false;
     };
   };

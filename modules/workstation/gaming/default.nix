@@ -5,13 +5,12 @@
 
   powerprofilesctl = getExe pkgs.power-profiles-daemon;
   notify-send = getExe pkgs.libnotify;
-  swaymsg = getExe' config.programs.sway.package "swaymsg";
+  pkill = getExe' pkgs.procps "pkill";
   bluetoothctl = getExe' pkgs.bluez "bluetoothctl";
 
   startScript = writeDash "gamemode-start" ''
     ${powerprofilesctl} set performance
-    ${swaymsg} 'allow_tearing yes'
-    ${swaymsg} 'input * scroll_method none'
+    ${pkill} -USR1 --exact dwl
     ${getExe pkgs.daemonize} \
       -p /tmp/gamemode-inhibitor-pid \
       ${getExe' pkgs.systemd "systemd-inhibit"} --what=idle --who=Gamemode --why='Game open' ${getExe' pkgs.coreutils "sleep"} infinity
@@ -22,8 +21,7 @@
   '';
   endScript = writeDash "gamemode-end" ''
     ${powerprofilesctl} set balanced
-    ${swaymsg} 'allow_tearing no'
-    ${swaymsg} 'input * scroll_method on_button_down'
+    ${pkill} -USR2 --exact dwl
     ${getExe' pkgs.util-linux "kill"} "$(${getExe' pkgs.coreutils "cat"} /tmp/gamemode-inhibitor-pid)"
     ${bluetoothctl} power off
     ${cfg.extraEndCommands}

@@ -3,7 +3,6 @@
     ./style
     ./xdg
     ./gaming
-    ./librewolf
     ./mpv
     ./fish
     ./mako
@@ -14,7 +13,6 @@
     ./imv
     ./satty
     ./fuzzel
-    ./sway
     ./swaylock
     ./swayidle
     ./gammastep
@@ -23,19 +21,20 @@
     ./helix
     ./git
     ./yazi
+    ./dwl
     ./swaybg
 
     ./user.nix
     ./packages.nix
-    ./thunar.nix
     ./services.nix
     ./mobile.nix
-    ./moar.nix
+    ./moor.nix
     ./zoxide.nix
     ./direnv.nix
     ./nix-index.nix
     ./amdgpu.nix
     ./lazygit.nix
     ./wayland.nix
+    ./portals.nix
   ];
 }

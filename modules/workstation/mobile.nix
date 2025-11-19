@@ -41,11 +41,6 @@ in {
     };
 
     custom = {
-      sway.settings = ''
-        bindsym XF86MonBrightnessDown exec ${brightnessctl} set 2%- -n
-        bindsym XF86MonBrightnessUp exec ${brightnessctl} set 2%+
-      '';
-
       swayidle.timeouts = [{
         time = 240;
         command = "${brightnessctl} get >/tmp/brightness; ${brightnessctl} set 5%";
