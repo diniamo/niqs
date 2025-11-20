@@ -26,6 +26,7 @@
     "application/x-extension-xht" = browser;
 
     "inode/directory" = fileManager;
+    "inode/mount-point" = fileManager;
     "application/zip" = archiver;
 
     "application/json" = editor;

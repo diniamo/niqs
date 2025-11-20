@@ -25,8 +25,8 @@ in {
       update.method = "never";
       os = {
         editPreset = "helix (hx)";
-        open = "${xdg-open} {{filename}}";
-        openLink = "${xdg-open} {{link}}";
+        open = "${xdg-open} '{{filename}}'";
+        openLink = "${xdg-open} '{{link}}'";
         copyToClipboardCmd = "${getExe' pkgs.coreutils "echo"} -n '{{text}}' | ${getExe' pkgs.wl-clipboard "wl-copy"}";
         readFromClipboardCmd = getExe' pkgs.wl-clipboard "wl-paste";
       };
