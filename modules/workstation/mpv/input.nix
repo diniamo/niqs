@@ -26,11 +26,7 @@
     UP = "no-osd seek 85; script-binding show_osc";
     DOWN = "no-osd seek -85; script-binding show_osc";
 
-    "+" = "no-osd add volume 5; script-binding show_osc";
-    "-" = "no-osd add volume -5; script-binding show_osc";
-    "ö" = "no-osd add volume 5; script-binding show_osc";
-    "9" = "no-osd add volume -5; script-binding show_osc";
-    WHEEL_UP = "no-osd add volume 2; script-binding show_osc";
-    WHEEL_DOWN = "no-osd add volume -2; script-binding show_osc";    
+    "+" = "add volume 5";
+    "-" = "add volume -5";
   };
 }
