@@ -5,19 +5,6 @@
 
   cfg = config.custom.dwl;
 
-  desktopFile = writeTextFile {
-    name = "dwl-desktop";
-    destination = "/share/wayland-sessions/dwl.desktop";
-    text = ''
-      [Desktop Entry]
-      Name=dwl
-      Comment=Suckless Wayland server
-      Exec=${getExe cfg.finalPackage}
-      Type=Application
-    '';
-    passthru.providedSessions = [ "dwl" ];
-  };
-
   # Monitor format: name, mfact, nmaster, scale, layout, rotate/reflect, x, y, resx, resy, rate, mode, adaptive
   configH = ''
     ${cfg.settings}
@@ -79,9 +66,15 @@ in {
 
   config = mkIf cfg.enable (mkMerge [
     {
-      custom.dwl.finalPackage = cfg.package.override { inherit configH; };
+      custom.dwl.finalPackage = (cfg.package.override {
+        inherit configH;
+      }).overrideAttrs (prev: {
+        makeFlags = prev.makeFlags ++ [ "CFLAGS=-O3" ];
+        passthru.providedSessions = [ "dwl" ];
+      });
 
       environment.systemPackages = [ cfg.finalPackage ];
+      services.displayManager.sessionPackages = [ cfg.finalPackage ];
       systemd.user.targets.dwl-session = {
         description = "dwl compositor session";
         documentation = [ "man:systemd.special(7)" ];
@@ -89,7 +82,6 @@ in {
         wants = [ "graphical-session-pre.target" ];
         after = [ "graphical-session-pre.target" ];
       };
-      services.displayManager.sessionPackages = [ desktopFile ];
     }
 
     (import (inputs.nixpkgs + /nixos/modules/programs/wayland/wayland-session.nix) {

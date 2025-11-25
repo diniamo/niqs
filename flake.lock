@@ -87,11 +87,11 @@
     "dwl": {
       "flake": false,
       "locked": {
-        "lastModified": 1763571298,
-        "narHash": "sha256-+XfCMKUm8DQxDT5F5ldaTQBizy4lPuaWbwgoT6BaCI8=",
+        "lastModified": 1763919973,
+        "narHash": "sha256-OTCLK1cj5R9tQhAnlhotyUuuUzgTKdXeHhH+BJ9WslI=",
         "owner": "diniamo",
         "repo": "dwl",
-        "rev": "0e50677c59e5792721a5d9d3569e4b3bbabbf41f",
+        "rev": "13df66b0b8374cf750ac96a925d29d52ad8f30cb",
         "type": "github"
       },
       "original": {
