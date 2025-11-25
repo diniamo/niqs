@@ -9,6 +9,7 @@
   foot = getExe custom.foot.finalPackage;
   fuzzel = getExe custom.fuzzel.finalPackage;
   helium = getExe flakePkgs.niqspkgs.helium;
+  still = getExe flakePkgs.niqspkgs.still;
   grim = getExe pkgs.grim;
   slurp = getExe pkgs.slurp;
   wl-copy = getExe' pkgs.wl-clipboard "wl-copy";
@@ -61,9 +62,9 @@ in {
 
         { 0,     KEY(Print),                spawninfo, CMD("${screenshotMonitor}") },
         { ALT,   KEY(Sys_Req),              spawninfo, CMD("${screenshotWindow}") },
-        { CTRL,  KEY(Print),                spawn,     SH("${grim} -g \"$(${slurp})\" - | ${wl-copy}") },
-        { SHIFT, KEY(Print),                spawn,     SH("${grim} -g \"$(${slurp})\" - | ${getExe custom.imv.finalPackage} -") },
-        { MOD,   KEY(e),                    spawn,     SH("${getExe' pkgs.wl-clipboard "wl-paste"} | ${getExe custom.imv.finalPackage} --filename -") },
+        { CTRL,  KEY(Print),                spawn,     SH("${still} -c '${slurp} | ${grim} -g - -' | ${wl-copy}") },
+        { SHIFT, KEY(Print),                spawn,     SH("${still} -c '${slurp} | ${grim} -g - -' | ${getExe custom.imv.finalPackage} -") },
+        { MOD,   KEY(e),                    spawn,     SH("${getExe' pkgs.wl-clipboard "wl-paste"} | ${getExe custom.satty.finalPackage} --filename -") },
         { MOD,   KEY(c),                    spawn,     SH("${getExe pkgs.hyprpicker} --autocopy") },
 
         { 0,     KEY(XF86AudioNext),        spawn,     CMD("${playerctl}", "next") },
