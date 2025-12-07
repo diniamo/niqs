@@ -1,7 +1,5 @@
 { lib, config, pkgs, inputs, ... }: let
-  inherit (lib) mkEnableOption mkPackageOption mkOption types mkIf mkMerge getExe concatStrings mapAttrsToList;
-  inherit (pkgs) writeTextFile;
-  inherit (pkgs.writers) writeDash writeText;
+  inherit (lib) mkEnableOption mkPackageOption mkOption types mkIf mkMerge concatStrings mapAttrsToList;
 
   cfg = config.custom.dwl;
 

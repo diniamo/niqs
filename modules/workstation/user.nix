@@ -6,13 +6,13 @@ in {
     alias
   ];
 
-  users.users.${username} = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
-  
   home = {
     enable = true;
     user = username;
+  };
+
+  user = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
   };
 }

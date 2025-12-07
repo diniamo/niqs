@@ -1,6 +1,5 @@
 { lib, pkgs, config, flakePkgs, ... }: let
   inherit (lib) getExe;
-  inherit (pkgs) writeTextFile;
   inherit (pkgs.writers) writeDash writeText writeBash;
 
   foot = getExe config.custom.foot.finalPackage;
