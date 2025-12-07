@@ -1,6 +1,4 @@
 { pkgs, flakePkgs, ... }: {
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-
   user.packages = (with pkgs; [
     dragon-drop
     wl-clipboard
