@@ -75,5 +75,18 @@ in {
         Restart = "on-failure";
       };
     };
+
+    unified-inhibit = {
+      description = "unify wakelock portals";
+      wantedBy = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = getExe flakePkgs.niqspkgs.unified-inhibit;
+        Restart = "on-failure";
+        NoNewPrivileges = false;
+      };
+    };
   };
 }

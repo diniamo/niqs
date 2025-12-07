@@ -87,11 +87,11 @@
     "dwl": {
       "flake": false,
       "locked": {
-        "lastModified": 1763919973,
-        "narHash": "sha256-OTCLK1cj5R9tQhAnlhotyUuuUzgTKdXeHhH+BJ9WslI=",
+        "lastModified": 1764420236,
+        "narHash": "sha256-ANIpkx71wy9oICRzuzWaQbB0cMEoG2+kV0Nl+oloxQI=",
         "owner": "diniamo",
         "repo": "dwl",
-        "rev": "13df66b0b8374cf750ac96a925d29d52ad8f30cb",
+        "rev": "e732c835a0eb4f3e36340a5e994c0594114f35d9",
         "type": "github"
       },
       "original": {
@@ -261,11 +261,11 @@
         "wiremix": "wiremix"
       },
       "locked": {
-        "lastModified": 1764085267,
-        "narHash": "sha256-nH7dhz6G7r31zZaGYMXXGh19icKebyfD2hlOK8c3mQE=",
+        "lastModified": 1765094195,
+        "narHash": "sha256-dLACby041Mcl5S/3jUI1HJj8WokpeK+uAwMMM/bYU9U=",
         "owner": "diniamo",
         "repo": "niqspkgs",
-        "rev": "c2171d27f2668d6e9121d3992bac03b195d0597e",
+        "rev": "bb1727114fb1875bcbd43a09904369420f5a817c",
         "type": "github"
       },
       "original": {

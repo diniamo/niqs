@@ -57,6 +57,7 @@
         systems.follows = "systems";
         flake-parts.follows = "flake-parts";
         dnix.inputs.git-hooks-nix.inputs.flake-compat.follows = "flake-compat";
+        unified-inhibit.inputs.flake-utils.follows = "flake-utils";
       };
     };
 
