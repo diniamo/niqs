@@ -1,56 +1,17 @@
 { lib, config, pkgs, ... }: let
-  inherit (lib) getExe getExe' mkForce mkEnableOption mkOption mkIf;
-  inherit (lib.types) lines;
-  inherit (pkgs.writers) writeDash;
-
-  powerprofilesctl = getExe pkgs.power-profiles-daemon;
-  notify-send = getExe pkgs.libnotify;
-  pkill = getExe' pkgs.procps "pkill";
-  bluetoothctl = getExe' pkgs.bluez "bluetoothctl";
-
-  startScript = writeDash "gamemode-start" ''
-    ${powerprofilesctl} set performance
-    ${pkill} -USR1 --exact dwl
-    ${getExe pkgs.daemonize} \
-      -p /tmp/gamemode-inhibitor-pid \
-      ${getExe' pkgs.systemd "systemd-inhibit"} --what=idle --who=Gamemode --why='Game open' ${getExe' pkgs.coreutils "sleep"} infinity
-    ${bluetoothctl} power on
-    ${cfg.extraStartCommands}
-
-    ${notify-send} --urgency low --app-name Gamemode --icon input-gaming --expire-time 1000 'Optimizations activated'
-  '';
-  endScript = writeDash "gamemode-end" ''
-    ${powerprofilesctl} set balanced
-    ${pkill} -USR2 --exact dwl
-    ${getExe' pkgs.util-linux "kill"} "$(${getExe' pkgs.coreutils "cat"} /tmp/gamemode-inhibitor-pid)"
-    ${bluetoothctl} power off
-    ${cfg.extraEndCommands}
-
-    ${notify-send} --urgency low --app-name Gamemode --icon system-shutdown --expire-time 1000 'Optimizations deactivated'
-  '';
+  inherit (lib) mkEnableOption mkIf;
 
   cfg = config.custom.gaming;
 in {
   imports = [
+    ./gamemode.nix
     ./pipewire-low-latency.nix
     ./platform-optimizations.nix
   ];
 
   options = {
     custom.gaming = {
-      enable = mkEnableOption "Enable the gaming module";
-
-      extraStartCommands = mkOption {
-        description = "Extra commands to run in the start script of gamemode.";
-        type = lines;
-        default = "";
-      };
-
-      extraEndCommands = mkOption {
-        description = "Extra commands to run in the end script of gamemode.";
-        type = lines;
-        default = "";
-      };
+      enable = mkEnableOption "gaming settings";
     };
   };
 
@@ -80,30 +41,6 @@ in {
 
         extraCompatPackages = [ pkgs.proton-ge-bin ];
       };
-
-      gamemode = {
-        enable = true;
-        enableRenice = true;
-        settings = {
-          general = {
-            renice = 15;
-            softrealtime = "auto";
-          };
-
-          custom = {
-            start = startScript.outPath;
-            end = endScript.outPath;
-          };
-        };
-      };
-    };
-
-    # The start script relies on SWAYSOCK and WAYLAND_DISPLAY,
-    # which are imported when the graphical session starts
-    systemd.user.services.gamemoded = {
-      wantedBy = mkForce [];
-      after = [ "graphical-session.target" ];
-      partOf = [ "graphical-session.target" ];
     };
   };
 }
