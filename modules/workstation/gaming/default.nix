@@ -4,6 +4,7 @@
   cfg = config.custom.gaming;
 in {
   imports = [
+    ./vr.nix
     ./gamemode.nix
     ./pipewire-low-latency.nix
     ./platform-optimizations.nix

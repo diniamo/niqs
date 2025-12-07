@@ -4,7 +4,10 @@
   custom = {
     boot.secure = true;
     amdgpu.enable = true;
-    gaming.enable = true;
+    gaming = {
+      enable = true;
+      vr = true;
+    };
 
     mpv.profiles.anime = {
       # 15-15 GiB
