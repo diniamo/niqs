@@ -4,6 +4,8 @@
   cfg = config.custom.gaming;
 in {
   imports = [
+    ./minecraft
+
     ./gamemode.nix
     ./pipewire-low-latency.nix
     ./platform-optimizations.nix
@@ -24,15 +26,12 @@ in {
     hardware.graphics.enable32Bit = true;
 
     environment = {
-      systemPackages = [(pkgs.lutris.override {
-        # I can still use the Steam from my environment, which is what I want, since it has wrapper options set.
-        steamSupport = false;
-      })];
+      systemPackages = [ pkgs.heroic ];
 
       sessionVariables.PROTON_ENABLE_WAYLAND = 1;
     };
 
-    home.files.".local/share/lutris/runners/proton/GE-Proton".source = pkgs.proton-ge-bin.steamcompattool;
+    home.files.".config/heroic/tools/proton/GE-Proton".source = pkgs.proton-ge-bin.steamcompattool;
 
     programs = {
       steam = {
