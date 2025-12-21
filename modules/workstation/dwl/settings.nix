@@ -21,13 +21,13 @@
   screenshotMonitor = writeDash "screenshot-monitor.sh" ''
     set -e
     read MONITOR
-    ${grim} -o "$MONITOR" - | ${wl-copy}
+    ${grim} -o "$MONITOR" - | ${wl-copy} --type image/png
   '';
   screenshotWindow = writeDash "screenshot-window.sh" ''
     set -e
     read MONITOR
     read X Y WIDTH HEIGHT
-    ${grim} -g "$X,$Y ''${WIDTH}x''${HEIGHT}" - | ${wl-copy}
+    ${grim} -g "$X,$Y ''${WIDTH}x''${HEIGHT}" - | ${wl-copy} --type image/png
   '';
 in {
   custom.style.matugen.templates.dwl-colors.input = ./colors.h;
@@ -62,7 +62,7 @@ in {
 
         { 0,     KEY(Print),                spawninfo, CMD("${screenshotMonitor}") },
         { ALT,   KEY(Sys_Req),              spawninfo, CMD("${screenshotWindow}") },
-        { CTRL,  KEY(Print),                spawn,     SH("${still} -c '${slurp} | ${grim} -g - -' | ${wl-copy}") },
+        { CTRL,  KEY(Print),                spawn,     SH("${still} -c '${slurp} | ${grim} -g - -' | ${wl-copy} --type image/png") },
         { SHIFT, KEY(Print),                spawn,     SH("${still} -c '${slurp} | ${grim} -g - -' | ${getExe custom.imv.finalPackage} -") },
         { MOD,   KEY(e),                    spawn,     SH("${getExe' pkgs.wl-clipboard "wl-paste"} | ${getExe custom.satty.finalPackage} --filename -") },
         { MOD,   KEY(c),                    spawn,     SH("${getExe pkgs.hyprpicker} --autocopy") },
