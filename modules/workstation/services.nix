@@ -46,11 +46,6 @@
     power-profiles-daemon.enable = true;
 
     blueman.enable = true;
-
-    interception-tools = {
-      enable = true;
-      plugins = [ pkgs.interception-tools-plugins.caps2esc ];
-    };
   };
 
   hardware.bluetooth = {

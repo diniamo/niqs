@@ -26,7 +26,7 @@ static const Layout layouts[] = {
 
 static const struct xkb_rule_names xkb_rules = {
   .layout  = "hu",
-	.options = "altwin:swap_lalt_lwin",
+	.options = "altwin:swap_lalt_lwin,caps:swapescape",
 };
 static const int                                 repeat_rate             = 25;
 static const int                                 repeat_delay            = 600;
