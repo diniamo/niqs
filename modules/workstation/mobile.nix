@@ -26,8 +26,12 @@ in {
         settings.PermitRootLogin = "yes";
       };
 
+      watt = {
+        enable = true;
+        settings.daemon.log_level = "Error";
+      };
+
       power-profiles-daemon.enable = mkForce false;
-      watt.enable = true;
       upower.enable = true;
       thermald.enable = true;
     };
