@@ -1,6 +1,5 @@
-{ lib, ... }: let
-  inherit (lib) mkForce hasPrefix genAttrs mapAttrsToList mergeAttrsList;
-  inherit (lib.generators) toINI;
+{ lib, pkgs, ... }: let
+  inherit (lib) hasPrefix genAttrs mapAttrsToList mergeAttrsList;
   inherit (builtins) filter;
 
   browser = "helium.desktop";
@@ -49,16 +48,10 @@
   withPrefix = prefix: filter (type: hasPrefix prefix type) mimeTypes;
   expanded = mergeAttrsList (mapAttrsToList (group: assocation: genAttrs (withPrefix group) (_: assocation)) groups);
 
-  mimeapps = toINI {} { "Default Applications" = expanded // associations; };
+  mimeapps = (pkgs.formats.ini {}).generate "mimeapps.list" {
+    "Default Applications" = expanded // associations;
+  };
 in {
-  xdg = {
-    mime.defaultApplications = expanded // associations;
-    menus.enable = mkForce false;
-    autostart.enable = mkForce false;
-  };
-
-  home.files.".config/mimeapps.list" = {
-    name = "mimeapps.list";
-    text = mimeapps;
-  };
+  environment.etc."xdg/mimeapps.list".source = mimeapps;
+  home.files.".config/mimeapps.list".source = mimeapps;
 }
