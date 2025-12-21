@@ -28,7 +28,7 @@
     ./packages.nix
     ./services.nix
     ./mobile.nix
-    ./moor.nix
+    ./less.nix
     ./zoxide.nix
     ./direnv.nix
     ./nix-index.nix
