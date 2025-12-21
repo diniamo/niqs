@@ -56,6 +56,8 @@
           "C-x" = ":write-quit-all";
           "C-g" = "save_selection";
 
+          "C-a" = "goto_line_start";
+          "C-e" = "goto_line_end";
           "C-b" = "move_char_left";
           "C-n" = "move_visual_line_down";
           "C-p" = "move_visual_line_up";
